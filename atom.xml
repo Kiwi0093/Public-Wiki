@@ -795,7 +795,8 @@
         <updated>2020-07-06T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[基本說明如何轉移到Github上]]></summary>
         <content type="html"><![CDATA[<blockquote>
-<div><p>本文轉載自舊站存檔。</p></div>
+<p>info
+本文轉載自舊站存檔。</p>
 </blockquote>
 <p>日前看了<a href="https://www.youtube.com/user/homergfunk/featured" target="_blank" rel="noopener noreferrer">CTT</a>的Youtube頻道,發現了Hugo+Github或是Hugo+Netlify的選項也很適合拿來做BLog,考慮到Blogger的編輯模式真的不是那麼先進以及大叔我賣力想轉向Markdown的語法的努力,從這篇開始大叔打算把自己這個沒人看的Blog從Blogger移到github順便學習一下時髦的git方式來管理我的Blog</p>
 <p>``</p>
