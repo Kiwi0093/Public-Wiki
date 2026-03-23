@@ -32,8 +32,8 @@ const config = {
           // 關鍵：將 Blog 設為網站首頁
           routeBasePath: '/', 
           showReadingTime: true,
-          blogTitle: '最新技術筆記',
-          blogDescription: 'Kiwi 的 Sovereign AI 與 Homelab 實作紀錄',
+          blogTitle: '大叔的自言自語',
+          blogDescription: 'Kiwi自言自語,一個中年男性宣洩自己壓力的地方',
           postsPerPage: 5,
           blogSidebarTitle: '近期文章',
           blogSidebarCount: 'ALL',
