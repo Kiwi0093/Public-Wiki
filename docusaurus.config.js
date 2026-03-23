@@ -2,8 +2,8 @@
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Kiwi Wiki',
-  tagline: 'Sovereign AI & Homelab',
+  title: 'Kiwi Reich',
+  tagline: '大叔的自言自語',
   url: 'https://kiwi0093.github.io', 
   baseUrl: '/Public-Wiki/',         
   onBrokenLinks: 'warn',
@@ -21,6 +21,10 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
+          // 關鍵設定：開啟最後更新時間
+          showLastUpdateTime: true, 
+          // (選填) 同時顯示是誰更新的 (Kiwi)
+          showLastUpdateAuthor: true,
           // Wiki 知識庫的路徑改到 /docs
           routeBasePath: 'docs', 
         },
