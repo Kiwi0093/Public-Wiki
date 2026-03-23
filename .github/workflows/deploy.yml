@@ -13,18 +13,18 @@ jobs:
 
       - name: Distribute Obsidian Content
         run: |
-          # 如果 obsidian_sync 存在，就開始搬家
-          if [ -d "obsidian_sync" ]; then
+          # 如果 content_staging 存在，就開始搬家
+          if [ -d "content_staging" ]; then
             echo "Found sync folder, distributing content..."
             # 搬移 Wiki 到 docs
             mkdir -p docs
-            cp -R obsidian_sync/Wiki/* ./docs/ || true
+            cp -R content_staging/Wiki/* ./docs/ || true
             # 搬移 Blog 到 blog
             mkdir -p blog
-            cp -R obsidian_sync/Blog/* ./blog/ || true
+            cp -R content_staging/Blog/* ./blog/ || true
             # 搬移圖片到 static/img
             mkdir -p static/img
-            cp -R obsidian_sync/Assets/img/* ./static/img/ || true
+            cp -R content_staging/Assets/img/* ./static/img/ || true
           else
             echo "No sync folder found, using default content."
           fi
