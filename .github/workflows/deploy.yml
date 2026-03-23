@@ -4,8 +4,9 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# 強制使用 Node 24 解決警告
 env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true # 解決你的第二個警告
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   build-and-deploy:
@@ -14,36 +15,39 @@ jobs:
       - name: Checkout Engine
         uses: actions/checkout@v4
 
-      - name: Debug Content Path
+      - name: 🔍 Debug Path (重要：請在 Log 查看此處輸出)
         run: |
-          echo "Checking if content_staging exists..."
-          ls -R # 這行會印出目錄結構，幫我們抓鬼
+          echo "Current directory structure:"
+          find . -maxdepth 3 -not -path '*/.*'
+
+      - name: 🏗️ Distribute Content (Smart Move)
+        run: |
+          # 建立必要目錄
+          mkdir -p docs blog static/img
           
-      - name: Distribute Obsidian Content
-        run: |
-          if [ -d "content_staging" ]; then
-            echo "Found sync folder, distributing content..."
-            mkdir -p docs blog static/img
-            cp -R content_staging/Wiki/* ./docs/ || true
-            cp -R content_staging/Blog/* ./blog/ || true
-            cp -R content_staging/Assets/img/* ./static/img/ || true
-          else
-            echo "Error: content_staging not found!"
-            exit 1 # 強制報錯，方便我們抓問題
+          # 自動尋找 Wiki, Blog, Assets 並搬移 (解決多層目錄問題)
+          # 使用 find 尋找目錄並執行 cp
+          find . -type d -name "Wiki" -exec cp -R {}/* ./docs/ \; 2>/dev/null || true
+          find . -type d -name "Blog" -exec cp -R {}/* ./blog/ \; 2>/dev/null || true
+          find . -type d -name "Assets" -exec cp -R {}/img/* ./static/img/ \; 2>/dev/null || true
+          
+          # 檢查 docs 裡面有沒有東西，沒東西就生一個首頁避免 Docusaurus 報錯
+          if [ -z "$(ls -A docs)" ]; then
+             echo "# Welcome to Kiwi Wiki" > docs/intro.md
           fi
 
-      - name: Setup Node
+      - name: 🟢 Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20 # 暫時不使用 cache，避免找不到 lock file 報錯
+          node-version: 24 # 直接攻頂 Node 24
 
-      - name: Install Dependencies
-        run: npm install
+      - name: 📦 Install & Build
+        run: |
+          # 如果沒有 package.json，這步會失敗，請確認你的 Repo 根目錄有這個檔
+          npm install
+          npm run build
 
-      - name: Build Docusaurus
-        run: npm run build
-
-      - name: Deploy to GitHub Pages
+      - name: 🚀 Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
