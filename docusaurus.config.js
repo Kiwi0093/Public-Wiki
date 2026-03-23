@@ -38,6 +38,7 @@ const config = {
           blogSidebarTitle: '近期文章',
           blogSidebarCount: 'ALL',
           admonitions: false,
+          truncateMarker: /(`?`?)/,
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
