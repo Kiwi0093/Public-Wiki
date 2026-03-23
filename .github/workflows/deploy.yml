@@ -1,0 +1,49 @@
+name: Deploy-Wiki-Site
+on:
+  push:
+    branches: [main] # 當收到來自 Private-Vault 的推播時觸發
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Engine
+        uses: actions/checkout@v4
+
+      - name: Distribute Obsidian Content
+        run: |
+          # 如果 obsidian_sync 存在，就開始搬家
+          if [ -d "obsidian_sync" ]; then
+            echo "Found sync folder, distributing content..."
+            # 搬移 Wiki 到 docs
+            mkdir -p docs
+            cp -R obsidian_sync/Wiki/* ./docs/ || true
+            # 搬移 Blog 到 blog
+            mkdir -p blog
+            cp -R obsidian_sync/Blog/* ./blog/ || true
+            # 搬移圖片到 static/img
+            mkdir -p static/img
+            cp -R obsidian_sync/Assets/img/* ./static/img/ || true
+          else
+            echo "No sync folder found, using default content."
+          fi
+
+      - name: Setup Node & Install
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Docusaurus
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          publish_branch: gh-pages
