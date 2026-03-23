@@ -338,7 +338,7 @@ V2ray的相關設定可以參考[新V2Ray白話文指南](https://guide.v2fly.or
 
 ## Client端(Gateway)設定說明
 
-### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/qv2ray.jpg" alt="qv2ray" style="zoom: 25%;" />[Qv2ray](https://github.com/Qv2ray/Qv2ray) -Windows & Linux & macOS
+### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/qv2ray.jpg" alt="qv2ray" style={{width: '25%'}} /> [Qv2ray](https://github.com/Qv2ray/Qv2ray)-Windows & Linux & macOS
 
 這是一個基於Qt的V2ray圖形介面,基本上要搭配[V2ray-Core](https://github.com/v2fly/v2ray-core/releases)一起使用V2ray-Core更新的很快但是基本上它還是相容前三個版本所以問題不大
 
@@ -368,9 +368,9 @@ yay -Syu qv2ray v2ray
 
 相關的說明請參考[Qv2ray官方文件](https://qv2ray.github.io/en/)
 
-### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/unnamed.png" alt="unnamed" style="zoom:10%;" />[BifrostV](https://play.google.com/store/apps/details?id=com.github.dawndiy.bifrostv) - Android
+### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/unnamed.png" alt="unnamed" style={{width: '10%'}} />[BifrostV](https://play.google.com/store/apps/details?id=com.github.dawndiy.bifrostv) - Android
 
-​       [<img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/google-play-badge.png" alt="google-play-badge" style="zoom: 33%;" />](https://play.google.com/store/apps/details?id=com.github.dawndiy.bifrostv)
+​       [<img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/google-play-badge.png" alt="google-play-badge" style={{width: '33%'}} />](https://play.google.com/store/apps/details?id=com.github.dawndiy.bifrostv)
 
 按下去就裝完了,沒有辦法上Google play的同學你就想辦法弄到apk安裝囉可以利用Windows環境下的V2ray環境設定proxy讓手機/平板連上再安裝囉
 
@@ -378,7 +378,7 @@ yay -Syu qv2ray v2ray
 
 使用請參考[強國高手寫的網頁](https://ssr.tools/342)
 
-### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/246x0w.png" alt="246x0w" style="zoom: 33%;" />[Shadowrocket](https://apps.apple.com/jp/app/shadowrocket/id932747118) - iOS
+### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/246x0w.png" alt="246x0w" style={{width: '33%'}} />[Shadowrocket](https://apps.apple.com/jp/app/shadowrocket/id932747118) - iOS
 
 只要不是中國apple store帳號的捧油,應該都可以直接在app store上購買這個軟體(沒錯這是唯一一個要錢的,不過會用iPhone的人基本上都不差這點錢)
 

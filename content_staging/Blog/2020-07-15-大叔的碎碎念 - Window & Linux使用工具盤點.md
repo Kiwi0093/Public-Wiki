@@ -31,7 +31,7 @@ id: 20260323-B-31
 
 ### Markdown Editor
 
-#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/Typora.jpg" alt="Typora" width="50" />[Typora](https://typora.io/) - Windows & Linux
+#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/Typora.jpg" alt="Typora" style={{width: '50%'}} />[Typora](https://typora.io/) - Windows & Linux
 
 * Windows
 
@@ -66,7 +66,7 @@ http://img.youtube.com/vi/{video-id}/0.jpg
 
 ### Editor for coding
 
-#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/notepad%2B%2B.png" width="50" />[Notepad++](https://notepad-plus-plus.org/downloads/) - Windows & Linux
+#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/notepad%2B%2B.png" style={{width: '50%'}} />[Notepad++](https://notepad-plus-plus.org/downloads/) - Windows & Linux
 
 * Windows
 
@@ -79,7 +79,7 @@ choco upgrade notepadplusplus -y
 
 ### Note
 
-#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/Notion_app_logo.png" width="50" />[Notion](https://www.notion.so/) - Browser based
+#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/Notion_app_logo.png" style={{width: '50%'}} />[Notion](https://www.notion.so/) - Browser based
 
 * Windows & Linux & macOS & 只要有Browser的終端
 
@@ -91,20 +91,20 @@ choco upgrade notepadplusplus -y
 
 * Android
 
-  [<img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/google-play-badge.png" alt="google-play-badge" style="zoom: 33%;" />](https://play.google.com/store/apps/details?id=notion.id)
+  [<img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/google-play-badge.png" alt="google-play-badge" style={{width: '33%'}} />](https://play.google.com/store/apps/details?id=notion.id)
 
   自從Notion把免費帳號的使用Block數限制改為unlimited後,Notion一口氣就變成神器了,對於有作筆記習慣的人基本上是推薦必定要去申請一個的(不過大叔的筆記方式改成寫Blog所以就不太用得上)
 
   八卦一下的是大叔其實是看了Notion的安麗影片才想學用Markdown的,可見他的使用上是多麼誘人,順便附上幾個相關的youtube連結,牆內的捧油就請自動當作沒看到好了
 
-  <a href="https://www.youtube.com/watch?v=kI1JQaNpBks&list=PLC5c1koJaYqucZwMGChO36IRPzOxXhXcn"><img src="https://img.youtube.com/vi/8B23t_jqySU/0.jpg" alt="Notion guide" style="zoom:50%;" /></a>
+  <a href="https://www.youtube.com/watch?v=kI1JQaNpBks&list=PLC5c1koJaYqucZwMGChO36IRPzOxXhXcn"><img src="https://img.youtube.com/vi/8B23t_jqySU/0.jpg" alt="Notion guide" style={{width: '50%'}}  /></a>
   Note: YouTube Video - Hold Ctrl + Left Click to open in new window
 
 ## Multimedia
 
 ### Player - Video
 
-#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/k-lite-codec-pack-logo.png" width="50" />[K-lite codepack](https://codecguide.com/download_kl.htm) - Windows
+#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/k-lite-codec-pack-logo.png" style={{width: '50%'}} />[K-lite codepack](https://codecguide.com/download_kl.htm) - Windows
 
 * Windwos
 
@@ -119,7 +119,7 @@ choco upgrade k-litecodecpackbasic -y
 
 
 
-#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/vlc.jpg" width="70" />[VLC](https://www.videolan.org/vlc/index.html) -Windwos & Linux
+#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/vlc.jpg" style={{width: '70%'}} />[VLC](https://www.videolan.org/vlc/index.html) -Windwos & Linux
 
 * Windwos
 
@@ -134,7 +134,7 @@ choco upgrade vlc -y
 
 ### Player - Audio
 
-#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/Foobar2000_logo.png" width="40" />[foobar2000](https://www.foobar2000.org/) - Windows
+#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/Foobar2000_logo.png" style={{width: '40%'}} />[foobar2000](https://www.foobar2000.org/) - Windows
 
 * Windows
 
@@ -151,7 +151,7 @@ choco upgrade foobar2000 -y
 
 ### Platform
 
-#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/steam.jpg" width="50" />[Steam](https://store.steampowered.com/) - Windows & Linux
+#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/steam.jpg" style={{width: '50%'}} />[Steam](https://store.steampowered.com/) - Windows & Linux
 
 * Windows
 
@@ -176,7 +176,7 @@ choco upgrade steam -y
 
 另外,現在Steam出了Steam link與遠端同樂等新功能,在Linux下也可以跑得很順,是遵循AMD教誨的Linux同伴想要串流的好選擇
 
-#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/galaxy_logo.png" width="50" />[GOG Glaxy](https://www.gog.com/galaxy) - Windows
+#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/galaxy_logo.png" style={{width: '50%'}} />[GOG Glaxy](https://www.gog.com/galaxy) - Windows
 
 * Windows
 
@@ -187,7 +187,7 @@ choco upgrade goggalaxy -y
 
 這是GOG版的~~Steam~~遊戲download/Install管理程式,GOG最大的好處就是DRM free,不過一般的玩家應該沒太多感覺,簡單的說就是版權保護沒有那麼嚴格,所以很方便拿來玩就遊戲(阿都叫Good Old Game了)
 
-#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/lutris_logo.jpg" width="50" />[Lutris](https://lutris.net/) - Linux
+#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/lutris_logo.jpg" style={{width: '50%'}} />[Lutris](https://lutris.net/) - Linux
 
 * Linux(Manjaro)
 
@@ -202,7 +202,7 @@ Lutris雖說也是神器,因為他是一個集合很多神人寫好的遊戲安�
 
 ### GameSteam
 
-#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/stream_logo.jpg" width="50" />[Moonlight - Steam](https://moonlight-stream.org/) - Windwos & Linux & macOS & Android & iOS
+#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/stream_logo.jpg" style={{width: '50%'}} />[Moonlight - Steam](https://moonlight-stream.org/) - Windwos & Linux & macOS & Android & iOS
 
 [上述連結](https://moonlight-stream.org/)的最下面就有漂亮而且完整的安裝連結們,大叔就省一點字數
 
@@ -230,7 +230,7 @@ PS:AMD也搞了一個AMD Link應該也是可以這樣搞的只不過大叔還沒
 
 ### Browser
 
-<img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/brave-logo.png" alt="brave-logo" width="40" />[Brave Browser](https://brave.com/) - Windows & Linux & Android
+<img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/brave-logo.png" alt="brave-logo" style={{width: '40%'}} />[Brave Browser](https://brave.com/) - Windows & Linux & Android
 
 * Windows安裝方法
 
@@ -249,13 +249,13 @@ sudo pacman -Syu brave
 
 * Android安裝方法
 
-  [<img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/google-play-badge.png" alt="google-play-badge" style="zoom: 33%;" />](https://play.google.com/store/apps/details?id=com.brave.browser)
+  [<img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/google-play-badge.png" alt="google-play-badge" style={{width: '33%'}} />](https://play.google.com/store/apps/details?id=com.brave.browser)
 
 基本上這個Browser跟Google Chrome有著很高的相容性(因為是用Chromium為基礎開發的嘛)SYNC的方法不是採用帳號式的sync而是用一段文字作為SYNC Code來進行sync,用到現在沒有什麼特別需要提的設定
 
 ### SSH Client
 
-#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/putty.jpg" alt="putty" width="50" />[Putty](https://www.putty.org/) - Windows & Linux
+#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/putty.jpg" alt="putty" style={{width: '50%'}} />[Putty](https://www.putty.org/) - Windows & Linux
 
 * Windows安裝方法
 
@@ -277,14 +277,14 @@ sudo pacman -Syu putty
 ```
 
 在Windows環境下沒有Putty是很痛苦的,因為沒有什麼好用的SSH Client,但是在Linux環境下由於本來的Terminal或是後裝的Terminator都很好用,所以除了socket功能與private Key的使用條件下其實沒有什麼使用Putty的特別需求	
-#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/download.jpg" alt="download" width="50" />[JuiceSSH](https://play.google.com/store/apps/details?id=com.sonelli.juicessh) - Android
-​      [<img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/google-play-badge.png" alt="google-play-badge" style="zoom: 33%;" />](https://play.google.com/store/apps/details?id=com.sonelli.juicessh)
+#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/download.jpg" alt="download" style={{width: '50%'}} />[JuiceSSH](https://play.google.com/store/apps/details?id=com.sonelli.juicessh) - Android
+​      [<img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/google-play-badge.png" alt="google-play-badge" style={{width: '33%'}} />](https://play.google.com/store/apps/details?id=com.sonelli.juicessh)
 
 雖然Android普遍都是觸控螢幕鍵盤用在CLI上面很痛苦,但是應急的時候有個Client其實還是可以頂一下的
 
 ### SFTP/FTP Client
 
-#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/1200px-FileZilla_logo.svg.png" alt="download" width="50" />[Filezilla]() - Windows & Linux
+#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/1200px-FileZilla_logo.svg.png" alt="download" style={{width: '50%'}} />[Filezilla](#) - Windows & Linux
 
 * Windows
 
@@ -303,7 +303,7 @@ yay -S filezilla
 
 ### Mail/IM
 
-#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/large.png" alt="download" width="50" />[Rambox](https://rambox.pro/#home) - Windows & Liunx 
+#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/large.png" alt="download" style={{width: '50%'}} />[Rambox](https://rambox.pro/#home) - Windows & Liunx 
 
 * Windows
 
@@ -322,7 +322,7 @@ yay -S rambox
 
 ### Remote Desktop
 
-#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/Remmina-Official-Logo.png" alt="download" width="50" />[Remmina](https://remmina.org/) - Linux
+#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/Remmina-Official-Logo.png" alt="download" style={{width: '50%'}} />[Remmina](https://remmina.org/) - Linux
 
 * Linux(Manjaro)
 
@@ -338,7 +338,7 @@ yay -S freerdp
 
 算是在Linux下想走RDP的好工具,因為大叔不是很喜歡Teamviewer/VNC之類要走其他特殊protocol的Remote Desktop程式,所以喜歡用RDP(Windows下就直接用內建的RDP程式),這個似乎可以不需開Putty就直接開SSH Tunnel但是大叔沒有成功試過
 
-#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/teamviewer_logo.jpg" width="50" />[Teamviewer](https://www.teamviewer.com/en/) - Windows & Linux
+#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/teamviewer_logo.jpg" style={{width: '50%'}} />[Teamviewer](https://www.teamviewer.com/en/) - Windows & Linux
 
 * Windwos
 
@@ -359,7 +359,7 @@ yay -S teamviewer
 
 ### VPN
 
-#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/qv2ray.jpg" alt="download" width="50" />[qv2ray](https://github.com/Qv2ray/Qv2ray) - Windows & Linux
+#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/qv2ray.jpg" alt="download" style={{width: '50%'}} />[qv2ray](https://github.com/Qv2ray/Qv2ray) - Windows & Linux
 
 * Windows
 
@@ -380,13 +380,13 @@ yay -S qv2ray
 
 ### Launcher
 
-#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/orchis-51s.png" alt="download" width="50" />[Orchis](http://www.eonet.ne.jp/~gorota/) - Windows
+#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/orchis-51s.png" alt="download" style={{width: '50%'}} />[Orchis](http://www.eonet.ne.jp/~gorota/) - Windows
 
 * Windows
 
 這個程式伴隨我很久了,基本上只能去[他的網頁](http://www.eonet.ne.jp/~gorota/)下載回來用,非常日式風格的做法
 
-#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/1200px-Gnome-Pie_Logo.svg.png" alt="download" width="50" />[Gnome Pie](http://schneegans.github.io/gnome-pie) - Linux
+#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/1200px-Gnome-Pie_Logo.svg.png" alt="download" style={{width: '50%'}} />[Gnome Pie](http://schneegans.github.io/gnome-pie) - Linux
 
 * Linux(Manjaro)
 
@@ -398,7 +398,7 @@ yay -S gnome-pie
 
 ### Package Manager
 
-#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/download.png" alt="download" width="50" />[Chocolatey](https://chocolatey.org/) - Windows
+#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/download.png" alt="download" style={{width: '50%'}} />[Chocolatey](https://chocolatey.org/) - Windows
 
 * Windows
 
@@ -421,7 +421,7 @@ yay在Manjaro裡面可以直接用上面的指令安裝,但是在Archlinux內是
 
 ### Termanial
 
-#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/WT.jpg" width="50" />[Windows Terminal](https://github.com/microsoft/terminal) - Windows
+#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/WT.jpg" style={{width: '50%'}} />[Windows Terminal](https://github.com/microsoft/terminal) - Windows
 
 * Windows
 
@@ -432,7 +432,7 @@ choco upgrade microsoft-windows-terminal -y
 
 這算是Microsoft最好用的terminal程式了,以前的cmd, powershell跟這個沒得比,要是安裝了WSL的話可以直接開linux terminal來用很方便
 
-<img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/terminator.jpg" width="50" />[Terminator](https://terminator-gtk3.readthedocs.io/en/latest/) - Linux
+<img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/terminator.jpg" style={{width: '50%'}} />[Terminator](https://terminator-gtk3.readthedocs.io/en/latest/) - Linux
 
 * Linux(Manjaro)
 
@@ -444,7 +444,7 @@ yay -S terminator
 
 ### Virtual Machine
 
-#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/vmware-workstation-logo-png.png" width="70" />[VMware Workstation](https://www.vmware.com/products/workstation-pro.html) - Windows & Linux
+#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/vmware-workstation-logo-png.png" style={{width: '70%'}} />[VMware Workstation](https://www.vmware.com/products/workstation-pro.html) - Windows & Linux
 
 * Windows
 
@@ -461,7 +461,7 @@ yay -S vmware-workstation
 
 VMware,在我心中統治著Virtual Machine環境的王者,簡單但是功能強大的VM,大叔連Server都用VMware ESXi來跑了,Windows下可以用Chocolatey安裝這件事也是導致大叔整個偏向Chocolatey使用的關鍵原因
 
-#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/qemu_logo.jpg" width="50" />[Qemu](https://www.qemu.org/) - Windwos & Linux
+#### <img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/qemu_logo.jpg" style={{width: '50%'}} />[Qemu](https://www.qemu.org/) - Windwos & Linux
 
 * Windwos
 
@@ -470,7 +470,7 @@ VMware,在我心中統治著Virtual Machine環境的王者,簡單但是功能強
 choco upgrade qemu -y
 ```
 
-GUI請使用[<img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/QtEmu.jpg" width="100" />](https://qtemu.org/)
+GUI請使用[<img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/QtEmu.jpg" />](https://qtemu.org/)
 
 * Linux(Manjaro)
 
@@ -478,7 +478,7 @@ GUI請使用[<img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/i
 yay -S qemu
 ```
 
-GUI請安裝[<img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/virt-m.png" width="50" />](https://virt-manager.org/)
+GUI請安裝[<img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/virt-m.png" style={{width: '50%'}} />](https://virt-manager.org/)
 
 ```r
 yay -S libvirt

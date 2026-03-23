@@ -42,7 +42,7 @@ id: 20260323-B-60
 首先我們會需要一個Github的帳號, 這是免費的請用E-Mail去申請,申請好後請建立兩個repo
 
 1. 與你的Site同名的repo,大叔的場合就是Blog
-2. 建立一個<user<username>github.io的repo
+2. 建立一個`<username>github.io`的repo
 
  先clone同名的repo作為local端的基本目錄
 

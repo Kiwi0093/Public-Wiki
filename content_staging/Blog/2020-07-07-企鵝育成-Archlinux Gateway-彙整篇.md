@@ -101,7 +101,7 @@ Script內的一些基本解說
 
 	echo -e "<what ever you like>"
 
-這個語法是在跑Script的時候想要顯示在螢幕上的字串,照上面打的話會出現<what ever you like>
+這個語法是在跑Script的時候想要顯示在螢幕上的字串,照上面打的話會出現`<what ever you like>`
 
 	變數=XYZ
 	${變數}
