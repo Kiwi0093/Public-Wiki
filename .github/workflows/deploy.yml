@@ -37,7 +37,7 @@ jobs:
           if [ -z "$(ls -A docs)" ]; then
              echo "# Welcome to Kiwi Wiki" > docs/intro.md
           fi
-
+          
       - name: 🟢 Setup Node
         uses: actions/setup-node@v4
         with:
