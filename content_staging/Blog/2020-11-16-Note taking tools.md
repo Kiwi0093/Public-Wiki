@@ -2,7 +2,7 @@
 title: 2020-11-16-Note taking tools
 date: 2026-03-23
 tags: [Life, Tools, web, Old-Blog, Archive]
-id: 20260323-B-52
+slug: note-taking-tools
 ---
 
 >  [!info] 

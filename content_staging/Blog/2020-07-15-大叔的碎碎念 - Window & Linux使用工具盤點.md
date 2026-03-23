@@ -2,7 +2,7 @@
 title: 大叔的碎碎念 - Window & Linux使用工具盤點
 date: 2020-07-15
 tags: [Linux, Windows, Old-Blog, Archive]
-id: 20260323-B-31
+slug: windows-linux-tools
 ---
 
 > [!info]

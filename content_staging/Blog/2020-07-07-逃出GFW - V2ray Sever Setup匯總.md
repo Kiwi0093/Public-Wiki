@@ -7,7 +7,7 @@ tags:
   - Linux
   - Old-Blog
   - Archive
-id: 20260323-B-87
+slug: v2ray-server-setup
 ---
 
 >[!info]
@@ -80,7 +80,7 @@ passwd
 
 5. 更新系統
 
-  ```
+  ```bash
   #Debain or Ubuntu
   sudo apt update && apt upgrade
   
@@ -92,7 +92,7 @@ passwd
 
 6. 安裝必要的程式 - Vim, V2ray, Caddy, 
 
-   ```
+   ```bash
    #Debain or Ubuntu
    sudo apt install vim
    bash <(curl -L -s https://install.direct/go.sh)
@@ -113,7 +113,7 @@ passwd
 
 ### 自動安裝Script - Apt系(Debain/Ubuntu)
 
-```
+```bash
 #!bash
 
 #變數定義
@@ -190,14 +190,14 @@ reboot
 
 使用前要先安裝並設定sudo後才能使用,我後面會把這一段加到Archlinux的安裝設定script內, 相關的方法如下
 
-```
+```bash
 pacman -Syu sudo
 echo <USER_NAME> ALL=(ALL) ALL >> /etc/sudoers
 ```
 這個script要用root跑,中間會要你輸入一個none root的帳號就是你有放進sudoer裡的帳號
 因為Archlinux不能用root跑yay才會這麼麻煩
 
-```
+```bash
 #!bash
 
 #變數定義
@@ -305,7 +305,7 @@ V2ray的相關設定可以參考[新V2Ray白話文指南](https://guide.v2fly.or
 
 ### Caddy2設定
 這個設定檔是完全參考[新V2Ray白話文指南](https://guide.v2fly.org/advanced/wss_and_web.html#%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE)
-```
+```json
 # Caddy v2 (recommended)
 
 <mydomain.me> {
@@ -326,11 +326,11 @@ V2ray的相關設定可以參考[新V2Ray白話文指南](https://guide.v2fly.or
 }
 ```
 
-> <mydomain.me> 請改成你的Domain不需<>
+> `<mydomain.me>` 請改成你的Domain不需`<>`
 >
-> <your_path> 請改成你的V2ray設定websocket路徑不需<>
+> `<your_path>` 請改成你的V2ray設定websocket路徑不需`<>`
 >
-> <your_port_Number> 請改成你的V2ray Port number不需<>
+> `<your_port_Number>` 請改成你的V2ray Port number不需`<>`
 
 其他可以照抄
 
