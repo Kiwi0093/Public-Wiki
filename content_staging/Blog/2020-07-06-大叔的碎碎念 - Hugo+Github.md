@@ -5,10 +5,8 @@ description: 基本說明如何轉移到Github上
 tags: [Old-Blog, Markdown, Blog, Archive]
 slug: 2020/07/hugo+github
 ---
-
->  :::info 
+>  info 
 > 本文轉載自舊站存檔。
-> :::
 
 # 前言
 
