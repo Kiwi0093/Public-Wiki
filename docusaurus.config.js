@@ -49,7 +49,7 @@ const config = {
 
   themeConfig: {
     navbar: {
-      title: 'Kiwi Wiki',
+      title: 'Kiwi Reich',
       items: [
         // 第一個按鈕：連向首頁 (也就是 Blog)
         {
@@ -69,7 +69,7 @@ const config = {
     },
     footer: {
       style: 'dark',
-      copyright: `Copyright © ${new Date().getFullYear()} Kiwi Wiki. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Kiwi. Built with Docusaurus.`,
     },
   },
 };
