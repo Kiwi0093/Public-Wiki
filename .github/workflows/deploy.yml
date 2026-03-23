@@ -22,30 +22,31 @@ jobs:
           echo "Current directory structure:"
           find . -maxdepth 3 -not -path '*/.*'
 
-      - name: 🏗️ 精確修復 MDX 語法 (v3)
+      - name: 🏗️ 自動修復破碎的內部連結 (終極版)
         run: |
           mkdir -p docs blog static/img
           find . -type d -iname "Wiki" -not -path "./docs*" -exec cp -R {}/. ./docs/ \; 2>/dev/null || true
           find . -type d -iname "Blog" -not -path "./blog*" -exec cp -R {}/. ./blog/ \; 2>/dev/null || true
           
-          # 1. 刪除 image: null 與 id (避免警告與報錯)
+          # 1. 暴力清除所有 image: null, id (避免警告與報錯)
           find ./blog ./docs -name "*.md" -exec sed -i '/^image: null$/d' {} +
           find ./blog ./docs -name "*.md" -exec sed -i '/^id: /d' {} +
 
           # 2. 修復空連結
           find ./blog ./docs -name "*.md" -exec sed -i 's/\[\([^]]*\)\]()/[\1](#)/g' {} +
 
-          # 3. 修復 HTML 圖片標籤 (確保自閉合且樣式正確)
-          # 先處理 style，再處理自閉合
+          # 3. 處理圖片標籤 (確保自閉合且樣式正確)
           find ./blog ./docs -name "*.md" -exec sed -i 's/style="zoom: \([0-9]\{1,\}\)%;"/style={{width: "\1%"}}/g' {} +
           find ./blog ./docs -name "*.md" -exec sed -i 's/<img \([^>]*\)[^\/]>/\<img \1 \/\>/g' {} +
 
-          # 4. 【核心改進】處理孤立的角括號 (防止 MDX 報錯)
-          # 我們改用更溫和的方式：只要不是 <img 或 <br 或 <a，就把 < 替換成實體字符 &lt;
-          # 這樣就不會產生混淆的反斜線
+          # 4. 處理孤立的角括號 (將 < 轉義為 &lt;)
           find ./blog ./docs -name "*.md" -exec sed -i '/<img/!s/<\([a-zA-Z0-9_-]\{1,\}\)>/\&lt;\1\&gt;/g' {} +
+
+          # 5. 【關鍵修復：針對 Module not found】
+          # 只要在所有的 md 檔中看到「(@site/blog/2020-11-15-重新開張)」，通通把它換成純文字別名，避免路徑錯誤
+          find ./blog ./docs -name "*.md" -exec sed -i 's/(@site\/blog\/2020-11-15-重新開張)/#)/g' {} +
           
-          # 5. 處理檔案日期
+          # 6. 處理檔案日期 (Docusaurus Necessary)
           cd blog
           for f in *.md; do
             if [[ ! $f =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}- ]]; then
