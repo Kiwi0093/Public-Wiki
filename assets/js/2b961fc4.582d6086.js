@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkkiwi_wiki=self.webpackChunkkiwi_wiki||[]).push([[4538],{5702(e){e.exports=JSON.parse('{"permalink":"/Public-Wiki/tags/server","page":1,"postsPerPage":5,"totalPages":1,"totalCount":2,"blogDescription":"Kiwi \u7684 Sovereign AI \u8207 Homelab \u5be6\u4f5c\u7d00\u9304","blogTitle":"\u6700\u65b0\u6280\u8853\u7b46\u8a18"}')}}]);
