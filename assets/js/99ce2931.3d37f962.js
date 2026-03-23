@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkkiwi_wiki=self.webpackChunkkiwi_wiki||[]).push([[2622],{8179(i){i.exports=JSON.parse('{"label":"V2ray","permalink":"/Public-Wiki/tags/v-2-ray","allTagsPath":"/Public-Wiki/tags","count":4,"unlisted":false}')}}]);
