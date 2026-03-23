@@ -29,7 +29,6 @@ const config = {
           routeBasePath: 'docs', 
         },
         blog: {
-          // 關鍵：將 Blog 設為網站首頁
           routeBasePath: '/', 
           showReadingTime: true,
           blogTitle: '大叔的自言自語',
@@ -38,7 +37,6 @@ const config = {
           blogSidebarTitle: '近期文章',
           blogSidebarCount: 'ALL',
           admonitions: true,
-          truncateMarker: //,
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
