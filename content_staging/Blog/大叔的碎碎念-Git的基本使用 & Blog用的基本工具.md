@@ -1,0 +1,231 @@
+---
+title: 大叔的碎碎念-Git的基本使用 & Blog用的基本工具
+date: 2020-07-11
+tags: [Blog, Git, Old-Blog, Archive]
+id: 20260323-B-13
+image:
+---
+
+> [!info]
+> 本文轉載自舊站存檔。
+
+# 前言
+
+自從大叔換用Github+Markdown語法來寫Blog後,效率的確變好很多,但是苦於大叔對於git指令的不熟悉,做了很多很蠢的事情(像是把自己的Repo砍掉重練很多次)
+
+Push的時候有分岐不會處理等等在熟悉使用Git的前輩眼中蠢到爆的各種,所以我就想花一個簡單的篇幅把自己會用上的Git指令以及針對這個Blog會常用到的指令都先寫成Script,以便日後使用
+
+``
+
+# 基本寫作環境
+
+基本上大叔的用法很單純,只是會在不同的機器上寫Blog而且沒辦法一次寫完一篇,所以會需要多地的機器可以無縫接軌的方式進行寫作(講多地其實也就是辦公室跟宿舍兩地而已)
+
+1. 可以跑git的機器 - 大叔基本上就是公司機器上跑的Manjaro以及房間Windows裡的VM Manjaro
+2. 有Typora+PicGo - 因為Typora是跨平台的所以完全沒問題
+3. 有Github帳號 - 依照上一篇學習的結果,你會需要一個repo放整個站,一個repo是放網頁對外,還有一個repo是拿來當圖床用的,大叔後續應該還會再建一個repo用來放寫好可以通用的script
+
+濃縮起來說就是不管在哪裡只要能裝上git, Typora加上可以接上網路的環境大叔就可以寫
+
+# 工具Setup
+
+## Typora
+
+基本上要先裝上Typora(本來都是用Remarkble寫的,但是後來用Typora上癮了就全部改這個)
+
+### Windows
+
+我們可以用chocolatey來安裝很方便
+
+```
+choco upgrade typora -y
+```
+
+我知道標準語法應該用`choco install`但是`choco upgrade`不僅可以拿來upgrade你的package,還可以把沒裝的裝上....所以只用這個指令其實就很方便了
+
+### Linux(Manjaro)
+
+```
+yay -Syu typora
+```
+
+Typora目前還是在AUR裡面所以要用*yay*來安裝
+
+
+
+附帶一提雖然Typora支援很多Markdown的繪圖語法,但是因為大叔挑的Theme沒有支援所以當hugo生成靜態網頁之後並沒辦法看到圖,所以某程度上想要直接用Markdown語法的圖還不如直接去畫一個圖上傳到圖床上還比較簡單
+
+### PicGO
+
+不管哪個平台的Typora都可以去
+
+> File-->Preferences...-->Image裡的Image Uploader內選擇PicGo-Core
+
+它就會自動安裝PicGo,至於設定檔的部分,雖然官網都是教你使用
+
+```
+picgo set uploader
+```
+
+讓他自動設定,但是..用這個方式裝的PicGo位置很不好找,加上使用Github當圖床即使用自動設定設定也是錯的...還不如直接用它的*Open Config File*把設定檔用下面的改一改貼進去
+
+#### PicGo Config file for Github
+
+```
+{
+  "picBed": {
+    "current": "github",
+    "github": {
+      "repo": "<Github_User_name/Repo_Name>",
+      "branch": "master",
+      "token": "<Your Github Token>",
+      "path": "<your path under your Repo>",
+      "customUrl": ""
+    }
+  },
+  "picgoPlugins": {}
+}
+```
+
+> <Github_User_name/Repo_Name> - 填寫你的帳號/你的倉庫名稱
+> <Your Github Token> - 你的Github Token用來Access你的Github API
+> <your path under your Repo> - 看你有沒有想要建個目錄
+
+基本上這個Plug-in功能很強大,可以把你Local的圖檔直接上傳到你的圖床,同時幫你把連結改成從圖床連結,這樣就讓Blog裡面用到的圖檔都可以輕鬆的上傳並且設定的好好的不過同名字的檔案不能複寫就是了所以有時候會失敗的話看一下是不是檔名重複了改一下就好了
+
+## git
+
+### 參考資料
+[TW git book](https://gitbook.tw/)
+
+[ihower 的 Git 教室](https://ihower.tw/git/remote.html)
+
+
+### 常用語法
+
+* git clone - 在什麼都沒有的地方下載整個git repo
+
+```
+git clone --recursive https://github.com/<user_name>/<repo_name>.git
+```
+
+由於這個教學上拿github來當作Blog使用時會在一個Git內包含不只一個submodule,所以要加上*--recursive*參數確保會連submodule一起下載
+
+* git config - 這是用來設定git的環境的, 加上*--global*參數就是用來進行全域定義用的
+
+```
+git config --global pull.ff only
+```
+
+由於大叔都是自己寫,所以基本上所有的版本都不會出現分歧,這個是指定merge的時候都用FF模式進行
+
+```
+git config --global user.name "<Github_account>"
+```
+
+這行是用來定義你的Git帳號的
+
+```
+git config --global user.email "<your_Email_address>"
+```
+
+這是用來定義你的Email
+
+* git branch - 這是用來建立分支或是查詢分支的,在大叔的應用方面基本上就是用來確認有沒有亂七八糟的分支導致update不順利
+
+```
+git branch
+```
+
+這是可以看你有那些分支詳細可以看[台灣的git book](https://gitbook.tw/)
+
+* git checkout - 切換分支用的
+
+```
+git checkout <repo_you_want>
+```
+
+將目前的分支切換成<repo_you_want>
+
+* git pull - 從遠端抓下來同步 
+
+```
+git pull
+```
+
+  從origin/master抓下來同步,等同於*git fetch*+*git merge origin/master*
+
+* git push - git pull的相反
+
+```
+git push origin/master
+```
+
+從本地推上origin/master是發布以及upload主要的指令
+
+# 寫成script
+
+## 自動下載讓本地先跟遠端倉庫同步(減少分支產生)
+
+```
+#!/bin/bash
+
+echo -e "\033[0;32mSync your Local git folder with github\033[0m"
+
+#pull data from github
+
+git pull
+
+#update theme
+
+git submodule update --remote --merge
+
+```
+
+
+
+## 自動上傳更新網頁與備份文件
+
+```
+#!/bin/bash
+
+echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
+
+# Build the project.
+
+hugo 
+
+# Go To Public folder
+
+cd public
+
+# Add changes to git.
+
+git add .
+
+# Commit changes.
+
+msg="rebuilding site `date`"
+if [ $# -eq 1 ]
+  then msg="$1"
+fi
+git commit -m "$msg"
+
+# Push source and build repos.
+
+git push origin master
+
+# Come Back up to the Project Root
+
+cd ..
+
+# Commit source repository changes
+
+git add .
+git commit -m "$msg"
+git push
+```
+
+# 結論
+
+git是個功能很強大的版本控制軟體,搭配佛心的廠商=無敵好用的東西,

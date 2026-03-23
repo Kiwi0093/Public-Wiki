@@ -1,7 +1,12 @@
 ---
-title: v2ray-sever-setup
-date: 2026-03-23
-tags: [V2Ray, Server, Linux, Old-Blog, Archive]
+title: 逃出GFW - V2ray Sever Setup匯總
+date: 2020-07-07
+tags:
+  - V2Ray
+  - Server
+  - Linux
+  - Old-Blog
+  - Archive
 id: 20260323-B-87
 image:
 ---
