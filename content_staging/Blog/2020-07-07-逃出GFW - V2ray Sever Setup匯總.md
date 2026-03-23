@@ -7,11 +7,12 @@ tags:
   - Linux
   - Old-Blog
   - Archive
-slug: v2ray-server-setup
+slug: 2020/07/v2ray-server-setup
 ---
 
->[!info]
->本文轉載自舊站存檔。
+>  :::info 
+> 本文轉載自舊站存檔。
+> :::
 
 # 前言
 V2ray,這可以說是大叔開始寫Blog的最主要原因,因為這是一個住在強國才需要的被特化的技能,一般來說技術相關的文件一般都是英文的但恰恰好只有翻牆相關的文件全部都是簡體中文的...

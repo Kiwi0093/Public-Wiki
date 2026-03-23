@@ -3,11 +3,12 @@ title: 大叔的碎碎念 - Hugo+Github
 date: 2020-07-06
 description: 基本說明如何轉移到Github上
 tags: [Old-Blog, Markdown, Blog, Archive]
-slug: hugo+github
+slug: 2020/07/hugo+github
 ---
 
->  [!info] 
+>  :::info 
 > 本文轉載自舊站存檔。
+> :::
 
 # 前言
 
@@ -19,13 +20,13 @@ slug: hugo+github
 
 新的Blog需要用到以下工具
 
-* [Hugo](https://gohugo.io/) - 用來製作靜態網頁的工具有Linux, Windows, MacOS, FreeBSD ...etc平台,一個純CLI的工具
+* **[Hugo](https://gohugo.io/)** - 用來製作靜態網頁的工具有Linux, Windows, MacOS, FreeBSD ...etc平台,一個純CLI的工具
 
-* [Github](www.github.com) - 可以說是M$最佛心的服務,我們主要是利用他可以免費建立自己的專案以及方便用git指令upload與管理的特點
+* **[Github](www.github.com)** - 可以說是M$最佛心的服務,我們主要是利用他可以免費建立自己的專案以及方便用git指令upload與管理的特點
 
-* [Remarkable](https://remarkable.com/) or [Typora](https://typora.io/) 等Markdown Editor, 這個主要是可以順手編輯md檔作為Blog文章的本體,也是我更換的最主要原因
+* **[Remarkable](https://remarkable.com/)** or **[Typora](https://typora.io/)** 等Markdown Editor, 這個主要是可以順手編輯md檔作為Blog文章的本體,也是我更換的最主要原因
 
-* [git](https://git-scm.com/) - 超強大的工具基本上只要是linux預設都會先裝上,若是用Windows的話就需要另外裝上
+* **[git](https://git-scm.com/)** - 超強大的工具基本上只要是linux預設都會先裝上,若是用Windows的話就需要另外裝上
 
 出乎意料的不需要什麼工具,但是因為大叔不熟所以需要參考的資料就相對很多了但是資料其實也不少啦只要上Google查詢一下*hugo 教學*就一堆了
 

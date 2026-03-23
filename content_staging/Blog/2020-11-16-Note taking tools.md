@@ -1,12 +1,13 @@
 ---
-title: 2020-11-16-Note taking tools
+title: Note taking tools
 date: 2026-03-23
 tags: [Life, Tools, web, Old-Blog, Archive]
-slug: note-taking-tools
+slug: 2020/11/note-taking-tools
 ---
 
->  [!info] 
+>  :::info 
 > 本文轉載自舊站存檔。
+> :::
 
 搭建好了Blog&Wiki接下來就該是開始時常寫一點習慣養成,以及一些相關工具的蒐集與使用方式打磨
 
