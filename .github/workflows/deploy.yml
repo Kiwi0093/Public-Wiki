@@ -22,33 +22,31 @@ jobs:
           echo "Current directory structure:"
           find . -maxdepth 3 -not -path '*/.*'
 
-      - name: 🏗️ Distribute Content (Enhanced)
+      - name: 🏗️ Distribute Content (MDX Fixer)
         run: |
-          # 1. 建立標準的小寫目錄
           mkdir -p docs blog static/img
-          
-          # 2. 使用 -iname 忽略大小寫搜尋並搬移
-          # 使用 ./. 確保複製目錄內容而非目錄本身
           find . -type d -iname "Wiki" -not -path "./docs*" -exec cp -R {}/. ./docs/ \; 2>/dev/null || true
           find . -type d -iname "Blog" -not -path "./blog*" -exec cp -R {}/. ./blog/ \; 2>/dev/null || true
-          find . -type d -iname "Assets" -not -path "./static*" -exec cp -R {}/img/. ./static/img/ \; 2>/dev/null || true
           
-          # 3. 【關鍵修復】確保 blog 下的檔案都有日期前綴
-          # Docusaurus 如果沒看到 YYYY-MM-DD- 就會忽略該文章
+          # 1. 刪除 image: null
+          find ./blog ./docs -name "*.md" -exec sed -i '/^image: null$/d' {} +
+
+          # 2. 修復空連結 [Text]() -> [Text](#) 避免報錯
+          find ./blog ./docs -name "*.md" -exec sed -i 's/\[\([^]]*\)\]()/[\1](#)/g' {} +
+
+          # 3. 修復常見的未閉合角括號問題 (將 < 替換為字元實體)
+          # 這裡針對常見的配置標記進行替換，避免被誤認為 JSX
+          find ./blog ./docs -name "*.md" -exec sed -i 's/<\([^>]*\)>/\\<\1\\>/g' {} +
+          
+          # 4. 處理檔名日期 (Docusaurus 必要)
           cd blog
           for f in *.md; do
             if [[ ! $f =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}- ]]; then
-              echo "Fixing filename: $f"
               mv "$f" "2026-03-23-$f"
             fi
           done
           cd ..
 
-          # 4. 檢查 docs 避免空目錄報錯
-          if [ -z "$(ls -A docs)" ]; then
-              echo "# Welcome to Kiwi Wiki" > docs/intro.md
-          fi
-          
       - name: 🟢 Setup Node
         uses: actions/setup-node@v4
         with:
