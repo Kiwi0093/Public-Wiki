@@ -22,20 +22,31 @@ jobs:
           echo "Current directory structure:"
           find . -maxdepth 3 -not -path '*/.*'
 
-      - name: 🏗️ Distribute Content (Smart Move)
+      - name: 🏗️ Distribute Content (Enhanced)
         run: |
-          # 建立必要目錄
+          # 1. 建立標準的小寫目錄
           mkdir -p docs blog static/img
           
-          # 自動尋找 Wiki, Blog, Assets 並搬移 (解決多層目錄問題)
-          # 使用 find 尋找目錄並執行 cp
-          find . -type d -name "Wiki" -exec cp -R {}/* ./docs/ \; 2>/dev/null || true
-          find . -type d -name "Blog" -exec cp -R {}/* ./blog/ \; 2>/dev/null || true
-          find . -type d -name "Assets" -exec cp -R {}/img/* ./static/img/ \; 2>/dev/null || true
+          # 2. 使用 -iname 忽略大小寫搜尋並搬移
+          # 使用 ./. 確保複製目錄內容而非目錄本身
+          find . -type d -iname "Wiki" -not -path "./docs*" -exec cp -R {}/. ./docs/ \; 2>/dev/null || true
+          find . -type d -iname "Blog" -not -path "./blog*" -exec cp -R {}/. ./blog/ \; 2>/dev/null || true
+          find . -type d -iname "Assets" -not -path "./static*" -exec cp -R {}/img/. ./static/img/ \; 2>/dev/null || true
           
-          # 檢查 docs 裡面有沒有東西，沒東西就生一個首頁避免 Docusaurus 報錯
+          # 3. 【關鍵修復】確保 blog 下的檔案都有日期前綴
+          # Docusaurus 如果沒看到 YYYY-MM-DD- 就會忽略該文章
+          cd blog
+          for f in *.md; do
+            if [[ ! $f =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}- ]]; then
+              echo "Fixing filename: $f"
+              mv "$f" "2026-03-23-$f"
+            fi
+          done
+          cd ..
+
+          # 4. 檢查 docs 避免空目錄報錯
           if [ -z "$(ls -A docs)" ]; then
-             echo "# Welcome to Kiwi Wiki" > docs/intro.md
+              echo "# Welcome to Kiwi Wiki" > docs/intro.md
           fi
           
       - name: 🟢 Setup Node
@@ -49,6 +60,13 @@ jobs:
           npm install
           npm run build
 
+      - name: 🔍 Check Build Result
+        run: |
+          echo "Check if index.html exists in build:"
+          ls -lh build/index.html
+          echo "Check if there are any other html files:"
+          find build -name "*.html"
+      
       - name: 🚀 Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
