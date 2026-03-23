@@ -6,8 +6,8 @@ const config = {
   tagline: '大叔的自言自語',
   url: 'https://kiwi0093.github.io', 
   baseUrl: '/Public-Wiki/',         
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: 'ignore',
+  onBrokenMarkdownLinks: 'ignore',
   
   i18n: {
     defaultLocale: 'zh-Hant',
