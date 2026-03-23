@@ -4,7 +4,6 @@ date: 2020-07-06
 description: 基本說明如何轉移到Github上
 tags: [Old-Blog, Markdown, Blog, Archive]
 id: 20260323-B-60
-image:
 ---
 
 >  [!info] 

@@ -8,7 +8,6 @@ tags:
   - Old-Blog
   - Archive
 id: 20260323-B-87
-image:
 ---
 
 >[!info]
