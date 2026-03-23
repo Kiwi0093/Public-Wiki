@@ -1,8 +1,11 @@
 name: Deploy-Wiki-Site
 on:
   push:
-    branches: [main] # 當收到來自 Private-Vault 的推播時觸發
+    branches: [main]
   workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true # 解決你的第二個警告
 
 jobs:
   build-and-deploy:
@@ -11,29 +14,28 @@ jobs:
       - name: Checkout Engine
         uses: actions/checkout@v4
 
+      - name: Debug Content Path
+        run: |
+          echo "Checking if content_staging exists..."
+          ls -R # 這行會印出目錄結構，幫我們抓鬼
+          
       - name: Distribute Obsidian Content
         run: |
-          # 如果 content_staging 存在，就開始搬家
           if [ -d "content_staging" ]; then
             echo "Found sync folder, distributing content..."
-            # 搬移 Wiki 到 docs
-            mkdir -p docs
+            mkdir -p docs blog static/img
             cp -R content_staging/Wiki/* ./docs/ || true
-            # 搬移 Blog 到 blog
-            mkdir -p blog
             cp -R content_staging/Blog/* ./blog/ || true
-            # 搬移圖片到 static/img
-            mkdir -p static/img
             cp -R content_staging/Assets/img/* ./static/img/ || true
           else
-            echo "No sync folder found, using default content."
+            echo "Error: content_staging not found!"
+            exit 1 # 強制報錯，方便我們抓問題
           fi
 
-      - name: Setup Node & Install
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
-          cache: 'npm'
+          node-version: 20 # 暫時不使用 cache，避免找不到 lock file 報錯
 
       - name: Install Dependencies
         run: npm install
