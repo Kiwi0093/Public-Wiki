@@ -115,33 +115,3 @@
   top: 50%;
   transform: translateY(-50%);
   width: 14px;
-  height: 14px;
-  background-color: var(--ifm-color-primary);
-  border: 4px solid var(--ifm-background-color);
-  border-radius: 50%;
-  z-index: 2;
-}
-
-/* 每篇文章項目 (li) */
-[class*='archive'] li {
-  position: relative;
-  list-style: none !important;
-  padding: 12px 0 !important;
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
-  transition: all 0.2s ease;
-}
-
-[class*='archive'] li:last-child {
-  border-bottom: none;
-}
-
-/* 文章左側的小圓點 */
-[class*='archive'] li::before {
-  content: "";
-  position: absolute;
-  left: -2.4rem;
-  top: 1.4rem;
-  width: 8px;
-  height: 8px;
-  background-color: var(--timeline-node-color);
-  border-radius:
