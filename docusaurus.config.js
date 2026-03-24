@@ -58,7 +58,6 @@ const config = {
           position: 'left',
         },
         {
-          {
           to: '/archive',
           label: 'Archives',
           position: 'left',
