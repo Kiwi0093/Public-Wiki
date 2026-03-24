@@ -7,38 +7,45 @@ def process_file(filepath):
 
     original = content
 
-    # --- 核心：處理 Obsidian 縮圖語法 ![alt|width](url) ---
-    # 範例：![badge|150](https://...) -> <img src="..." style={{width: "150px"}} />
-    def obsidian_replacer(match):
+    # --- 1. 處理 Obsidian 縮圖連結 [![alt|width](img)](url) ---
+    # 這是把你剛剛那串超長 HTML 簡化後的對應轉換
+    def ob_link_img_replacer(match):
         alt = match.group(1)
         width = match.group(2)
-        url = match.group(3)
-        unit = "" if "%" in width else "px" # 如果大叔寫 20% 就保留，寫 150 就補 px
-        return f'<img src="{url}" alt="{alt}" style={{{{ width: "{width}{unit}", height: "auto" }}}} />'
+        img_url = match.group(3)
+        link_url = match.group(4)
+        unit = "" if "%" in width else "px"
+        # 轉成 Docusaurus 最愛的 JSX 格式，解決 & 符號與縮圖問題
+        return (f'<a href="{link_url}">'
+                f'<img src="{img_url}" alt="{alt}" style={{{{ width: "{width}{unit}", height: "auto" }}}} />'
+                f'</a>')
 
-    # 正則：抓取 ![文字 | 數字或百分比](網址)
-    content = re.sub(r'!\[([^|\]]*)\|(\d+%?)\]\((.*?)\)', obsidian_replacer, content)
+    # 正則：匹配 [![alt|width](img_url)](link_url)
+    content = re.sub(r'\[!\[([^|\]]*)\|(\d+%?)\]\((.*?)\)\]\((.*?)\)', ob_link_img_replacer, content)
 
-    # --- 額外：修復你上次推上去那個噴錯的 style=width: '33%' ---
-    # 把 style=width: '33%' 轉成正確的 style={{width: '33%'}}
-    def fix_broken_jsx(match):
-        attr = match.group(1) # width
-        val = match.group(2).strip("'\" ")
-        return f'style={{{{ {attr}: "{val}%" }}}}'
+    # --- 2. 處理單純的 Obsidian 縮圖 ![alt|width](img) ---
+    def ob_img_replacer(match):
+        alt, width, img_url = match.group(1), match.group(2), match.group(3)
+        unit = "" if "%" in width else "px"
+        return f'<img src="{img_url}" alt="{alt}" style={{{{ width: "{width}{unit}", height: "auto" }}}} />'
     
-    content = re.sub(r'style=(width|height):\s*[\'"]?(\d+)%?[\'"]?', fix_broken_jsx, content)
+    content = re.sub(r'!\[([^|\]]*)\|(\d+%?)\]\((.*?)\)', ob_img_replacer, content)
 
-    # --- 基礎修復：確保所有 <img> 都有自閉合 / ---
-    content = re.sub(r'(<img [^>]+)(?<!/)>', r'\1 />', content)
+    # --- 3. 暴力修正內容中的 & 符號 (避免 MDX 報錯) ---
+    # 排除連結裡的 &，只抓文字中的 &
+    content = re.sub(r'\s&\s', ' &amp; ', content)
+
+    # --- 4. 修正標籤不對稱 (如 </font></del> -> </del></font>) ---
+    content = content.replace('</font></del>', '</del></font>')
+    content = content.replace('</ruby></del>', '</del></ruby>')
 
     if content != original:
         with open(filepath, 'w', encoding='utf-8') as f:
             f.write(content)
-        print(f"✅ 已修正 Obsidian 格式: {os.path.basename(filepath)}")
 
-# 掃描目錄 (維持你原本的邏輯)
+# 掃描 blog 和 docs
 for root, dirs, files in os.walk('.'):
-    if 'blog' in root or 'docs' in root:
+    if any(d in root for d in ['blog', 'docs']):
         for file in files:
             if file.endswith(('.md', '.mdx')):
                 process_file(os.path.join(root, file))
