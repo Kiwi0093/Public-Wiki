@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkkiwi_wiki=self.webpackChunkkiwi_wiki||[]).push([[7944],{3861(i){i.exports=JSON.parse('{"label":"Linux","permalink":"/Public-Wiki/tags/linux","allTagsPath":"/Public-Wiki/tags","count":8,"unlisted":false}')}}]);
