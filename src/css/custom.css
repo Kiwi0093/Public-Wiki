@@ -1,105 +1,83 @@
 :root {
   --ifm-color-primary: #25c2a0;
-  --timeline-line-color: rgba(255, 255, 255, 0.15);
+  --timeline-line-color: rgba(255, 255, 255, 0.2);
   --timeline-node-color: #bbb;
 }
 
-[data-theme='dark'] {
-  --timeline-line-color: rgba(255, 255, 255, 0.1);
-}
-
-/* 1. 文章容器與標題 */
-.theme-blog-post-page main article,
-.theme-blog-list-page main article {
-  background: rgba(255, 255, 255, 0.03);
-  padding: 40px;
-  margin-bottom: 50px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.theme-blog-post-page h1,
-.theme-blog-list-page h1 {
-  text-align: center;
-}
-
-.theme-blog-list-page a.button--primary {
-  display: block;
-  width: fit-content;
-  margin: 30px auto 0;
-  background-color: transparent !important;
-  color: var(--ifm-color-primary) !important;
-  border: 1px solid var(--ifm-color-primary) !important;
-}
-
-/* 2. Archive 時間軸主體 */
-[class*='archive'] main .container ul {
-  position: relative;
-  list-style: none !important;
-  padding-left: 2rem !important;
-  margin-left: 1.5rem !important;
+/* 1. Archive Page Basic Setup */
+body [class*='archive'] main .container {
+  position: relative !important;
   border-left: 2px solid var(--timeline-line-color) !important;
+  margin-left: 40px !important;
+  padding-left: 40px !important;
+  padding-top: 20px !important;
 }
 
-/* 年份標題與大圓點 */
-[class*='archive'] h2 {
-  position: relative;
-  margin-left: -3.8rem !important;
-  margin-top: 40px;
-  margin-bottom: 20px;
-  padding-left: 2.5rem !important;
-  color: var(--ifm-color-primary);
+/* 2. Year Header and Node */
+body [class*='archive'] h2 {
+  position: relative !important;
+  margin-left: -61px !important;
+  margin-top: 40px !important;
+  margin-bottom: 30px !important;
+  color: #25c2a0 !important;
+  background-color: var(--ifm-background-color) !important;
+  display: inline-block !important;
+  padding: 0 15px !important;
+  z-index: 2 !important;
 }
 
-[class*='archive'] h2::before {
-  content: "";
-  position: absolute;
-  left: 1.05rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 14px;
-  height: 14px;
-  background-color: var(--ifm-color-primary);
-  border: 4px solid var(--ifm-background-color);
-  border-radius: 50%;
-  z-index: 2;
+body [class*='archive'] h2::before {
+  content: "" !important;
+  position: absolute !important;
+  left: -13px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 16px !important;
+  height: 16px !important;
+  background-color: #25c2a0 !important;
+  border: 4px solid var(--ifm-background-color) !important;
+  border-radius: 50% !important;
+  z-index: 3 !important;
 }
 
-/* 文章列表與小圓點 */
-[class*='archive'] li {
-  position: relative;
-  list-style: none !important;
-  padding: 12px 0 !important;
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+/* 3. Article List and Nodes */
+body [class*='archive'] main .container section > div {
+  position: relative !important;
+  margin-bottom: 20px !important;
+  padding-left: 10px !important;
 }
 
-[class*='archive'] li::before {
-  content: "";
-  position: absolute;
-  left: -2.4rem;
-  top: 1.4rem;
-  width: 8px;
-  height: 8px;
-  background-color: var(--timeline-node-color);
-  border-radius: 50%;
-  border: 2px solid var(--ifm-background-color);
-  z-index: 1;
+body [class*='archive'] main .container section > div::before {
+  content: "" !important;
+  position: absolute !important;
+  left: -50px !important;
+  top: 10px !important;
+  width: 10px !important;
+  height: 10px !important;
+  background-color: #bbb !important;
+  border: 2px solid var(--ifm-background-color) !important;
+  border-radius: 50% !important;
+  z-index: 3 !important;
 }
 
-/* 時間與標題文字 */
-[class*='archive'] li time {
-  display: inline-block;
-  min-width: 60px;
-  color: #777;
-  margin-right: 15px;
+/* 4. Text Styles */
+body [class*='archive'] time {
+  font-family: 'Courier New', monospace !important;
+  margin-right: 15px !important;
+  color: #888 !important;
 }
 
-[class*='archive'] li a {
-  color: var(--ifm-font-color-base);
+body [class*='archive'] a {
+  font-weight: 500 !important;
+  color: var(--ifm-font-color-base) !important;
   text-decoration: none !important;
 }
 
-/* 3. Ruby 註音 */
+body [class*='archive'] a:hover {
+  color: #25c2a0 !important;
+}
+
+/* 5. Ruby and Others */
 rt {
   color: orange !important;
   font-size: 0.75em;
