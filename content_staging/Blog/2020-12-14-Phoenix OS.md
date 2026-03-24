@@ -17,10 +17,7 @@ description: 一款中國國產的android x86
 
 看了看可能還是中國國產的Phoenix OS(其實就是客製的Android X86)比較適合他的需求...
 
-
-{/* 這裡插入切分線 */}
 <!--truncate-->
-
 
 ## ASUS T100
 

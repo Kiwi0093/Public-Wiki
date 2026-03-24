@@ -14,8 +14,6 @@ description: 升級esxi
 
 從回到台灣後,持續的家裡Server維護/升級就一直沒停,終於到了該對主要Server的ESXi進行升級的時候了...
 
-
-{/* 這裡插入切分線 */}
 <!--truncate-->
 
 # 升級ESXi

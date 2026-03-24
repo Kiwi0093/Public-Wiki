@@ -16,7 +16,6 @@ description: 在還沒有archinstall前的個人掙扎與碎碎念
 
 雖然Wiki裡面寫了一堆Archlinux自動安裝用的script,不過昨天才開始*本格的*進行驗證跟補充,然後就很想把自己打死...
 
-{/* 這裡插入切分線 */}
 <!--truncate-->
 
 ## 前言
