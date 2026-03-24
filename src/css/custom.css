@@ -1,53 +1,62 @@
-/* --- 歸檔頁面專用容器 --- */
+/* --- 1. 歸檔頁面全域置中與寬度控制 --- */
 .archive-page-main {
-  display: flex;
-  justify-content: center; /* 讓內容水平居中 */
+  display: flex !important;
+  justify-content: center !important;
+  padding: 2rem 0;
 }
 
 .archive-page-wrapper {
   width: 100%;
-  max-width: 800px; /* 限制寬度，NexT 風格通常不會太寬 */
+  max-width: 800px; /* 窄一點更有 NexT 的質感 */
+  padding: 0 20px;
 }
 
 .archive-header {
-  text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
+  text-align: left; /* NexT 偏向左對齊或置中，大叔可依喜好調整 */
 }
 
-/* --- 核心時間軸垂直線 --- */
+.archive-subtitle {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* --- 2. 核心時間軸：那條垂直線 --- */
 .archive-timeline {
   position: relative;
-  padding-left: 40px;
-  margin-left: 20px; /* 線條離左側的距離 */
+  padding-left: 30px; /* 線條與文字的距離 */
+  margin-left: 10px;
 }
 
 .archive-timeline::before {
   content: "";
   position: absolute;
-  top: 0;
+  top: 10px; /* 從第一個年份開始 */
   bottom: 0;
   left: 0;
   width: 2px;
-  background: rgba(255, 255, 255, 0.15); /* 這就是那條線 */
+  background: rgba(255, 255, 255, 0.1); /* 淡淡的線條 */
 }
 
-/* --- 年份標題 --- */
+/* --- 3. 年份樣式 (大節點) --- */
 .archive-year-title {
   position: relative;
-  margin-left: -60px; /* 往左拉，蓋在線上 */
-  margin-top: 40px;
+  margin-left: -42px; /* 往左推，讓圓點壓在線上 */
+  margin-top: 50px;
   margin-bottom: 20px;
-  padding-left: 35px;
-  background: var(--ifm-background-color); /* 遮住線條 */
+  padding-left: 30px;
+  background: var(--ifm-background-color); /* 用背景色蓋住後面的線 */
   display: inline-block;
+  font-size: 1.6rem;
+  font-weight: bold;
   color: var(--ifm-color-primary);
 }
 
-/* 年份旁邊的圓圈 (空心圓) */
+/* 年份旁邊的空心圓點 */
 .archive-year-title::before {
   content: "";
   position: absolute;
-  left: 14px;
+  left: 5px;
   top: 50%;
   transform: translateY(-50%);
   width: 10px;
@@ -58,49 +67,55 @@
   z-index: 2;
 }
 
-/* --- 文章列表 --- */
+/* --- 4. 文章列表 (徹底拔掉預設點點) --- */
 .archive-list {
-  list-style: none !important; /* 拔掉預設黑點 */
+  list-style: none !important;
   padding: 0 !important;
   margin: 0 !important;
 }
 
 .archive-item {
   position: relative;
-  padding: 12px 0;
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+  padding: 15px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.05); /* 每篇文章間的虛線 */
+  transition: all 0.3s ease;
 }
 
-/* 文章左側的小實心圓 */
-.archive-item::after {
+/* 文章左側的小實心圓點 (小節點) */
+.archive-item::before {
   content: "";
   position: absolute;
-  left: -44px; /* 精準對齊線條 */
-  top: 1.4rem;
+  left: -34px; /* 精準對準那條線 */
+  top: 1.5rem;
   width: 6px;
   height: 6px;
-  background: #bbb;
+  background: #555; /* 預設灰點 */
   border-radius: 50%;
-  transition: background 0.2s;
+  border: 1px solid var(--ifm-background-color);
+  z-index: 1;
+  transition: all 0.2s;
 }
 
-.archive-item:hover::after {
+/* Hover 效果：點點變亮、文字變色 */
+.archive-item:hover::before {
   background: var(--ifm-color-primary);
+  box-shadow: 0 0 8px var(--ifm-color-primary);
 }
 
 .archive-date {
-  font-family: 'Courier New', Courier, monospace;
-  color: #777;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.85rem;
+  color: #999;
   margin-right: 15px;
-  font-size: 0.9rem;
 }
 
 .archive-link {
   color: var(--ifm-font-color-base);
   text-decoration: none;
+  border-bottom: none !important; /* 拔掉底線 */
 }
 
 .archive-link:hover {
   color: var(--ifm-color-primary);
-  border-bottom: 1px solid var(--ifm-color-primary);
+  text-decoration: none !important;
 }
