@@ -1,124 +1,133 @@
 :root {
   --ifm-color-primary: #25c2a0;
+  --timeline-line-color: rgba(255, 255, 255, 0.2);
+  --timeline-node-color: #bbb;
 }
+
 /* ============================================================
-   NexT Minimalist Style (僅針對 Blog 頁面)
+   NexT Minimalist Style (精準打擊 Blog 頁面)
    ============================================================ */
 
-/* 1. 背景改為淺灰色 (NexT 招牌背景色) */
-.theme-blog-post-page,
-.theme-blog-list-page {
-  background-color: #f5f7f9;
-}
-
-/* 2. 將文章容器改為「白底卡片」 */
+/* 1. 將文章容器改為「深色卡片」 (適合大叔的 Wiki 風格) */
 .theme-blog-post-page main article,
 .theme-blog-list-page main article {
-  background: #fff;
-  padding: 40px;
-  margin-bottom: 30px;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
-  border-radius: 2px; /* NexT 偏好硬挺的微圓角 */
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  margin-bottom: 40px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* 3. 標題風格：黑色、置中、無底線 */
+/* 2. 標題風格：置中、優雅 */
 .theme-blog-post-page h1,
 .theme-blog-list-page h1 {
-  color: #333;
   text-align: center;
-  font-weight: 400;
+  font-weight: 500;
   margin-bottom: 20px;
 }
 
-/* 4. 文章元數據 (日期、標籤) 置中且縮小 */
+/* 3. 文章元數據 (日期、標籤) 置中 */
 .theme-blog-post-page .margin-vert--md,
 .theme-blog-list-page .margin-vert--md {
   text-align: center;
-  color: #999;
+  color: #888;
   font-size: 0.9em;
 }
 
-/* 5. 閱讀更多按鈕：NexT 特有的細線框按鈕 */
+/* 4. 閱讀更多按鈕：NexT 特有的細線框 */
 .theme-blog-list-page .button--primary {
   display: block;
   width: fit-content;
-  margin: 20px auto 0; /* 置中 */
+  margin: 20px auto 0;
   background-color: transparent;
-  color: #555;
-  border: 2px solid #555;
+  color: var(--ifm-color-primary);
+  border: 1px solid var(--ifm-color-primary);
   transition: all 0.3s ease;
+  padding: 8px 20px;
 }
 
 .theme-blog-list-page .button--primary:hover {
-  background-color: #222;
-  border-color: #222;
+  background-color: var(--ifm-color-primary);
   color: #fff;
+  text-decoration: none;
 }
 
-/* 調整內容區塊寬度 */
-.container {
-  max-width: 900px;
-}
+/* ============================================================
+   Archive 頁面：時間軸效果 (Timeline)
+   ============================================================ */
 
-/* --- Archive 頁面時間軸效果 --- */
-.blog-archive-page .container > header {
-  border-left: 2px solid #555;
-  margin-left: 20px;
-  padding-left: 20px;
-}
-
-.blog-archive-page section {
-  border-left: 2px solid #555;
-  margin-left: 20px;
-  padding-left: 30px;
+/* 讓 Archive 容器出現左側垂直線 */
+.blog-archive-page main > .container > .margin-vert--xl > ul {
   position: relative;
+  list-style: none;
+  padding-left: 2rem;
+  margin-left: 1rem;
+  border-left: 2px solid var(--timeline-line-color);
 }
 
-/* 年份小圓點 */
+/* 年份標題 (2026, 2025) 樣式 */
+.blog-archive-page h2 {
+  position: relative;
+  margin-left: -3.2rem;
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+  color: var(--ifm-color-primary);
+}
+
+/* 年份旁邊的大圓點 */
 .blog-archive-page h2::before {
   content: "";
   position: absolute;
-  left: -37px;
-  top: 12px;
-  width: 12px;
-  height: 12px;
-  background-color: #888;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  background-color: var(--ifm-color-primary);
+  border: 3px solid var(--ifm-background-color);
   border-radius: 50%;
+  z-index: 2;
 }
 
-/* 文章間虛線 */
-.blog-archive-page article {
-  border-bottom: 1px dashed #444;
-  padding: 10px 0;
-  margin: 0;
+/* 每篇文章項目 */
+.blog-archive-page li {
+  position: relative;
+  margin-bottom: 0;
+  padding: 15px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
 }
 
-.blog-archive-page article:last-child {
+.blog-archive-page li:last-child {
   border-bottom: none;
 }
 
-/* --- Read More 連結樣式 --- */
-.blog-list-page .margin-vert--xl article footer a {
-  color: #4a9eff;
-  text-decoration: none;
-  font-weight: bold;
+/* 文章左側的小圓點 */
+.blog-archive-page li::before {
+  content: "";
+  position: absolute;
+  left: -2.35rem; /* 精準對齊垂直線 */
+  top: 1.5rem;
+  width: 8px;
+  height: 8px;
+  background-color: var(--timeline-node-color);
+  border-radius: 50%;
+  border: 2px solid var(--ifm-background-color);
+  z-index: 1;
+  transition: all 0.2s ease;
 }
 
-.blog-list-page .margin-vert--xl article footer a:hover {
-  text-decoration: underline;
+.blog-archive-page li:hover::before {
+  background-color: var(--ifm-color-primary);
+  box-shadow: 0 0 8px var(--ifm-color-primary);
 }
 
-/* src/css/custom.css */
-ruby {
-  ruby-align: center;
-  margin: 0 2px; /* 增加一點左右間距，避免文字太擠 */
+/* 文章日期與連結 */
+.blog-archive-page li time {
+  font-family: monospace;
+  margin-right: 15px;
+  color: #777;
 }
 
-rt {
-  font-family: var(--ifm-font-family-base); /* 確保注音字體跟內文一致 */
-  user-select: none; /* 避免選取內文時不小心選到注音，複製起來很麻煩 */
-}
-
-/* 6. 確保 Wiki 頁面 (docs) 不受影響 */
-/* 因為 Wiki 頁面使用的是 .docs-doc-page 類名，
-   所以上面的設定只會精準打擊 Blog。 */
+.blog-archive-page li a {
+  color: var(--ifm-font-color-base);
