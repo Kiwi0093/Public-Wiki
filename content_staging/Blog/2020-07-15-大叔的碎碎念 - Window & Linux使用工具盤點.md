@@ -101,7 +101,7 @@ choco upgrade notepadplusplus -y
 
   八卦一下的是大叔其實是看了Notion的安麗影片才想學用Markdown的,可見他的使用上是多麼誘人,順便附上幾個相關的youtube連結,牆內的捧油就請自動當作沒看到好了
 
-  <a href="https://www.youtube.com/watch?v=kI1JQaNpBks&list=PLC5c1koJaYqucZwMGChO36IRPzOxXhXcn"><img src="https://img.youtube.com/vi/8B23t_jqySU/0.jpg" alt="Notion guide" style={{width: '50%'}}  /></a>
+  <a href="https://www.youtube.com/watch? v="kI1JQaNpBks&list=PLC5c1koJaYqucZwMGChO36IRPzOxXhXcn""><img src="https://img.youtube.com/vi/8B23t_jqySU/0.jpg" alt="Notion guide" style={{width: '50%'}}  /></a>
   Note: YouTube Video - Hold Ctrl + Left Click to open in new window
 
 ## Multimedia
