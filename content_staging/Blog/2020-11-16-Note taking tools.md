@@ -6,7 +6,7 @@ slug: 2020/11/note-taking-tools
 description: 記筆記的工具
 ---
 
->  :::info 
+> :::info 
 > 本文轉載自舊站存檔。
 > :::
 
