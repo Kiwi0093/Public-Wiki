@@ -4,32 +4,34 @@
   --timeline-node-color: #bbb;
 }
 
-/* 1. Archive Page Basic Setup */
+/* 1. Archive Page Layout Fix */
 body [class*='archive'] main .container {
   position: relative !important;
   border-left: 2px solid var(--timeline-line-color) !important;
-  margin-left: 40px !important;
+  margin-left: 50px !important;
   padding-left: 40px !important;
   padding-top: 20px !important;
+  max-width: 900px !important;
 }
 
-/* 2. Year Header and Node */
+/* 2. Year Header (h2) */
 body [class*='archive'] h2 {
   position: relative !important;
-  margin-left: -61px !important;
+  margin-left: -65px !important;
   margin-top: 40px !important;
   margin-bottom: 30px !important;
   color: #25c2a0 !important;
   background-color: var(--ifm-background-color) !important;
   display: inline-block !important;
   padding: 0 15px !important;
-  z-index: 2 !important;
+  z-index: 10 !important;
 }
 
+/* 3. Year Node (The Big Dot) */
 body [class*='archive'] h2::before {
   content: "" !important;
   position: absolute !important;
-  left: -13px !important;
+  left: -12px !important;
   top: 50% !important;
   transform: translateY(-50%) !important;
   width: 16px !important;
@@ -37,34 +39,35 @@ body [class*='archive'] h2::before {
   background-color: #25c2a0 !important;
   border: 4px solid var(--ifm-background-color) !important;
   border-radius: 50% !important;
-  z-index: 3 !important;
+  z-index: 11 !important;
 }
 
-/* 3. Article List and Nodes */
-body [class*='archive'] main .container section > div {
-  position: relative !important;
-  margin-bottom: 20px !important;
-  padding-left: 10px !important;
-}
-
+/* 4. Article Item Node (The Small Dot) */
+/* Targeted at Docusaurus specific structure: section > div */
 body [class*='archive'] main .container section > div::before {
   content: "" !important;
   position: absolute !important;
-  left: -50px !important;
-  top: 10px !important;
+  left: -51px !important;
+  top: 12px !important;
   width: 10px !important;
   height: 10px !important;
   background-color: #bbb !important;
   border: 2px solid var(--ifm-background-color) !important;
   border-radius: 50% !important;
-  z-index: 3 !important;
+  z-index: 11 !important;
 }
 
-/* 4. Text Styles */
+/* 5. Article Link and Time Styles */
+body [class*='archive'] main .container section > div {
+  position: relative !important;
+  margin-bottom: 25px !important;
+}
+
 body [class*='archive'] time {
   font-family: 'Courier New', monospace !important;
   margin-right: 15px !important;
   color: #888 !important;
+  font-size: 0.95em !important;
 }
 
 body [class*='archive'] a {
@@ -77,12 +80,13 @@ body [class*='archive'] a:hover {
   color: #25c2a0 !important;
 }
 
-/* 5. Ruby and Others */
+/* 6. Ruby (Furigana) Styling */
 rt {
   color: orange !important;
-  font-size: 0.75em;
+  font-size: 0.75em !important;
 }
 
+/* 7. Global Width */
 .container {
   max-width: 1100px;
 }
