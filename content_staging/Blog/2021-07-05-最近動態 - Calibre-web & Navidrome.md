@@ -27,11 +27,11 @@ description: 用Docker架設Calibre-web跟navidrome
 
 # Calibre-Web & Navidrome
 
-搭建的方法都在<ruby ><a href="https://kiwi0093.github.io/Wiki-site/">我的筆記<rt style="color:orange">Kiwi's Wiki</rt></ruby>裡面,我就不多說了主要還是來說說過程的辛酸....
+搭建的方法都在<ruby ><a href="https://kiwi0093.github.io/Wiki-site/">我的筆記</a><rt style="color:orange">Kiwi's Wiki</rt></ruby>裡面,我就不多說了主要還是來說說過程的辛酸....
 
 首先是PhotoOS這個玩意我很不熟,所以光是為了熟練它的操作我就<ruby >花了不少時間<rt style="color:orange">重新安裝很多次</rt></ruby>之後又花了很多時間在熟悉Docker的使用方法,最終確定還是docker-compose比較方便,然後就是好幾天的不斷四處搜括epub回來填充我的書庫,仔細想想花最多時間的果然不是架設服務而是整理內容...
 
 # 電子書&Kindle
 
-不得不說要蒐集日輕的epub檔真的需要<ruby >~~偉大祖國 aka.天朝~~<rt style="color:orange">海峽對岸的鄰國</rt></ruby>同好的熱情與分享,找了一圈都是簡體的書,並且都是在簡體的網站上,令人感嘆現在對岸的ACG文化比<ruby >~~這個又小又老又窮的小島~~<rt style="color:orange">偉大的台灣</rt></ruby>來的興盛了(雖然講的難聽點就是盜版的還是很兇,不過既然自己也去拿這些東西就不要在那裏講什麼正論的屁話...)
+不得不說要蒐集日輕的epub檔真的需要<ruby ><del>偉大祖國 aka.天朝</del><rt style="color:orange">海峽對岸的鄰國</rt></ruby>同好的熱情與分享,找了一圈都是簡體的書,並且都是在簡體的網站上,令人感嘆現在對岸的ACG文化比<ruby ><del>這個又小又老又窮的小島</del><rt style="color:orange">偉大的台灣</rt></ruby>來的興盛了(雖然講的難聽點就是盜版的還是很兇,不過既然自己也去拿這些東西就不要在那裏講什麼正論的屁話...)
 
