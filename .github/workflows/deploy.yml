@@ -41,7 +41,12 @@ jobs:
 
           # 4. 處理孤立的角括號 (將 < 轉義為 &lt;)
           find ./blog ./docs -name "*.md" -exec sed -i '/<img/!s/<\([a-zA-Z0-9_-]\{1,\}\)>/\&lt;\1\&gt;/g' {} +
-
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+          
       - name: 🐍 使用 Python 自動轉換 Obsidian 語法為 MDX 規範
         run: |
           python3 fix-mdx.py
