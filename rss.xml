@@ -13,13 +13,12 @@
             <link>https://kiwi0093.github.io/Public-Wiki/2020/11/note-taking-tools</link>
             <guid>https://kiwi0093.github.io/Public-Wiki/2020/11/note-taking-tools</guid>
             <pubDate>Mon, 23 Mar 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[info]]></description>
+            <description><![CDATA[記筆記的工具]]></description>
             <content:encoded><![CDATA[<blockquote>
-<p>info
-本文轉載自舊站存檔。</p>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
 </blockquote>
 <p>搭建好了Blog&amp;Wiki接下來就該是開始時常寫一點習慣養成,以及一些相關工具的蒐集與使用方式打磨</p>
-<p>``</p>
+<!-- -->
 <p>使用的工具方面目前已經有Typora這個好用又漂亮,加上又是跨平台的Markdown Editor,相關的細部我後面會在Wiki裡面建立條目(這算是挖坑給自己跳嗎?)</p>
 <p>但是總感覺似乎少了什麼,多方追尋(大概花了五分鐘...)找到一個chrome extension的web clipper</p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="maoxian-web-clipperchrome-store的link"><a href="https://mika-cn.github.io/maoxian-web-clipper/index-zh-CN.html" target="_blank" rel="noopener noreferrer">MaoXian Web Clipper</a>:<a href="https://chrome.google.com/webstore/detail/maoxian-web-clipper/kjahokgdcbohofgdidndeiaigkehdjdc/related" target="_blank" rel="noopener noreferrer">Chrome store的Link</a><a href="https://kiwi0093.github.io/Public-Wiki/2020/11/note-taking-tools#maoxian-web-clipperchrome-store%E7%9A%84link" class="hash-link" aria-label="maoxian-web-clipperchrome-store的link的直接連結" title="maoxian-web-clipperchrome-store的link的直接連結">​</a></h4>
@@ -38,15 +37,15 @@
             <link>https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2</link>
             <guid>https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2</guid>
             <pubDate>Mon, 23 Mar 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[本文轉載自舊站存檔。]]></description>
+            <description><![CDATA[V2Ray改Vless及其擴充]]></description>
             <content:encoded><![CDATA[<blockquote>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
 </blockquote>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="現況說明">現況說明<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E7%8F%BE%E6%B3%81%E8%AA%AA%E6%98%8E" class="hash-link" aria-label="現況說明的直接連結" title="現況說明的直接連結">​</a></h2>
 <p>這幾天勸敗了幾台新的RackNerd的VPS後,著實的好好練習了V2ray 4.33的安裝..(截至今天一共弄了四台新的加兩台update),但是除了名下的機器外,看著我的CF裡的DNS列表...還是有在我的DN下的別人家的機器,其實是該幫人家升級的...</p>
-<p>``</p>
+<!-- -->
 <p>因為討人厭的是</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="不是每個43x的client都跟42x的server相容"><em>不是每個4.3x的Client都跟4.2x的Server相容</em><a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E4%B8%8D%E6%98%AF%E6%AF%8F%E5%80%8B43x%E7%9A%84client%E9%83%BD%E8%B7%9F42x%EF%BF%BD%EF%BF%BD%E7%9A%84server%E7%9B%B8%E5%AE%B9" class="hash-link" aria-label="不是每個43x的client都跟42x的server相容的直接連結" title="不是每個43x的client都跟42x的server相容的直接連結">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="不是每個43x的client都跟42x的server相容"><em>不是每個4.3x的Client都跟4.2x的Server相容</em><a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E4%B8%8D%E6%98%AF%E6%AF%8F%E5%80%8B43x%E7%9A%84client%E9%83%BD%E8%B7%9F42x%E7%9A%84server%E7%9B%B8%E5%AE%B9" class="hash-link" aria-label="不是每個43x的client都跟42x的server相容的直接連結" title="不是每個43x的client都跟42x的server相容的直接連結">​</a></h2>
 <p>所以要就得一口氣連同Client一起升一下不然很容易出悲劇...</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="升級">升級<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E5%8D%87%E7%B4%9A" class="hash-link" aria-label="升級的直接連結" title="升級的直接連結">​</a></h2>
 <p>其實依照我的尿性,不過就是VPS,上面也沒什麼重要的東西..保留一下<strong>V2Ray</strong>的<strong>config.json</strong>裡的內容,然後直接選<strong>reinstall</strong>一切重來可能還比較省事...不過既然有不是我可以隨便<strong>reinstall</strong>的VPS那還是來弄個複雜版的升級好了....</p>
@@ -83,16 +82,88 @@
             <category>Old-Blog</category>
         </item>
         <item>
+            <title><![CDATA[整理Arch linux自動安裝的囉唆抱怨]]></title>
+            <link>https://kiwi0093.github.io/Public-Wiki/2020/12/archlinux+auto+install</link>
+            <guid>https://kiwi0093.github.io/Public-Wiki/2020/12/archlinux+auto+install</guid>
+            <pubDate>Thu, 03 Dec 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[在還沒有archinstall前的個人掙扎與碎碎念]]></description>
+            <content:encoded><![CDATA[<blockquote>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
+</blockquote>
+<p>雖然Wiki裡面寫了一堆Archlinux自動安裝用的script,不過昨天才開始<em>本格的</em>進行驗證跟補充,然後就很想把自己打死...</p>
+<!-- -->
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="前言">前言<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/archlinux+auto+install#%E5%89%8D%E8%A8%80" class="hash-link" aria-label="前言的直接連結" title="前言的直接連結">​</a></h2>
+<p>首先這一篇不是什麼技術補充的Blog,而是一篇純粹抱怨的<strong><em>深宮怨婦文章</em></strong>, 若是希望在這裡尋得什麼有價值的資料的捧油麻煩左轉去<a href="https://kiwi0093.github.io/Wiki-site/wiki/Linux/Arch%20Linux%20&amp;%20Manjaro/Archlinux%20Gateway%E8%87%AA%E5%8B%95%E5%AE%89%E8%A3%9D/1-Arch_linux_Gateway_installation/" target="_blank" rel="noopener noreferrer">Wiki</a>可能對你才有幫助</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="以下全是抱怨">以下全是抱怨<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/archlinux+auto+install#%E4%BB%A5%E4%B8%8B%E5%85%A8%E6%98%AF%E6%8A%B1%E6%80%A8" class="hash-link" aria-label="以下全是抱怨的直接連結" title="以下全是抱怨的直接連結">​</a></h2>
+<ul>
+<li>
+<p><a href="https://raw.githubusercontent.xn--com-1d9go96g/" target="_blank" rel="noopener noreferrer">https://raw.githubusercontent.com被牆</a></p>
+<p>真的很想罵人...把東西放在Gitub上就是想說<del>牆國</del>天朝不會對github下手,所以東西放在上面使用很方便,結果...天朝還是來了一記DNS污染..真的很OOXX</p>
+</li>
+<li>
+<p>pacstrap /mnt base沒有安裝kernel</p>
+<p>看著新的<a href="https://wiki.archlinux.org/index.php/installation_guide" target="_blank" rel="noopener noreferrer">Archlinux installation Guide</a>裡面說不需要跑mkinitpico這是實話,~~但是沒說跑pacstrap的時候不會順手裝上kernel package,所以當然不會跑mkinitpico,然後grub-mkconfig當然也就不會建立選單...~~然後開機就變成一個悲劇....</p>
+<p>更正:好吧是我自己白目,最新版的Installation Guide裡面是要求</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">pacstrap /mnt base linux linux-firmware</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>這個算是自己白目..但是還是罵一下...</p>
+</li>
+<li>
+<p>netctl變成另外裝的</p>
+<p>其實我也忘記之前是不是另外裝,原來預設的網路界面設定說明是用netctl的,現在變成用ip指令,不過還是可以以package安裝後拿來使用</p>
+</li>
+<li>
+<p>pacman-mirrors居然不是arch linux的package</p>
+<p>因為我Linux Desktop喜歡用Manjaro,而Manjaro幾乎跟archlinux一模一樣(好啦其實除了Logo還是有些差別啦),不過沒想到繼yay之後還有package是archlinux裡面沒有的...這樣在安裝的時候就只能用sed指令去篩選出mirrorlist裡面想要的location..後面研究一下AUR可不可以安裝好了...</p>
+<p>追申:查過Arch的AUR,裡面沒有pacman-mirrors...（哭哭）</p>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="抱怨之後">抱怨之後<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/archlinux+auto+install#%E6%8A%B1%E6%80%A8%E4%B9%8B%E5%BE%8C" class="hash-link" aria-label="抱怨之後的直接連結" title="抱怨之後的直接連結">​</a></h2>
+<p>雖說我喜歡Arch,但是仔細想想,其實我喜歡的是Manjaro....</p>
+<p>Arch linux大概只有在Server端或是Gateway上我才會使用...不過似乎也可以使用Manjaro直接裝沒有GUI的版本來使用...</p>
+<p>不過我個人比較龜毛,對於Server跟Desktop的要求不太一樣,Server還是盡量簡潔乾淨最好,而Desktop還是方便為主只要還是在Arch系內就好...</p>]]></content:encoded>
+            <category>Linux</category>
+            <category>Life</category>
+            <category>Archive</category>
+            <category>Old-Blog</category>
+        </item>
+        <item>
+            <title><![CDATA[間歇性斷食]]></title>
+            <link>https://kiwi0093.github.io/Public-Wiki/2020/12/intermittent+fasting</link>
+            <guid>https://kiwi0093.github.io/Public-Wiki/2020/12/intermittent+fasting</guid>
+            <pubDate>Thu, 03 Dec 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[在極度需要減重的時期,從網路上導入的方法,真實有效但是容易破功]]></description>
+            <content:encoded><![CDATA[<blockquote>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
+</blockquote>
+<p><a href="https://www.youtube.com/watch?v=SlzBMJvtGHo" target="_blank" rel="noopener noreferrer" title="斷食體內變化"><img decoding="async" loading="lazy" src="http://img.youtube.com/vi/SlzBMJvtGHo/0.jpg" alt="Dr.Berg的斷食說明" class="img_ev3q"></a></p>
+<!-- -->
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="前言">前言<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/intermittent+fasting#%E5%89%8D%E8%A8%80" class="hash-link" aria-label="��前言的直接連結" title="前言的直接連結">​</a></h2>
+<p>身為一個母胎肥仔,自今年年初因為高血壓住院後,考慮到還有老婆小孩,還是該認真減重來延長自己的壽命,上網查詢了減重相關的東西後發現了似乎從這一兩年開始,一堆人開始鼓吹利用間<strong><em>間歇性斷食</em></strong>來進行減重</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="階段性斷食">階段性斷食<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/intermittent+fasting#%E9%9A%8E%E6%AE%B5%E6%80%A7%E6%96%B7%E9%A3%9F" class="hash-link" aria-label="階段性斷食的直接連結" title="階段性斷食的直接連結">​</a></h2>
+<blockquote>
+<p><strong><em>*間歇性斷食法（intermittent fasting）*</em>，作法是有策略的在*<em>進食*</em>期間正確飲食，在*<em>禁食*</em>期間則是不能吃下任何有熱量的東西，讓胰島素休息，升糖素起來作用分解脂肪。</strong></p>
+</blockquote>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="親身體驗">親身體驗<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/intermittent+fasting#%E8%A6%AA%E8%BA%AB%E9%AB%94%E9%A9%97" class="hash-link" aria-label="親身體驗的直接連結" title="親身體驗的直接連結">​</a></h2>
+<p>就我個人來說,在出院後實行過超低熱量飲食,低碳飲食,16/8間歇性斷食法,曾將體重從112.7KG降低到98Kg並且當時看起來還會有持續下降的趨勢..</p>
+<p>不過來了趟返台休假,在飯店隔離/food panda/以及那個花了快三十年把我養成這種體型的媽,不是很拼命的effort下,我的體重開始快速回升,然後..我又一次的因為女兒出生再次返台,體重就回到了109KG並且頑固的死不降低</p>
+<p>基本上都是穩定在執行16/8間歇性斷食,但是可能我的身體狀況真的不好,以及進食的時候吃的太多,所以很難看出持續有效的脂肪消耗,所以最近開始採用更加激進的23/1間歇性斷食,第一天實施就開始降從109.6Kg--&gt;107.8Kg,不過第一天是不凖的預計要觀察至少一週後看看效果如何</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="結論">結論<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/intermittent+fasting#%E7%B5%90%E8%AB%96" class="hash-link" aria-label="結論的直接連結" title="結論的直接連結">​</a></h2>
+<p>目前看起來間歇性斷食是我試過最有效果的方式,後面的主要課題應該是看如何可以完整的併入生活中,畢竟上次的破功是來自於生活模式的劇烈改變(隔離是變胖的主因？？還是隔離就開始卯起來吃是主因？？)</p>]]></content:encoded>
+            <category>Life</category>
+            <category>Archive</category>
+            <category>Old-Blog</category>
+        </item>
+        <item>
             <title><![CDATA[梯子,與其附屬]]></title>
             <link>https://kiwi0093.github.io/Public-Wiki/2020/11/ladder-for-GFW</link>
             <guid>https://kiwi0093.github.io/Public-Wiki/2020/11/ladder-for-GFW</guid>
             <pubDate>Fri, 27 Nov 2020 00:00:00 GMT</pubDate>
-            <description><![CDATA[本文轉載自舊站存檔。]]></description>
+            <description><![CDATA[還是V2Ray相關的資訊]]></description>
             <content:encoded><![CDATA[<blockquote>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
 </blockquote>
 <p>前天又入手了一台廉價的VPS,來自<strong>RackNerd</strong>的感恩節特賣,以18USD左右的價格入手了兩年的使用權</p>
-<p>``</p>
+<!-- -->
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="vless">VLESS<a href="https://kiwi0093.github.io/Public-Wiki/2020/11/ladder-for-GFW#vless" class="hash-link" aria-label="VLESS的直接連結" title="VLESS的直接連結">​</a></h2>
 <p>入手這台主要是用來驗證一下VLESS的相關設定與使用,所以拿到的時候就直接上VLESS,詳細的安裝筆記照慣例會放在Wiki裡面,這裡就不特別提及安裝與設定的細節,來聊聊初步的感想好了</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="動機">動機<a href="https://kiwi0093.github.io/Public-Wiki/2020/11/ladder-for-GFW#%E5%8B%95%E6%A9%9F" class="hash-link" aria-label="動機的直接連結" title="動機的直接連結">​</a></h3>
@@ -166,12 +237,12 @@
             <link>https://kiwi0093.github.io/Public-Wiki/2020/07/windows-linux-tools</link>
             <guid>https://kiwi0093.github.io/Public-Wiki/2020/07/windows-linux-tools</guid>
             <pubDate>Wed, 15 Jul 2020 00:00:00 GMT</pubDate>
-            <description><![CDATA[本文轉載自舊站存檔。]]></description>
+            <description><![CDATA[盤點2020年時大叔使用的Windows/Linux的工具]]></description>
             <content:encoded><![CDATA[<blockquote>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
 </blockquote>
 <p>使用電腦多年,使用的軟體也隨著時間的變更而有些調整,看著自己之前寫過一些Manjaro的安裝使用或是Gaming之類的文章就在想是否該寫一篇<del>大雜燴</del>整合文章把現在這個時間點開始使用或是使用多年也不厭倦的軟體以及習慣的設定方式做個紀錄,也給有興趣的人們留下一點參考</p>
-<p>``</p>
+<!-- -->
 <h1>基本前提</h1>
 <p>從今年開始大叔我開始慢慢習慣多平台的使用(主要是指Windows/Linux的Desktop)所以軟體的選擇使用上也盡量會選擇以下幾個特點</p>
 <ul>
@@ -469,13 +540,13 @@
             <link>https://kiwi0093.github.io/Public-Wiki/2020/07/git+blog</link>
             <guid>https://kiwi0093.github.io/Public-Wiki/2020/07/git+blog</guid>
             <pubDate>Sat, 11 Jul 2020 00:00:00 GMT</pubDate>
-            <description><![CDATA[本文轉載自舊站存檔。]]></description>
+            <description><![CDATA[git與編寫Hugo Blog的相關工具]]></description>
             <content:encoded><![CDATA[<blockquote>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
 </blockquote>
 <p>自從大叔換用Github+Markdown語法來寫Blog後,效率的確變好很多,但是苦於大叔對於git指令的不熟悉,做了很多很蠢的事情(像是把自己的Repo砍掉重練很多次)</p>
 <p>Push的時候有分岐不會處理等等在熟悉使用Git的前輩眼中蠢到爆的各種,所以我就想花一個簡單的篇幅把自己會用上的Git指令以及針對這個Blog會常用到的指令都先寫成Script,以便日後使用</p>
-<p>``</p>
+<!-- -->
 <h1>基本寫作環境</h1>
 <p>基本上大叔的用法很單純,只是會在不同的機器上寫Blog而且沒辦法一次寫完一篇,所以會需要多地的機器可以無縫接軌的方式進行寫作(講多地其實也就是辦公室跟宿舍兩地而已)</p>
 <ol>
@@ -567,13 +638,13 @@
             <link>https://kiwi0093.github.io/Public-Wiki/2020/07/archlinux-gateway</link>
             <guid>https://kiwi0093.github.io/Public-Wiki/2020/07/archlinux-gateway</guid>
             <pubDate>Tue, 07 Jul 2020 00:00:00 GMT</pubDate>
-            <description><![CDATA[本文轉載自舊站存檔。]]></description>
+            <description><![CDATA[說明如何使用archlinux當作homelab的Gateway]]></description>
             <content:encoded><![CDATA[<blockquote>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
 </blockquote>
 <p>換了新的Blog但是還沒想到內容要寫什麼,所以就想說先把之前寫的筆記再整理一次做個精簡的增補版(其實就是把一些後來發現不好用的部份拿掉或改掉)</p>
 <p>並且練習用Github來管理大叔自己寫的script,不過因為很多是私人性質的所以應該會放在不公開的Repo裡面然後另外寫一個公開版的放在外面供有需要的人使用</p>
-<p>``</p>
+<!-- -->
 <h1>期望環境</h1>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="基本條件">基本條件<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/archlinux-gateway#%E5%9F%BA%E6%9C%AC%E6%A2%9D%E4%BB%B6" class="hash-link" aria-label="基本條件的直接連結" title="基本條件的直接連結">​</a></h2>
 <p>會使用Archlinux而非使用大叔長年使用的FreeBSD來作為一個網路環境的主要Gateway的最大因素就是V2Ray+iptables的翻牆組合(單看V2ray的話其實FreeBSD也可以裝啦,但是沒有iptables),從網路上看到的所有教範幾乎清一色都是這個搭配,由於大叔也不是什麼真正的高手所以就隨波逐流挑個看的順眼的Linux destro來使用,在這裡可能有人會問為什麼大叔不乾脆就跟教範一樣直接用Ubuntu就好了,在這裡只能說因為大叔還是有點傲驕的....</p>
@@ -583,7 +654,7 @@
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="規劃藍圖">規劃藍圖<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/archlinux-gateway#%E8%A6%8F%E5%8A%83%E8%97%8D%E5%9C%96" class="hash-link" aria-label="規劃藍圖的直接連結" title="規劃藍圖的直接連結">​</a></h2>
 <p><img decoding="async" loading="lazy" src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/Network_top.png" alt="Network_top" class="img_ev3q"></p>
 <h1>事前準備</h1>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="基本工具設備">基本工具&amp;設備<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/archlinux-gateway#%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7%E8%A8%AD%E5%82%99" class="hash-link" aria-label="基本工具&amp;設備的直接連結" title="基本工具&amp;設備的直接連結">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="基本工具設備">基本工具&amp;設備<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/archlinux-gateway#%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7%E8%A8%AD%E5%82%99" class="hash-link" aria-label="基本工具&amp;設備的直接連結" title="基本��工具&amp;設備的直接連結">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="硬體">硬體<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/archlinux-gateway#%E7%A1%AC%E9%AB%94" class="hash-link" aria-label="硬體的直接連結" title="硬體的直接連結">​</a></h3>
 <ul>
 <li>一台可以跑VMware ESXi的Server硬體</li>
@@ -655,14 +726,14 @@
             <link>https://kiwi0093.github.io/Public-Wiki/2020/07/v2ray-server-setup</link>
             <guid>https://kiwi0093.github.io/Public-Wiki/2020/07/v2ray-server-setup</guid>
             <pubDate>Tue, 07 Jul 2020 00:00:00 GMT</pubDate>
-            <description><![CDATA[本文轉載自舊站存檔。]]></description>
+            <description><![CDATA[總結2020年代架設V2ray來當梯子]]></description>
             <content:encoded><![CDATA[<blockquote>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
 </blockquote>
 <p>V2ray,這可以說是大叔開始寫Blog的最主要原因,因為這是一個住在強國才需要的被特化的技能,一般來說技術相關的文件一般都是英文的但恰恰好只有翻牆相關的文件全部都是簡體中文的...</p>
 <p>因為這個區塊的知識相當偏門,所以大叔才燃起要把自己研讀過得方式與結果記錄下來以免每次都要重新查詢資料,順便可以的話把這些作法做成自動化處理減少相對應的工時</p>
 <p>這篇文稿原來同名稱應該是把原先寫到update IV版的VPS V2ray Server架設與設定做個彙整, 但是仔細一想似乎最細膩的設定部份大叔都沒講到(因為V2ray官網上面講得很清楚呀,加上大叔基本上寫好的很難會重頭再來一次基本上都是直接拿來用),所以就順便把設定的部份順便寫一點,不過還是官網寫的會比較好唷</p>
-<p>``</p>
+<!-- -->
 <h1>事前準備</h1>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="vps">VPS<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/v2ray-server-setup#vps" class="hash-link" aria-label="VPS的直接連結" title="VPS的直接連結">​</a></h2>
 <p>這個東西雖然說是很多人可能會租來用但是特化拿來作為翻牆的大概只有天朝子民才會這樣幹,所以一樣可以在網路上找到很多評比,對大叔來說因為長期的人生中都認為網路上的自由不是理所當然的事情嗎？的想法所以在VPS的挑選上就會偏向小氣,以最便宜,堪用來進行選擇,但是實際上就是挑全場最低價格,機器性能不重要(但是KVM卻很重要)...</p>
@@ -695,7 +766,7 @@
 <p><a href="https://eveaz.com/1094.html" target="_blank" rel="noopener noreferrer">那束陽光</a></p>
 <p><a href="https://github.com/233boy/v2ray/wiki/%E4%BD%BF%E7%94%A8Cloudflare%E4%B8%AD%E8%BD%ACV2Ray%E6%B5%81%E9%87%8F" target="_blank" rel="noopener noreferrer">233boy</a></p>
 <h1>安裝</h1>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="系統基本安裝">系統基本安裝<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/v2ray-server-setup#%E7%B3%BB%E7%B5%B1%E5%9F%BA%E6%9C%AC%E5%AE%89%E8%A3%9D" class="hash-link" aria-label="系統基本安裝的直接連結" title="�系統基本安裝的直接連結">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="系統基本安裝">系統基本安裝<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/v2ray-server-setup#%E7%B3%BB%E7%B5%B1%E5%9F%BA%E6%9C%AC%E5%AE%89%E8%A3%9D" class="hash-link" aria-label="系統基本安裝的直接連結" title="系統基本安裝的直接連結">​</a></h2>
 <ol>
 <li>
 <p>在Browser的VPS管理界面下挑選你喜歡的Linux Destro進行系統安裝,大叔選的是Debain.</p>
@@ -766,7 +837,7 @@
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="windows">Windows<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/v2ray-server-setup#windows" class="hash-link" aria-label="Windows的直接連結" title="Windows的直接連結">​</a></h4>
 <div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">choco upgrade qv2ray v2ray -y</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
 <p>這一行基本上就都裝上了,只要打開設定弄一下就好了</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="linuxarchlinuxmanjaro">Linux(Archlinux/Manjaro)<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/v2ray-server-setup#linuxarchlinuxmanjaro" class="hash-link" aria-label="Linux(Archlinux/Manjaro)的直接連結" title="Linux(Archlinux/Manjaro)的直接連結">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="linuxarchlinuxmanjaro">Linux(Archlinux/Manjaro)<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/v2ray-server-setup#linuxarchlinuxmanjaro" class="hash-link" aria-label="Linux(Archlinux/Manjaro)的直接連結" title="Linux(Archlinux/Manjaro)��的直接連結">​</a></h4>
 <div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">yay -Syu qv2ray v2ray</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
 <p>這樣就裝完了</p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="linux其他">Linux(其他)<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/v2ray-server-setup#linux%E5%85%B6%E4%BB%96" class="hash-link" aria-label="Linux(其他)的直接連結" title="Linux(其他)的直接連結">​</a></h4>
@@ -796,11 +867,9 @@
             <link>https://kiwi0093.github.io/Public-Wiki/2020/07/hugo+github</link>
             <guid>https://kiwi0093.github.io/Public-Wiki/2020/07/hugo+github</guid>
             <pubDate>Mon, 06 Jul 2020 00:00:00 GMT</pubDate>
-            <description><![CDATA[基本說明如何轉移到Github上]]></description>
+            <description><![CDATA[基本說明如何使用Hugo搭配Github Page搭建個人Blog]]></description>
             <content:encoded><![CDATA[<blockquote>
-<p>::: info
-本文轉載自舊站存檔。
-:::</p>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
 </blockquote>
 <p>日前看了<a href="https://www.youtube.com/user/homergfunk/featured" target="_blank" rel="noopener noreferrer">CTT</a>的Youtube頻道,發現了Hugo+Github或是Hugo+Netlify的選項也很適合拿來做BLog,考慮到Blogger的編輯模式真的不是那麼先進以及大叔我賣力想轉向Markdown的語法的努力,從這篇開始大叔打算把自己這個沒人看的Blog從Blogger移到github順便學習一下時髦的git方式來管理我的Blog</p>
 <!-- -->
