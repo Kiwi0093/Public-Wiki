@@ -1,7 +1,7 @@
 ---
 title: Upgrade Esxi Server
 date: 2021-06-26
-tags: [Server, Life, Archive, Old-Blog]
+tags: [Server, Life, Old-Blog]
 slug: 2021/06/esxi-upgrade
 description: 升級esxi
 ---

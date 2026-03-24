@@ -1,7 +1,7 @@
 ---
 title: 最近動態 - Calibre-web & Navidrome
 date: 2021-07-05
-tags: [Life, Archive, Old-Blog, Docker, Linux, Server]
+tags: [Life, Old-Blog, Docker, Linux, Server]
 slug: 2021/07/calibre+navidrome
 description: 用Docker架設Calibre-web跟navidrome
 ---

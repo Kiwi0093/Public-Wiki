@@ -3,7 +3,6 @@ title: Phoenix OS
 date: 2020-12-14
 tags:
   - Android
-  - Archive
   - Old-Blog
 slug: 2020/12/phoenix+os
 description: 一款中國國產的android x86

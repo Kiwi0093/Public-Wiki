@@ -6,7 +6,6 @@ tags:
   - Server
   - Linux
   - Old-Blog
-  - Archive
 slug: 2020/07/v2ray-server-setup
 description: 總結2020年代架設V2ray來當梯子
 ---

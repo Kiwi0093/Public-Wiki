@@ -4,7 +4,6 @@ date: 2020-12-03
 tags:
   - Linux
   - Life
-  - Archive
   - Old-Blog
 slug: 2020/12/archlinux+auto+install
 description: 在還沒有archinstall前的個人掙扎與碎碎念

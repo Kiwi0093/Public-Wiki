@@ -1,7 +1,7 @@
 ---
 title: 近日幾點tmux, nextcloud
 date: 2021-06-24
-tags: [Life, Archive, Old-Blog, Linux, Server]
+tags: [Life, Old-Blog, Linux, Server]
 slug: 2021/06/tmux+nextcloud
 description: 一個薪水小偷趁著WFH的休閒活動
 ---
