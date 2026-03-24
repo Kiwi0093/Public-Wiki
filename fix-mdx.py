@@ -7,57 +7,55 @@ def process_file(filepath):
 
     original = content
     fname = os.path.basename(filepath)
+    modified = False
 
-    # 1. 修正 herf
+    # --- 1. 搬移原本 YAML 裡的 sed 邏輯 ---
+    
+    # 暴力清除 Frontmatter 中的 image: null (避免 Docusaurus 報錯)
+    if 'image: null' in content:
+        content = re.sub(r'^image:\s*null\s*$', '', content, flags=re.M)
+        modified = True
+        
+    # 暴力清除 id: 行 (大叔原本 sed 做的，避免自定義 ID 衝突)
+    if 'id: ' in content:
+        content = re.sub(r'^id:\s+.*$', '', content, flags=re.M)
+        modified = True
+
+    # 修復空連結 []() -> [](#)
+    if '[]()' in content:
+        content = content.replace('[]()', '[#](#)')
+        modified = True
+
+    # --- 2. 修正 herf 拼錯 (大叔的手滑救星) ---
     if 'herf=' in content:
         content = content.replace('herf=', 'href=')
         print(f"  [Fixed herf] -> {fname}")
+        modified = True
 
-    # 2. 強力修復 Style (全域匹配，支援各種空格 \s 與 \xa0)
-    # 這裡針對 <tag style="color:xxx"> 進行轉換
-    def style_to_jsx(match):
+    # --- 3. 強力修復 Style (轉換為 JSX 格式) ---
+    # 支援標籤如 <rt style="color:orange"> 或 <span style="zoom:60%">
+    def universal_style_to_jsx(match):
         tag = match.group(1)
-        color = match.group(2).strip()
-        print(f"  [Fixed Style] -> {fname}: <{tag}> color changed to JSX")
-        return f'<{tag} style={{{{color: "{color}"}}}}> '
+        attr = match.group(2).lower() # color 或 zoom
+        val = match.group(3).strip()
+        
+        # 轉換 zoom:60% 為 width: "60%"
+        if attr == 'zoom':
+            print(f"  [Fixed Zoom] -> {fname}: <{tag}> zoom to width")
+            return f'<{tag} style={{{{width: "{val}"}}}}> '
+        
+        # 轉換 color:orange 為 color: "orange"
+        print(f"  [Fixed Style] -> {fname}: <{tag}> color to JSX")
+        return f'<{tag} style={{{{color: "{val}"}}}}> '
 
-    # 正則改進：支援單引號、雙引號、以及網頁常見的特殊空格 \xa0
-    style_pattern = r'<([a-z1-6]+)[\s\xa0]+style=["\']color:[\s\xa0]*([^"\'\s>]+)[\s\xa0]*["\']\s*>'
-    content = re.sub(style_pattern, style_to_jsx, content, flags=re.I)
+    # 改進正則：抓取 <tag style="color:xxx"> 或 <tag style="zoom:xxx">
+    style_pattern = r'<([a-z1-6]+)[\s\xa0]+style=["\'](color|zoom):[\s\xa0]*([^"\'\s>]+)\s*;?["\']\s*>'
+    content = re.sub(style_pattern, universal_style_to_jsx, content, flags=re.I)
 
-    # 3. 處理 Obsidian 縮圖 (包含帶連結與不帶連結)
+    # --- 4. 處理 Obsidian 縮圖 (包含帶連結與不帶連結) ---
     # 處理 [![]( )]( )
     def ob_link_img(m):
         alt, w, img, link = m.group(1), m.group(2), m.group(3), m.group(4)
         print(f"  [Fixed LinkedImg] -> {fname}")
         return f'<a href="{link.replace("&", "&amp;")}"><img src="{img}" alt="{alt}" style={{{{ width: "{w}{"" if "%" in w else "px"}", height: "auto" }}}} /></a>'
-    content = re.sub(r'\[!\[([^|\]]*)\|(\d+%?)\]\((.*?)\)\]\((.*?)\)', ob_link_img, content)
-
-    # 處理 ![]( )
-    def ob_img(m):
-        alt, w, img = m.group(1), m.group(2), m.group(3)
-        print(f"  [Fixed Img] -> {fname}")
-        return f'<img src="{img}" alt="{alt}" style={{{{ width: "{w}{"" if "%" in w else "px"}", height: "auto" }}}} />'
-    content = re.sub(r'!\[([^|\]]*)\|(\d+%?)\]\((.*?)\)', ob_img, content)
-
-    # 4. 修正標籤順序與自閉合
-    content = content.replace('</ruby></del>', '</del></ruby>')
-    content = content.replace('</span></del>', '</del></span>')
-    content = re.sub(r'(<img [^>]+)(?<!/)>', r'\1 />', content)
-
-    if content != original:
-        with open(filepath, 'w', encoding='utf-8') as f:
-            f.write(content)
-        return True
-    return False
-
-# 執行
-print("🚀 Starting MDX Fixer...")
-count = 0
-for root, dirs, files in os.walk('.'):
-    if any(d in root for d in ['blog', 'docs']):
-        for file in files:
-            if file.endswith(('.md', '.mdx')):
-                if process_file(os.path.join(root, file)):
-                    count += 1
-print(f"✅ Finished! Total files modified: {count}")
+    content = re.sub(
