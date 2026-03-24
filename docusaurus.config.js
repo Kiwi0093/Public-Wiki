@@ -48,9 +48,20 @@ const config = {
       items: [
         {
           to: '/', 
-          label: '最新文章', 
+          label: 'Home', 
           position: 'left',
           activeBaseRegex: '^/$',
+        },
+        {
+          to: '/tags',
+          label: 'Tags',
+          position: 'left'
+        },
+        {
+          {
+          to: '/archive',
+          label: 'Archives',
+          position: 'left'},
         },
         {
           type: 'docSidebar',
