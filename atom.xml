@@ -2,82 +2,142 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://kiwi0093.github.io/Public-Wiki/</id>
     <title>Kiwi Reich Blog</title>
-    <updated>2026-03-23T00:00:00.000Z</updated>
+    <updated>2021-07-05T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://kiwi0093.github.io/Public-Wiki/"/>
     <subtitle>Kiwi Reich Blog</subtitle>
     <entry>
-        <title type="html"><![CDATA[Note taking tools]]></title>
-        <id>https://kiwi0093.github.io/Public-Wiki/2020/11/note-taking-tools</id>
-        <link href="https://kiwi0093.github.io/Public-Wiki/2020/11/note-taking-tools"/>
-        <updated>2026-03-23T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[記筆記的工具]]></summary>
+        <title type="html"><![CDATA[最近動態 - Calibre-web & Navidrome]]></title>
+        <id>https://kiwi0093.github.io/Public-Wiki/2021/07/calibre+navidrome</id>
+        <link href="https://kiwi0093.github.io/Public-Wiki/2021/07/calibre+navidrome"/>
+        <updated>2021-07-05T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[用Docker架設Calibre-web跟navidrome]]></summary>
         <content type="html"><![CDATA[<blockquote>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
 </blockquote>
-<p>搭建好了Blog&amp;Wiki接下來就該是開始時常寫一點習慣養成,以及一些相關工具的蒐集與使用方式打磨</p>
-<!-- -->
-<p>使用的工具方面目前已經有Typora這個好用又漂亮,加上又是跨平台的Markdown Editor,相關的細部我後面會在Wiki裡面建立條目(這算是挖坑給自己跳嗎?)</p>
-<p>但是總感覺似乎少了什麼,多方追尋(大概花了五分鐘...)找到一個chrome extension的web clipper</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="maoxian-web-clipperchrome-store的link"><a href="https://mika-cn.github.io/maoxian-web-clipper/index-zh-CN.html" target="_blank" rel="noopener noreferrer">MaoXian Web Clipper</a>:<a href="https://chrome.google.com/webstore/detail/maoxian-web-clipper/kjahokgdcbohofgdidndeiaigkehdjdc/related" target="_blank" rel="noopener noreferrer">Chrome store的Link</a><a href="https://kiwi0093.github.io/Public-Wiki/2020/11/note-taking-tools#maoxian-web-clipperchrome-store%E7%9A%84link" class="hash-link" aria-label="maoxian-web-clipperchrome-store的link的直接連結" title="maoxian-web-clipperchrome-store的link的直接連結">​</a></h4>
-<p>不過我自己都還在摸索中,除了軟體本身的使用方法以外,還有就是怎麼跟未來打算要有的習慣進行磨合</p>
-<p>大叔現在也是兩個小朋友的爸爸(幹話開始了..=_=!)</p>
-<p>也會想以後在小朋友面前耍帥的說老爸我也是有良好的習慣做了一些個人知識庫呢(翹鼻子~~)</p>
-<p>所以就趁現在單身赴任有時間的時候能持之以恆的寫就盡量寫吧...</p>]]></content>
+<p>針對之前的Server使用,我真的開始了使用docker的道路,並且參考了一些網路上的<font color="green">Self-hosted</font>服務,挑選了兩個服務來使用</p>
+<ul>
+<li>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="電子書管理系統calibre-web"><ruby>電子書管理系統<rt style="color:orange">Calibre-Web</rt></ruby><a href="https://kiwi0093.github.io/Public-Wiki/2021/07/calibre+navidrome#%E9%9B%BB%E5%AD%90%E6%9B%B8%E7%AE%A1%E7%90%86%E7%B3%BB%E7%B5%B1calibre-web" class="hash-link" aria-label="電子書管理系統calibre-web的直接連結" title="電子書管理系統calibre-web的直接連結">​</a></h2>
+</li>
+<li>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="音樂串流navidrome"><ruby>音樂串流<rt style="color:orange">Navidrome</rt></ruby><a href="https://kiwi0093.github.io/Public-Wiki/2021/07/calibre+navidrome#%E9%9F%B3%E6%A8%82%E4%B8%B2%E6%B5%81navidrome" class="hash-link" aria-label="音樂串流navidrome的直接連結" title="音樂串流navidrome的直接連結">​</a></h2>
+</li>
+</ul>
+<h1><font color="#800000">Markdown</font></h1>
+<p>忽然先跳tune去一個跟主題不搭嘎的Markdown, 其實也不是,主要就是我最近因為整理電子書的關係,看到很多酷炫的文字表現,所以就去找了Markdown &amp; Html語法,可以看到前面那個酷炫的顏色跟注音標示方法,沒錯就是我的最新娛樂</p>
+<h1><font color="#800000">Calibre-Web &amp; Navidrome</font></h1>
+<p>搭建的方法都在<ruby><a href="https://kiwi0093.github.io/Wiki-site/" target="_blank" rel="noopener noreferrer">我的筆記</a><rt style="color:orange">Kiwi's Wiki</rt></ruby>裡面,我就不多說了主要還是來說說過程的辛酸....</p>
+<p>首先是PhotoOS這個玩意我很不熟,所以光是為了熟練它的操作我就<ruby>花了不少時間<rt style="color:orange">重新安裝很多次</rt></ruby>之後又花了很多時間在熟悉Docker的使用方法,最終確定還是docker-compose比較方便,然後就是好幾天的不斷四處搜括epub回來填充我的書庫,仔細想想花最多時間的果然不是架設服務而是整理內容...</p>
+<h1><font color="#800000">電子書&amp;Kindle</font></h1>
+<p>不得不說要蒐集日輕的epub檔真的需要<ruby><del>偉大祖國 aka.天朝</del><rt style="color:orange">海峽對岸的鄰國</rt></ruby>同好的熱情與分享,找了一圈都是簡體的書,並且都是在簡體的網站上,令人感嘆現在對岸的ACG文化比<ruby><del>這個又小又老又窮的小島</del><rt style="color:orange">偉大的台灣</rt></ruby>來的興盛了(雖然講的難聽點就是盜版的還是很兇,不過既然自己也去拿這些東西就不要在那裏講什麼正論的屁話...)</p>]]></content>
         <category label="Life" term="Life"/>
-        <category label="Tools" term="Tools"/>
-        <category label="web" term="web"/>
-        <category label="Old-Blog" term="Old-Blog"/>
         <category label="Archive" term="Archive"/>
+        <category label="Old-Blog" term="Old-Blog"/>
+        <category label="Docker" term="Docker"/>
+        <category label="Linux" term="Linux"/>
+        <category label="Server" term="Server"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[梯子,後篇...]]></title>
-        <id>https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2</id>
-        <link href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2"/>
-        <updated>2026-03-23T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[V2Ray改Vless及其擴充]]></summary>
+        <title type="html"><![CDATA[Upgrade Esxi Server]]></title>
+        <id>https://kiwi0093.github.io/Public-Wiki/2021/06/esxi-upgrade</id>
+        <link href="https://kiwi0093.github.io/Public-Wiki/2021/06/esxi-upgrade"/>
+        <updated>2021-06-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[升級esxi]]></summary>
         <content type="html"><![CDATA[<blockquote>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
 </blockquote>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="現況說明">現況說明<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E7%8F%BE%E6%B3%81%E8%AA%AA%E6%98%8E" class="hash-link" aria-label="現況說明的直接連結" title="現況說明的直接連結">​</a></h2>
-<p>這幾天勸敗了幾台新的RackNerd的VPS後,著實的好好練習了V2ray 4.33的安裝..(截至今天一共弄了四台新的加兩台update),但是除了名下的機器外,看著我的CF裡的DNS列表...還是有在我的DN下的別人家的機器,其實是該幫人家升級的...</p>
+<p>從回到台灣後,持續的家裡Server維護/升級就一直沒停,終於到了該對主要Server的ESXi進行升級的時候了...</p>
 <!-- -->
-<p>因為討人厭的是</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="不是每個43x的client都跟42x的server相容"><em>不是每個4.3x的Client都跟4.2x的Server相容</em><a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E4%B8%8D%E6%98%AF%E6%AF%8F%E5%80%8B43x%E7%9A%84client%E9%83%BD%E8%B7%9F42x%E7%9A%84server%E7%9B%B8%E5%AE%B9" class="hash-link" aria-label="不是每個43x的client都跟42x的server相容的直接連結" title="不是每個43x的client都跟42x的server相容的直接連結">​</a></h2>
-<p>所以要就得一口氣連同Client一起升一下不然很容易出悲劇...</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="升級">升級<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E5%8D%87%E7%B4%9A" class="hash-link" aria-label="升級的直接連結" title="升級的直接連結">​</a></h2>
-<p>其實依照我的尿性,不過就是VPS,上面也沒什麼重要的東西..保留一下<strong>V2Ray</strong>的<strong>config.json</strong>裡的內容,然後直接選<strong>reinstall</strong>一切重來可能還比較省事...不過既然有不是我可以隨便<strong>reinstall</strong>的VPS那還是來弄個複雜版的升級好了....</p>
-<p>你說為什麼技術性的東西不抄來放在Wiki裡?這種一次性的東西做完就可以忘記的東西為什麼要放在Wiki裡面??</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="升�級細節">升級細節<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E5%8D%87%E7%B4%9A%E7%B4%B0%E7%AF%80" class="hash-link" aria-label="升級細節的直接連結" title="升級細節的直接連結">​</a></h3>
-<p>簡單的說他的流程就是</p>
+<h1>升級ESXi</h1>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="參考資料">參考資料<a href="https://kiwi0093.github.io/Public-Wiki/2021/06/esxi-upgrade#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99" class="hash-link" aria-label="參考資料的直接連結" title="參考資料的直接連結">​</a></h2>
+<p>這次的升級主要參考<a href="https://roidintw.kaienroid.com/2020/09/vmware-esxi-upgrade-from-60-to-65-with.html" target="_blank" rel="noopener noreferrer">師匠的經驗</a></p>
+<p>不過他比較驚險沒有進入maintenance mode 就跑,我好歹還是有進maintenance mode去執行</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="檔案取得">檔案取得<a href="https://kiwi0093.github.io/Public-Wiki/2021/06/esxi-upgrade#%E6%AA%94%E6%A1%88%E5%8F%96%E5%BE%97" class="hash-link" aria-label="檔案取得的直接連結" title="檔案取得的直接連結">​</a></h2>
+<p>首先先去登入你的My VMware,然後找VMware vSphere Hypervisor下載,雖然6.X目前有6.7版了,不過看了看都是ISO,於是我就只下載了6.5的<strong>VMware vSphere Hypervisor (ESXi) Offline Bundle</strong></p>
+<p>這是個zip檔,下載完後扔到esxi的datastorage裡面去就可以了</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="升級順序">升級順序<a href="https://kiwi0093.github.io/Public-Wiki/2021/06/esxi-upgrade#%E5%8D%87%E7%B4%9A%E9%A0%86%E5%BA%8F" class="hash-link" aria-label="升級順序的�直接連結" title="升級順序的直接連結">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="maintenance-mode">maintenance mode<a href="https://kiwi0093.github.io/Public-Wiki/2021/06/esxi-upgrade#maintenance-mode" class="hash-link" aria-label="maintenance mode的直接連結" title="maintenance mode的直接連結">​</a></h3>
+<p>這個很簡單,使用原來的client連上ESXi,然後選maintenance mode就好了</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="確認檔案位置">確認檔案位置<a href="https://kiwi0093.github.io/Public-Wiki/2021/06/esxi-upgrade#%E7%A2%BA%E8%AA%8D%E6%AA%94%E6%A1%88%E4%BD%8D%E7%BD%AE" class="hash-link" aria-label="確認檔案位置的直接連結" title="確認檔案位置的直接連結">​</a></h3>
+<p>使用putty ssh login你的ESXi主機</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">ls /vmfs/volume/</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>你就會看到datastorage,你剛剛upload的ZIP就在裡面</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="確認profile-image">確認Profile Image<a href="https://kiwi0093.github.io/Public-Wiki/2021/06/esxi-upgrade#%E7%A2%BA%E8%AA%8Dprofile-image" class="hash-link" aria-label="確認Profile Image的直接連結" title="確認Profile Image的直接連結">​</a></h3>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">esxcli software sources profile list -d /vmfs/volumes/$(your_volume)/$(your_file.zip)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>你就可以看到他的profile image</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="升級">升級<a href="https://kiwi0093.github.io/Public-Wiki/2021/06/esxi-upgrade#%E5%8D%87%E7%B4%9A" class="hash-link" aria-label="升級的直接連結" title="升級的直接連結">​</a></h3>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">esxcli software profile update -d /vmfs/volumes/$(your_volume)/$(your_file.zip) -p $(profile-image)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>他就會開始安裝一堆VIB,最後重開(這裡很討厭,因為他的shell不接受reboot或是shutdown指令,所以我去他的client上按reboot host)</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="升級重開後">升級重開後<a href="https://kiwi0093.github.io/Public-Wiki/2021/06/esxi-upgrade#%E5%8D%87%E7%B4%9A%E9%87%8D%E9%96%8B%E5%BE%8C" class="hash-link" aria-label="升級重開後的直接連結" title="升級重開後的直接連結">​</a></h3>
+<p>改用web介面登入後記得去關閉maintenance mode,然後把你的VM該開的打開就好了</p>
+<h1>後續規劃</h1>
+<p>這波主要的升級原因還是想開始把家裡的幾個服務從獨立的Linux VM改成直接在Photon OS上跑docker,這樣一來可以比較省空間跟機器的效能</p>
+<p>二來也減少跑服務的Linux安裝手順或是調教之類的</p>
+<p>因此後續有幾個學習的方向需要再花時間</p>
 <ul>
-<li>把systemd裡面的service停掉並且disable</li>
-<li>用rm把之前裝的Bin等東西都砍掉</li>
-<li>用mv把設定檔從原來預設的*/etc/v2ray/<em>挪到</em>/usr/local/etc/v2ray/*至於為什麼要換位置?我猜可能是<del>中了FreeBSD的魅惑</del>想把v2ray的設定跟系統的主設定位置分開</li>
-<li>用新的script安裝(若是不想變更預設位置就要手工修改script,但是這樣要放進crontab裡面就麻煩了耶~~)</li>
-<li>enable v2ray.service</li>
-<li>V2ray.service跑起來就可以收工了</li>
+<li>Photon OS的使用<!-- -->
+<ul>
+<li>Photon OS多IP的設定</li>
+<li>Photon OS shell變更與相關工具的安裝與調教(搞了半天還是得從Arch跳到Photon OS)</li>
 </ul>
-<p>若是要改用<strong>VLESS</strong>的話就再加上增加v2ray帳號,處理certbot的key(或是用其他方式弄Key也可以只不過我還不會)最後再改一下config.json的內容就可以了</p>
-<p>詳細的作法,算是<a href="https://github.com/v2fly/fhs-install-v2ray/wiki/Migrate-from-the-old-script-to-this" target="_blank" rel="noopener noreferrer">官方文件</a>裡面寫得很清楚</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="若是你的server使用的是archlinux">若是你的Server使用的是Archlinux....<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E8%8B%A5%E6%98%AF%E4%BD%A0%E7%9A%84server%E4%BD%BF%E7%94%A8%E7%9A%84%E6%98%AFarchlinux" class="hash-link" aria-label="若是你的Server使用的是Archlinux....的直接連結" title="若是你的Server使用的是Archlinux....的直接連結">​</a></h4>
-<p>那就只要來一行</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">pacman -Syu</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<p>你的V2ray就會升級到最新....什麼屁事沒有..超輕鬆的....</p>
-<p>真的很討厭為什麼VPS的OS預設都沒有arch可以選...煩死了</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="client-選用">Client 選用<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#client-%E9%81%B8%E7%94%A8" class="hash-link" aria-label="Client 選用的直接連結" title="Client 選用的直接連結">​</a></h2>
-<p>Client的部分,老實說我用得最兇的是Archlinux下的V2ray,相容性最好(因為跟Server是一模一樣的程式),穩定性也高,不過就如同之前講過,還是會考慮一下其他的client</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="android">Android<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#android" class="hash-link" aria-label="Android的直接連結" title="Android的直接連結">​</a></h4>
-<p>最近真的是迷上了<strong>V2RayNG</strong>不過這個也是我目前遇到4.33的core連不上4.23的Server的唯一一個Client....最新改版之前的那一版(1.33)與現在最新改過的對於VLESS的支援性以及速度上真的有差,可能未來會變成Server的 V2Ray-Core升級了這個就得馬上跟著升級才會順.....(我希望不會是這樣...)</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="windows">Windows<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#windows" class="hash-link" aria-label="Windows的直接連結" title="Windows的直接連結">​</a></h4>
-<p>因為Linux Desktop下我都是用QV2Ray+V2Ray-Core所以用起來很順暢,沒什麼問題,不過Windows下就<del>得換一下了</del>一樣用QV2ray就好了...(這玩意是跨平台的..WIndows/Linux/MacOS都通吃)</p>
-<p>下載位置<a href="https://github.com/Qv2ray/Qv2ray/releases" target="_blank" rel="noopener noreferrer">QV2Ray</a>,搭配服用的<a href="https://github.com/v2fly/v2ray-core/releases" target="_blank" rel="noopener noreferrer">V2Ray-Core</a></p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="ios">iOS<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#ios" class="hash-link" aria-label="iOS的直接連結" title="iOS的直接連結">​</a></h4>
-<p>中國區的捧油,請去找有沒有善心人士的美區帳號用一下就好了....</p>]]></content>
-        <category label="V2ray" term="V2ray"/>
-        <category label="VPN" term="VPN"/>
+</li>
+<li>Docker用法<!-- -->
+<ul>
+<li>基本語法</li>
+<li>Docker的活用方式</li>
+</ul>
+</li>
+<li>我到底要整合哪些服務在家裡跑</li>
+</ul>
+<h1>結語</h1>
+<p>其實最後的問題才是最大的問題,最近弄了Nextcloud但是覺得很雞肋,感覺用不太到,想說建一個Airsonic來當作音樂串流又覺得動力沒那麼大(這個主要是Nextcloud Music雖然可以用但是感覺一下子就卡住),抑或是來架設Emby(感覺也用不太到,因為現在大多數都是直接上串流平台)架設Calibre-web好像有搞頭一點但是這個也牽扯到後續要整理一大堆的電子書...想到就很累...</p>]]></content>
+        <category label="Server" term="Server"/>
+        <category label="Life" term="Life"/>
         <category label="Archive" term="Archive"/>
         <category label="Old-Blog" term="Old-Blog"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[近日幾點tmux, nextcloud]]></title>
+        <id>https://kiwi0093.github.io/Public-Wiki/2021/06/tmux+nextcloud</id>
+        <link href="https://kiwi0093.github.io/Public-Wiki/2021/06/tmux+nextcloud"/>
+        <updated>2021-06-24T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[一個薪水小偷趁著WFH的休閒活動]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
+</blockquote>
+<p>最近都在Work From Home,於是可以花一點時間假借工作之名,實則弄一點有意思的玩具</p>
+<p>所以我把家裡的Server進一步的整理過一遍(之前是應急恢復,現在是以擴充之名行娛樂之實)</p>
+<!-- -->
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="tmux">Tmux<a href="https://kiwi0093.github.io/Public-Wiki/2021/06/tmux+nextcloud#tmux" class="hash-link" aria-label="Tmux的直接連結" title="Tmux的直接連結">​</a></h2>
+<p>老實說這是我在看Youtube的時候發現這玩意的(你看多廢,還得逛Youtube才知道有tmux).</p>
+<p>現在就已經成為我的標準配備(用來取代screen)</p>
+<p>這玩意支援powerline,但是蠻雞肋的在X環境下powerline才有用(至少我還沒找到console下powerline可以正確顯示相關字體的方法)</p>
+<p>不過講是這樣講,功能還是比screen稍微強一些,所以我就開始過度到tmux去了</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="nextcloud">Nextcloud<a href="https://kiwi0093.github.io/Public-Wiki/2021/06/tmux+nextcloud#nextcloud" class="hash-link" aria-label="Nextcloud的直接連結" title="Nextcloud的直接連結">​</a></h2>
+<p>這個就有點冷飯新炒...之前還在蘇州的時候其實就玩過了,但是其實當時不是很好用(老實說現在也沒好用到哪去...)</p>
+<p>不過這次倒是對於Nextcloud-Apps感到有趣</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="nextcloud-music">Nextcloud Music<a href="https://kiwi0093.github.io/Public-Wiki/2021/06/tmux+nextcloud#nextcloud-music" class="hash-link" aria-label="Nextcloud Music的直接連結" title="Nextcloud Music的直接連結">​</a></h4>
+<p>這個App的基本功能就是在網頁下可以直接撥放Nextcloud folder裡的音樂,並且同時在建立成媒體庫後可以串流出去</p>
+<p>搭配subsonic系列的apps(如<a href="https://play.google.com/store/apps/details?id=org.moire.ultrasonic&amp;hl=zh_TW&amp;gl=US" target="_blank" rel="noopener noreferrer">Ultrasonic</a>)就可以串流撥放,還支援封面等功能算是一個不用emby也可以使用的媒體Server</p>
+<p>(不過要是只剩下這個功能有用,那我可能還是會去找其他的串流server來使用)</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="nextcloud-deck">Nextcloud Deck<a href="https://kiwi0093.github.io/Public-Wiki/2021/06/tmux+nextcloud#nextcloud-deck" class="hash-link" aria-label="Nextcloud Deck的直接連結" title="Nextcloud Deck的直接連結">​</a></h4>
+<p>這就是一個Deck程式,說真的是沒有什麼google的替代方案所以我才用的(其實我是想要有免費的Milanote可以用...)</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="docker">Docker<a href="https://kiwi0093.github.io/Public-Wiki/2021/06/tmux+nextcloud#docker" class="hash-link" aria-label="Docker的直接連結" title="Docker的直接連結">​</a></h2>
+<p>這個也是不陌生的東西,但是老實說我一直沒有花時間去好好用過Docker,因為我都是用VMware ESXi直接架VM來用,很少會一台機器上跑好幾個docker的形式處理</p>
+<p>但是現在docker也越來越方便,很多東西都可以直接弄個Image跑起來就好,省的安裝跟設定</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="webtop"><a href="https://docs.linuxserver.io/images/docker-webtop" target="_blank" rel="noopener noreferrer">Webtop</a><a href="https://kiwi0093.github.io/Public-Wiki/2021/06/tmux+nextcloud#webtop" class="hash-link" aria-label="webtop的直接連結" title="webtop的直接連結">​</a></h4>
+<p>老實說這是一個看起來很炫,聽起來很炫,但是真的要用我還真找不到用途的東西....</p>
+<p>簡單的說就是用Browser就可以遠端跑DE的東西,目前支援Alpine/Ubuntu的Xfce/KDE/mate/iceWM/i3/Openbox(沒有我喜歡的Manjaro..=-=!!)</p>
+<p>聽起來好像還不錯對吧,但是你都有Browser可以用代表你在GUI環境,然後要開另一個DE來使用...除了架好給公司電腦什麼都鎖死的機器可以利用browser逃出去</p>
+<p>享受自由空氣以外,我還真沒想到能幹嘛</p>
+<h1>結語</h1>
+<p>其實就是在家工作很無聊,既不能玩遊戲,又不能專心工作,所以就會無聊到去找其他可以打斷的東西來試試</p>]]></content>
+        <category label="Life" term="Life"/>
+        <category label="Archive" term="Archive"/>
+        <category label="Old-Blog" term="Old-Blog"/>
+        <category label="Linux" term="Linux"/>
+        <category label="Server" term="Server"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[雜談]]></title>
@@ -138,7 +198,7 @@
 <p><a href="https://fydeos.com/" target="_blank" rel="noopener noreferrer">官方網頁</a></p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="安裝方式">安裝方式<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/fyde+os#%E5%AE%89%E8%A3%9D%E6%96%B9%E5%BC%8F" class="hash-link" aria-label="安裝方式的直接連結" title="安裝方式的直接連結">​</a></h3>
 <p>只要在<a href="https://fydeos.com/download" target="_blank" rel="noopener noreferrer">下載頁面</a>下載對應機種的Image檔,然後用<a href="https://www.balena.io/etcher/" target="_blank" rel="noopener noreferrer">Etcher</a>刷進USB裡用USB開機跑完安裝程式就算裝完了..</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="使用心得">使用心得<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/fyde+os#%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97" class="hash-link" aria-label="使用心得的��直接連結" title="使用心得的直接連結">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="使用心得">使用心得<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/fyde+os#%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97" class="hash-link" aria-label="使用心得的直接連結" title="使用心得的直接連結">​</a></h3>
 <p>目前確認過可以安裝ChromeOS的程式,可以安裝Google play, 可以透過Google Play/豌豆莢/單獨的APK進行Android程式安裝,基本驅動也是ok的,正由機器的主人在做更進一步的使用體驗（看看容不容易掛掉或是什麼亂七八糟的問題...)目前已知若是很激烈的使用Touch Panel的話會導致Touch panel的驅動崩潰而無法使用Touch panel....所以要用這個玩Android遊戲的朋友還是去弄個藍芽把手吧...</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="不負責推論">不負責推論<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/fyde+os#%E4%B8%8D%E8%B2%A0%E8%B2%AC%E6%8E%A8%E8%AB%96" class="hash-link" aria-label="不負責推論的直接連結" title="不負責推論的直接連結">​</a></h2>
 <p>因為我在fydeos的Github專案上看到anbox_fyde,所以我推測這個FydeOS應該是用anbox來跑他所謂的android子系統,若是這樣過一段時間我也會找台VM在上面弄個Manjaro+anbox來試試看是不是Linux+anbox的效果都這麼好...</p>
@@ -424,6 +484,55 @@ Built-in Bluetooth™ V4.0+HS</p>
         <category label="Old-Blog" term="Old-Blog"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[梯子,後篇...]]></title>
+        <id>https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2</id>
+        <link href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2"/>
+        <updated>2020-12-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[V2Ray改Vless及其擴充]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
+</blockquote>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="現況說明">現況說明<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E7%8F%BE%E6%B3%81%E8%AA%AA%E6%98%8E" class="hash-link" aria-label="現況說明的直接連結" title="現況說明的直接連結">​</a></h2>
+<p>這幾天勸敗了幾台新的RackNerd的VPS後,著實的好好練習了V2ray 4.33的安裝..(截至今天一共弄了四台新的加兩台update),但是除了名下的機器外,看著我的CF裡的DNS列表...還是有在我的DN下的別人家的機器,其實是該幫人家升級的...</p>
+<!-- -->
+<p>因為討人厭的是</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="不是每個43x的client都跟42x的server相容"><em>不是每個4.3x的Client都跟4.2x的Server相容</em><a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E4%B8%8D%E6%98%AF%E6%AF%8F%E5%80%8B43x%E7%9A%84client%E9%83%BD%E8%B7%9F42x%E7%9A%84server%E7%9B%B8%E5%AE%B9" class="hash-link" aria-label="不是每個43x的client都跟42x的server相容的直接連結" title="不是每個43x的client都跟42x的server相容的直接連結">​</a></h2>
+<p>所以要就得一口氣連同Client一起升一下不然很容易出悲劇...</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="升級">升級<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E5%8D%87%E7%B4%9A" class="hash-link" aria-label="升級的直接連結" title="升級的直接連結">​</a></h2>
+<p>其實依照我的尿性,不過就是VPS,上面也沒什麼重要的東西..保留一下<strong>V2Ray</strong>的<strong>config.json</strong>裡的內容,然後直接選<strong>reinstall</strong>一切重來可能還比較省事...不過既然有不是我可以隨便<strong>reinstall</strong>的VPS那還是來弄個複雜版的升級好了....</p>
+<p>你說為什麼技術性的東西不抄來放在Wiki裡?這種一次性的東西做完就可以忘記的東西為什麼要放在Wiki裡面??</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="升級細節">升級細節<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E5%8D%87%E7%B4%9A%E7%B4%B0%E7%AF%80" class="hash-link" aria-label="升級細節的直接連結" title="升級細節的直接連結">​</a></h3>
+<p>簡單的說他的流程就是</p>
+<ul>
+<li>把systemd裡面的service停掉並且disable</li>
+<li>用rm把之前裝的Bin等東西都砍掉</li>
+<li>用mv把設定檔從原來預設的*/etc/v2ray/<em>挪到</em>/usr/local/etc/v2ray/*至於為什麼要換位置?我猜可能是<del>中了FreeBSD的魅惑</del>想把v2ray的設定跟系統的主設定位置分開</li>
+<li>用新的script安裝(若是不想變更預設位置就要手工修改script,但是這樣要放進crontab裡面就麻煩了耶~~)</li>
+<li>enable v2ray.service</li>
+<li>V2ray.service跑起來就可以收工了</li>
+</ul>
+<p>若是要改用<strong>VLESS</strong>的話就再加上增加v2ray帳號,處理certbot的key(或是用其他方式弄Key也可以只不過我還不會)最後再改一下config.json的內容就可以了</p>
+<p>詳細的作法,算是<a href="https://github.com/v2fly/fhs-install-v2ray/wiki/Migrate-from-the-old-script-to-this" target="_blank" rel="noopener noreferrer">官方文件</a>裡面寫得很清楚</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="若是你的server使用的是archlinux">若是你的Server使用的是Archlinux....<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E8%8B%A5%E6%98%AF%E4%BD%A0%E7%9A%84server%E4%BD%BF%E7%94%A8%E7%9A%84%E6%98%AFarchlinux" class="hash-link" aria-label="若是你的Server使用的是Archlinux....的直接連結" title="若是你的Server使用的是Archlinux....的直接連結">​</a></h4>
+<p>那就只要來一行</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">pacman -Syu</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>你的V2ray就會升級到最新....什麼屁事沒有..超輕鬆的....</p>
+<p>真的很討厭為什麼VPS的OS預設都沒有arch可以選...煩死了</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="client-選用">Client 選用<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#client-%E9%81%B8%E7%94%A8" class="hash-link" aria-label="Client 選用的直接連結" title="Client 選用的直接連結">​</a></h2>
+<p>Client的部分,老實說我用得最兇的是Archlinux下的V2ray,相容性最好(因為跟Server是一模一樣的程式),穩定性也高,不過就如同之前講過,還是會考慮一下其他的client</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="android">Android<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#android" class="hash-link" aria-label="Android的直接連結" title="Android的直接連結">​</a></h4>
+<p>最近真的是迷上了<strong>V2RayNG</strong>不過這個也是我目前遇到4.33的core連不上4.23的Server的唯一一個Client....最新改版之前的那一版(1.33)與現在最新改過的對於VLESS的支援性以及速度上真的有差,可能未來會變成Server的 V2Ray-Core升級了這個就得馬上跟著升級才會順.....(我希望不會是這樣...)</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="windows">Windows<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#windows" class="hash-link" aria-label="Windows的直接連結" title="Windows的直接連結">​</a></h4>
+<p>因為Linux Desktop下我都是用QV2Ray+V2Ray-Core所以用起來很順暢,沒什麼問題,不過Windows下就<del>得換一下了</del>一樣用QV2ray就好了...(這玩意是跨平台的..WIndows/Linux/MacOS都通吃)</p>
+<p>下載位置<a href="https://github.com/Qv2ray/Qv2ray/releases" target="_blank" rel="noopener noreferrer">QV2Ray</a>,搭配服用的<a href="https://github.com/v2fly/v2ray-core/releases" target="_blank" rel="noopener noreferrer">V2Ray-Core</a></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="ios">iOS<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#ios" class="hash-link" aria-label="iOS的直接連結" title="iOS的直接連結">​</a></h4>
+<p>中國區的捧油,請去找有沒有善心人士的美區帳號用一下就好了....</p>]]></content>
+        <category label="V2ray" term="V2ray"/>
+        <category label="VPN" term="VPN"/>
+        <category label="Archive" term="Archive"/>
+        <category label="Old-Blog" term="Old-Blog"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[梯子,與其附屬]]></title>
         <id>https://kiwi0093.github.io/Public-Wiki/2020/11/ladder-for-GFW</id>
         <link href="https://kiwi0093.github.io/Public-Wiki/2020/11/ladder-for-GFW"/>
@@ -439,13 +548,13 @@ Built-in Bluetooth™ V4.0+HS</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="動機">動機<a href="https://kiwi0093.github.io/Public-Wiki/2020/11/ladder-for-GFW#%E5%8B%95%E6%A9%9F" class="hash-link" aria-label="動機的直接連結" title="動機的直接連結">​</a></h3>
 <p>雖然知道VLESS是由於VMESS有問題會被100%偵測到,但是由於手上的梯子們都是採用WS+TLS架構所以其實也沒那麼危險(要說這樣危險的話那VLESS不也是一樣危險..)所以也不是有必要非上VLESS不可,不過看了一些強國人的推薦看似VLESS效率變好很多(把原來VMESS裡面的加密,認證等東西都拔掉了理論上當然會變快)</p>
 <p>所以一時忍不住....(衝動購物的典範)</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="差異">差異<a href="https://kiwi0093.github.io/Public-Wiki/2020/11/ladder-for-GFW#%E5%B7%AE%E7%95%B0" class="hash-link" aria-label="差異的直接連結" title="差異的直接連結">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="差異">差異<a href="https://kiwi0093.github.io/Public-Wiki/2020/11/ladder-for-GFW#%E5%B7%AE%E7%95%B0" class="hash-link" aria-label="差異的�直接連結" title="差異的直接連結">​</a></h3>
 <p>在使用VMESS+WS+TLS的時候,基本上嫌麻煩所以都是建議用Caddy來處理WS+TLS的部份,不過VLESS的設定上因為要把TLS包進V2Ray裡面,所以會需要定義SSL KEY的位置,所以Caddy原來便利的自動處理SSL認證這部份就變成一個問題(其實應該不會是個問題,只不過因為他是自動的所以還得去找他的Key放哪,還得自己確認一下)加上Caddy v2的設定檔相較V1變得複雜,設定邏輯與相關資料也沒有Nginx或Apache那麼的熟悉(說來說去還是受限於自身的能力.....)</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="驗證平台">驗證平台<a href="https://kiwi0093.github.io/Public-Wiki/2020/11/ladder-for-GFW#%E9%A9%97%E8%AD%89%E5%B9%B3%E5%8F%B0" class="hash-link" aria-label="驗證平台的直接連結" title="驗證平台的直接連結">​</a></h3>
 <p>因為Caddy不再被需要所以有著莫名其妙習性的我,自然會想要重裝整個系統來取代解除安裝等相關動作(我覺得某程度上也是VM慣壞的習慣,懶的大改的時候就重裝)所以一開始在動家裡那台用來跑備援V2ray的Archlinux上,加上我最近在重寫Archlinux的自動安裝script,就一時腦子熱的一邊重裝一邊進行script的debug(講到這裡不得不說,安裝的過程又稍微改過了導致script一些核心部份只能重寫很討厭...)所以前天的時候主要的時間幾乎都在script的調整跟重裝系統中度過...</p>
 <p>後來入手RackNerd的時候就剛好趁這個機會直接上了,這些VPS基本上都是跑Debian/Ubuntu或是CentOS系的OS,沒有我喜歡用的Archlinux....</p>
 <p>看了看網上的一些教學感覺用Archhlinux可能還比較簡單一點,最起碼pacman就可以搞定安裝不用另外跑script,也不用去改crontab來自動更新(講到這裡,其他的VPS的自動更新基本都失效了,因為變更了安裝的script路徑)</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="server端的感想">Server端的感想<a href="https://kiwi0093.github.io/Public-Wiki/2020/11/ladder-for-GFW#server%E7%AB%AF%E7%9A%84%E6%84%9F%E6%83%B3" class="hash-link" aria-label="Server端的感想的直接連結" title="Server端的感想的直接連結">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="server端的感想">Server端的感想<a href="https://kiwi0093.github.io/Public-Wiki/2020/11/ladder-for-GFW#server%E7%AB%AF%E7%9A%84%E6%84%9F%E6%83%B3" class="hash-link" aria-label="Server端的感想的�直接連結" title="Server端的感想的直接連結">​</a></h3>
 <p>因為V2ray可以自己跑WS+TLS的部份處理所以本來很天真的覺得安裝的時候不用再裝上nginx或是apache,不過事後想想還是裝上比較好進行certbot的SSL Key處理就還是裝了...</p>
 <p>不過總體來說只要V2ray設定好就可以不用開啟Nginx/Apache也可以進行ws的功能這點倒是蠻省心的,畢竟可以少弄一個Web Server的設定,不過結論上應該還是得把Web Server設定弄一下不然他的fallback可能會有問題</p>
 <p>看得出來這個趨勢符合V2ray團隊的想法,從一開始V2ray就沒打算只是一個socks server, 他們想要的比較像是一個擁有全面擴充性的網路管理大雜燴,裡面有DNS, Routing Table, 通訊的協定與加密等等要是說哪天他裡面也會包括web server的完整模組而非只是單純WS功能大概我也不會覺得很稀奇吧</p>
@@ -499,6 +608,30 @@ Built-in Bluetooth™ V4.0+HS</p>
 <p>還是肉身翻牆或是物理翻牆比較實在</p>]]></content>
         <category label="V2ray" term="V2ray"/>
         <category label="VPN" term="VPN"/>
+        <category label="Old-Blog" term="Old-Blog"/>
+        <category label="Archive" term="Archive"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Note taking tools]]></title>
+        <id>https://kiwi0093.github.io/Public-Wiki/2020/11/note-taking-tools</id>
+        <link href="https://kiwi0093.github.io/Public-Wiki/2020/11/note-taking-tools"/>
+        <updated>2020-11-16T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[記筆記的工具]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
+</blockquote>
+<p>搭建好了Blog&amp;Wiki接下來就該是開始時常寫一點習慣養成,以及一些相關工具的蒐集與使用方式打磨</p>
+<!-- -->
+<p>使用的工具方面目前已經有Typora這個好用又漂亮,加上又是跨平台的Markdown Editor,相關的細部我後面會在Wiki裡面建立條目(這算是挖坑給自己跳嗎?)</p>
+<p>但是總感覺似乎少了什麼,多方追尋(大概花了五分鐘...)找到一個chrome extension的web clipper</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="maoxian-web-clipperchrome-store的link"><a href="https://mika-cn.github.io/maoxian-web-clipper/index-zh-CN.html" target="_blank" rel="noopener noreferrer">MaoXian Web Clipper</a>:<a href="https://chrome.google.com/webstore/detail/maoxian-web-clipper/kjahokgdcbohofgdidndeiaigkehdjdc/related" target="_blank" rel="noopener noreferrer">Chrome store的Link</a><a href="https://kiwi0093.github.io/Public-Wiki/2020/11/note-taking-tools#maoxian-web-clipperchrome-store%E7%9A%84link" class="hash-link" aria-label="maoxian-web-clipperchrome-store的link的直接連結" title="maoxian-web-clipperchrome-store的link的直接連結">​</a></h4>
+<p>不過我自己都還在摸索中,除了軟體本身的使用方法以外,還有就是怎麼跟未來打算要有的習慣進行磨合</p>
+<p>大叔現在也是兩個小朋友的爸爸(幹話開始了..=_=!)</p>
+<p>也會想以後在小朋友面前耍帥的說老爸我也是有良好的習慣做了一些個人知識庫呢(翹鼻子~~)</p>
+<p>所以就趁現在單身赴任有時間的時候能持之以恆的寫就盡量寫吧...</p>]]></content>
+        <category label="Life" term="Life"/>
+        <category label="Tools" term="Tools"/>
+        <category label="web" term="web"/>
         <category label="Old-Blog" term="Old-Blog"/>
         <category label="Archive" term="Archive"/>
     </entry>
@@ -608,7 +741,7 @@ Built-in Bluetooth™ V4.0+HS</p>
 <ul>
 <li>Windows</li>
 </ul>
-<div class="language-r codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-r codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">#Powershell as Administrator with Chocolatey</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">choco upgrade goggalaxy -y</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<div class="language-r codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-r codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">#Powershell as Administrator with Chocolatey</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">choco upgrade goggalaxy -y</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製�代碼至剪貼簿" title="複製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
 <p>這是GOG版的<del>Steam</del>遊戲download/Install管理程式,GOG最大的好處就是DRM free,不過一般的玩家應該沒太多感覺,簡單的說就是版權保護沒有那麼嚴格,所以很方便拿來玩就遊戲(阿都叫Good Old Game了)</p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="lutris---linux"><img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/lutris_logo.jpg" style="width:50%"><a href="https://lutris.net/" target="_blank" rel="noopener noreferrer">Lutris</a> - Linux<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/windows-linux-tools#lutris---linux" class="hash-link" aria-label="lutris---linux的直接連結" title="lutris---linux的直接連結">​</a></h4>
 <ul>
@@ -642,7 +775,7 @@ Built-in Bluetooth™ V4.0+HS</p>
 <p>不是畫面rendering送出來而是直接輸出到client,一台Server可以多個Client跑不同的東西那就太棒啦(繼續幻想吧)</p>
 <p>PS<!-- -->:AMD<!-- -->也搞了一個AMD Link應該也是可以這樣搞的只不過大叔還沒試過</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="network">Network<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/windows-linux-tools#network" class="hash-link" aria-label="Network的直接連結" title="Network的直接連結">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="browser">Browser<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/windows-linux-tools#browser" class="hash-link" aria-label="Browser的直接連結" title="Browser的直接連結">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="browser">Browser<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/windows-linux-tools#browser" class="hash-link" aria-label="Browser的直接連結" title="Browser��的直接連結">​</a></h3>
 <p><img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/brave-logo.png" alt="brave-logo" style="width:40%"><a href="https://brave.com/" target="_blank" rel="noopener noreferrer">Brave Browser</a> - Windows &amp; Linux &amp; Android</p>
 <ul>
 <li>Windows安裝方法</li>
@@ -712,7 +845,7 @@ Built-in Bluetooth™ V4.0+HS</p>
 </ul>
 <div class="language-r codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-r codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">yay -S remmina</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
 <p>要使用RDP請裝上</p>
-<div class="language-r codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-r codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">yay -S freerdp</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<div class="language-r codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-r codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">yay -S freerdp</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複�製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
 <p>算是在Linux下想走RDP的好工具,因為大叔不是很喜歡Teamviewer/VNC之類要走其他特殊protocol的Remote Desktop程式,所以喜歡用RDP(Windows下就直接用內建的RDP程式),這個似乎可以不需開Putty就直接開SSH Tunnel但是大叔沒有成功試過</p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="teamviewer---windows--linux"><img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/teamviewer_logo.jpg" style="width:50%"><a href="https://www.teamviewer.com/en/" target="_blank" rel="noopener noreferrer">Teamviewer</a> - Windows &amp; Linux<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/windows-linux-tools#teamviewer---windows--linux" class="hash-link" aria-label="teamviewer---windows--linux的直接連結" title="teamviewer---windows--linux的直接連結">​</a></h4>
 <ul>
@@ -1120,7 +1253,7 @@ Built-in Bluetooth™ V4.0+HS</p>
 <p>按下去就裝完了,沒有辦法上Google play的同學你就想辦法弄到apk安裝囉可以利用Windows環境下的V2ray環境設定proxy讓手機/平板連上再安裝囉</p>
 <p>至於手機上沒有google play的同學....那有機會開坑再說吧</p>
 <p>使用請參考<a href="https://ssr.tools/342" target="_blank" rel="noopener noreferrer">強國高手寫的網頁</a></p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="shadowrocket---ios"><img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/246x0w.png" alt="246x0w" style="width:33%"><a href="https://apps.apple.com/jp/app/shadowrocket/id932747118" target="_blank" rel="noopener noreferrer">Shadowrocket</a> - iOS<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/v2ray-server-setup#shadowrocket---ios" class="hash-link" aria-label="shadowrocket---ios的直��接連結" title="shadowrocket---ios的直接連結">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="shadowrocket---ios"><img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/246x0w.png" alt="246x0w" style="width:33%"><a href="https://apps.apple.com/jp/app/shadowrocket/id932747118" target="_blank" rel="noopener noreferrer">Shadowrocket</a> - iOS<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/v2ray-server-setup#shadowrocket---ios" class="hash-link" aria-label="shadowrocket---ios的直接連結" title="shadowrocket---ios的直接連結">​</a></h3>
 <p>只要不是中國apple store帳號的捧油,應該都可以直接在app store上購買這個軟體(沒錯這是唯一一個要錢的,不過會用iPhone的人基本上都不差這點錢)</p>
 <p>但是中國的捧油在沒有辦法的情況下只能<a href="https://shadowsockshelp.github.io/ios/" target="_blank" rel="noopener noreferrer"><del>用這種旁門左道</del>依靠這種好心人士</a>不過好心人的方法很容易衍生其他安裝問題大叔不是專家沒辦法一一解決</p>
 <p>只能靠你們這些求道者去感悟怎麼處理了...</p>
@@ -1142,7 +1275,6 @@ Built-in Bluetooth™ V4.0+HS</p>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
 </blockquote>
 <p>日前看了<a href="https://www.youtube.com/user/homergfunk/featured" target="_blank" rel="noopener noreferrer">CTT</a>的Youtube頻道,發現了Hugo+Github或是Hugo+Netlify的選項也很適合拿來做BLog,考慮到Blogger的編輯模式真的不是那麼先進以及大叔我賣力想轉向Markdown的語法的努力,從這篇開始大叔打算把自己這個沒人看的Blog從Blogger移到github順便學習一下時髦的git方式來管理我的Blog</p>
-<!-- -->
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="事前準備">事前準備<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/hugo+github#%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99" class="hash-link" aria-label="事前準備的直接連結" title="事前準備的直接連結">​</a></h2>
 <p>新的Blog需要用到以下工具</p>
 <ul>
@@ -1201,7 +1333,7 @@ Built-in Bluetooth™ V4.0+HS</p>
 <p>記得依照提示上去看一下還有沒有要調整的沒有就要正式扔上github囉</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="自動deploy-script">自動deploy script<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/hugo+github#%E8%87%AA%E5%8B%95deploy-script" class="hash-link" aria-label="自動deploy script的直接連結" title="自動deploy script的直接連結">​</a></h3>
 <p>這個部份官方的建議script還有手動輸入commit的部份時常容易忘記,這裡採用[chanmitsu55氏]的版本,等於只是update時間在後面</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">#!/bin/bash</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># Build the project.我們已經在config.toml裡定義了theme所以簡單的hugo就夠了</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">hugo</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># Go To Public folder</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">cd public</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># Add changes to git.</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">git add .</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># Commit changes.</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">msg="rebuilding site `date`"</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">   if [ $# -eq 1 ]</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">   then msg="$1"</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">   fi</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">git commit -m "$msg"</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># Push source and build repos.</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">git push origin master</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># Come Back up to the Project Root</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">cd ..</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># Commit source repository changes</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">git add .</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">git commit -m "$msg"</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">git push</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複��製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">#!/bin/bash</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># Build the project.我們已經在config.toml裡定義了theme所以簡單的hugo就夠了</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">hugo</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># Go To Public folder</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">cd public</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># Add changes to git.</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">git add .</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># Commit changes.</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">msg="rebuilding site `date`"</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">   if [ $# -eq 1 ]</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">   then msg="$1"</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">   fi</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">git commit -m "$msg"</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># Push source and build repos.</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">git push origin master</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># Come Back up to the Project Root</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">cd ..</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># Commit source repository changes</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">git add .</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">git commit -m "$msg"</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">git push</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
 <p>我不喜歡直接做成執行檔,所以我會把上述內容寫在deploy.sh裡面用下面指令跑</p>
 <p><code>sh ./deploy.sh</code></p>
 <p>過程中會要求輸入github的帳號密碼兩次,分別是push Blog跟Public用的不要打錯了</p>

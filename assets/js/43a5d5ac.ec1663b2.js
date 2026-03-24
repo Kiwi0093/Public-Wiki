@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkkiwi_wiki=self.webpackChunkkiwi_wiki||[]).push([[5735],{7522(i){i.exports=JSON.parse('{"label":"Archive","permalink":"/Public-Wiki/tags/archive","allTagsPath":"/Public-Wiki/tags","count":19,"unlisted":false}')}}]);
