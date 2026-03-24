@@ -34,5 +34,5 @@ description: 用Docker架設Calibre-web跟navidrome
 
 # <font color="#800000">電子書&Kindle</font>
 
-不得不說要蒐集日輕的epub檔真的需要<ruby style="color:"><del>偉大祖國 aka.天朝</del><rt style="color:orange">海峽對岸的鄰國</rt></ruby>同好的熱情與分享,找了一圈都是簡體的書,並且都是在簡體的網站上,令人感嘆現在對岸的ACG文化比<ruby style="color:"><del>這個又小又老又窮的小島</del><rt style="color:orange">偉大的台灣</rt></ruby>來的興盛了(雖然講的難聽點就是盜版的還是很兇,不過既然自己也去拿這些東西就不要在那裏講什麼正論的屁話...)
+不得不說要蒐集日輕的epub檔真的需要<ruby >~~偉大祖國 aka.天朝~~<rt style="color:orange">海峽對岸的鄰國</rt></ruby>同好的熱情與分享,找了一圈都是簡體的書,並且都是在簡體的網站上,令人感嘆現在對岸的ACG文化比<ruby >~~這個又小又老又窮的小島~~<rt style="color:orange">偉大的台灣</rt></ruby>來的興盛了(雖然講的難聽點就是盜版的還是很兇,不過既然自己也去拿這些東西就不要在那裏講什麼正論的屁話...)
 

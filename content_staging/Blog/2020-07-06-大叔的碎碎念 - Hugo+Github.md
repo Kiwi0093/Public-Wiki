@@ -14,7 +14,6 @@ slug: 2020/07/hugo+github
 
 日前看了[CTT](https://www.youtube.com/user/homergfunk/featured)的Youtube頻道,發現了Hugo+Github或是Hugo+Netlify的選項也很適合拿來做BLog,考慮到Blogger的編輯模式真的不是那麼先進以及大叔我賣力想轉向Markdown的語法的努力,從這篇開始大叔打算把自己這個沒人看的Blog從Blogger移到github順便學習一下時髦的git方式來管理我的Blog
 
-{/* 這裡插入切分線 */}
 <!--truncate-->
 
 ## 事前準備
