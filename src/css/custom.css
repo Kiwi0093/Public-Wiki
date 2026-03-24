@@ -1,159 +1,98 @@
+/**
+ * Kiwi Wiki - NexT Minimalist Theme Custom CSS
+ * 整合了時間軸歸檔、文章卡片化、以及 Ruby 優化
+ */
+
 :root {
   --ifm-color-primary: #25c2a0;
-  --timeline-line-color: rgba(255, 255, 255, 0.2);
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5af;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  
+  /* 時間軸專用變數 */
+  --timeline-line-color: rgba(255, 255, 255, 0.15);
   --timeline-node-color: #bbb;
+  --timeline-node-hover: #25c2a0;
+}
+
+/* 深色模式微調 */
+[data-theme='dark'] {
+  --timeline-line-color: rgba(255, 255, 255, 0.1);
 }
 
 /* ============================================================
-   NexT Minimalist Style (精準打擊 Blog 頁面)
+   1. NexT 簡約文章清單 (Blog List & Post)
    ============================================================ */
 
-/* 1. 將文章容器改為「深色卡片」 */
+/* 文章容器：深色微透卡片感 */
 .theme-blog-post-page main article,
 .theme-blog-list-page main article {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 30px;
-  margin-bottom: 40px;
-  border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 40px;
+  margin-bottom: 50px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s ease;
 }
 
-/* 2. 標題風格：置中 */
+.theme-blog-list-page main article:hover {
+  border-color: rgba(37, 194, 160, 0.4);
+}
+
+/* 標題置中 (NexT 特色) */
 .theme-blog-post-page h1,
 .theme-blog-list-page h1 {
   text-align: center;
-  font-weight: 500;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+/* Meta 資訊 (日期、標籤) 置中 */
+.theme-blog-post-page [class*='metadata'],
+.theme-blog-list-page [class*='metadata'],
+.margin-vert--md {
+  text-align: center;
+  color: #888;
   margin-bottom: 20px;
 }
 
-/* 3. 文章元數據 (日期、標籤) 置中 */
-.theme-blog-post-page .margin-vert--md,
-.theme-blog-list-page .margin-vert--md {
-  text-align: center;
-  color: #888;
-  font-size: 0.9em;
-}
-
-/* 4. 閱讀更多按鈕：NexT 特有的細線框 */
-.theme-blog-list-page .button--primary {
+/* 閱讀更多按鈕：細線框風格 */
+.theme-blog-list-page a.button--primary {
   display: block;
   width: fit-content;
-  margin: 20px auto 0;
-  background-color: transparent;
-  color: var(--ifm-color-primary);
-  border: 1px solid var(--ifm-color-primary);
-  transition: all 0.3s ease;
-  padding: 8px 20px;
+  margin: 30px auto 0;
+  background-color: transparent !important;
+  color: var(--ifm-color-primary) !important;
+  border: 1px solid var(--ifm-color-primary) !important;
+  border-radius: 2px;
+  padding: 6px 20px;
+  font-weight: 400;
 }
 
-.theme-blog-list-page .button--primary:hover {
-  background-color: var(--ifm-color-primary);
-  color: #fff;
-  text-decoration: none;
-}
-
-/* ============================================================
-   Archive 頁面：時間軸效果 (Timeline)
-   ============================================================ */
-
-/* 讓 Archive 容器出現左側垂直線 */
-.blog-archive-page main > .container > .margin-vert--xl > ul {
-  position: relative;
-  list-style: none;
-  padding-left: 2rem;
-  margin-left: 1rem;
-  border-left: 2px solid var(--timeline-line-color);
-}
-
-/* 年份標題 樣式 */
-.blog-archive-page h2 {
-  position: relative;
-  margin-left: -3.2rem;
-  margin-bottom: 1.5rem;
-  padding-left: 2rem;
-  color: var(--ifm-color-primary);
-}
-
-/* 年份旁邊的大圓點 */
-.blog-archive-page h2::before {
-  content: "";
-  position: absolute;
-  left: 0.85rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 14px;
-  height: 14px;
-  background-color: var(--ifm-color-primary);
-  border: 3px solid var(--ifm-background-color);
-  border-radius: 50%;
-  z-index: 2;
-}
-
-/* 每篇文章項目 */
-.blog-archive-page li {
-  position: relative;
-  margin-bottom: 0;
-  padding: 15px 0;
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
-}
-
-.blog-archive-page li:last-child {
-  border-bottom: none;
-}
-
-/* 文章左側的小圓點 */
-.blog-archive-page li::before {
-  content: "";
-  position: absolute;
-  left: -2.35rem; 
-  top: 1.5rem;
-  width: 8px;
-  height: 8px;
-  background-color: var(--timeline-node-color);
-  border-radius: 50%;
-  border: 2px solid var(--ifm-background-color);
-  z-index: 1;
-  transition: all 0.2s ease;
-}
-
-.blog-archive-page li:hover::before {
-  background-color: var(--ifm-color-primary);
-  box-shadow: 0 0 8px var(--ifm-color-primary);
-}
-
-/* 文章日期與連結 - 修正了括號閉合問題 */
-.blog-archive-page li time {
-  font-family: monospace;
-  margin-right: 15px;
-  color: #777;
-}
-
-.blog-archive-page li a {
-  color: var(--ifm-font-color-base);
-  text-decoration: none !important;
-}
-
-.blog-archive-page li a:hover {
-  color: var(--ifm-color-primary);
+.theme-blog-list-page a.button--primary:hover {
+  background-color: var(--ifm-color-primary) !important;
+  color: #fff !important;
 }
 
 /* ============================================================
-   Ruby 註音符號優化
+   2. Archive 歸檔頁面：垂直時間軸 (Timeline)
    ============================================================ */
-ruby {
-  ruby-align: center;
-  margin: 0 2px;
+
+/* 抓取所有包含 archive 字眼的頁面容器 */
+[class*='archive'] main .container {
+  max-width: 900px;
 }
 
-rt {
-  font-family: var(--ifm-font-family-base);
-  user-select: none;
-  color: orange;
-  font-size: 0.75em;
+/* 建立垂直主線 */
+[class*='archive'] main .container ul {
+  position: relative;
+  list-style: none !important;
+  padding-left: 2rem !important;
+  margin-left: 1.5rem !important;
+  border-left: 2px solid var(--timeline-line-color) !important;
 }
 
-/* --- 容器寬度調整 --- */
-.container {
-  max-width: 1000px;
-}
+/* 年份標題 (h2)
