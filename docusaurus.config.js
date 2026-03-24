@@ -55,13 +55,13 @@ const config = {
         {
           to: '/tags',
           label: 'Tags',
-          position: 'left'
+          position: 'left',
         },
         {
           {
           to: '/archive',
           label: 'Archives',
-          position: 'left'},
+          position: 'left',
         },
         {
           type: 'docSidebar',
