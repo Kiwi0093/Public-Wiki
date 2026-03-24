@@ -5,7 +5,7 @@ const config = {
   title: 'Kiwi Reich',
   tagline: '大叔的自言自語',
   url: 'https://kiwi0093.github.io', 
-  baseUrl: '/Public-Wiki/',         
+  baseUrl: '/Public-Wiki/',          
   onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'ignore',
   
@@ -21,11 +21,8 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // 關鍵設定：開啟最後更新時間
           showLastUpdateTime: true, 
-          // (選填) 同時顯示是誰更新的 (Kiwi)
           showLastUpdateAuthor: true,
-          // Wiki 知識庫的路徑改到 /docs
           routeBasePath: 'docs', 
         },
         blog: {
@@ -47,16 +44,14 @@ const config = {
 
   themeConfig: {
     navbar: {
-      title: 'Kiwi Reich',
+      title: 'Kiwi Wiki',
       items: [
-        // 第一個按鈕：連向首頁 (也就是 Blog)
         {
           to: '/', 
           label: '最新文章', 
           position: 'left',
-          activeBaseRegex: '^/$', // 只有在根目錄時才亮起
+          activeBaseRegex: '^/$',
         },
-        // 第二個按鈕：連向 Wiki 知識庫 (自動產生的側邊欄)
         {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
@@ -67,8 +62,9 @@ const config = {
     },
     footer: {
       style: 'dark',
-      copyright: `Copyright © ${new Date().getFullYear()} Kiwi. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Kiwi Wiki. Built with Docusaurus.`,
     },
   },
 };
 
+module.exports = config;
