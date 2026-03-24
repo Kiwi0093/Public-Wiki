@@ -50,7 +50,7 @@
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="升級">升級<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E5%8D%87%E7%B4%9A" class="hash-link" aria-label="升級的直接連結" title="升級的直接連結">​</a></h2>
 <p>其實依照我的尿性,不過就是VPS,上面也沒什麼重要的東西..保留一下<strong>V2Ray</strong>的<strong>config.json</strong>裡的內容,然後直接選<strong>reinstall</strong>一切重來可能還比較省事...不過既然有不是我可以隨便<strong>reinstall</strong>的VPS那還是來弄個複雜版的升級好了....</p>
 <p>你說為什麼技術性的東西不抄來放在Wiki裡?這種一次性的東西做完就可以忘記的東西為什麼要放在Wiki裡面??</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="升級細節">升級細節<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E5%8D%87%E7%B4%9A%E7%B4%B0%E7%AF%80" class="hash-link" aria-label="升級細節的直接連結" title="升級細節的直接連結">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="升�級細節">升級細節<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E5%8D%87%E7%B4%9A%E7%B4%B0%E7%AF%80" class="hash-link" aria-label="升級細節的直接連結" title="升級細節的直接連結">​</a></h3>
 <p>簡單的說他的流程就是</p>
 <ul>
 <li>把systemd裡面的service停掉並且disable</li>
@@ -78,6 +78,278 @@
 <p>中國區的捧油,請去找有沒有善心人士的美區帳號用一下就好了....</p>]]></content:encoded>
             <category>V2ray</category>
             <category>VPN</category>
+            <category>Archive</category>
+            <category>Old-Blog</category>
+        </item>
+        <item>
+            <title><![CDATA[雜談]]></title>
+            <link>https://kiwi0093.github.io/Public-Wiki/2021/05/misc+talk</link>
+            <guid>https://kiwi0093.github.io/Public-Wiki/2021/05/misc+talk</guid>
+            <pubDate>Wed, 26 May 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[一些生活變動的心裡活動紀錄]]></description>
+            <content:encoded><![CDATA[<blockquote>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
+</blockquote>
+<p>因為家庭因素,結束了在蘇州漂泊的外派生活回到台灣安分過日子</p>
+<!-- -->
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="近況說明">近況說明<a href="https://kiwi0093.github.io/Public-Wiki/2021/05/misc+talk#%E8%BF%91%E6%B3%81%E8%AA%AA%E6%98%8E" class="hash-link" aria-label="近況說明的直接連結" title="近況說明的直接連結">​</a></h2>
+<p>其實最近基本上就是當廢人,回到台灣接受小孩的洗禮後基本上沒時間跟之前一樣把大把大把的時間花在玩新玩具上(其實這也跟上班時間得認真上班不能跟之前一樣一邊上班一邊寫Blog有關....)</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="server">Server<a href="https://kiwi0093.github.io/Public-Wiki/2021/05/misc+talk#server" class="hash-link" aria-label="Server的直接連結" title="Server的直接連結">​</a></h3>
+<p>因為回來台灣,所以重心自然就會從原來在蘇以<del>翻牆</del>科學上網為主,改回不用考慮網路環境主攻服務內容為主,Server的OS也自然從對科學上網友善的Arch Linux換回用了很久但是在對岸跟屎一樣難用的FreeBSD</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="server-os">Server OS<a href="https://kiwi0093.github.io/Public-Wiki/2021/05/misc+talk#server-os" class="hash-link" aria-label="Server OS的直接連結" title="Server OS的直接連結">​</a></h5>
+<p>還是需要一點轉換期的不過重新安裝的時候發現其實安裝起來比Arch真的輕鬆太多了</p>
+<p>只要光碟開機,然後選擇要安裝的Item,其他的基本上啥都不用多用腦,就可以快速的裝完</p>
+<p>然後再把原來Server的設定資料</p>
+<ul>
+<li>/etc/rc.conf</li>
+<li>/usr/local/etc/screenrc</li>
+<li>/etc/csh.cshrc</li>
+<li>/etc/pf.conf</li>
+<li>/etc/ipfw.conf</li>
+</ul>
+<p>放回去重開機....搞定....實在太簡單了</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="esxi">Esxi<a href="https://kiwi0093.github.io/Public-Wiki/2021/05/misc+talk#esxi" class="hash-link" aria-label="Esxi的直接連結" title="Esxi的直接連結">​</a></h5>
+<p>因為一些問題(對啦就是那個一周停兩次電)我有一台ESXi Server就掛掉了...</p>
+<p>但是也因為那台是把Esxi裝在USB內的所以很快地就可以重裝拿回去跑起來</p>
+<p>這次我選擇的是把Esxi5.1 改成Esxi 6.5U2 for HPE的custom ISO(因為我的Gen8只能用到6.5 pre-Gen9的ISO)</p>
+<p>換完的感覺是終於不需要另外安裝client了,畢竟原來用的vsphere client也只支援到6.0 我就沒有找到安裝檔了所以我就都改用html5的web client,用起來還是挺好用的</p>
+<p>不過,passthrough要是一次沒設定好就會有問題...得重裝(因為我沒有client可以修改)</p>
+<p>花了我一個早上....</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="pchome-24-h-d">PCHome 24 <del>H</del> D<a href="https://kiwi0093.github.io/Public-Wiki/2021/05/misc+talk#pchome-24-h-d" class="hash-link" aria-label="pchome-24-h-d的直接連結" title="pchome-24-h-d的直接連結">​</a></h5>
+<p>過程中發現我自己的NAS有顆HDD掛了,在以前這只是掏出信用卡刷四顆HDD等他到就可以解決事情</p>
+<p>無奈這次遇到了十年難得一遇的PCHome 24D事件,變成等待HDD成了最辛苦最耗時的作業(雖然我最後都改到Momo上買....)</p>
+<p>現況無趣的報導就到此為止</p>]]></content:encoded>
+            <category>Life</category>
+            <category>Archive</category>
+            <category>Old-Blog</category>
+        </item>
+        <item>
+            <title><![CDATA[Fyde OS ＆....]]></title>
+            <link>https://kiwi0093.github.io/Public-Wiki/2020/12/fyde+os</link>
+            <guid>https://kiwi0093.github.io/Public-Wiki/2020/12/fyde+os</guid>
+            <pubDate>Fri, 18 Dec 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[追加測試的ChromeOS]]></description>
+            <content:encoded><![CDATA[<blockquote>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
+</blockquote>
+<p>上次的Bliss OS以及Phoenix OS甚至原始的Android X86都有不能直接安裝apk的問題(主要是沒有Google簽章導致無法安裝)雖然看了不少利用<code>adb</code>安裝apk的方法之類的說明,不過實測上來看Bliss OS在Surface Pro4很常會出現Touch panel失效等問題..所以就只能另謀出路...</p>
+<!-- -->
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="fyde-os">Fyde OS<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/fyde+os#fyde-os" class="hash-link" aria-label="Fyde OS的直接連結" title="Fyde OS的直接連結">​</a></h2>
+<p>基本上這個不是android,是個中國廠商二次創作的<em>ChromeOS</em>不過因為ChromeOS也可以安裝APK跑Android程式的特點,加上安裝起來比安裝ChromeOS簡單又有號稱針對Surface Pro4特化的Image,所以我就下載來試試了</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="官方訊息">官方訊息<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/fyde+os#%E5%AE%98%E6%96%B9%E8%A8%8A%E6%81%AF" class="hash-link" aria-label="官方訊息的直接連結" title="官方訊息的直接連結">​</a></h3>
+<p><a href="https://fydeos.com/" target="_blank" rel="noopener noreferrer">官方網頁</a></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="安裝方式">安裝方式<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/fyde+os#%E5%AE%89%E8%A3%9D%E6%96%B9%E5%BC%8F" class="hash-link" aria-label="安裝方式的直接連結" title="安裝方式的直接連結">​</a></h3>
+<p>只要在<a href="https://fydeos.com/download" target="_blank" rel="noopener noreferrer">下載頁面</a>下載對應機種的Image檔,然後用<a href="https://www.balena.io/etcher/" target="_blank" rel="noopener noreferrer">Etcher</a>刷進USB裡用USB開機跑完安裝程式就算裝完了..</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="使用心得">使用心得<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/fyde+os#%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97" class="hash-link" aria-label="使用心得的��直接連結" title="使用心得的直接連結">​</a></h3>
+<p>目前確認過可以安裝ChromeOS的程式,可以安裝Google play, 可以透過Google Play/豌豆莢/單獨的APK進行Android程式安裝,基本驅動也是ok的,正由機器的主人在做更進一步的使用體驗（看看容不容易掛掉或是什麼亂七八糟的問題...)目前已知若是很激烈的使用Touch Panel的話會導致Touch panel的驅動崩潰而無法使用Touch panel....所以要用這個玩Android遊戲的朋友還是去弄個藍芽把手吧...</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="不負責推論">不負責推論<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/fyde+os#%E4%B8%8D%E8%B2%A0%E8%B2%AC%E6%8E%A8%E8%AB%96" class="hash-link" aria-label="不負責推論的直接連結" title="不負責推論的直接連結">​</a></h2>
+<p>因為我在fydeos的Github專案上看到anbox_fyde,所以我推測這個FydeOS應該是用anbox來跑他所謂的android子系統,若是這樣過一段時間我也會找台VM在上面弄個Manjaro+anbox來試試看是不是Linux+anbox的效果都這麼好...</p>
+<p>若是這樣可能Ubuntu touch+anbox會是個好選擇！？</p>]]></content:encoded>
+            <category>Android</category>
+            <category>Chromebook</category>
+            <category>Archive</category>
+            <category>Old-Blog</category>
+        </item>
+        <item>
+            <title><![CDATA[Bliss OS]]></title>
+            <link>https://kiwi0093.github.io/Public-Wiki/2020/12/bliss+os</link>
+            <guid>https://kiwi0093.github.io/Public-Wiki/2020/12/bliss+os</guid>
+            <pubDate>Wed, 16 Dec 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[另一款中國產android x86]]></description>
+            <content:encoded><![CDATA[<blockquote>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
+</blockquote>
+<p>最近不知道怎麼了,又迷上了在PC上安裝Android的風潮...</p>
+<p>繼Phoenix OS後又找了一個可以說更符合我的期望的Android X86 - Bliss OS</p>
+<!-- -->
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="bliss-os"><a href="https://blissos.org/" target="_blank" rel="noopener noreferrer">Bliss OS</a><a href="https://kiwi0093.github.io/Public-Wiki/2020/12/bliss+os#bliss-os" class="hash-link" aria-label="bliss-os的直接連結" title="bliss-os的直接連結">​</a></h2>
+<p>這是一個Open source版的android x86,比起天朝公司的Phoenix OS可以說先天上就比較合我的胃口(好啦,我知道是我對於天朝製品有偏見...)</p>
+<p>更棒的是,這個團隊是用Surface作為開發機,所以對於Surface的相容性可以說是很好的</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="基本系統">基本系統<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/bliss+os#%E5%9F%BA%E6%9C%AC%E7%B3%BB%E7%B5%B1" class="hash-link" aria-label="基本系統的直接連結" title="基本系統的直接連結">​</a></h4>
+<p>這個一樣有分X86/X64兩種,基本上都是X86的版本都是比較舊的Android版本,不過這個系統貼心的點在於下載的時候會問你準備安裝的機器條件替你選擇該下載哪一個版本的ISO來安裝,很大程度可以迴避上次在Phoenix OS上遇到的悲劇....(不過這樣講不太公平,因為裝Phoenix OS之前我也不知道T100限制那麼多...)</p>
+<p>現在的stable版本是基於Android 9開發的版本</p>
+<p>裝起來很陽春,很乾淨,很大程度的很討我的歡心..(yes！我就是有這種怪癖)</p>
+<p>不過這一點在天朝似乎就不一定是好事..因為畢竟有GFW擋在那裡....</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="linux-driver-for-surface">Linux driver for Surface<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/bliss+os#linux-driver-for-surface" class="hash-link" aria-label="Linux driver for Surface的直接連結" title="Linux driver for Surface的直接連結">​</a></h4>
+<p>基本上是直接套用<a href="https://github.com/jakeday/linux-surface/tree/master/firmware" target="_blank" rel="noopener noreferrer">jakeday的linux-surface github project</a>開發的Linux版Surface Driver,不過痛苦的是不能直接把這些firmware塞進iso裡面直接裝了就好了</p>
+<p>而是需要先在觸控螢幕無法做動的環境下把東西塞進去然後重開(講到這裡就得感謝昨天實裝的surface pro4有著完整的配套docking/keyboard等東西...)</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="測試結果">測試結果<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/bliss+os#%E6%B8%AC%E8%A9%A6%E7%B5%90%E6%9E%9C" class="hash-link" aria-label="測試結果的直接連結" title="測試結果的直接連結">​</a></h2>
+<p>首先,不愧是Surface Pro4, i5的CPU+8G的RAM跑起來很順暢, 安裝過程也依照官方網頁的教學很順利(好啦,我現在對於這種只有UEFI開機的機器都覺得該敬遠...)</p>
+<p>雖然開機畫面蠻醜的,最好可以自己再改一下...</p>
+<p>不過可能最佳化還是沒弄好,昨天發現若是連著docking開機那wifi就不會動...</p>
+<p>後面的小問題還是有待實機的主人後面邊玩邊看吧....</p>]]></content:encoded>
+            <category>Android</category>
+            <category>Archive</category>
+            <category>Old-Blog</category>
+        </item>
+        <item>
+            <title><![CDATA[Phoenix OS]]></title>
+            <link>https://kiwi0093.github.io/Public-Wiki/2020/12/phoenix+os</link>
+            <guid>https://kiwi0093.github.io/Public-Wiki/2020/12/phoenix+os</guid>
+            <pubDate>Mon, 14 Dec 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[一款中國國產的android x86]]></description>
+            <content:encoded><![CDATA[<blockquote>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
+</blockquote>
+<p>同是有台ASUS T100想改裝成Android給小朋友玩..</p>
+<p>看了看可能還是中國國產的Phoenix OS(其實就是客製的Android X86)比較適合他的需求...</p>
+<!-- -->
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="asus-t100">ASUS T100<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/phoenix+os#asus-t100" class="hash-link" aria-label="ASUS T100的直接連結" title="ASUS T100的直接連結">​</a></h2>
+<p>這是一台ASUS早期的二合一小筆電,規格非常的陽春,算是Windows7轉Windows8.1各家廠商都把CPU &amp; RAM下降規格降價的時期產品</p>
+<p><a href="https://www.asus.com/us/2-in-1-PCs/ASUS_Transformer_Book_T100_Chi/specifications/" target="_blank" rel="noopener noreferrer">詳細Spec</a></p>
+<ul>
+<li>
+<p>Intel® Bay Trail-T Quad Core Z3775 1.46 GHz ~ 2.39 GHz Processor</p>
+</li>
+<li>
+<p>Memory</p>
+<p>OnBoard Memory 2 GB</p>
+</li>
+<li>
+<p>Display</p>
+<p>10.1" 16:10 Full HD (1920x1200) LED Backlight Touchscreen LCD Panel</p>
+</li>
+<li>
+<p>Graphic</p>
+<p>Integrated Intel® HD Graphics</p>
+</li>
+<li>
+<p>Storage</p>
+<p>32GB eMMC
+64GB eMMC</p>
+</li>
+<li>
+<p>Card Reader</p>
+<p>card reader (Micro SD )</p>
+</li>
+<li>
+<p>Camera</p>
+<p>Front 2 MP and Rear 5 MP</p>
+</li>
+<li>
+<p>Networking</p>
+<p>Dual-band 802.11 a/b/g/n
+Built-in Bluetooth™ V4.0+HS</p>
+</li>
+<li>
+<p>Interface</p>
+<p>1 x COMBO audio jack
+1 x Micro USB
+1 x micro HDMI
+1 x micro SDXC card reader
+1 x Volume up/down</p>
+</li>
+<li>
+<p>Audio</p>
+<p>Built-in Speakers And Array Microphone</p>
+</li>
+<li>
+<p>Battery</p>
+<p>31 Whrs</p>
+</li>
+<li>
+<p>Dimensions</p>
+<p>Tablet:
+10.1 x 6.9 x 0.3 inch (WxDxH)</p>
+</li>
+<li>
+<p>Weight</p>
+<p>Tablet:
+1.3 lbs (with Polymer Battery)</p>
+</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="phoenix-os"><a href="http://www.phoenixos.com/" target="_blank" rel="noopener noreferrer">Phoenix OS</a><a href="https://kiwi0093.github.io/Public-Wiki/2020/12/phoenix+os#phoenix-os" class="hash-link" aria-label="phoenix-os的直接連結" title="phoenix-os的直接連結">​</a></h2>
+<p>這是一個基於<a href="https://www.android-x86.org/" target="_blank" rel="noopener noreferrer">Android X86</a>中國客製化的Android系統</p>
+<p>特點是針對PC環境做了UI調整,加上有線網路連線的功能,並且預設的安裝方式中就有用exe檔直接裝在Windows下做成雙系統開機</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="結論">結論<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/phoenix+os#%E7%B5%90%E8%AB%96" class="hash-link" aria-label="結論的直接連結" title="結論的直接連結">​</a></h2>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="day-1">Day 1<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/phoenix+os#day-1" class="hash-link" aria-label="Day 1的直接連結" title="Day 1的直接連結">​</a></h4>
+<ul>
+<li>
+<p>在ASUS T100上就算讓他強制USB開機,也只會停在</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">grub&gt;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>這時候需要手動keyin才能boot</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">configfile /efi/boot/grub.cfg</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>
+<p>若選擇安裝,進入HDD選擇畫面鍵盤就失效了..所以無法下一步</p>
+</li>
+<li>
+<p>若改採用exe在WIndows界面下安裝,不管怎麼裝都會出現安裝失敗...</p>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="day2">Day2<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/phoenix+os#day2" class="hash-link" aria-label="Day2的直接連結" title="Day2的直接連結">​</a></h4>
+<p>搞了一天才發現,其實是T100非常神奇的是32bit UFEI開機的奇妙舊時代產物...</p>
+<p>為了這個,我只好重新去download並做了一個Windows 10 32bit版的安裝USB來重裝那個被我搞壞掉的系統</p>
+<p>然後去下載32bit的PhoeinxOS(基於Android5的版本)</p>
+<p>重新安裝好Windows 10然後跑exe安裝,接著在開機的時候按<code>esc</code>進入選單選Phoenix OS就可以開機進入新裝好的Phoenix OS了</p>
+<p>什麼？你說可不可以用x86版的Iso整個裝Phoenix OS就好？</p>
+<p>我也想,但是該死的鍵盤還是不會動呀～～～～</p>]]></content:encoded>
+            <category>Android</category>
+            <category>Archive</category>
+            <category>Old-Blog</category>
+        </item>
+        <item>
+            <title><![CDATA[ベルウィックサーガ 再び]]></title>
+            <link>https://kiwi0093.github.io/Public-Wiki/2020/12/berwicksaga</link>
+            <guid>https://kiwi0093.github.io/Public-Wiki/2020/12/berwicksaga</guid>
+            <pubDate>Mon, 07 Dec 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[貝維克戰記,一款深得我心的類聖火降魔錄遊戲,目前我還沒玩到更對我胃口的]]></description>
+            <content:encoded><![CDATA[<blockquote>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
+</blockquote>
+<p><img decoding="async" loading="lazy" src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/Berwick_Saga_boxart.png" alt="ベルウィックサーガ" class="img_ev3q"></p>
+<p>2005年的PS2遊戲 - ベルウィックサーガ,最近又翻出來用模擬器重玩一次</p>
+<!-- -->
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="ベルウィックサーガ">ベルウィックサーガ<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/berwicksaga#%E3%83%99%E3%83%AB%E3%82%A6%E3%82%A3%E3%83%83%E3%82%AF%E3%82%B5%E3%83%BC%E3%82%AC" class="hash-link" aria-label="ベルウィックサーガ的直接連結" title="ベルウィックサーガ的直接連結">​</a></h2>
+<p>這是一個類似聖火降魔錄aka.火焰的紋章的回合制戰略遊戲(因為製作人之前就是做FE的後來跑出來做這個系列然後就跟任天堂有著一堆糾葛不多講)</p>
+<p><a href="https://ja.wikipedia.org/wiki/%E3%83%86%E3%82%A3%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0%E3%82%B5%E3%83%BC%E3%82%AC%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA_%E3%83%99%E3%83%AB%E3%82%A6%E3%82%A3%E3%83%83%E3%82%AF%E3%82%B5%E3%83%BC%E3%82%AC" target="_blank" rel="noopener noreferrer">日文的wiki在這裡</a></p>
+<p>對我來講有好玩的不只是<strong><em>馬是消耗品</em></strong>的騎兵系統,更加上這是一個<strong><em>主角也會騎馬</em></strong>全員一起<del>高速移動</del>當騎兵的遊戲(好啦就是這種莫名其妙的點點中我),加上是PS2時代的遊戲畫面(雖然現在玩起來也是很陽春啦～～)</p>
+<p>打算這輪過完後回去重玩PS版的前作 - <strong>ティアリングサーガ ユトナ英雄戦記</strong>好了,這個據說是雙主角的系統</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="pcx2">PCX2<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/berwicksaga#pcx2" class="hash-link" aria-label="PCX2的直接連結" title="PCX2的直接連結">​</a></h2>
+<p><a href="https://pcsx2.net/" target="_blank" rel="noopener noreferrer">Official Link在這裡</a></p>
+<p>老實說這是一個很強大的模擬器...用起來很直覺也很順手,而且還內建金手指作弊系統,真的很適合我這種休閒玩家拿來重溫PS2的遊戲用的</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="結論">結論<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/berwicksaga#%E7%B5%90%E8%AB%96" class="hash-link" aria-label="結論的直接連結" title="結論的直接連結">​</a></h2>
+<p>大概這段時間回到房間我就會黏在電腦前面玩這個...看看過一段時間又有什麼遊戲吸引了我的目光....</p>]]></content:encoded>
+            <category>Life</category>
+            <category>Game</category>
+            <category>Archive</category>
+            <category>Old-Blog</category>
+        </item>
+        <item>
+            <title><![CDATA[重整Wiki資料]]></title>
+            <link>https://kiwi0093.github.io/Public-Wiki/2020/12/re-sort-wiki</link>
+            <guid>https://kiwi0093.github.io/Public-Wiki/2020/12/re-sort-wiki</guid>
+            <pubDate>Fri, 04 Dec 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[針對Wiki內的Archlinux部份進行大手術]]></description>
+            <content:encoded><![CDATA[<blockquote>
+<p>: ::info
+本文轉載自舊站存檔。
+:::</p>
+</blockquote>
+<p>今天繼續沉迷在Arch Linux的安裝script裡,弄著弄著,就把Wiki裡面的內容幾乎全改了....</p>
+<!-- -->
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="故事大綱">故事大綱<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/re-sort-wiki#%E6%95%85%E4%BA%8B%E5%A4%A7%E7%B6%B1" class="hash-link" aria-label="故事大綱的直接連結" title="故事大綱的直接連結">​</a></h3>
+<p>為了讓那個很私人使用的script變得稍微通用一點點,今天把那整個部份幾乎重寫了..</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="除去幹話的重點">除去幹話的重點<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/re-sort-wiki#%E9%99%A4%E5%8E%BB%E5%B9%B9%E8%A9%B1%E7%9A%84%E9%87%8D%E9%BB%9E" class="hash-link" aria-label="除去幹話的重點的直接連結" title="除去幹話的重點的直接連結">​</a></h3>
+<p>簡單的說就是我把昨天學會的case loop應用上去了,並且將原來看起來支離破碎的多個安裝script整合成使用者只要key一次就可以用選的一路裝完我預設好的幾種安裝結果</p>
+<ul>
+<li>單純的Arch Linux - 老實說這個安裝結果有可能未來是我實驗東西最常用的script..因為什麼都沒裝,就是個可以開機有網路用而的東西</li>
+<li>Nextcloud預裝好的Arch Linux - 這個應該是使用幅度最低,然後內容跟其他的script最不一樣...(也應該是我最後才可能完成的script<del>若是我沒有嫌麻煩最後把這個選項砍掉的話</del>)</li>
+<li>V2ray Server - 這個基本上就是用來跑在台灣家裡的Arch Linux base的V2ray server專用,因為根本沒看到哪個VPS可以用Arch的<del>就算有我也不會為了arch去租用比較貴的..</del></li>
+<li>V2ray Gateway - 這個是等於我現在在蘇州房間裡面Gateway的雛型,基本框架都弄好了就差V2ray跟iptable的設定就一模一樣</li>
+<li>V2ray Gateway ver.K - 這個就是最矛盾的啦,這個選項就是完全重現我現在正在服役的Arch Linux Gateway with V2ray/Iptable設定的東西,可以說寫這種自動安裝script的核心就是為了他..但是.....因為現在的wiki跟script的放法基本上就是脫光光給人看,再怎麼說也不可能會把現在正在用的設定全部公開給人抄...所以這個會比較彆扭..要用上加密/解密的方式來復原設定檔</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="感想">感想<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/re-sort-wiki#%E6%84%9F%E6%83%B3" class="hash-link" aria-label="感想的直接連結" title="感想的直接連結">​</a></h3>
+<p>我想就一句話</p>
+<blockquote>
+<p>我還真的是閒的蛋疼,祕密的script不弄搞成公開形式的複雜版...</p>
+<p>加上寫著寫著覺得每一篇都落落長乾脆都支解弄成很多小檔案...</p>
+</blockquote>
+<p>我真的給人感覺過太爽也說不定....</p>
+<p>好了,六點到了,也該是薪水小偷下班的時間了~~各位啾掰～～</p>]]></content:encoded>
+            <category>Life</category>
+            <category>Linux</category>
             <category>Archive</category>
             <category>Old-Blog</category>
         </item>
@@ -137,7 +409,7 @@
 </blockquote>
 <p><a href="https://www.youtube.com/watch?v=SlzBMJvtGHo" target="_blank" rel="noopener noreferrer" title="斷食體內變化"><img decoding="async" loading="lazy" src="http://img.youtube.com/vi/SlzBMJvtGHo/0.jpg" alt="Dr.Berg的斷食說明" class="img_ev3q"></a></p>
 <!-- -->
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="前言">前言<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/intermittent+fasting#%E5%89%8D%E8%A8%80" class="hash-link" aria-label="��前言的直接連結" title="前言的直接連結">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="前言">前言<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/intermittent+fasting#%E5%89%8D%E8%A8%80" class="hash-link" aria-label="前言的直接連結" title="前言的直接連結">​</a></h2>
 <p>身為一個母胎肥仔,自今年年初因為高血壓住院後,考慮到還有老婆小孩,還是該認真減重來延長自己的壽命,上網查詢了減重相關的東西後發現了似乎從這一兩年開始,一堆人開始鼓吹利用間<strong><em>間歇性斷食</em></strong>來進行減重</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="階段性斷食">階段性斷食<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/intermittent+fasting#%E9%9A%8E%E6%AE%B5%E6%80%A7%E6%96%B7%E9%A3%9F" class="hash-link" aria-label="階段性斷食的直接連結" title="階段性斷食的直接連結">​</a></h2>
 <blockquote>
@@ -654,7 +926,7 @@
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="規劃藍圖">規劃藍圖<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/archlinux-gateway#%E8%A6%8F%E5%8A%83%E8%97%8D%E5%9C%96" class="hash-link" aria-label="規劃藍圖的直接連結" title="規劃藍圖的直接連結">​</a></h2>
 <p><img decoding="async" loading="lazy" src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/Network_top.png" alt="Network_top" class="img_ev3q"></p>
 <h1>事前準備</h1>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="基本工具設備">基本工具&amp;設備<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/archlinux-gateway#%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7%E8%A8%AD%E5%82%99" class="hash-link" aria-label="基本工具&amp;設備的直接連結" title="基本��工具&amp;設備的直接連結">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="基本工具設備">基本工具&amp;設備<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/archlinux-gateway#%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7%E8%A8%AD%E5%82%99" class="hash-link" aria-label="基本工具&amp;設備的直接連結" title="基本工具&amp;設備的直接連結">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="硬體">硬體<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/archlinux-gateway#%E7%A1%AC%E9%AB%94" class="hash-link" aria-label="硬體的直接連結" title="硬體的直接連結">​</a></h3>
 <ul>
 <li>一台可以跑VMware ESXi的Server硬體</li>
@@ -837,7 +1109,7 @@
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="windows">Windows<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/v2ray-server-setup#windows" class="hash-link" aria-label="Windows的直接連結" title="Windows的直接連結">​</a></h4>
 <div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">choco upgrade qv2ray v2ray -y</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
 <p>這一行基本上就都裝上了,只要打開設定弄一下就好了</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="linuxarchlinuxmanjaro">Linux(Archlinux/Manjaro)<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/v2ray-server-setup#linuxarchlinuxmanjaro" class="hash-link" aria-label="Linux(Archlinux/Manjaro)的直接連結" title="Linux(Archlinux/Manjaro)��的直接連結">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="linuxarchlinuxmanjaro">Linux(Archlinux/Manjaro)<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/v2ray-server-setup#linuxarchlinuxmanjaro" class="hash-link" aria-label="Linux(Archlinux/Manjaro)的直接連結" title="Linux(Archlinux/Manjaro)的直接連結">​</a></h4>
 <div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">yay -Syu qv2ray v2ray</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
 <p>這樣就裝完了</p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="linux其他">Linux(其他)<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/v2ray-server-setup#linux%E5%85%B6%E4%BB%96" class="hash-link" aria-label="Linux(其他)的直接連結" title="Linux(其他)的直接連結">​</a></h4>
@@ -850,7 +1122,7 @@
 <p>按下去就裝完了,沒有辦法上Google play的同學你就想辦法弄到apk安裝囉可以利用Windows環境下的V2ray環境設定proxy讓手機/平板連上再安裝囉</p>
 <p>至於手機上沒有google play的同學....那有機會開坑再說吧</p>
 <p>使用請參考<a href="https://ssr.tools/342" target="_blank" rel="noopener noreferrer">強國高手寫的網頁</a></p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="shadowrocket---ios"><img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/246x0w.png" alt="246x0w" style="width:33%"><a href="https://apps.apple.com/jp/app/shadowrocket/id932747118" target="_blank" rel="noopener noreferrer">Shadowrocket</a> - iOS<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/v2ray-server-setup#shadowrocket---ios" class="hash-link" aria-label="shadowrocket---ios的直接連結" title="shadowrocket---ios的直接連結">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="shadowrocket---ios"><img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/246x0w.png" alt="246x0w" style="width:33%"><a href="https://apps.apple.com/jp/app/shadowrocket/id932747118" target="_blank" rel="noopener noreferrer">Shadowrocket</a> - iOS<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/v2ray-server-setup#shadowrocket---ios" class="hash-link" aria-label="shadowrocket---ios的直��接連結" title="shadowrocket---ios的直接連結">​</a></h3>
 <p>只要不是中國apple store帳號的捧油,應該都可以直接在app store上購買這個軟體(沒錯這是唯一一個要錢的,不過會用iPhone的人基本上都不差這點錢)</p>
 <p>但是中國的捧油在沒有辦法的情況下只能<a href="https://shadowsockshelp.github.io/ios/" target="_blank" rel="noopener noreferrer"><del>用這種旁門左道</del>依靠這種好心人士</a>不過好心人的方法很容易衍生其他安裝問題大叔不是專家沒辦法一一解決</p>
 <p>只能靠你們這些求道者去感悟怎麼處理了...</p>
@@ -931,7 +1203,7 @@
 <p>記得依照提示上去看一下還有沒有要調整的沒有就要正式扔上github囉</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="自動deploy-script">自動deploy script<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/hugo+github#%E8%87%AA%E5%8B%95deploy-script" class="hash-link" aria-label="自動deploy script的直接連結" title="自動deploy script的直接連結">​</a></h3>
 <p>這個部份官方的建議script還有手動輸入commit的部份時常容易忘記,這裡採用[chanmitsu55氏]的版本,等於只是update時間在後面</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">#!/bin/bash</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># Build the project.我們已經在config.toml裡定義了theme所以簡單的hugo就夠了</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">hugo</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># Go To Public folder</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">cd public</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># Add changes to git.</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">git add .</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># Commit changes.</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">msg="rebuilding site `date`"</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">   if [ $# -eq 1 ]</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">   then msg="$1"</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">   fi</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">git commit -m "$msg"</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># Push source and build repos.</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">git push origin master</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># Come Back up to the Project Root</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">cd ..</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># Commit source repository changes</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">git add .</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">git commit -m "$msg"</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">git push</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">#!/bin/bash</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># Build the project.我們已經在config.toml裡定義了theme所以簡單的hugo就夠了</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">hugo</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># Go To Public folder</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">cd public</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># Add changes to git.</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">git add .</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># Commit changes.</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">msg="rebuilding site `date`"</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">   if [ $# -eq 1 ]</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">   then msg="$1"</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">   fi</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">git commit -m "$msg"</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># Push source and build repos.</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">git push origin master</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># Come Back up to the Project Root</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">cd ..</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># Commit source repository changes</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">git add .</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">git commit -m "$msg"</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">git push</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複��製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
 <p>我不喜歡直接做成執行檔,所以我會把上述內容寫在deploy.sh裡面用下面指令跑</p>
 <p><code>sh ./deploy.sh</code></p>
 <p>過程中會要求輸入github的帳號密碼兩次,分別是push Blog跟Public用的不要打錯了</p>
