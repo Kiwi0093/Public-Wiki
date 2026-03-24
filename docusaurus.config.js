@@ -28,7 +28,7 @@ const config = {
         blog: {
           routeBasePath: '/', 
           path: 'blog', // 確保指向你的 blog 目錄
-          archiveBasePath: 'archive', // 這是正名運動的關鍵！
+          //archiveBasePath: 'archive', // 這是正名運動的關鍵！
           showReadingTime: true,
           blogTitle: '大叔的自言自語',
           blogDescription: 'Kiwi自言自語,一個中年男性宣洩自己壓力的地方',
