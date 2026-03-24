@@ -108,6 +108,17 @@
   text-decoration: underline;
 }
 
+/* src/css/custom.css */
+ruby {
+  ruby-align: center;
+  margin: 0 2px; /* 增加一點左右間距，避免文字太擠 */
+}
+
+rt {
+  font-family: var(--ifm-font-family-base); /* 確保注音字體跟內文一致 */
+  user-select: none; /* 避免選取內文時不小心選到注音，複製起來很麻煩 */
+}
+
 /* 6. 確保 Wiki 頁面 (docs) 不受影響 */
 /* 因為 Wiki 頁面使用的是 .docs-doc-page 類名，
    所以上面的設定只會精準打擊 Blog。 */
