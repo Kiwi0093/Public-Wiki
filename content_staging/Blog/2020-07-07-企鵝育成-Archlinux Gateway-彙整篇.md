@@ -2,6 +2,7 @@
 slug: 2020/07/archlinux-gateway
 title: 企鵝育成-Archlinux Gateway-彙整篇
 date: 2020-07-07
+description: 說明如何使用archlinux當作homelab的Gateway
 tags: [Linux, Server, V2Ray, Old-Blog, Archive]
 ---
 
@@ -15,7 +16,9 @@ tags: [Linux, Server, V2Ray, Old-Blog, Archive]
 
 並且練習用Github來管理大叔自己寫的script,不過因為很多是私人性質的所以應該會放在不公開的Repo裡面然後另外寫一個公開版的放在外面供有需要的人使用
 
-``
+{/* 這裡插入切分線 */}
+<!--truncate-->
+
 
 # 期望環境
 

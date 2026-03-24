@@ -3,14 +3,18 @@ title: Note taking tools
 date: 2026-03-23
 tags: [Life, Tools, web, Old-Blog, Archive]
 slug: 2020/11/note-taking-tools
+description: 記筆記的工具
 ---
 
->  info 
+>  :::info 
 > 本文轉載自舊站存檔。
+> :::
 
 搭建好了Blog&Wiki接下來就該是開始時常寫一點習慣養成,以及一些相關工具的蒐集與使用方式打磨
 
-``
+{/* 這裡插入切分線 */}
+<!--truncate-->
+
 
 使用的工具方面目前已經有Typora這個好用又漂亮,加上又是跨平台的Markdown Editor,相關的細部我後面會在Wiki裡面建立條目(這算是挖坑給自己跳嗎?)
 

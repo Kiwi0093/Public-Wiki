@@ -3,6 +3,7 @@ title: 大叔的碎碎念 - Window & Linux使用工具盤點
 date: 2020-07-15
 tags: [Linux, Windows, Old-Blog, Archive]
 slug: 2020/07/windows-linux-tools
+description: 盤點2020年時大叔使用的Windows/Linux的工具
 ---
 
 > :::info
@@ -13,7 +14,9 @@ slug: 2020/07/windows-linux-tools
 
 使用電腦多年,使用的軟體也隨著時間的變更而有些調整,看著自己之前寫過一些Manjaro的安裝使用或是Gaming之類的文章就在想是否該寫一篇~~大雜燴~~整合文章把現在這個時間點開始使用或是使用多年也不厭倦的軟體以及習慣的設定方式做個紀錄,也給有興趣的人們留下一點參考
 
-``
+{/* 這裡插入切分線 */}
+<!--truncate-->
+
 
 # 基本前提
 

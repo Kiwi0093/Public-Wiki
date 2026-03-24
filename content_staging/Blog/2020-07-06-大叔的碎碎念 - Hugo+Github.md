@@ -1,14 +1,14 @@
 ---
 title: 大叔的碎碎念 - Hugo+Github
 date: 2020-07-06
-description: 基本說明如何轉移到Github上
+description: 基本說明如何使用Hugo搭配Github Page搭建個人Blog
 tags: [Old-Blog, Markdown, Blog, Archive]
 slug: 2020/07/hugo+github
 ---
 
-> ::: info 
+>  :::info 
 > 本文轉載自舊站存檔。
->:::
+> :::
 
 # 前言
 
