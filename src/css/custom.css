@@ -55,6 +55,59 @@
   color: #fff;
 }
 
+/* 調整內容區塊寬度 */
+.container {
+  max-width: 900px;
+}
+
+/* --- Archive 頁面時間軸效果 --- */
+.blog-archive-page .container > header {
+  border-left: 2px solid #555;
+  margin-left: 20px;
+  padding-left: 20px;
+}
+
+.blog-archive-page section {
+  border-left: 2px solid #555;
+  margin-left: 20px;
+  padding-left: 30px;
+  position: relative;
+}
+
+/* 年份小圓點 */
+.blog-archive-page h2::before {
+  content: "";
+  position: absolute;
+  left: -37px;
+  top: 12px;
+  width: 12px;
+  height: 12px;
+  background-color: #888;
+  border-radius: 50%;
+}
+
+/* 文章間虛線 */
+.blog-archive-page article {
+  border-bottom: 1px dashed #444;
+  padding: 10px 0;
+  margin: 0;
+}
+
+.blog-archive-page article:last-child {
+  border-bottom: none;
+}
+
+/* --- Read More 連結樣式 --- */
+.blog-list-page .margin-vert--xl article footer a {
+  color: #4a9eff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.blog-list-page .margin-vert--xl article footer a:hover {
+  text-decoration: underline;
+}
+
 /* 6. 確保 Wiki 頁面 (docs) 不受影響 */
 /* 因為 Wiki 頁面使用的是 .docs-doc-page 類名，
    所以上面的設定只會精準打擊 Blog。 */
