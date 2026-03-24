@@ -1,4 +1,4 @@
-/* --- 1. 歸檔頁面全域置中與寬度控制 --- */
+/* --- 歸檔頁面全域置中與寬度控制 --- */
 .archive-page-main {
   display: flex !important;
   justify-content: center !important;
@@ -13,7 +13,7 @@
 
 .archive-header {
   margin-bottom: 4rem;
-  text-align: left; /* NexT 偏向左對齊或置中，大叔可依喜好調整 */
+  text-align: left; /* NexT 偏向左對齊 */
 }
 
 .archive-subtitle {
@@ -21,30 +21,31 @@
   font-size: 0.9rem;
 }
 
-/* --- 2. 核心時間軸：那條垂直線 --- */
-.archive-timeline {
+/* --- 核心時間軸：那條垂直線 --- */
+.archive-timeline-content {
   position: relative;
-  padding-left: 30px; /* 線條與文字的距離 */
-  margin-left: 10px;
+  padding-left: 40px; /* 線條與文字的距離 */
+  margin-left: 10px; /* 這裡控制線條在頁面上的整體位置 */
 }
 
-.archive-timeline::before {
+.archive-timeline-content::before {
   content: "";
   position: absolute;
   top: 10px; /* 從第一個年份開始 */
   bottom: 0;
   left: 0;
   width: 2px;
-  background: rgba(255, 255, 255, 0.1); /* 淡淡的線條 */
+  background: rgba(255, 255, 255, 0.15); /* 淡淡的線條 */
 }
 
-/* --- 3. 年份樣式 (大節點) --- */
+/* --- 年份樣式 (大節點) --- */
 .archive-year-title {
   position: relative;
-  margin-left: -42px; /* 往左推，讓圓點壓在線上 */
+  /* 精準對齊關鍵：padding-left 和 negative margin 的配合 */
+  margin-left: -51px; /* (-40px - 11px[10px寬+1px邊框]) 把圓點推到線上 */
   margin-top: 50px;
   margin-bottom: 20px;
-  padding-left: 30px;
+  padding-left: 30px; /* 文字離圓點的距離 */
   background: var(--ifm-background-color); /* 用背景色蓋住後面的線 */
   display: inline-block;
   font-size: 1.6rem;
@@ -52,11 +53,11 @@
   color: var(--ifm-color-primary);
 }
 
-/* 年份旁邊的空心圓點 */
+/* 年份旁邊的空心圓點 (10px x 10px) */
 .archive-year-title::before {
   content: "";
   position: absolute;
-  left: 5px;
+  left: 6px; /* 控制圓點在 h3 容器裡的位置 */
   top: 50%;
   transform: translateY(-50%);
   width: 10px;
@@ -67,7 +68,7 @@
   z-index: 2;
 }
 
-/* --- 4. 文章列表 (徹底拔掉預設點點) --- */
+/* --- 文章列表 (徹底拔掉預設點點) --- */
 .archive-list {
   list-style: none !important;
   padding: 0 !important;
@@ -81,11 +82,12 @@
   transition: all 0.3s ease;
 }
 
-/* 文章左側的小實心圓點 (小節點) */
+/* 文章左側的小實心圓點 (小節點，6px x 6px) */
 .archive-item::before {
   content: "";
   position: absolute;
-  left: -34px; /* 精準對準那條線 */
+  /* 精準對齊關鍵：線在-40px，圓點寬6px，要讓中心點落在線中心 */
+  left: -42px; /* (-40px - (6px/2) - 1px[border]) 把小點推到線上 */
   top: 1.5rem;
   width: 6px;
   height: 6px;
@@ -118,4 +120,59 @@
 .archive-link:hover {
   color: var(--ifm-color-primary);
   text-decoration: none !important;
+}
+
+/* --- 仿 Showcase 標籤卡片佈局 --- */
+.tag-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 自動適應寬度 */
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.tag-card-item {
+  background: var(--ifm-card-background-color, #1b1b1d);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-decoration: none !important;
+  transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.1);
+}
+
+.tag-card-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.tag-card-content {
+  text-align: center;
+}
+
+.tag-card-name {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.tag-card-count {
+  font-size: 0.85rem;
+  color: #888;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2px 10px;
+  border-radius: 20px;
+}
+
+/* 讓標籤頁在移動端也能看 */
+@media (max-width: 640px) {
+  .tag-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
 }
