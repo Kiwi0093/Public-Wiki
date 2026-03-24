@@ -1,75 +1,65 @@
 import os
 import re
 
-def style_to_jsx(match):
-    # 抓取 style="..." 並轉為 JSX 雙括號格式
-    style_str = match.group(1)
-    style_str = style_str.replace('zoom:', 'width:')
-    props = style_str.split(';')
-    jsx_props = []
-    for p in props:
-        if ':' in p:
-            key, val = p.split(':', 1)
-            # 轉小駝峰 (font-size -> fontSize)
-            key = re.sub(r'-([a-z])', lambda x: x.group(1).upper(), key.strip())
-            jsx_props.append(f"{key}: '{val.strip()}'")
-    return "style={{" + ", ".join(jsx_props) + "}}"
-
 def process_file(filepath):
     with open(filepath, 'r', encoding='utf-8') as f:
         content = f.read()
 
     original = content
 
-    # 1. 處理 Obsidian 縮圖連結 [![alt|width](img)](url)
+    # --- 1. 處理帶連結的 Obsidian 縮圖 [![alt|width](img)](url) ---
+    # 這是大叔你最常壞掉的那種 HTML 簡化版
     def ob_link_img_replacer(match):
         alt, width, img_url, link_url = match.group(1), match.group(2), match.group(3), match.group(4)
         unit = "" if "%" in width else "px"
-        # 這裡將連結裡的 & 轉義為 &amp; 避免 MDX 在屬性裡報錯
+        # 連結裡的 & 也要順便修復，避免 MDX 報錯
         safe_link = link_url.replace('&', '&amp;')
-        return f'<a href="{safe_link}"><img src="{img_url}" alt="{alt}" style={{{{ width: "{width}{unit}", height: "auto" }}}} /></a>'
-    
+        return (f'<a href="{safe_link}">'
+                f'<img src="{img_url}" alt="{alt}" style={{{{ width: "{width}{unit}", height: "auto" }}}} />'
+                f'</a>')
+
+    # 正則匹配: [![alt|300](img_url)](link_url)
     content = re.sub(r'\[!\[([^|\]]*)\|(\d+%?)\]\((.*?)\)\]\((.*?)\)', ob_link_img_replacer, content)
 
-    # 2. 處理單純的 Obsidian 縮圖 ![alt|width](img)
+    # --- 2. 處理單純的 Obsidian 縮圖 ![alt|width](img) ---
     def ob_img_replacer(match):
         alt, width, img_url = match.group(1), match.group(2), match.group(3)
         unit = "" if "%" in width else "px"
         return f'<img src="{img_url}" alt="{alt}" style={{{{ width: "{width}{unit}", height: "auto" }}}} />'
     
+    # 正則匹配: ![alt|20](img_url)
     content = re.sub(r'!\[([^|\]]*)\|(\d+%?)\]\((.*?)\)', ob_img_replacer, content)
 
-    # 3. 處理 HTML 標籤內部的 & 符號 (MDX 報錯核心：104:57)
-    # 我們要把標籤屬性（如 href）裡的 & 換成 &amp;
-    def fix_tag_attributes(m):
-        tag_start = m.group(1)
-        attrs = m.group(2)
-        # 只針對屬性內容中的 & 進行轉義
-        fixed_attrs = attrs.replace('&', '&amp;')
-        return f'<{tag_start}{fixed_attrs}>'
+    # --- 3. 強力修復 rt 標籤：解決 Unexpected closing slash ---
+    def rt_to_jsx(match):
+        color = match.group(1).strip()
+        return f'<rt style={{{{color: "{color}"}}}}> '
     
-    content = re.sub(r'<([a-z1-6]+)([^>]+)>', fix_tag_attributes, content, flags=re.I)
+    content = re.sub(r'<rt style="color:([^"]+)">', rt_to_jsx, content)
 
-    # 4. 修復 style="xxx" -> style={{xxx}}
-    content = re.sub(r'style="([^"]*)"', style_to_jsx, content)
+    # --- 4. 修復 a 標籤 href 裡的 & ---
+    def fix_href_amp(m):
+        full_tag = m.group(0)
+        return full_tag.replace('&', '&amp;')
+    
+    content = re.sub(r'<a\s+[^>]*href=[^>]+>', fix_href_amp, content)
 
-    # 5. 修復標籤嵌套配對順序 (解決 </del> 報錯)
-    content = content.replace('</font></del>', '</del></font>')
+    # --- 5. 修正標籤嵌套與自閉合 ---
+    # 修正順序：</span></del> 或 </ruby></del>
     content = content.replace('</ruby></del>', '</del></ruby>')
-    content = content.replace('</font></span>', '</span></font>')
-
-    # 6. 修復 Ruby 標籤內部的 <a> 沒關好問題
-    content = re.sub(r'(<a [^>]*>[^<]+)(<rt)', r'\1</a>\2', content)
-
-    # 7. 確保所有 img 有自閉合
+    content = content.replace('</span></del>', '</del></span>')
+    content = content.replace('</font></del>', '</del></font>')
+    
+    # 確保所有 img 標籤結尾都有 />
     content = re.sub(r'(<img [^>]+)(?<!/)>', r'\1 />', content)
 
     if content != original:
         with open(filepath, 'w', encoding='utf-8') as f:
             f.write(content)
 
-# 掃描目錄
+# 執行掃描 (處理 blog 和 docs)
 for root, dirs, files in os.walk('.'):
+    # 排除 .git 和 node_modules 等不需要處理的目錄
     if any(d in root for d in ['blog', 'docs']):
         for file in files:
             if file.endswith(('.md', '.mdx')):
