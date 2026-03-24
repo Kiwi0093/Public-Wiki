@@ -1,14 +1,78 @@
 /**
- * 🛠️ Kiwi Wiki 樣式整合
- * 1. Blog Archive (NexT 風格時間軸)
- * 2. Blog Tags (Showcase 卡片佈局)
+ * 🛠️ Kiwi Wiki 旗艦版樣式整合
+ * 包含：官方 Showcase 佈局、NexT 歸檔時間軸、全域 UI 優化
  */
 
 /* ============================================================
-   SECTION 1: 歸檔頁面 (Archive) - NexT 時間軸風格
+   SECTION 1: 官方 Showcase 核心樣式 (標籤卡片基礎)
    ============================================================ */
 
-/* 1.1 頁面置中與佈局控制 */
+/* 模擬官方 Showcase 的網格系統 */
+.tag-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* 寬度稍微加大，更有質感 */
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  list-style: none;
+}
+
+/* 仿 Showcase 卡片主體 */
+.tag-card-item {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+  background: var(--ifm-card-background-color, #ffffff);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  text-decoration: none !important;
+  transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+  box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* 深色模式適應 */
+[data-theme='dark'] .tag-card-item {
+  background: #1b1b1d;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.tag-card-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.tag-card-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.tag-card-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.tag-card-count {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ifm-color-content-secondary);
+  background: rgba(var(--ifm-color-primary-rgb), 0.1);
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(var(--ifm-color-primary-rgb), 0.2);
+}
+
+/* ============================================================
+   SECTION 2: NexT 歸檔頁面 (Archive) - 像素對齊版
+   ============================================================ */
+
 .archive-page-main {
   display: flex !important;
   justify-content: center !important;
@@ -22,64 +86,58 @@
 }
 
 .archive-header {
-  margin-bottom: 3rem;
-  text-align: left;
+  margin-bottom: 4rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  padding-bottom: 2rem;
 }
 
-.archive-subtitle {
-  color: #888;
-  font-size: 0.9rem;
-}
-
-/* 1.2 核心時間軸：垂直線 */
+/* 時間軸容器 */
 .archive-timeline-content {
   position: relative;
-  padding-left: 40px; /* 內容距離左側基準點的寬度 */
-  margin-left: 10px;  /* 調整線條在頁面整體的左右偏移 */
+  padding-left: 40px;
 }
 
-/* 垂直線主體 */
+/* 垂直線基準 */
 .archive-timeline-content::before {
   content: "";
   position: absolute;
-  top: 15px; /* 從第一個年份大圓中心開始 */
+  top: 15px;
   bottom: 0;
-  left: 0;   /* 這就是 0 基準點，所有圓點對齊這裡 */
+  left: 0;
   width: 2px;
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--ifm-color-emphasis-200);
 }
 
-/* 1.3 年份樣式 (大節點) */
+/* 年份節點 */
 .archive-year-title {
   position: relative;
-  /* 關鍵對齊：往左推回線上 (40px) 再微調圓圈半徑 */
-  margin-left: -46px; 
+  margin-left: -48px; 
   margin-top: 50px;
-  margin-bottom: 20px;
-  padding-left: 30px; 
-  background: var(--ifm-background-color); /* 遮住重疊的線條 */
-  display: inline-block;
-  font-size: 1.6rem;
-  font-weight: bold;
-  color: var(--ifm-color-primary);
-}
-
-/* 年份旁邊的空心圓點 (12px x 12px) */
-.archive-year-title::before {
-  content: "";
-  position: absolute;
-  left: 5px; /* 根據 2px 線寬微調中心點 */
-  top: 50%;
-  transform: translateY(-50%);
-  width: 12px;
-  height: 12px;
+  margin-bottom: 25px;
+  padding-left: 32px;
   background: var(--ifm-background-color);
-  border: 2px solid var(--ifm-color-primary);
-  border-radius: 50%;
+  display: inline-block;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--ifm-color-primary);
   z-index: 2;
 }
 
-/* 1.4 文章列表 (清除預設樣式) */
+.archive-year-title::before {
+  content: "";
+  position: absolute;
+  left: 2px; 
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  background: var(--ifm-background-color);
+  border: 3px solid var(--ifm-color-primary);
+  border-radius: 50%;
+  z-index: 3;
+}
+
+/* 文章條目 */
 .archive-list {
   list-style: none !important;
   padding: 0 !important;
@@ -88,41 +146,38 @@
 
 .archive-item {
   position: relative;
-  padding: 15px 0;
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
-  transition: all 0.3s ease;
+  padding: 1.2rem 0;
+  border-bottom: 1px dashed var(--ifm-color-emphasis-200);
+  transition: background 0.2s ease;
 }
 
-/* 文章左側實心小圓點 (8px x 8px) */
 .archive-item::before {
   content: "";
   position: absolute;
-  /* 精準計算：基準點 0 位於 -40px，圓寬 8px 需再左偏 3px 以讓中心重合線心 */
-  left: -43px; 
+  left: -44px; 
   top: 1.5rem;
-  width: 8px;
-  height: 8px;
-  background: #555;
+  width: 10px;
+  height: 10px;
+  background: var(--ifm-color-emphasis-400);
   border-radius: 50%;
-  border: 1px solid var(--ifm-background-color);
+  border: 2px solid var(--ifm-background-color);
   z-index: 1;
-  transition: all 0.2s;
 }
 
-/* 互動效果 */
 .archive-item:hover::before {
   background: var(--ifm-color-primary);
-  box-shadow: 0 0 8px var(--ifm-color-primary);
+  box-shadow: 0 0 10px var(--ifm-color-primary);
 }
 
 .archive-date {
-  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-  font-size: 0.85rem;
-  color: #888;
-  margin-right: 15px;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.9rem;
+  color: var(--ifm-color-content-secondary);
+  margin-right: 1.5rem;
 }
 
 .archive-link {
+  font-weight: 500;
   color: var(--ifm-font-color-base);
   text-decoration: none !important;
 }
@@ -132,59 +187,15 @@
 }
 
 /* ============================================================
-   SECTION 2: 標籤頁面 (Tags) - Showcase 卡片佈局
+   SECTION 3: 響應式優化 (Mobile)
    ============================================================ */
-
-.tag-card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1.5rem;
-  padding: 1rem 0;
-}
-
-.tag-card-item {
-  background: var(--ifm-card-background-color, #1b1b1d);
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 12px;
-  padding: 1.5rem;
-  text-decoration: none !important;
-  transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.1);
-}
-
-.tag-card-item:hover {
-  transform: translateY(-5px);
-  border-color: var(--ifm-color-primary);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.tag-card-content {
-  text-align: center;
-}
-
-.tag-card-name {
-  display: block;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: var(--ifm-color-primary);
-  margin-bottom: 0.5rem;
-}
-
-.tag-card-count {
-  font-size: 0.85rem;
-  color: #888;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 2px 12px;
-  border-radius: 20px;
-}
-
-/* RWD 行動裝置優化 */
 @media (max-width: 640px) {
   .tag-card-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr; /* 手機上一列一個 */
     gap: 1rem;
+  }
+  
+  .archive-year-title {
+    font-size: 1.5rem;
   }
 }
