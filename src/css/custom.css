@@ -1,92 +1,106 @@
-:root {
-  --ifm-color-primary: #25c2a0;
-  --timeline-color: rgba(255, 255, 255, 0.15);
+/* --- 歸檔頁面專用容器 --- */
+.archive-page-main {
+  display: flex;
+  justify-content: center; /* 讓內容水平居中 */
 }
 
-/* 1. 核心：強制在歸檔區域左側畫出一條垂直線 */
-/* 這裡直接針對 Docusaurus 的 Archive 頁面架構 */
-[class*='blog-archive'] .container {
-  position: relative !important;
-  border-left: 2px solid var(--timeline-color) !important;
-  margin-left: 30px !important;
-  padding-left: 40px !important;
-  list-style: none !important;
+.archive-page-wrapper {
+  width: 100%;
+  max-width: 800px; /* 限制寬度，NexT 風格通常不會太寬 */
 }
 
-/* 2. 年份標題：大叔要的那個左側大年份 */
-[class*='blog-archive'] h2 {
-  position: relative !important;
-  margin-left: -61px !important; /* 讓圓點精準壓在線上 */
-  margin-top: 40px !important;
-  margin-bottom: 30px !important;
-  background-color: var(--ifm-background-color) !important;
-  display: inline-block !important;
-  padding: 5px 15px !important;
-  color: var(--ifm-color-primary) !important;
-  font-size: 1.5rem !important;
-  z-index: 10 !important;
+.archive-header {
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
-/* 年份旁邊的大圓點 */
-[class*='blog-archive'] h2::before {
-  content: "" !important;
-  position: absolute !important;
-  left: -13px !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  width: 14px !important;
-  height: 14px !important;
-  background-color: var(--ifm-color-primary) !important;
-  border: 3px solid var(--ifm-background-color) !important;
-  border-radius: 50% !important;
+/* --- 核心時間軸垂直線 --- */
+.archive-timeline {
+  position: relative;
+  padding-left: 40px;
+  margin-left: 20px; /* 線條離左側的距離 */
 }
 
-/* 3. 文章清單項目：把預設的列表樣式殺掉 */
-[class*='blog-archive'] section > div {
-  position: relative !important;
-  margin-bottom: 20px !important;
-  padding-left: 10px !important;
+.archive-timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.15); /* 這就是那條線 */
 }
 
-/* 文章左側的小圓點 */
-[class*='blog-archive'] section > div::before {
-  content: "" !important;
-  position: absolute !important;
-  left: -51px !important; /* 對準那條垂直線 */
-  top: 12px !important;
-  width: 8px !important;
-  height: 8px !important;
-  background-color: #bbb !important;
-  border: 2px solid var(--ifm-background-color) !important;
-  border-radius: 50% !important;
-  z-index: 5 !important;
+/* --- 年份標題 --- */
+.archive-year-title {
+  position: relative;
+  margin-left: -60px; /* 往左拉，蓋在線上 */
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding-left: 35px;
+  background: var(--ifm-background-color); /* 遮住線條 */
+  display: inline-block;
+  color: var(--ifm-color-primary);
 }
 
-/* 4. 文字風格：時間與標題並排 */
-[class*='blog-archive'] time {
-  font-family: 'Courier New', monospace !important;
-  margin-right: 15px !important;
-  color: #888 !important;
+/* 年份旁邊的圓圈 (空心圓) */
+.archive-year-title::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  background: var(--ifm-background-color);
+  border: 2px solid var(--ifm-color-primary);
+  border-radius: 50%;
+  z-index: 2;
 }
 
-[class*='blog-archive'] a {
-  font-weight: 500 !important;
-  color: var(--ifm-font-color-base) !important;
-  text-decoration: none !important;
+/* --- 文章列表 --- */
+.archive-list {
+  list-style: none !important; /* 拔掉預設黑點 */
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
-[class*='blog-archive'] a:hover {
-  color: var(--ifm-color-primary) !important;
+.archive-item {
+  position: relative;
+  padding: 12px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
 }
 
-/* 5. 修正：如果大叔是用 <ul> 渲染的 (某些版本會變) */
-[class*='blog-archive'] ul {
-  list-style: none !important;
-  padding-left: 0 !important;
+/* 文章左側的小實心圓 */
+.archive-item::after {
+  content: "";
+  position: absolute;
+  left: -44px; /* 精準對齊線條 */
+  top: 1.4rem;
+  width: 6px;
+  height: 6px;
+  background: #bbb;
+  border-radius: 50%;
+  transition: background 0.2s;
 }
 
-/* 6. Ruby 註音美化 (這是大叔的堅持) */
-rt {
-  color: orange !important;
-  font-size: 0.75em !important;
+.archive-item:hover::after {
+  background: var(--ifm-color-primary);
+}
+
+.archive-date {
+  font-family: 'Courier New', Courier, monospace;
+  color: #777;
+  margin-right: 15px;
+  font-size: 0.9rem;
+}
+
+.archive-link {
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+}
+
+.archive-link:hover {
+  color: var(--ifm-color-primary);
+  border-bottom: 1px solid var(--ifm-color-primary);
 }
