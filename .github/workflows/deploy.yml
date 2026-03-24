@@ -4,7 +4,6 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# 強制使用 Node 24 解決警告
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
@@ -15,60 +14,42 @@ jobs:
       - name: Checkout Engine
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # 設定為 0 才能抓到完整的 Git 歷史日期
+          fetch-depth: 0
 
-      - name: 🔍 Debug Path (重要：請在 Log 查看此處輸出)
+      - name: 🔍 Debug Path
         run: |
           echo "Current directory structure:"
           find . -maxdepth 3 -not -path '*/.*'
 
-      - name: 🏗️ 自動修復破碎的內部連結 (終極版)
+      - name: 📂 Prepare Folders (搬移 Wiki 和 Blog)
         run: |
           mkdir -p docs blog static/img
+          # 搬移檔案 (這部分維持你的邏輯)
           find . -type d -iname "Wiki" -not -path "./docs*" -exec cp -R {}/. ./docs/ \; 2>/dev/null || true
           find . -type d -iname "Blog" -not -path "./blog*" -exec cp -R {}/. ./blog/ \; 2>/dev/null || true
-          
-          # 1. 暴力清除所有 image: null, id (避免警告與報錯)
-          find ./blog ./docs -name "*.md" -exec sed -i '/^image: null$/d' {} +
-          find ./blog ./docs -name "*.md" -exec sed -i '/^id: /d' {} +
 
-          # 2. 修復空連結
-          find ./blog ./docs -name "*.md" -exec sed -i 's/\[\([^]]*\)\]()/[\1](#)/g' {} +
-
-          # 3. 處理圖片標籤 (確保自閉合且樣式正確)
-          find ./blog ./docs -name "*.md" -exec sed -i 's/style="zoom: \([0-9]\{1,\}\)%;"/style={{width: "\1%"}}/g' {} +
-          find ./blog ./docs -name "*.md" -exec sed -i 's/<img \([^>]*\)[^\/]>/\<img \1 \/\>/g' {} +
-
-          # 4. 處理孤立的角括號 (將 < 轉義為 &lt;)
-          find ./blog ./docs -name "*.md" -exec sed -i '/<img/!s/<\([a-zA-Z0-9_-]\{1,\}\)>/\&lt;\1\&gt;/g' {} +
-      
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
-          
-      - name: 🐍 使用 Python 自動轉換 Obsidian 語法為 MDX 規範
+
+      - name: 🐍 終極修復：由 Python 統一處理所有 MDX 語法
         run: |
+          # 我們把之前的 sed 邏輯全部整合進 fix-mdx.py
           python3 fix-mdx.py
-      
+
       - name: 🟢 Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 24 # 直接攻頂 Node 24
+          node-version: 24
 
       - name: 📦 Install & Build
         run: |
-          # 如果沒有 package.json，這步會失敗，請確認你的 Repo 根目錄有這個檔
           npm install
+          # 執行 build 前先清快取，確保讀到 Python 改過的最新硬碟檔案
+          npx docusaurus clear
           npm run build
 
-      - name: 🔍 Check Build Result
-        run: |
-          echo "Check if index.html exists in build:"
-          ls -lh build/index.html
-          echo "Check if there are any other html files:"
-          find build -name "*.html"
-      
       - name: 🚀 Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
