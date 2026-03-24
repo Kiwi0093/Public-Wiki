@@ -15,7 +15,7 @@
             <pubDate>Mon, 23 Mar 2026 00:00:00 GMT</pubDate>
             <description><![CDATA[本文轉載自舊站存檔。]]></description>
             <content:encoded><![CDATA[<blockquote>
-<div><p>本文轉載自舊站存檔。</p></div>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
 </blockquote>
 <p>搭建好了Blog&amp;Wiki接下來就該是開始時常寫一點習慣養成,以及一些相關工具的蒐集與使用方式打磨</p>
 <p>``</p>
@@ -39,13 +39,13 @@
             <pubDate>Mon, 23 Mar 2026 00:00:00 GMT</pubDate>
             <description><![CDATA[本文轉載自舊站存檔。]]></description>
             <content:encoded><![CDATA[<blockquote>
-<div><p>本文轉載自舊站存檔。</p></div>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
 </blockquote>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="現況說明">現況說明<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E7%8F%BE%E6%B3%81%E8%AA%AA%E6%98%8E" class="hash-link" aria-label="現況說明的直接連結" title="現況說明的直接連結">​</a></h2>
 <p>這幾天勸敗了幾台新的RackNerd的VPS後,著實的好好練習了V2ray 4.33的安裝..(截至今天一共弄了四台新的加兩台update),但是除了名下的機器外,看著我的CF裡的DNS列表...還是有在我的DN下的別人家的機器,其實是該幫人家升級的...</p>
 <p>``</p>
 <p>因為討人厭的是</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="不是每個43x的client都跟42x的server相容"><em>不是每個4.3x的Client都跟4.2x的Server相容</em><a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E4%B8%8D%E6%98%AF%E6%AF%8F%E5%80%8B43x%E7%9A%84client%E9%83%BD%E8%B7%9F42x%E7%9A%84server%E7%9B%B8%E5%AE%B9" class="hash-link" aria-label="不是每個43x的client都跟42x的server相容的直接連結" title="不是每個43x的client都跟42x的server相容的直接連結">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="不是每個43x的client都跟42x的server相容"><em>不是每個4.3x的Client都跟4.2x的Server相容</em><a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E4%B8%8D%E6%98%AF%E6%AF%8F%E5%80%8B43x%E7%9A%84client%E9%83%BD%E8%B7%9F42x%EF%BF%BD%EF%BF%BD%E7%9A%84server%E7%9B%B8%E5%AE%B9" class="hash-link" aria-label="不是每個43x的client都跟42x的server相容的直接連結" title="不是每個43x的client都跟42x的server相容的直接連結">​</a></h2>
 <p>所以要就得一口氣連同Client一起升一下不然很容易出悲劇...</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="升級">升級<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E5%8D%87%E7%B4%9A" class="hash-link" aria-label="升級的直接連結" title="升級的直接連結">​</a></h2>
 <p>其實依照我的尿性,不過就是VPS,上面也沒什麼重要的東西..保留一下<strong>V2Ray</strong>的<strong>config.json</strong>裡的內容,然後直接選<strong>reinstall</strong>一切重來可能還比較省事...不過既然有不是我可以隨便<strong>reinstall</strong>的VPS那還是來弄個複雜版的升級好了....</p>
@@ -62,7 +62,7 @@
 </ul>
 <p>若是要改用<strong>VLESS</strong>的話就再加上增加v2ray帳號,處理certbot的key(或是用其他方式弄Key也可以只不過我還不會)最後再改一下config.json的內容就可以了</p>
 <p>詳細的作法,算是<a href="https://github.com/v2fly/fhs-install-v2ray/wiki/Migrate-from-the-old-script-to-this" target="_blank" rel="noopener noreferrer">官方文件</a>裡面寫得很清楚</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="若是你的server使用的是archlinux">若是你的Server使用的是Archlinux....<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E8%8B%A5%E6%98%AF%E4%BD%A0%E7%9A%84server%E4%BD%BF%E7%94%A8%E7%9A%84%E6%98%AFarchlinux" class="hash-link" aria-label="若是你的Server使用的是Archlinux....的直接連結" title="若是你的Server使用的是Archlinux....��的直接連結">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="若是你的server使用的是archlinux">若是你的Server使用的是Archlinux....<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E8%8B%A5%E6%98%AF%E4%BD%A0%E7%9A%84server%E4%BD%BF%E7%94%A8%E7%9A%84%E6%98%AFarchlinux" class="hash-link" aria-label="若是你的Server使用的是Archlinux....的直接連結" title="若是你的Server使用的是Archlinux....的直接連結">​</a></h4>
 <p>那就只要來一行</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">pacman -Syu</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
 <p>你的V2ray就會升級到最新....什麼屁事沒有..超輕鬆的....</p>
@@ -88,7 +88,7 @@
             <pubDate>Fri, 27 Nov 2020 00:00:00 GMT</pubDate>
             <description><![CDATA[本文轉載自舊站存檔。]]></description>
             <content:encoded><![CDATA[<blockquote>
-<div><p>本文轉載自舊站存檔。</p></div>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
 </blockquote>
 <p>前天又入手了一台廉價的VPS,來自<strong>RackNerd</strong>的感恩節特賣,以18USD左右的價格入手了兩年的使用權</p>
 <p>``</p>
@@ -167,7 +167,7 @@
             <pubDate>Wed, 15 Jul 2020 00:00:00 GMT</pubDate>
             <description><![CDATA[本文轉載自舊站存檔。]]></description>
             <content:encoded><![CDATA[<blockquote>
-<div><p>本文轉載自舊站存檔。</p></div>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
 </blockquote>
 <p>使用電腦多年,使用的軟體也隨著時間的變更而有些調整,看著自己之前寫過一些Manjaro的安裝使用或是Gaming之類的文章就在想是否該寫一篇<del>大雜燴</del>整合文章把現在這個時間點開始使用或是使用多年也不厭倦的軟體以及習慣的設定方式做個紀錄,也給有興趣的人們留下一點參考</p>
 <p>``</p>
@@ -470,7 +470,7 @@
             <pubDate>Sat, 11 Jul 2020 00:00:00 GMT</pubDate>
             <description><![CDATA[本文轉載自舊站存檔。]]></description>
             <content:encoded><![CDATA[<blockquote>
-<div><p>本文轉載自舊站存檔。</p></div>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
 </blockquote>
 <p>自從大叔換用Github+Markdown語法來寫Blog後,效率的確變好很多,但是苦於大叔對於git指令的不熟悉,做了很多很蠢的事情(像是把自己的Repo砍掉重練很多次)</p>
 <p>Push的時候有分岐不會處理等等在熟悉使用Git的前輩眼中蠢到爆的各種,所以我就想花一個簡單的篇幅把自己會用上的Git指令以及針對這個Blog會常用到的指令都先寫成Script,以便日後使用</p>
@@ -568,7 +568,7 @@
             <pubDate>Tue, 07 Jul 2020 00:00:00 GMT</pubDate>
             <description><![CDATA[本文轉載自舊站存檔。]]></description>
             <content:encoded><![CDATA[<blockquote>
-<div><p>本文轉載自舊站存檔。</p></div>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
 </blockquote>
 <p>換了新的Blog但是還沒想到內容要寫什麼,所以就想說先把之前寫的筆記再整理一次做個精簡的增補版(其實就是把一些後來發現不好用的部份拿掉或改掉)</p>
 <p>並且練習用Github來管理大叔自己寫的script,不過因為很多是私人性質的所以應該會放在不公開的Repo裡面然後另外寫一個公開版的放在外面供有需要的人使用</p>
@@ -656,7 +656,7 @@
             <pubDate>Tue, 07 Jul 2020 00:00:00 GMT</pubDate>
             <description><![CDATA[本文轉載自舊站存檔。]]></description>
             <content:encoded><![CDATA[<blockquote>
-<div><p>本文轉載自舊站存檔。</p></div>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
 </blockquote>
 <p>V2ray,這可以說是大叔開始寫Blog的最主要原因,因為這是一個住在強國才需要的被特化的技能,一般來說技術相關的文件一般都是英文的但恰恰好只有翻牆相關的文件全部都是簡體中文的...</p>
 <p>因為這個區塊的知識相當偏門,所以大叔才燃起要把自己研讀過得方式與結果記錄下來以免每次都要重新查詢資料,順便可以的話把這些作法做成自動化處理減少相對應的工時</p>
@@ -694,7 +694,7 @@
 <p><a href="https://eveaz.com/1094.html" target="_blank" rel="noopener noreferrer">那束陽光</a></p>
 <p><a href="https://github.com/233boy/v2ray/wiki/%E4%BD%BF%E7%94%A8Cloudflare%E4%B8%AD%E8%BD%ACV2Ray%E6%B5%81%E9%87%8F" target="_blank" rel="noopener noreferrer">233boy</a></p>
 <h1>安裝</h1>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="系統基本安裝">系統基本安裝<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/v2ray-server-setup#%E7%B3%BB%E7%B5%B1%E5%9F%BA%E6%9C%AC%E5%AE%89%E8%A3%9D" class="hash-link" aria-label="系統基本安裝的直接連結" title="系統基本安裝的直接連結">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="系統基本安裝">系統基本安裝<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/v2ray-server-setup#%E7%B3%BB%E7%B5%B1%E5%9F%BA%E6%9C%AC%E5%AE%89%E8%A3%9D" class="hash-link" aria-label="系統基本安裝的直接連結" title="�系統基本安裝的直接連結">​</a></h2>
 <ol>
 <li>
 <p>在Browser的VPS管理界面下挑選你喜歡的Linux Destro進行系統安裝,大叔選的是Debain.</p>
