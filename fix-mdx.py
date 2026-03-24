@@ -58,4 +58,48 @@ def process_file(filepath):
         alt, w, img, link = m.group(1), m.group(2), m.group(3), m.group(4)
         print(f"  [Fixed LinkedImg] -> {fname}")
         return f'<a href="{link.replace("&", "&amp;")}"><img src="{img}" alt="{alt}" style={{{{ width: "{w}{"" if "%" in w else "px"}", height: "auto" }}}} /></a>'
-    content = re.sub(
+    content = re.sub(r'\[!\[([^|\]]*)\|(\d+%?)\]\((.*?)\)\]\((.*?)\)', ob_link_img, content)
+
+    # 處理 ![]( )
+    def ob_img(m):
+        alt, w, img = m.group(1), m.group(2), m.group(3)
+        print(f"  [Fixed Img] -> {fname}")
+        return f'<img src="{img}" alt="{alt}" style={{{{ width: "{w}{"" if "%" in w else "px"}", height: "auto" }}}} />'
+    content = re.sub(r'!\[([^|\]]*)\|(\d+%?)\]\((.*?)\)', ob_img, content)
+
+    # --- 5. 修正標籤順序、自閉合與孤兒標籤 ---
+    
+    # 修復 </a> 孤兒 (原始檔常見錯誤)
+    def clean_orphan_a(text):
+        text = re.sub(r'<a\s+[^>]*>.*?</a>', lambda m: m.group(0).replace('</a>', '[[SAFE_A]]'), text, flags=re.DOTALL)
+        text = text.replace('</a>', '')
+        return text.replace('[[SAFE_A]]', '</a>')
+    
+    content = clean_orphan_a(content)
+
+    # 修正標籤嵌套順序
+    content = content.replace('</ruby></del>', '</del></ruby>')
+    content = content.replace('</span></del>', '</del></span>')
+    
+    # 確保 img 標籤自閉合
+    content = re.sub(r'(<img [^>]+)(?<!/)>', r'\1 />', content)
+
+    if content != original or modified:
+        with open(filepath, 'w', encoding='utf-8') as f:
+            f.write(content)
+        return True
+    return False
+
+# 執行
+print("🚀 Starting MDX Fixer (Integrated Version)...")
+count = 0
+# 掃描 blog 和 docs 資料夾
+for folder in ['blog', 'docs']:
+    if os.path.exists(folder):
+        for root, dirs, files in os.walk(folder):
+            for file in files:
+                if file.endswith(('.md', '.mdx')):
+                    if process_file(os.path.join(root, file)):
+                        count += 1
+
+print(f"✅ Finished! Total files processed and cleaned: {count}")
