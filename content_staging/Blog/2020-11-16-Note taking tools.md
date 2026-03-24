@@ -1,6 +1,6 @@
 ---
 title: Note taking tools
-date: 2026-03-23
+date: 2020-11-16
 tags: [Life, Tools, web, Old-Blog, Archive]
 slug: 2020/11/note-taking-tools
 description: 記筆記的工具
