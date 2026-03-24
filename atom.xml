@@ -11,9 +11,10 @@
         <id>https://kiwi0093.github.io/Public-Wiki/2020/11/note-taking-tools</id>
         <link href="https://kiwi0093.github.io/Public-Wiki/2020/11/note-taking-tools"/>
         <updated>2026-03-23T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[本文轉載自舊站存檔。]]></summary>
+        <summary type="html"><![CDATA[info]]></summary>
         <content type="html"><![CDATA[<blockquote>
-<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
+<p>info
+本文轉載自舊站存檔。</p>
 </blockquote>
 <p>搭建好了Blog&amp;Wiki接下來就該是開始時常寫一點習慣養成,以及一些相關工具的蒐集與使用方式打磨</p>
 <p>``</p>
@@ -795,11 +796,12 @@
         <updated>2020-07-06T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[基本說明如何轉移到Github上]]></summary>
         <content type="html"><![CDATA[<blockquote>
-<p>info
-本文轉載自舊站存檔。</p>
+<p>::: info
+本文轉載自舊站存檔。
+:::</p>
 </blockquote>
 <p>日前看了<a href="https://www.youtube.com/user/homergfunk/featured" target="_blank" rel="noopener noreferrer">CTT</a>的Youtube頻道,發現了Hugo+Github或是Hugo+Netlify的選項也很適合拿來做BLog,考慮到Blogger的編輯模式真的不是那麼先進以及大叔我賣力想轉向Markdown的語法的努力,從這篇開始大叔打算把自己這個沒人看的Blog從Blogger移到github順便學習一下時髦的git方式來管理我的Blog</p>
-<p>``</p>
+<!-- -->
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="事前準備">事前準備<a href="https://kiwi0093.github.io/Public-Wiki/2020/07/hugo+github#%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99" class="hash-link" aria-label="事前準備的直接連結" title="事前準備的直接連結">​</a></h2>
 <p>新的Blog需要用到以下工具</p>
 <ul>
