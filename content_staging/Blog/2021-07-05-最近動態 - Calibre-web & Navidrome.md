@@ -14,9 +14,9 @@ description: 用Docker架設Calibre-web跟navidrome
 
 針對之前的Server使用,我真的開始了使用docker的道路,並且參考了一些網路上的<font color="green">Self-hosted</font>服務,挑選了兩個服務來使用
 
-* ## <ruby><font color=blue>電子書管理服務</font><rp>(</rp><rt><font color="orange">Calibre-Web</font></rt><rp>)</rp></ruby>
+* ## <ruby><font color="blue">電子書管理服務</font><rp>(</rp><rt><font color="orange">Calibre-Web</font></rt><rp>)</rp></ruby>
 
-* ## <ruby><font color=blue>音樂串流服務</font><rp>(</rp><rt><font color="orange">Navidrome</font></rt><rp>)</rp></ruby>
+* ## <ruby><font color="blue">音樂串流服務</font><rp>(</rp><rt><font color="orange">Navidrome</font></rt><rp>)</rp></ruby>
 
 {/* 這裡插入切分線 */}
 <!--truncate-->
