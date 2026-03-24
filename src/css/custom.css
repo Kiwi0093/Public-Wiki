@@ -1,92 +1,92 @@
 :root {
   --ifm-color-primary: #25c2a0;
-  --timeline-line-color: rgba(255, 255, 255, 0.2);
-  --timeline-node-color: #bbb;
+  --timeline-color: rgba(255, 255, 255, 0.15);
 }
 
-/* 1. Archive Page Layout Fix */
-body [class*='archive'] main .container {
+/* 1. 核心：強制在歸檔區域左側畫出一條垂直線 */
+/* 這裡直接針對 Docusaurus 的 Archive 頁面架構 */
+[class*='blog-archive'] .container {
   position: relative !important;
-  border-left: 2px solid var(--timeline-line-color) !important;
-  margin-left: 50px !important;
+  border-left: 2px solid var(--timeline-color) !important;
+  margin-left: 30px !important;
   padding-left: 40px !important;
-  padding-top: 20px !important;
-  max-width: 900px !important;
+  list-style: none !important;
 }
 
-/* 2. Year Header (h2) */
-body [class*='archive'] h2 {
+/* 2. 年份標題：大叔要的那個左側大年份 */
+[class*='blog-archive'] h2 {
   position: relative !important;
-  margin-left: -65px !important;
+  margin-left: -61px !important; /* 讓圓點精準壓在線上 */
   margin-top: 40px !important;
   margin-bottom: 30px !important;
-  color: #25c2a0 !important;
   background-color: var(--ifm-background-color) !important;
   display: inline-block !important;
-  padding: 0 15px !important;
+  padding: 5px 15px !important;
+  color: var(--ifm-color-primary) !important;
+  font-size: 1.5rem !important;
   z-index: 10 !important;
 }
 
-/* 3. Year Node (The Big Dot) */
-body [class*='archive'] h2::before {
+/* 年份旁邊的大圓點 */
+[class*='blog-archive'] h2::before {
   content: "" !important;
   position: absolute !important;
-  left: -12px !important;
+  left: -13px !important;
   top: 50% !important;
   transform: translateY(-50%) !important;
-  width: 16px !important;
-  height: 16px !important;
-  background-color: #25c2a0 !important;
-  border: 4px solid var(--ifm-background-color) !important;
+  width: 14px !important;
+  height: 14px !important;
+  background-color: var(--ifm-color-primary) !important;
+  border: 3px solid var(--ifm-background-color) !important;
   border-radius: 50% !important;
-  z-index: 11 !important;
 }
 
-/* 4. Article Item Node (The Small Dot) */
-/* Targeted at Docusaurus specific structure: section > div */
-body [class*='archive'] main .container section > div::before {
+/* 3. 文章清單項目：把預設的列表樣式殺掉 */
+[class*='blog-archive'] section > div {
+  position: relative !important;
+  margin-bottom: 20px !important;
+  padding-left: 10px !important;
+}
+
+/* 文章左側的小圓點 */
+[class*='blog-archive'] section > div::before {
   content: "" !important;
   position: absolute !important;
-  left: -51px !important;
+  left: -51px !important; /* 對準那條垂直線 */
   top: 12px !important;
-  width: 10px !important;
-  height: 10px !important;
+  width: 8px !important;
+  height: 8px !important;
   background-color: #bbb !important;
   border: 2px solid var(--ifm-background-color) !important;
   border-radius: 50% !important;
-  z-index: 11 !important;
+  z-index: 5 !important;
 }
 
-/* 5. Article Link and Time Styles */
-body [class*='archive'] main .container section > div {
-  position: relative !important;
-  margin-bottom: 25px !important;
-}
-
-body [class*='archive'] time {
+/* 4. 文字風格：時間與標題並排 */
+[class*='blog-archive'] time {
   font-family: 'Courier New', monospace !important;
   margin-right: 15px !important;
   color: #888 !important;
-  font-size: 0.95em !important;
 }
 
-body [class*='archive'] a {
+[class*='blog-archive'] a {
   font-weight: 500 !important;
   color: var(--ifm-font-color-base) !important;
   text-decoration: none !important;
 }
 
-body [class*='archive'] a:hover {
-  color: #25c2a0 !important;
+[class*='blog-archive'] a:hover {
+  color: var(--ifm-color-primary) !important;
 }
 
-/* 6. Ruby (Furigana) Styling */
+/* 5. 修正：如果大叔是用 <ul> 渲染的 (某些版本會變) */
+[class*='blog-archive'] ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+}
+
+/* 6. Ruby 註音美化 (這是大叔的堅持) */
 rt {
   color: orange !important;
   font-size: 0.75em !important;
-}
-
-/* 7. Global Width */
-.container {
-  max-width: 1100px;
 }
