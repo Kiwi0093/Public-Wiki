@@ -1,101 +1,123 @@
 /**
  * 🛠️ Kiwi Wiki 旗艦版 - 百寶袋奪回計畫版
- * 琥珀金配色 + 絕對對齊線條 + 穩定顯示卡片
+ * 琥珀金配色 + NexT 時間軸 (對齊修正) + Showcase Tags 卡片 (功能修正)
  */
 
 :root {
-  /* 琥珀金：#e3b341，這才是洗鍊的感覺 */
+  /* 琥珀金：視覺研究推薦，在深色模式下最具高級感且不刺眼 */
   --kiwi-primary: #e3b341; 
   --ifm-color-primary: var(--kiwi-primary);
   --ifm-link-color: var(--kiwi-primary);
 }
 
 /* ============================================================
-   ARCHIVE - NexT 時間軸 (絕對對齊版)
+   ARCHIVE - NexT 垂直時間軸 (對齊修正版)
    ============================================================ */
-
-/* 確保容器居中，年份不偏左 */
 .archive-page-main {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 2rem 20px;
+  display: flex !important;
+  justify-content: center !important;
+  padding: 2rem 0;
 }
 
-/* 時間軸總容器 */
-.archive-timeline-content {
+.archive-page-wrapper {
+  width: 100%;
+  max-width: 800px; /* 窄一點更有質感 */
+  padding: 0 20px;
+}
+
+.archive-header {
+  margin-bottom: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 1rem;
+}
+
+/* 時間軸容器：這層 `border-left` 就是那條「線」 */
+.archive-timeline {
   position: relative;
-  padding-left: 50px; /* 線條離左側的距離 */
-  border-left: 2px solid rgba(255, 255, 255, 0.1); /* 垂直線主體 */
-  margin-left: 10px;
+  /* 整體向右微調，解決原本年份太偏左的問題 */
+  margin-left: 20px; 
+  padding-left: 40px;
+  border-left: 2px solid rgba(255, 255, 255, 0.1); /* 這是你的垂直基準線 */
 }
 
-/* 年份標題：改用絕對定位處理圓點，避免計算誤差 */
+/* 年份大圓圈 */
 .archive-year-title {
   position: relative;
-  margin: 50px 0 30px 0;
-  font-size: 2rem;
+  /* 精準對齊關鍵：往左推回線上 (40px) 加上一點點修正量 */
+  margin-left: -53px; 
+  margin-top: 50px;
+  margin-bottom: 25px;
+  padding-left: 35px;
+  background: var(--ifm-background-color); 
+  display: inline-block;
+  font-size: 1.8rem;
   font-weight: 800;
   color: var(--kiwi-primary);
-  display: block;
+  z-index: 2; /* 確保在線上面 */
 }
 
-/* 年份大圓點：直接壓在 border-left 上 */
+/* 年份圓點 (14px x 14px) */
 .archive-year-title::before {
   content: "";
   position: absolute;
-  /* 50px (padding) + 1px (半條線寬) = 51px，圓寬 14px，所以 left 為 -57px */
-  left: -57.5px; 
+  /* 讓 14px 寬的圓圈中心點，完美壓在 2px 的邊框線上 */
+  left: 5px; 
   top: 50%;
   transform: translateY(-50%);
-  width: 15px;
-  height: 15px;
+  width: 14px;
+  height: 14px;
   background: var(--ifm-background-color);
   border: 3px solid var(--kiwi-primary);
   border-radius: 50%;
-  z-index: 5;
+  z-index: 3;
 }
 
+/* 文章清單與小圓點 */
 .archive-list {
   list-style: none !important;
   padding: 0 !important;
+  margin: 0 !important;
 }
 
 .archive-item {
   position: relative;
   padding: 1.2rem 0;
   border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+  transition: background 0.2s ease;
 }
 
-/* 文章小圓點：同樣直接壓在線上面 */
+/* 文章實心小圓點 (10px x 10px) */
 .archive-item::before {
   content: "";
   position: absolute;
-  /* 線在 left 0，圓寬 10px，所以推 -54px (50+4) */
-  left: -55px;
+  /* 鎖定小圓點在線上：-40px padding + 修正位移 */
+  left: -45px; 
   top: 1.6rem;
   width: 10px;
   height: 10px;
-  background: #555;
+  background: var(--ifm-color-emphasis-400);
   border-radius: 50%;
   border: 2px solid var(--ifm-background-color);
-  z-index: 4;
+  z-index: 1;
 }
 
+/* Hover 效果：點點變亮、文字變色 */
 .archive-item:hover::before {
   background: var(--kiwi-primary);
   box-shadow: 0 0 10px var(--kiwi-primary);
 }
 
 .archive-date {
-  font-family: monospace;
+  font-family: var(--ifm-font-family-monospace);
   color: #888;
-  margin-right: 1.5rem;
-  font-size: 1rem;
+  margin-right: 15px;
+  font-size: 0.9rem;
 }
 
 .archive-link {
-  color: #eee !important; /* 一般文字淺灰色，Hover 變金色 */
+  color: var(--ifm-font-color-base) !important;
   text-decoration: none !important;
+  font-weight: 500;
 }
 
 .archive-link:hover {
@@ -103,52 +125,8 @@
 }
 
 /* ============================================================
-   TAGS - 官方 Showcase 風格 (強制卡片化)
+   TAGS - Showcase 功能與 UI (修正開關與搜尋)
    ============================================================ */
-
-.tag-card-grid {
-  display: grid;
-  /* 強制卡片不要縮小到不見 */
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
-  padding: 2rem 0;
-  list-style: none !important;
-}
-
-.tag-card-item {
-  background: #1b1b1d !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-radius: 12px;
-  padding: 2rem;
-  text-decoration: none !important;
-  transition: all 0.3s ease;
-  display: flex !important;
-  flex-direction: column;
-  align-items: center;
-}
-
-.tag-card-item:hover {
-  transform: translateY(-5px);
-  border-color: var(--kiwi-primary) !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.tag-card-name {
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: var(--kiwi-primary) !important;
-  margin-bottom: 10px;
-}
-
-.tag-card-count {
-  font-size: 0.9rem;
-  color: #888;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 4px 15px;
-  border-radius: 20px;
-}
-
-/* --- Showcase 控制列佈局 --- */
 .showcase-controls {
   margin-bottom: 2rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -165,22 +143,23 @@
 
 /* 搜尋框樣式 */
 .showcase-search-input {
-  background: #1b1b1d;
-  border: 1px solid var(--kiwi-primary);
-  color: white;
-  padding: 10px 20px;
+  background: #1b1b1d !important;
+  border: 1px solid var(--kiwi-primary) !important;
+  color: white !important;
+  padding: 10px 20px !important;
   border-radius: 8px;
   width: 300px;
   outline: none;
 }
 
-/* OR/AND 切換開關 (官方 Showcase 風格) */
+/* OR/AND 切換開關 (針對 HTML 結構修正) */
 .operator-container {
   display: flex;
   align-items: center;
   gap: 10px;
   font-weight: bold;
   font-size: 0.8rem;
+  color: #eee;
 }
 
 .active-op { color: var(--kiwi-primary); }
@@ -188,8 +167,8 @@
 .switch {
   position: relative;
   display: inline-block;
-  width: 40px;
-  height: 20px;
+  width: 42px;
+  height: 22px;
 }
 
 .switch input { opacity: 0; width: 0; height: 0; }
@@ -206,7 +185,7 @@
 .slider:before {
   position: absolute;
   content: "";
-  height: 14px; width: 14px;
+  height: 16px; width: 16px;
   left: 3px; bottom: 3px;
   background-color: white;
   transition: .4s;
@@ -215,3 +194,45 @@
 
 input:checked + .slider { background-color: var(--kiwi-primary); }
 input:checked + .slider:before { transform: translateX(20px); }
+
+/* 卡片網格與樣式 (強制卡片化) */
+.tag-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.tag-card-item {
+  background: #1b1b1d !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px;
+  padding: 2rem;
+  text-decoration: none !important;
+  transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tag-card-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--kiwi-primary) !important;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.tag-card-name {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--kiwi-primary) !important;
+  margin-bottom: 0.75rem;
+}
+
+.tag-card-count {
+  font-size: 0.85rem;
+  color: #999;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 15px;
+  border-radius: 20px;
+}
