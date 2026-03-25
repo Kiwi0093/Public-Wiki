@@ -3,7 +3,7 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 
 export default function BlogTagsListPage({tags}) {
-  const [selectedTags, setSelectedTags] = useState([]); // 儲存 tag 的 key (例如 'Old-Blog')
+  const [selectedTags, setSelectedTags] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [isAnd, setIsAnd] = useState(false);
 
@@ -16,18 +16,19 @@ export default function BlogTagsListPage({tags}) {
     tag.label.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  // 核心修正：AND/OR 邏輯
   const filteredPostsData = useMemo(() => {
     if (selectedTags.length === 0) return [];
     
-    // 取得所有選中標籤的文章列表
-    const postLists = selectedTags.map(tagName => tags[tagName]?.items || []);
+    // 安全過濾，確保 tags[key] 存在且有 items
+    const postLists = selectedTags
+      .map(name => tags[name]?.items)
+      .filter(items => Array.isArray(items));
     
+    if (postLists.length === 0) return [];
+
     if (isAnd) {
-      // 交集邏輯 (AND)
       return postLists.reduce((a, b) => a.filter(c => b.includes(c)));
     }
-    // 聯集邏輯 (OR)
     return [...new Set(postLists.flat())];
   }, [selectedTags, tags, isAnd]);
 
@@ -45,16 +46,16 @@ export default function BlogTagsListPage({tags}) {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
-            <button className="tag-clear-btn" style={{padding: '0 20px', borderRadius: '8px', cursor: 'pointer'}} onClick={() => setSelectedTags([])}>Clean All</button>
+            <button className="tag-clear-btn" style={{padding: '0 20px', borderRadius: '8px', cursor: 'pointer', background: '#333', color: '#fff', border: 'none'}} onClick={() => setSelectedTags([])}>Clean All</button>
           </div>
 
-          <div className="tags-logic-row" style={{display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px'}}>
-            <span className={!isAnd ? 'active-logic' : ''}>OR</span>
+          <div style={{display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px', fontSize: '0.8rem', fontWeight: 'bold'}}>
+            <span style={{color: !isAnd ? '#e3b341' : '#666'}}>OR</span>
             <label className="switch">
               <input type="checkbox" checked={isAnd} onChange={() => setIsAnd(!isAnd)} />
               <span className="slider"></span>
             </label>
-            <span className={isAnd ? 'active-logic' : ''}>AND</span>
+            <span style={{color: isAnd ? '#e3b341' : '#666'}}>AND</span>
           </div>
 
           <div className="tag-card-grid">
@@ -76,23 +77,24 @@ export default function BlogTagsListPage({tags}) {
         <div className="tag-results-container" style={{marginTop: '30px'}}>
           {selectedTags.length > 0 ? (
             <div>
-              <h2>符合條件的文章 ({filteredPostsData.length})</h2>
+              <h2 style={{borderLeft: '4px solid #e3b341', paddingLeft: '15px'}}>篩選結果 ({filteredPostsData.length})</h2>
               {filteredPostsData.length > 0 ? (
                 <ul style={{listStyle: 'none', padding: 0}}>
                   {filteredPostsData.map(postPermalink => (
-                    <li key={postPermalink} style={{padding: '10px 0', borderBottom: '1px dashed #333'}}>
-                      <Link to={postPermalink} style={{color: '#ccc'}}>
-                        {postPermalink.split('/').pop().replace('.html', '')} →
+                    <li key={postPermalink} style={{padding: '12px 0', borderBottom: '1px solid #333'}}>
+                      <Link to={postPermalink} style={{color: '#ccc', textDecoration: 'none'}}>
+                         {/* 安全顯示路徑 */}
+                        {typeof postPermalink === 'string' ? postPermalink.split('/').pop().replace('.html', '') : '未知文章'} →
                       </Link>
                     </li>
                   ))}
                 </ul>
               ) : (
-                <div style={{textAlign: 'center', padding: '2rem', color: '#666'}}>查無相關文章</div>
+                <div style={{textAlign: 'center', padding: '3rem', color: '#666'}}>查無交集文章</div>
               )}
             </div>
           ) : (
-            <div style={{textAlign: 'center', padding: '3rem', border: '2px dashed #333', borderRadius: '12px', color: '#666'}}>
+            <div style={{textAlign: 'center', padding: '5rem', border: '2px dashed #333', borderRadius: '12px', color: '#666'}}>
               <h3>💡 請點擊上方標籤開始過濾</h3>
             </div>
           )}
