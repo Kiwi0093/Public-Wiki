@@ -7,24 +7,24 @@
   --ifm-color-primary: var(--kiwi-primary);
 }
 
-/* --- Archive 垂直軸 --- */
+/* --- Archive 垂直軸主體 --- */
 .archive-timeline {
   position: relative;
   margin-left: 50px; 
   border-left: 2px solid rgba(255, 255, 255, 0.1);
-  padding: 10px 0;
+  padding: 20px 0;
 }
 
 .archive-year-group {
   position: relative;
-  margin-top: 40px;
+  margin-bottom: 50px;
 }
 
-/* 大圓圈：鎖定在文字第一行的高度中心 */
+/* 年份大圓圈：物理鎖定中心 */
 .archive-year-node {
   position: absolute;
-  left: -11px; 
-  top: 1.5rem; /* 與 header 的 line-height 配合 */
+  left: -11px; /* 2px線中心 + 圓的一半 */
+  top: 1.6rem; /* 配合 header 的文字中心 */
   transform: translateY(-50%);
   width: 22px;
   height: 22px;
@@ -36,31 +36,31 @@
 }
 
 .archive-year-header {
-  padding-left: 40px;
-  font-size: 2.2rem;
+  padding-left: 45px;
+  font-size: 2.4rem;
   font-weight: 800;
   color: var(--kiwi-primary);
   margin: 0 !important;
-  line-height: 3rem; /* 確保高度恆定 */
+  line-height: 3.2rem;
 }
 
 .archive-list {
   list-style: none !important;
   padding: 0 !important;
-  margin: 1rem 0 0 0 !important;
+  margin: 1.5rem 0 0 0 !important;
 }
 
 .archive-item {
   position: relative;
-  padding: 1rem 0 1rem 40px;
+  padding: 1.2rem 0 1.2rem 45px;
 }
 
-/* 小圓點：同樣鎖定 1.5rem 的位置 */
+/* 小實心點：鎖定在日期文字的中心 */
 .archive-item::before {
   content: "";
   position: absolute;
   left: -5px; 
-  top: 1.5rem; 
+  top: 1.8rem; /* 根據截圖微調：從 1.5 下移到 1.8 確保指到日期中心 */
   transform: translateY(-50%);
   width: 10px;
   height: 10px;
@@ -72,24 +72,40 @@
 
 .archive-item:hover::before {
   background: var(--kiwi-primary);
-  box-shadow: 0 0 8px var(--kiwi-primary);
+  box-shadow: 0 0 10px var(--kiwi-primary);
+}
+
+.archive-date {
+  font-family: 'Courier New', Courier, monospace;
+  color: #888;
+  font-weight: bold;
+}
+
+.archive-link {
+  color: #ccc !important;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.archive-link:hover {
+  color: var(--kiwi-primary) !important;
 }
 
 /* --- Tags Switch UI --- */
 .switch {
   position: relative;
   display: inline-block;
-  width: 40px;
-  height: 20px;
+  width: 44px;
+  height: 22px;
 }
 .switch input { opacity: 0; width: 0; height: 0; }
 .slider {
   position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
-  background-color: #444; transition: .4s; border-radius: 20px;
+  background-color: #333; transition: .4s; border-radius: 20px;
 }
 .slider:before {
-  position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px;
+  position: absolute; content: ""; height: 16px; width: 16px; left: 3px; bottom: 3px;
   background-color: white; transition: .4s; border-radius: 50%;
 }
 input:checked + .slider { background-color: var(--kiwi-primary); }
-input:checked + .slider:before { transform: translateX(20px); }
+input:checked + .slider:before { transform: translateX(22px); }
