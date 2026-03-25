@@ -1,5 +1,5 @@
 /**
- * 🛠️ Kiwi Wiki 旗艦整合版 - 物理鎖定
+ * 🛠️ Kiwi Wiki 旗艦整合版 - 語法校正版
  */
 
 :root {
@@ -8,15 +8,14 @@
   --kiwi-bg: #1b1b1d;
 }
 
-/* --- Archive 頁面佈局 --- */
+/* --- Archive 歸檔頁面 --- */
 .archive-timeline {
   position: relative;
   margin-left: 60px; 
-  border-left: 2px solid #333 !important; /* 垂直軸線 */
+  border-left: 2px solid #333 !important;
   padding: 20px 0;
 }
 
-/* 年份大圈圈 */
 .archive-year-group {
   position: relative;
   margin-top: 50px;
@@ -25,7 +24,7 @@
 
 .archive-year-node {
   position: absolute;
-  left: -1px; /* 壓在垂直線上 */
+  left: -1px;
   top: 1.6rem;
   transform: translate(-50%, -50%);
   width: 24px;
@@ -34,6 +33,7 @@
   border: 4px solid var(--kiwi-primary);
   border-radius: 50%;
   z-index: 10;
+  display: block !important;
 }
 
 .archive-year-header {
@@ -44,7 +44,6 @@
   margin: 0 !important;
 }
 
-/* 文章項目 */
 .archive-item {
   position: relative;
   padding: 1.2rem 0;
@@ -53,7 +52,7 @@
   align-items: center;
 }
 
-/* 橫線：物理刺穿垂直線 (從左邊 -31px 出發) */
+/* 橫線跨越垂直線 */
 .archive-item::before {
   content: "";
   position: absolute;
@@ -66,7 +65,7 @@
   transition: 0.2s;
 }
 
-/* 實心大點：接在橫線末端 */
+/* 實心大點 */
 .archive-item::after {
   content: "";
   position: absolute;
@@ -81,20 +80,17 @@
   transition: 0.2s;
 }
 
-/* Hover 琥珀金連動 */
 .archive-item:hover::before { background: var(--kiwi-primary); }
 .archive-item:hover::after { 
   background: var(--kiwi-primary); 
   box-shadow: 0 0 10px var(--kiwi-primary);
-  width: 12px;
-  height: 12px;
 }
 
 .archive-date {
   color: #888;
   font-family: monospace;
   font-weight: bold;
-  margin-left: 50px; /* 這裡製造出點跟日期之間的空格 */
+  margin-left: 50px; 
   min-width: 60px;
 }
 
@@ -106,7 +102,7 @@
 
 .archive-link:hover { color: var(--kiwi-primary) !important; }
 
-/* --- Tags 全頁方框 --- */
+/* --- Tags 全頁面方框 (修正報錯位置) --- */
 .tag-card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -115,8 +111,31 @@
 }
 
 .tag-card-item {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid #333;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid #333 !important;
   border-radius: 12px;
   padding: 1.5rem;
-  text-decoration
+  /* 修正處：確保屬性寫完整 */
+  text-decoration: none !important; 
+  transition: 0.3s ease;
+  display: block;
+}
+
+.tag-card-item:hover {
+  border-color: var(--kiwi-primary) !important;
+  transform: translateY(-5px);
+  background: rgba(227, 179, 65, 0.05) !important;
+}
+
+.tag-card-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--kiwi-primary);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.tag-card-count {
+  font-size: 0.8rem;
+  color: #666;
+}
