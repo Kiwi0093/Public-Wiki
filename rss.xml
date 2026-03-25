@@ -4,10 +4,593 @@
         <title>Kiwi Reich Blog</title>
         <link>https://kiwi0093.github.io/Public-Wiki/</link>
         <description>Kiwi Reich Blog</description>
-        <lastBuildDate>Mon, 16 Aug 2021 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 04 Feb 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-Hant</language>
+        <item>
+            <title><![CDATA[自動多媒體方案調整]]></title>
+            <link>https://kiwi0093.github.io/Public-Wiki/2026/02/servarr-update</link>
+            <guid>https://kiwi0093.github.io/Public-Wiki/2026/02/servarr-update</guid>
+            <pubDate>Wed, 04 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[目前用的Servarr設定調整]]></description>
+            <content:encoded><![CDATA[<blockquote>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
+</blockquote>
+<p>為了改善困擾我很久的<code>lidarr</code> API連接<code>Musicbrainz</code>的問題,我針對我的<ruby><font color="lightblue"><del>自動白嫖盜版影音方案</del></font><rp>(</rp><rt><font color="red">自動多媒體收集方案</font></rt><rp>)</rp></ruby>做了一些調整</p>
+<h1>調整內容</h1>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="lidarr">Lidarr<a href="https://kiwi0093.github.io/Public-Wiki/2026/02/servarr-update#lidarr" class="hash-link" aria-label="Lidarr的直接連結" title="Lidarr的直接連結">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="事故">事故<a href="https://kiwi0093.github.io/Public-Wiki/2026/02/servarr-update#%E4%BA%8B%E6%95%85" class="hash-link" aria-label="事故的直接連結" title="事故的直接連結">​</a></h3>
+<p>起因是因為<code>Musicbrainz</code>變更了API相關設定,導致<code>lidarr</code>無法正常的從<code>Musicbrainz</code>取得Meta資料,所以<code>lidarr</code>的功能基本上就廢了</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="對策">對策<a href="https://kiwi0093.github.io/Public-Wiki/2026/02/servarr-update#%E5%B0%8D%E7%AD%96" class="hash-link" aria-label="對策的直接連結" title="對策的直接連結">​</a></h3>
+<p>其實簡單的來說,最終的解決方案就是 - <ruby><font color="lightgreen" size="+3">等待</font></ruby>, 實際上等的夠久後<code>lidarr</code>的開發團隊就提供了改版的<code>lidarr</code>去搭配<code>Musicbrainz</code>的新設定(但是text search的部份還是沒救)
+<ruby><font color="red" size="+3">BUT</font></ruby>因為大家之前都等不及,所以在開發團隊解決之前,紛紛用上了其他改過得版本,或是加上mod.結果就是用了改過版本的直接改新版也是無效的,所以才有後面悲苦的相關經歷</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="曲折的過程">曲折的過程<a href="https://kiwi0093.github.io/Public-Wiki/2026/02/servarr-update#%E6%9B%B2%E6%8A%98%E7%9A%84%E9%81%8E%E7%A8%8B" class="hash-link" aria-label="曲折的過程的直接連結" title="曲折的過程的直接連結">​</a></h3>
+<p>因為大叔我<ruby><font color="lightblue"><del>主動積極導入當時的最佳解決方案</del></font><rp>(</rp><rt><font color="red">等不了六七個月,一時手賤</font></rt><rp>)</rp></ruby>,所以改版後只能把整個<code>lidarr</code>的config<ruby><font color="red" size="+3">全部砍掉</font></ruby>,然後再重新設定與導入檔案....恩..過程還真的是漫長且折騰....</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="新舊差異">新舊差異<a href="https://kiwi0093.github.io/Public-Wiki/2026/02/servarr-update#%E6%96%B0%E8%88%8A%E5%B7%AE%E7%95%B0" class="hash-link" aria-label="新舊差異的直接連結" title="新舊差異的直接連結">​</a></h3>
+<p>最大的差異就是,改好的<code>lidarr</code>依舊沒辦法利用<code>text search</code>跟之前一樣直接搜尋歌手名字或是專輯名稱就可以<code>add new</code>,而是需要先去<code>Musicbrainz</code>查詢該歌手的<code>Artist ID</code>或是該專輯的<code>Release group ID</code></p>
+<p>然後到<code>lidarr</code>的<code>add new</code>裡面使用</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">lidarr:&lt;Artist ID/Release group ID&gt;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>然後如同以往,選擇跑出來的圖面上,加入到<code>lidarr</code>內</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="字幕相關">字幕相關<a href="https://kiwi0093.github.io/Public-Wiki/2026/02/servarr-update#%E5%AD%97%E5%B9%95%E7%9B%B8%E9%97%9C" class="hash-link" aria-label="字幕相關的直接連結" title="字幕相關的直接連結">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="緣由">緣由<a href="https://kiwi0093.github.io/Public-Wiki/2026/02/servarr-update#%E7%B7%A3%E7%94%B1" class="hash-link" aria-label="緣由的直接連結" title="緣由的直接連結">​</a></h3>
+<p>其實也沒什麼,就是之前用的<code>ChineseSubtitle</code>的作者太忙了所以就棄坑了...</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="更換對象">更換對象<a href="https://kiwi0093.github.io/Public-Wiki/2026/02/servarr-update#%E6%9B%B4%E6%8F%9B%E5%B0%8D%E8%B1%A1" class="hash-link" aria-label="更換對象的直接連結" title="更換對象的直接連結">​</a></h3>
+<p>找了一下,換用了<a href="https://www.bazarr.media/" target="_blank" rel="noopener noreferrer">Bazarr</a>,過程就一樣簡單,用docker跑起來就好了</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="使用感想">使用感想<a href="https://kiwi0093.github.io/Public-Wiki/2026/02/servarr-update#%E4%BD%BF%E7%94%A8%E6%84%9F%E6%83%B3" class="hash-link" aria-label="使用感想的直接連結" title="使用感想的直接連結">​</a></h3>
+<p>Bazarr基本上也是Xrr家族的,所以跟我其他的多媒體方案整合的很好,不過,字幕這種東西怎麼說呢,找的到的就找的到,找不到的就找不到,就跟<code>票多的就選贏,票少的就選輸</code>一樣雖是真理但也是廢話...</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="網路相關">網路相關<a href="https://kiwi0093.github.io/Public-Wiki/2026/02/servarr-update#%E7%B6%B2%E8%B7%AF%E7%9B%B8%E9%97%9C" class="hash-link" aria-label="網路相關的直接連結" title="網路相關的直接連結">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="automedia方案調整">Automedia方案調整<a href="https://kiwi0093.github.io/Public-Wiki/2026/02/servarr-update#automedia%E6%96%B9%E6%A1%88%E8%AA%BF%E6%95%B4" class="hash-link" aria-label="Automedia方案調整的直接連結" title="Automedia方案調整的直接連結">​</a></h3>
+<p>原先因為參考資料,所以我把整個automedia方案(包括<code>radarr</code>,<code>sonarr</code>, <code>lidarr</code>, <code>jackett</code>...)都包在<code>Gluten</code>裡面,但是因為最近<code>Gluten</code>的VPN有點問題(其實我也不確定有問題多久了)
+所以先是發現<code>jackett</code>+<code>flaresolverr</code>怪怪的,所以將他們這對搭當移出<code>Gluten</code>
+接著是<code>lidarr</code>修正中(對就是上面講的...)發現<code>add new</code>的search連不上...果斷將<code>lidarr</code>移出<code>Gluten</code>後就好了...
+於是就是把整個automedia方案除了<code>qbittorrent</code>還留在<code>Gluten</code>內以外其他都移出,畢竟這樣才是我理想的只有<code>qbittorrent</code>走VPN保平安,其他東西就不要佔用VPN的頻寬了....
+然後我才發現,怎麼參考資料裡說的不放在一起就會連不到的問題不見了...(可能是因為我有刻意把automedia內的每個container都指定了ip的關係...)</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="vpn---error-vpn-getting-public-ip-address-information">VPN - ERROR [vpn] getting public IP address information:<a href="https://kiwi0093.github.io/Public-Wiki/2026/02/servarr-update#vpn---error-vpn-getting-public-ip-address-information" class="hash-link" aria-label="VPN - ERROR [vpn] getting public IP address information:的直接連結" title="VPN - ERROR [vpn] getting public IP address information:的直接連結">​</a></h3>
+<p>在<code>docker-compose.yml</code>的<code>enviroment</code>內加上<code>PUBLICIP_ENABLED=false</code>就好了</p>
+<h1>結論</h1>
+<p>本來就不該期望open source的方案可以永久不調整一直用同一個設定檔(就算是商用軟體也是得跟著改版作微調的..)
+所以改的幅度也小,應該還可以再戰個幾年</p>]]></content:encoded>
+            <category>Linux</category>
+            <category>Life</category>
+            <category>Multimedia</category>
+            <category>Old-Blog</category>
+        </item>
+        <item>
+            <title><![CDATA[Unifi Controller又又又因為AUR的Mongodb升級爆掉啦～～～]]></title>
+            <link>https://kiwi0093.github.io/Public-Wiki/2025/12/unifi-failure</link>
+            <guid>https://kiwi0093.github.io/Public-Wiki/2025/12/unifi-failure</guid>
+            <pubDate>Wed, 10 Dec 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[跟unifi controller升級搏鬥的事蹟]]></description>
+            <content:encoded><![CDATA[<blockquote>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
+</blockquote>
+<p>最近稍微勤勞的對系統更新一下...然後我的Unifi Controller就在我一記<code>yay -Syu --noconfirm</code>下爆炸了</p>
+<h1>事故紀錄</h1>
+<p>一發<code>yay -Syu --noconfirm</code>然後一路跑完後..Unifi Controller的Web UI就連不上了
+開始查,發現</p>
+<ul>
+<li>
+<p><code>systemctl status unifi.service</code>結果是active ok的但是<code>netstat -an</code>中沒有Unifi Controller的listen port</p>
+</li>
+<li>
+<p>確認<code>/var/log/unifi/server.log</code>裡確認exit code=62</p>
+</li>
+<li>
+<p><code>systemctl status mongodb.service</code>裡發現也是exit code=62,查詢後發現是mongodb的版本舊無法正常啟動</p>
+</li>
+<li>
+<p>查詢<code>/var/log/mongodb/mongodb.log</code>確認mongodb的版本是7.0,同時確認AUR內更新的<code>mongodb-bin</code>內的版本是8.2,差異過大所以起不來</p>
+</li>
+<li>
+<p>改裝<code>mongodb80-bin</code>的package後用指令可以把mongodb的主要版本更新到8.0</p>
+</li>
+</ul>
+<p>繞路造成不爽的區塊</p>
+<ul>
+<li>
+<p>Mongodb的資料庫升級概念</p>
+<ul>
+<li>
+<p>Mongodb不能一次跳到後面很多的版本來進行資料庫升級(對Mongodb的執行檔跟資料庫版本不是連動的,他是分開的要手動去更新)</p>
+</li>
+<li>
+<p>從7.0要到8.2得要先7.0 --&gt; 8.0 --&gt; 8.2通成新一版可以相容前一版的資料庫,但是沒辦法新版資料庫相容舊版bin</p>
+</li>
+</ul>
+</li>
+<li>
+<p>爆炸的繞路經歷</p>
+<ul>
+<li>
+<p>先是移除<code>unifi</code>以及<code>mongodb-bin</code>這兩個package,然後換裝<code>mongodb80-bin</code>然後把admin資料庫升級,從7.0 --&gt; 8.0 --&gt;8.2</p>
+</li>
+<li>
+<p>然後又移除<code>mongodb80-bin</code>然後改裝上<code>mongodb-bin</code>跟<code>unifi</code>然後<code>systemctl status mongodb.service</code>看起來正常,但是<code>systemctl status unifi.service</code>看起來也是正常,但是Unifi Controller還是沒起</p>
+<p>來,查詢<code>/var/log/unifi/server.log</code>還是exit code=62</p>
+</li>
+<li>
+<p>看來看去還是沒看到如何可以升級unifi的mongodb資料庫（這裡應該是大叔的技能沒點到該點的...所以這裡傻的跟智障一樣）</p>
+</li>
+<li>
+<p>然後就卡在主mongodb admin database 升級OK,但是unifi的mongodb資料庫沒辦法升級....</p>
+</li>
+<li>
+<p>最後去查詢unifi的PKGBUILD檔案,發現... dependence只要是mongodb就好....</p>
+</li>
+<li>
+<p>最終採用<code>mongodb80-bin</code>+<code>unifi</code>這兩個package就因為可以相容7.0的資料庫然後就神奇的好了.....</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1>幾個技術學習點</h1>
+<p>這個事件最主要的就是學習兩件事情</p>
+<ul>
+<li>Mongodb的概念與升級-還需要再看看怎麼把admin以外的Mongodb資料庫也升級（其實我是連列出資料庫都列不出來）</li>
+<li>Unifi要看一下以後怎麼升級不容易暴雷,之前有試著用docker來跑不過後來因為網路問題沒有採用這個可能需要再挖出來看看</li>
+</ul>]]></content:encoded>
+            <category>Linux</category>
+            <category>Network</category>
+            <category>Old-Blog</category>
+        </item>
+        <item>
+            <title><![CDATA[Plasma 6.4..我該怎麼說你]]></title>
+            <link>https://kiwi0093.github.io/Public-Wiki/2025/07/kde-plasma-6.4</link>
+            <guid>https://kiwi0093.github.io/Public-Wiki/2025/07/kde-plasma-6.4</guid>
+            <pubDate>Wed, 16 Jul 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[跟KDE奮鬥的事蹟]]></description>
+            <content:encoded><![CDATA[<blockquote>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
+</blockquote>
+<p>繼上次我以為的Archlinux暴死事件後,算是又被KDE Plasma擺了一道....</p>
+<h1>悲劇再び！？</h1>
+<p>有個背後靈是渣男的偉人曾說過"人は同じ過ちを繰り返す..まったく..！"
+是的這次又是一個手賤的<code>yay -Syu --noconfirm</code>加上一堆<code>sync</code>後配合<code>sudo reboot</code>
+然後我的VNC就又連不上了....看了一下,發現我的<code>plasma-x11</code>選項消失了...</p>
+<h1>真実はいつも一つ！</h1>
+<p>是的,犯人就是KDE Plasma...翻了一堆文章發現plasma 6.4以後開始把x11 session從預設中拿掉了...
+於是我又開始尋找<code>KDE + Wayland</code>的remote desktop方案...</p>
+<p>結果就在我想換用<code>krdp</code>正為他的性能不滿意的時候...我發現了</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="其實可以手動把x11-session裝上唷"><code>其實可以手動把X11 session裝上唷～～～～</code><a href="https://kiwi0093.github.io/Public-Wiki/2025/07/kde-plasma-6.4#%E5%85%B6%E5%AF%A6%E5%8F%AF%E4%BB%A5%E6%89%8B%E5%8B%95%E6%8A%8Ax11-session%E8%A3%9D%E4%B8%8A%E5%94%B7" class="hash-link" aria-label="其實可以手動把x11-session裝上唷的直接連結" title="其實可以手動把x11-session裝上唷的直接連結">​</a></h2>
+<p>所以我毫不猶豫的給機器賞了一記<code>yay -S  plasma-x11-session --noconfirm</code>
+然後問題就<del>解決</del>可以延長到Plasma 7以後再面對</p>
+<h1>碎碎念</h1>
+<p>雖然說我知道整個社群都在叫著Xorg太舊了,所以要逐步更換成wayland的呼聲..
+但是目前用起來也的確沒有感覺比<code>vnc</code>高效的remote desktop方案..可能在不遠的未來
+我就會全數更換成<code>moonlight/sunshine</code>這個方案畢竟目前Linux下的<code>rdp</code>方案目前用起來都很遲緩
+不如windows的用起來流暢....</p>]]></content:encoded>
+            <category>Linux</category>
+            <category>Old-Blog</category>
+        </item>
+        <item>
+            <title><![CDATA[終於遇到..Archlinux暴死...]]></title>
+            <link>https://kiwi0093.github.io/Public-Wiki/2025/06/arch-panic</link>
+            <guid>https://kiwi0093.github.io/Public-Wiki/2025/06/arch-panic</guid>
+            <pubDate>Mon, 16 Jun 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[運氣不好遇到更新死機]]></description>
+            <content:encoded><![CDATA[<blockquote>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
+</blockquote>
+<p>其實也不算是Archlinux的問題...（好啦知道Archlinux是真愛...）</p>
+<h1>爆炸</h1>
+<p>以前看到有人在說,使用Archlinux就要有update後忽然莫名掛掉的心裡覺悟,但是我用了快10年(驚覺！！我有這麼老了嗎？2015年就開始使用...)老實說,我是一次都沒遇到update到掛掉的經驗,所以我很難理解怎麼會有人為了不掛掉就死不更新....</p>
+<p>直到上週，我順手給了我的遠端桌面一記<code>yay -Syu --noconfirm</code>然後就發現..沒有然後了,機器看起來是開了但是遠端連不上,上Esxi上去看Console一片黑....它...暴死了..</p>
+<h1>Root Cause</h1>
+<p>我哪裡知道什麼是root cause...我又不會寫程式..</p>
+<p>不過我做了以下測試</p>
+<ul>
+<li>裝Manjaro with sddm + KDE plasma - 可正常使用</li>
+<li>裝EndeavourOS with KDE - LiveDVD可開機,但是重裝後一片黑</li>
+<li>Re-install<!-- -->
+<ul>
+<li>搭配linux-6.14, linux-lts-6.12等選項還是安裝完重開機一片黑</li>
+<li>改用gdm + KDE Plasma - 正常但是在esxi內僅限wayland是正常的</li>
+</ul>
+</li>
+</ul>
+<p>而且所有的異常在VMWare Workstation 17 pro下測試也都異常....</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="推估原因">推估原因<a href="https://kiwi0093.github.io/Public-Wiki/2025/06/arch-panic#%E6%8E%A8%E4%BC%B0%E5%8E%9F%E5%9B%A0" class="hash-link" aria-label="推估原因的直接連結" title="推估原因的直接連結">​</a></h2>
+<ol>
+<li>sddm跟VMware不合, 除了Manjaro以外只要是sddm就是開機一片黑</li>
+<li>X11跟gdm不合, 雖然用了gdm可以看到畫面,但是想要登入plasma-x11 session就會有問題</li>
+</ol>
+<p>依照以上兩點,<del>Boardcom沒去拜拜造成</del>VMware換老闆後被大家嫌棄...</p>
+<h1>結論</h1>
+<p>目前我的用法是<code>gdm+KDE Plasma</code>但是因為wayland-plasma不支援VNC,而我這台主要是拿來我的<code>VDI</code>用的,所以我用<code>systemd</code>跑了<code>vncserver@:1.service</code>讓機器開機就會用vnc開個plasma-x11的session
+現在目前還沒出問題,但是看來最終還是得把Esxi改去PVE</p>
+<p>附帶一題,這次的風波沒有影響到我另外console only的Archlinux,所以嚴格說來也不算Archlinux暴死,太好了！！Archlinux信心指數不跌反升(ㄟ？？）</p>]]></content:encoded>
+            <category>Linux</category>
+            <category>Old-Blog</category>
+        </item>
+        <item>
+            <title><![CDATA[小說..沒有閒書可以看會死的...]]></title>
+            <link>https://kiwi0093.github.io/Public-Wiki/2025/04/noval</link>
+            <guid>https://kiwi0093.github.io/Public-Wiki/2025/04/noval</guid>
+            <pubDate>Tue, 08 Apr 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[小說尋找,下載]]></description>
+            <content:encoded><![CDATA[<blockquote>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
+</blockquote>
+<p>沒有小說,就跟沒漫畫可以看一樣,是會死人的.....</p>
+<h1>日輕</h1>
+<p>本來我都去<a href="https://mobinovels.com/" target="_blank" rel="noopener noreferrer">魔筆小說</a>去搜刮站長放上去的日輕電子書,但是後來因為站長有了千金不小心把站搞沒了,所以有段時間我就沒更新我自己的書庫...
+直到前一陣子我發現了一個好東西</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="tampermonkey---greasy-fork---轻小说文库下载">Tampermonkey - Greasy Fork - 轻小说文库下载<a href="https://kiwi0093.github.io/Public-Wiki/2025/04/noval#tampermonkey---greasy-fork---%E8%BD%BB%E5%B0%8F%E8%AF%B4%E6%96%87%E5%BA%93%E4%B8%8B%E8%BD%BD" class="hash-link" aria-label="Tampermonkey - Greasy Fork - 轻小说文库下载的直接連結" title="Tampermonkey - Greasy Fork - 轻小说文库下载的直接連結">​</a></h2>
+<p>這個真的是福音,因為他可以把目前免費藏書量最多的<a href="https://www.wenku8.net/" target="_blank" rel="noopener noreferrer">輕小說文庫</a>裡的小說自動轉換成<code>epub</code>格式並且塞進插圖跟封面後下載下來...</p>
+<img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/Screenshot_20250408_160310.png" alt="Wenku8 download" style="width:1000px;height:auto">
+<p>注意事項</p>
+<ul>
+<li>使用Brave的同學需要關閉<code>Brave Shields</code>的功能不然script會被停止使用</li>
+<li>想要檔名直接是繁體的同學請先桉<code>CC開啟</code>他會把檔名變成繁體中文</li>
+<li>全部一起下載會把全集數合併成一本讓你下載</li>
+<li>若有圖片下載有問題的他會跳Error不會給你缺圖的<code>epub</code></li>
+</ul>
+<h1>中爽文</h1>
+<p>中國爽文的話就比較麻煩了, 基本上得去找<code>全書txt</code>下載的網頁下載, 我目前是去<a href="http://www.12z.cn/index.html" target="_blank" rel="noopener noreferrer">免費小說網</a>下載整本的txt檔
+因為中國爽文動輒幾百萬字所以而且一般都只有文字,所以我也沒要求過封面跟插畫...</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="轉檔epub">轉檔<code>epub</code><a href="https://kiwi0093.github.io/Public-Wiki/2025/04/noval#%E8%BD%89%E6%AA%94epub" class="hash-link" aria-label="轉檔epub的直接連結" title="轉檔epub��的直接連結">​</a></h2>
+<p>因為我都是用<code>kindle</code>在看書的,所以我會強制把txt轉成epub後保存起來,加上我現在大多數都在企鵝環境下工作,所以轉換用的程式自然就是企鵝可以用的
+你說為什麼不用網頁轉檔？主要是中式爽文的文字太多,網路上免費的轉檔網頁轉不了,而我又只想當免費仔..</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="txt2epub"><del>txt2epub</del><a href="https://kiwi0093.github.io/Public-Wiki/2025/04/noval#txt2epub" class="hash-link" aria-label="txt2epub的直接連結" title="txt2epub的直接連結">​</a></h3>
+<p><del><a href="https://github.com/kevinboone/txt2epub" target="_blank" rel="noopener noreferrer">txt2epub github</a> - 有很多個同名的,我選了可以用<code>yay</code>安裝的這個,其他的基本上都是用<code>pip</code>安裝
+我在<code>Archlinux</code>下直接<code>yay -S txt2epub</code>就好了...</del></p>
+<p>~~基本語法</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">[Kiwi]#&gt; txt2epub -o &lt;/path/filename.epub&gt; --author &lt;Author Name&gt; --title &lt;book title&gt; --cover-image &lt;filename.jpg&gt; chapter01.txt chapter02.txt chapter03.txt</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p><del>注意事項</del></p>
+<ul>
+<li><del>這玩意是純粹的CLI command, 想要GUI的請用<code>pip</code>安裝其他python的txt2epub,我有看到<a href="https://github.com/k4yt3x/txt2epub" target="_blank" rel="noopener noreferrer">有GUI的版本</a></del></li>
+<li><del>轉換前文字得先確認為<code>unicode</code>不然會出問題</del></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="kaf-cli">kaf-cli<a href="https://kiwi0093.github.io/Public-Wiki/2025/04/noval#kaf-cli" class="hash-link" aria-label="kaf-cli的直接連結" title="kaf-cli的直接連結">​</a></h3>
+<p>之前我都用<code>txt2epub</code>來轉檔,但是發現轉好的檔案文字排版是一塌糊塗,所以我又換了一隻<a href="https://github.com/ystyle/kaf-cli" target="_blank" rel="noopener noreferrer">kaf-cli</a>,一樣可以用<code>yay</code>直接安裝
+語法與<code>txt2epub</code>很類似</p>
+<p>節錄github上的說明如下</p>
+<blockquote>
+<p>命令行模式参数</p>
+</blockquote>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">Usage of kaf-cli:</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  -align string</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">        标题对齐方式: left、center、righ。环境变量KAF_CLI_ALIGN可修改默认值 (default "center")</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  -author string</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">        作者 (default "YSTYLE")</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  -bookname string</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">        书名: 默认为txt文件名</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  -bottom string</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">        段落间距(单位可以为em、px) (default "1em")</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  -cover string</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">        封面图片可为: 本地图片, 和orly。 设置为orly时生成orly风格的封面, 需要连接网络。 (default "cover.png")</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  -cover-orly-color string</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">        orly封面的主题色, 可以为1-16和hex格式的颜色代码, 不填时随机</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  -cover-orly-idx int</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">        orly封面的动物, 可以为0-41, 不填时随机, 具体图案可以查看: https://orly.nanmu.me (default -1)</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  -filename string</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">        txt 文件名</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  -font string</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">        嵌入字体, 之后epub的正文都将使用该字体</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  -format string</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">        书籍格式: all、epub、mobi、azw3。环境变量KAF_CLI_FORMAT可修改默认值 (default "all")</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  -indent uint</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">        段落缩进字数 (default 2)</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  -lang string</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">        设置语言: en,de,fr,it,es,zh,ja,pt,ru,nl。环境变量KAF_CLI_LANG可修改默认值 (default "en")</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  -line-height string</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">        行高(用于设置行间距, 默认为1.5rem)</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  -match string</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">        匹配标题的正则表达式, 不写可以自动识别, 如果没生成章节就参考教程。例: -match 第.{1,8}章 表示第和章字之间可以有1-8个任意文字</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  -max uint</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">        标题最大字数 (default 35)</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  -out string</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">        输出文件名，不需要包含格式后缀</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  -tips</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">        添加本软件教程 (default true)</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  -unknow-title string</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">        未知章节默认名称 (default "章节正文")</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  -volume-match string</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">        卷匹配规则 (default "^第[0-9一二三四五六七八九十零〇百千两 ]+[卷部]")</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">PS: 在darwin(mac、osx)上-tips参数要设置为false的方法 kaf-cli -filename 小说.txt -tips=0</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<blockquote>
+<p>命令行模式说明
+转换全职法师.txt, 并设置作者名为乱</p>
+</blockquote>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain"># windows 10: win + s 搜索powershell </span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">cd d:/</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">d:/kaf-cli.exe -author 乱 -filename d:/全职法师.txt</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># linux / mac下, 把kaf-cli-linux/kaf-cli-darwin重命名为kaf-cli, 放到用户目录</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 把小说和kaf-cli放到用户目录下,  打开终端执行</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">cd ~</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">./kaf-cli -author 乱 -filename ./全职法师.txt</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 如果kaf-cli放到path里了, 或者在aur安装的可以执行:</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">kaf-cli -author 乱 -filename ~/全职法师.txt</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 命令行的简单模式（功能和拖拽模式一样）</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">kaf-cli ~/全职法师.txt</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h1>Update to kindle</h1>
+<p>基本上日輕我都是扔到我的日輕書庫 - <code>Calibre-Web</code>裡利用<code>Calibre-Web</code>內建的功能把書傳送到kindle所以沒什麼問題,但是我卻沒有建立給中式爽文用的Calibre-web(也許以後書多了會放,或是塞進我一般書籍的calibre裡面)
+不管未來如何現在想要手動塞進kindle的話就靠
+Amazon官方的<a href="https://www.amazon.com/sendtokindle" target="_blank" rel="noopener noreferrer">send to kindle</a>裡面有web界面的uploader</p>
+<img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/Screenshot_20250408_163222.png" alt="send tokindle" style="width:1000px;height:auto">
+<p>弄好了就可以用kindle抓下來一路爽了...</p>]]></content:encoded>
+            <category>Live</category>
+            <category>Old-Blog</category>
+        </item>
+        <item>
+            <title><![CDATA[買了...但是人的慾念是如此的深不可測..]]></title>
+            <link>https://kiwi0093.github.io/Public-Wiki/2025/02/purchase-things</link>
+            <guid>https://kiwi0093.github.io/Public-Wiki/2025/02/purchase-things</guid>
+            <pubDate>Wed, 26 Feb 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[這是一個敗家的紀錄]]></description>
+            <content:encoded><![CDATA[<blockquote>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
+</blockquote>
+<p>沒錢但是又有深深的慾念真的很折磨人</p>
+<h1>慾念</h1>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="電視">電視<a href="https://kiwi0093.github.io/Public-Wiki/2025/02/purchase-things#%E9%9B%BB%E8%A6%96" class="hash-link" aria-label="電視的直接連結" title="電視的直接連結">​</a></h2>
+<p>去年年底,我終於決定把客廳的電視補上,因為我實在受不了全家人擠在我的書房一起盯著一台32"寸的螢幕看電影....
+再三考慮下買了這台86"的便宜電視</p>
+<p><img decoding="async" loading="lazy" src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/000001_1737016623.webp" alt="" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="tv-box">TV BOX<a href="https://kiwi0093.github.io/Public-Wiki/2025/02/purchase-things#tv-box" class="hash-link" aria-label="TV BOX的直接連結" title="TV BOX的直接連結">​</a></h2>
+<p>過了一陣子使用電視內建的Google TV後,發現我有分離字幕的影片很容易出現字幕不同步等問題,所以內心的野獸又忍不住了買了現時號稱最強效能的TV BOX - <code>Nvidia Shield TV Pro 2019</code>
+是的,雖然是2019年的東西但是居然還是目前效能最好的..真不知道是當初性能過剩還是其他家使用的硬體太摳門..</p>
+<img src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/000001_1739785749.webp" alt="" style="width:640px;height:auto">
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="心得分享">心得分享<a href="https://kiwi0093.github.io/Public-Wiki/2025/02/purchase-things#%E5%BF%83%E5%BE%97%E5%88%86%E4%BA%AB" class="hash-link" aria-label="心得分享的直接連結" title="心得分享的直接連結">​</a></h3>
+<ul>
+<li>真他媽的貴 - 實際買起來6k多NTD,最新的Google stream 4k(2024年產品)都只要3k多NTD,他一台五年多前的硬體還要賣這麼貴....</li>
+<li>SoC是真的快 - 我看了一下Nvida Tegra X1+(跟Nintendo的 Switch同一顆...基本是第五代i5的效能)大概是Google Stream 4K那顆MTK的兩倍效能（不過耗電是三倍的15W就是)</li>
+<li>4k AI Upscaling - 其實這個功能才是我買的主要原因,也是他最大的賣點,不過目前初步使用起來我的木眼還不出太明顯的差異...並且也不是每個app都支援(例如獨播庫就沒啟動Upscaling)但也可能是我沒設定好最近會在試試看</li>
+<li>Gaming stream - 因為我沒用<code>Geforce Now</code>所以沒辦法給與評論但是我有使用<code>moonlight</code>串流過我的steam遊戲(Ace Combat 7)看起來還行而且他連結藍牙把手很順暢</li>
+</ul>
+<p>下一步大概就是開始在android不亂搞的前提下逐步改裝成娛樂中心的一部分(除了現在有用的emby以外,可能會透過moonlight把遊戲功能串流出來...或是另外跑類似什麼模擬器合集類的東西)</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="gaming-server考慮中">Gaming Server(考慮中)<a href="https://kiwi0093.github.io/Public-Wiki/2025/02/purchase-things#gaming-server%E8%80%83%E6%85%AE%E4%B8%AD" class="hash-link" aria-label="Gaming Server(考慮中)的直接連結" title="Gaming Server(考慮中)的直接連結">​</a></h2>
+<p>最近我一直陷入<code>To be or Not to be</code>的狀態...
+起因是我其實真的想要的是弄一台有獨立GPU的NB來跑Linux的host(因為我現在除了用Steam deck的desktop mode以外就沒有實體的linux terminal可以用)而我其實是想要弄台企鵝來當daily drive（可作業用的玩具)
+考慮到單獨去買台新的NB似乎效益沒有弄台新的Gaming Server把現在擔任此角色的電競NB空出來改裝來的好,所以我就一頭栽進survey desktop的狀態
+為難的地方如下</p>
+<ul>
+<li>很久沒有關注過Desktop的搭配與規格 - 自2011年後我就在也沒有買過非Server用的desktop了,全數都改用NB來,所以購物型態也由去光華買零件變成了滑<code>pchome</code>下單在家等送來...現在要回去看DIY很不習慣,而且腦裡沒有概念了</li>
+<li>預算與期望的落差 - 概念還停留在NB價格比desktop高的年代,但是看了一整圈不得不承認,每台NB背後開規格的PM都有認真工作考慮過平衡的...看desktop很容易陷入加一些錢規格加碼的困境,弄完一圈發現預算爆表,依照預算又覺得規格差一點很受不了
+搞了半天只有中樂透可以解決....=_=!!</li>
+</ul>
+<p>導致我都開始有與其花這筆錢還不如把錢換成股票....這樣效益還好一點...
+反正我只要一開電腦就會有兩個小朋友一左一右還外加椅子擠進我那只有120cm寬的桌前一直問我"爸爸你要幹什麼..."真的會讓人買不下去呢....</p>]]></content:encoded>
+            <category>Live</category>
+            <category>Old-Blog</category>
+        </item>
+        <item>
+            <title><![CDATA[WSL奮鬥記]]></title>
+            <link>https://kiwi0093.github.io/Public-Wiki/2025/01/wsl-setup</link>
+            <guid>https://kiwi0093.github.io/Public-Wiki/2025/01/wsl-setup</guid>
+            <pubDate>Wed, 08 Jan 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[在公司電腦使用WSL白嫖]]></description>
+            <content:encoded><![CDATA[<blockquote>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
+</blockquote>
+<p>因為<code>qemu</code> update後原來的WSL Kernel缺乏TC的module support, 然後我就踏上了自己compile linux kernel的不歸路...</p>
+<h1>故事</h1>
+<p>其實故事就如同前言所述(那還要講什麼廢話？)
+幾點細節補充如下</p>
+<ul>
+<li>我的WSL是跑在<code>公司</code>的Windows上, 然後我的Local Administrator權限又被收回，然後又因不是RD單位所以基本上取得無望，無法透過<code>wsl --update</code>來update WSL version</li>
+<li>然而就算我可以用<code>wsl --update</code>我看了Github上的WSL-Kernel SRC內預設的config裡也沒有TC, QoS的kernel support...(那我上面那點...對..就是單純抱怨沒有權限而已...)</li>
+<li>WSL的Kernel沒有動態載入module的功能(也就是說<code>modporbe</code>這個指令在WSL沒屌用...)所以沒辦法用動態載入的方式把TC/QoS載入</li>
+</ul>
+<p>所以..大叔我就只能自己config/compile kernel來滿足自己的需求</p>
+<h1>技術細節</h1>
+<p>我還是放在<a href="https://kiwi0093.github.io/wiki/wiki/Linux/WSL/5-WSL_Kernel/" target="_blank" rel="noopener noreferrer">我的Wiki</a>裡面好了,有興趣的可以去看</p>
+<h1>心得</h1>
+<p>很久很久以前我曾在使用<code>Gentoo</code>的時候config/compile過linux kernel(沒辦法用<code>Gentoo</code>怎麼能不自己動手？？),但是後來我就再也沒有動過自己動手的主意了(就跟很久很久以前我還會勤勞到自己去config/compile <code>FreeBSD</code> Kernel一樣現在都改用generic)</p>
+<p>這次的實作老實說看起來很難實際上還好...
+只是要習慣WSL在用的kernel基本上只有要用跟不用的,要用的全數要buildin不能build成module,這點基本上跟早期的<code>FreeBSD</code> Kernel是一樣的,邏輯上跟現在<code>Linux</code>的主流kernel的使用方式是不一樣的</p>
+<p>而且這樣的概念下難度會在除了特殊目的確認一定要有的function(例如本次目的的<code>TC/QoS</code>以及我很常用的<code>wireguard</code> support之類的)以外,哪些module是WSL必要的這部份很難自己記起來，所以看得到所有的建議都是使用</p>
+<p><code>zcat /proc/config.gz &gt; .config</code></p>
+<p>或是</p>
+<p><code>cat /proc/config.gz | gunzip &gt; .config</code></p>
+<p>把目前正常在跑得WSL Kernel config弄出來成default再用add on的方式去加上所需的就好，這樣的作法把整個需要花腦的部份都簡化了</p>
+<p>最後..一切正常的WSL用起來還是很爽的, 尤其是當我們人在公司當薪水小偷的時候面對不能弄掉的<code>公司的Windows</code>時, WSL就是我們打工仔的救贖...</p>]]></content:encoded>
+            <category>Windows</category>
+            <category>Linux</category>
+            <category>Old-Blog</category>
+        </item>
+        <item>
+            <title><![CDATA[雜談]]></title>
+            <link>https://kiwi0093.github.io/Public-Wiki/2025/01/misc-talk-250103</link>
+            <guid>https://kiwi0093.github.io/Public-Wiki/2025/01/misc-talk-250103</guid>
+            <pubDate>Fri, 03 Jan 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[雜談]]></description>
+            <content:encoded><![CDATA[<blockquote>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
+</blockquote>
+<p>2025年了,雖說沒什麼好感嘆的,不過最近也的確改了一些東西</p>
+<h1>BT over VPN</h1>
+<p><code>有同事被版權蟑螂訴訟後賠了一筆錢...</code>
+這件事其實或多或少都在我的心裡留下了一個擔心的種子...所以當我看到<code>Ivon的Blog</code>內提到的Gluetun相關介紹
+我就蠢蠢欲動</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="實作">實作<a href="https://kiwi0093.github.io/Public-Wiki/2025/01/misc-talk-250103#%E5%AF%A6%E4%BD%9C" class="hash-link" aria-label="實作的直接連結" title="實作的直接連結">​</a></h2>
+<p>我已經Update到<a href="https://kiwi0093.github.io/wiki/wiki/VM&amp;Container/Service%20Container/Home%20Lab/3-auto-chasing-drama/" target="_blank" rel="noopener noreferrer">我的Wiki</a>去了,有興趣的同學可以參考一下小弟的作法</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="心得">心得<a href="https://kiwi0093.github.io/Public-Wiki/2025/01/misc-talk-250103#%E5%BF%83%E5%BE%97" class="hash-link" aria-label="心得的直接連結" title="心得的直接連結">​</a></h2>
+<p>目前看起來算是會動,但是看起來qbittorrent的效率不是很好,加上我目前沒有成功弄出<code>port forwarding</code>的功能，所以我其實是有在考慮是不是要花錢買ProtonVPN的服務....
+老實說ProtonVPN的方案跟價格(VPN Plus 訂兩年方案 4.99USD/month)其實看起來還是很有搞頭的樣子..</p>
+<h1>V2Ray on Cloudflare</h1>
+<p>離開強國後其實我就沒花多少心思跟技能點數在翻牆的梯子上面了....
+不過上次看Youtube的時候發現原來可以透過免費的<code>cloudflare worker</code>架設serverless的V2ray server來用,而且還是多ip可以refresh更換的那種...
+我只能說真的太佛心啦.....</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="edgetunnel">Edgetunnel<a href="https://kiwi0093.github.io/Public-Wiki/2025/01/misc-talk-250103#edgetunnel" class="hash-link" aria-label="Edgetunnel的直接連結" title="Edgetunnel的直接連結">​</a></h2>
+<p><a href="https://github.com/cmliu/edgetunnel" target="_blank" rel="noopener noreferrer">Edgetunnel from cmliu</a></p>
+<p>其實在找到這個專案的瞬間幾乎就完成了架設的90%,剩下的就是要有<code>cloudflare</code>的帳號其實沒有應該也可以因為CF worker會自動產生一個<code>worker_name.User_name.workers.dev</code>之類的網址給你, 不過...身為一個自己架過V2Ray web socket over TLS的人來說...託管在CF的Domain可以說是標配....所以這些都不會是什麼問題才對,除非是什麼都沒有要0開始的人那可能還真的要花點功夫去弄個Domain來...</p>
+<p>接著就是開個免費的worker專案然後把Github內的code貼到worker的code去,然後<del>去<a href="https://www.uuidgenerator.net/" target="_blank" rel="noopener noreferrer">online UUID generator</a>弄個看的順眼的UUID</del>把任意字串當作token塞進第四行的<code>let userID = '&lt;UUID you like&gt;';</code>然後deploy就好了</p>
+<p>接著就去worker的設定 --&gt; 網域和路由裡面設定一下你的domain,或是就認命用workers.dev裡的link(不過我只是測試可以連上,不知道真的用了會出什麼事情)然後就去<code>https://your.domain.or.workers.dev/UUID</code>就可以看到類似下面的畫面</p>
+<p><img decoding="async" loading="lazy" src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202025-01-03%20171436.png" alt="" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="client">Client<a href="https://kiwi0093.github.io/Public-Wiki/2025/01/misc-talk-250103#client" class="hash-link" aria-label="Client的直接連結" title="Client的直接連結">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="windows">Windows<a href="https://kiwi0093.github.io/Public-Wiki/2025/01/misc-talk-250103#windows" class="hash-link" aria-label="Windows的直接連結" title="Windows的直接連結">​</a></h3>
+<p>基本上<code>V2RayN</code>就可以用了,只要導入群組之後refresh後就可以用了</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="android">Android<a href="https://kiwi0093.github.io/Public-Wiki/2025/01/misc-talk-250103#android" class="hash-link" aria-label="Android的直接連結" title="Android的直接連結">​</a></h3>
+<p>可惜的是<code>V2Rayng</code>不支援群組訂閱的功能,所以我就只能另外測試了<a href="https://github.com/MetaCubeX/ClashMetaForAndroid" target="_blank" rel="noopener noreferrer">ClashMeta for Android</a>我是用<code>Obtainium</code>直接從Github安裝的..
+詳細的設定方法...懶的寫了..基本上會用<code>V2rayng</code>的人就會自己設定從URL設定,把<code>https://your.domain.or.workers.dev/UUID</code>填入URL就好了.....</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="ios">iOS<a href="https://kiwi0093.github.io/Public-Wiki/2025/01/misc-talk-250103#ios" class="hash-link" aria-label="iOS的直接連結" title="iOS的直接連結">​</a></h3>
+<p><del>沒硬體...所以沒測試..連有硬體的朋友都因他遠在強國..所以就不測試了..太麻煩了</del>
+Updated: 用同事的iOS測試了一下<code>singbox</code> app看起來是不錯啦,但是得要先註解掉source code的127.0.0.1的address,以及所有的node都得連的上線才能使用..不知道是我設定的不好還是怎樣,總之體驗還蠻差的...
+可能要再花心思看一下</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="macos">MacOS<a href="https://kiwi0093.github.io/Public-Wiki/2025/01/misc-talk-250103#macos" class="hash-link" aria-label="MacOS的直接連結" title="MacOS的直接連結">​</a></h3>
+<p>你覺得連iOS硬體都沒有的人會有MacOS硬體？？？(要是真的有我大概也拿去裝Asahi Linux了吧....)</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="感想">感想<a href="https://kiwi0093.github.io/Public-Wiki/2025/01/misc-talk-250103#%E6%84%9F%E6%83%B3" class="hash-link" aria-label="感想的直接連結" title="感想的直接連結">​</a></h2>
+<ul>
+<li><del>果然人不在強國境內,沒有被<code>GFW</code>壓迫的情境下真的很難激發我測試一堆東西的熱情</del>沒有強國的網路環境所以沒辦法針對江蘇的網路去作<code>優選IP</code>...</li>
+<li>同上,所以我其實<del>不知道弄好的node到底效果怎樣....只能看用戶反饋囉</del>
+基於肉身在強國的友人反饋,比我之前的node好用多了...速度夠快...</li>
+<li>之前就覺得在強國生活得把一堆技能點數拿來點梯子,雖說技術就是技術..學會了多少都有成就感尤其是很容易學以致用的情況下更容易有成就感..不過沒什麼必要的條件下回頭看真的很浪費技能點數....</li>
+<li>看著現在在賣的VPN一堆都用wireguard protocol但是強國的梯子卻幾乎都是偽裝為web socket的socks server...真的覺得很唏噓,尤其是我現在每天都需要用wireguard連回家
+對於wireguard容易架設,效率又超高真的覺得蠻唏噓的....大概只能無奈人不能選擇出生...</li>
+</ul>]]></content:encoded>
+            <category>V2ray</category>
+            <category>Network</category>
+            <category>Old-Blog</category>
+        </item>
+        <item>
+            <title><![CDATA[Domain遷移]]></title>
+            <link>https://kiwi0093.github.io/Public-Wiki/2024/12/domain+move</link>
+            <guid>https://kiwi0093.github.io/Public-Wiki/2024/12/domain+move</guid>
+            <pubDate>Wed, 04 Dec 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[搬遷domain的紀錄]]></description>
+            <content:encoded><![CDATA[<blockquote>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
+</blockquote>
+<p>Gandi續費太貴了,所以我跳去Cloudflare了....</p>
+<h1>原由</h1>
+<p>本來我的Domain是從<a href="https://www.freenom.com/en/index.html?lang=en" target="_blank" rel="noopener noreferrer">Freenom</a>買的,後來因為該平台的問題被取消了<code>.com</code>網域的管理權限,然後就直接被轉去<a href="https://www.gandi.net/zh-Hant" target="_blank" rel="noopener noreferrer">Gandi</a>
+其實Gandi也是很大的DNS register服務也很不錯的,但是他的續費實在太貴了,續費一年要37USD左右...(我本來在Freenom的價格一年大概10USD)
+所以我就遷移去了便宜很多的<a href="https://www.cloudflare.com/zh-tw/" target="_blank" rel="noopener noreferrer">Cloudflare</a></p>
+<h1>Cloudflare DNS Register</h1>
+<p>Cloudflare是個很大的網路服務公司,很久以前我就把我的DNS設定到cloudflare去進行設定,免費的服務就很好用了</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="cloudflare價格">Cloudflare價格<a href="https://kiwi0093.github.io/Public-Wiki/2024/12/domain+move#cloudflare%E5%83%B9%E6%A0%BC" class="hash-link" aria-label="Cloudflare價格的直接連結" title="Cloudflare價格的直接連結">​</a></h2>
+<p>Cloudflare沒有公開的價格,所以我從<a href="https://www.reddit.com/r/webdev/comments/17lpxa6/cloudflare_domain_registrar_pricing_table/?rdt=46259" target="_blank" rel="noopener noreferrer">網路上(Reddit)</a>找到了參考值
+節錄一部分如下</p>
+<table><thead><tr><th>TLD</th><th>Base Purchase Price</th><th>Base Renewal Price</th><th>ICANN Fee</th><th>Total First Year Price</th><th>Total Renewal Price</th><th>Average Annual Cost Over 5 Years</th></tr></thead><tbody><tr><td>co.uk</td><td>$4.71</td><td>$4.71</td><td>$-</td><td>$4.71</td><td>$4.71</td><td>$4.71</td></tr><tr><td>me.uk</td><td>$4.71</td><td>$4.71</td><td>$-</td><td>$4.71</td><td>$4.71</td><td>$4.71</td></tr><tr><td>org.uk</td><td>$4.71</td><td>$4.71</td><td>$-</td><td>$4.71</td><td>$4.71</td><td>$4.71</td></tr><tr><td>uk</td><td>$4.71</td><td>$4.71</td><td>$-</td><td>$4.71</td><td>$4.71</td><td>$4.71</td></tr><tr><td>win</td><td>$3.98</td><td>$4.98</td><td>$0.18</td><td>$4.16</td><td>$5.16</td><td>$4.96</td></tr><tr><td>work</td><td>$6.00</td><td>$6.00</td><td>$0.18</td><td>$6.18</td><td>$6.18</td><td>$6.18</td></tr><tr><td>us</td><td>$6.50</td><td>$6.50</td><td>$-</td><td>$6.50</td><td>$6.50</td><td>$6.50</td></tr><tr><td>com.co</td><td>$8.00</td><td>$8.00</td><td>$-</td><td>$8.00</td><td>$8.00</td><td>$8.00</td></tr><tr><td>cc</td><td>$8.00</td><td>$8.00</td><td>$-</td><td>$8.00</td><td>$8.00</td><td>$8.00</td></tr><tr><td>net.co</td><td>$8.00</td><td>$8.00</td><td>$-</td><td>$8.00</td><td>$8.00</td><td>$8.00</td></tr><tr><td>nom.co</td><td>$8.00</td><td>$8.00</td><td>$-</td><td>$8.00</td><td>$8.00</td><td>$8.00</td></tr><tr><td>com</td><td>$9.59</td><td>$9.59</td><td>$0.18</td><td>$9.77</td><td>$9.77</td><td>$9.77</td></tr><tr><td>net</td><td>$9.92</td><td>$9.92</td><td>$0.18</td><td>$10.10</td><td>$10.10</td><td>$10.10</td></tr><tr><td>org</td><td>$9.93</td><td>$9.93</td><td>$0.18</td><td>$10.11</td><td>$10.11</td><td>$10.11</td></tr><tr><td>xyz</td><td>$10.00</td><td>$10.00</td><td>$0.18</td><td>$10.18</td><td>$10.18</td><td>$10.18</td></tr><tr><td>vip</td><td>$11.00</td><td>$11.00</td><td>$0.18</td><td>$11.18</td><td>$11.18</td><td>$11.18</td></tr><tr><td>app</td><td>$12.00</td><td>$12.00</td><td>$0.18</td><td>$12.18</td><td>$12.18</td><td>$12.18</td></tr><tr><td>me</td><td>$12.85</td><td>$12.85</td><td>$-</td><td>$12.85</td><td>$12.85</td><td>$12.85</td></tr><tr><td>cloud</td><td>$15.00</td><td>$15.00</td><td>$0.18</td><td>$15.18</td><td>$15.18</td><td>$15.18</td></tr><tr><td>wiki</td><td>$19.00</td><td>$19.00</td><td>$0.18</td><td>$19.18</td><td>$19.18</td><td>$19.18</td></tr><tr><td>blog</td><td>$20.00</td><td>$20.00</td><td>$0.18</td><td>$20.18</td><td>$20.18</td><td>$20.18</td></tr><tr><td>games</td><td>$20.00</td><td>$20.00</td><td>$0.18</td><td>$20.18</td><td>$20.18</td><td>$20.18</td></tr><tr><td>co</td><td>$22.00</td><td>$22.00</td><td>$-</td><td>$22.00</td><td>$22.00</td><td>$22.00</td></tr><tr><td>tv</td><td>$25.00</td><td>$25.00</td><td>$-</td><td>$25.00</td><td>$25.00</td><td>$25.00</td></tr><tr><td>plus</td><td>$25.00</td><td>$25.00</td><td>$0.18</td><td>$25.18</td><td>$25.18</td><td>$25.18</td></tr><tr><td>zone</td><td>$25.00</td><td>$25.00</td><td>$0.18</td><td>$25.18</td><td>$25.18</td><td>$25.18</td></tr><tr><td>market</td><td>$28.00</td><td>$28.00</td><td>$0.18</td><td>$28.18</td><td>$28.18</td><td>$28.18</td></tr><tr><td>media</td><td>$28.00</td><td>$28.00</td><td>$0.18</td><td>$28.18</td><td>$28.18</td><td>$28.18</td></tr><tr><td>io</td><td>$36.00</td><td>$36.00</td><td>$-</td><td>$36.00</td><td>$36.00</td><td>$36.00</td></tr></tbody></table>
+<p>這個價格只能參考,因為我轉移後實際的金額是10.XX USD(轉移的時候會強制續費一年...)</p>
+<p>另外看起來是一定得綁定信用卡,不過因為不管一次買幾年價格都一樣...所以就乾脆讓它自動續費就好了...</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="mail-alias">Mail Alias<a href="https://kiwi0093.github.io/Public-Wiki/2024/12/domain+move#mail-alias" class="hash-link" aria-label="Mail Alias的直接連結" title="Mail Alias的直接連結">​</a></h2>
+<p>我現在Domain的信箱,是使用zoho的服務,不過老實說我對於印度人的印象沒那麼好...
+Cloudflare其實是可以把Domain的Email alias到Gmail透過設定後除了可以收信以外也可以用自己的域名寄信</p>
+<ul>
+<li><a href="https://blog.halisunreal.com/posts/use-your-own-domain-email/" target="_blank" rel="noopener noreferrer">HalisUnreal的Blog</a></li>
+<li><a href="https://mskclover.com/2024/07/31/custom-email-on-gmail-by-cloudflare/" target="_blank" rel="noopener noreferrer">使用 Cloudflare 在 Gmail 上配置域名邮箱</a></li>
+<li><a href="https://www.waterwater.moe/posts/2024/2024-01-01_%E4%BD%BF%E7%94%A8-cloudflare--gmail-%E5%AE%8C%E6%88%90%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1%E6%94%B6%E5%8F%91/" target="_blank" rel="noopener noreferrer">使用 Cloudflare + Gmail 完成自定义域名邮箱收发</a></li>
+</ul>
+<p>可能後期還是要考慮一下是不是要為了縮減過多的服務平台把Email也轉移反正可以mapping到任意的Gmail帳號上隨便申請一個Gmail後拿來mapping就好了</p>
+<p>這樣家人的mail address也容易弄好</p>
+<h1>總結</h1>
+<p>$難賺,所以還是花點心思把這些<code>必要支出</code>都做個整理力求最小化還是比較實在的</p>]]></content:encoded>
+            <category>Network</category>
+            <category>Old-Blog</category>
+        </item>
+        <item>
+            <title><![CDATA[Ansible中毒中....]]></title>
+            <link>https://kiwi0093.github.io/Public-Wiki/2024/11/ansible-learning</link>
+            <guid>https://kiwi0093.github.io/Public-Wiki/2024/11/ansible-learning</guid>
+            <pubDate>Thu, 14 Nov 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[與ansible搏鬥的紀錄]]></description>
+            <content:encoded><![CDATA[<blockquote>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
+</blockquote>
+<p>本來是想振作起來寫一些<code>shell script</code>的說...結果中間有些動作想說用<code>ansible</code>寫看看可能會比較簡單
+結果一寫下去...就..不 可 挽 回的沉迷進去了....</p>
+<h1>Ansibleとは？</h1>
+<p>Ansible是RedHat開發的一個自動化工具,透過python跟ssh,實現了一台<code>control machine</code> rules them all
+之前我也不是沒有試著用過,但是當時的我只覺得ansible是個又慢又複雜又難懂的東西....所以就稍微弄了點入門的就放棄了
+結果這次我不知道哪裡忽然開竅了,寫著寫著就越來越包山包海</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="相關的教學">相關的教學<a href="https://kiwi0093.github.io/Public-Wiki/2024/11/ansible-learning#%E7%9B%B8%E9%97%9C%E7%9A%84%E6%95%99%E5%AD%B8" class="hash-link" aria-label="相關的教學的直接連結" title="相關的教學的直接連結">​</a></h2>
+<p>補充一些想使用ansible的入門者參考的文獻與影片</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="documents">Documents<a href="https://kiwi0093.github.io/Public-Wiki/2024/11/ansible-learning#documents" class="hash-link" aria-label="Documents的直接連結" title="Documents的直接連結">​</a></h3>
+<ul>
+<li><a href="https://docs.ansible.com/ansible/latest/index.html" target="_blank" rel="noopener noreferrer">Ansible Community Documentation</a></li>
+<li><a href="https://docs.ansible.org.cn/ansible/latest/index.html" target="_blank" rel="noopener noreferrer">Ansible社區文檔</a></li>
+<li><a href="http://www.ansible.com.cn/index.html" target="_blank" rel="noopener noreferrer">Ansible中文權威指南</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="youtube教學影片">Youtube教學影片<a href="https://kiwi0093.github.io/Public-Wiki/2024/11/ansible-learning#youtube%E6%95%99%E5%AD%B8%E5%BD%B1%E7%89%87" class="hash-link" aria-label="Youtube教學影片的直接連結" title="Youtube教學影片的直接連結">​</a></h2>
+<p><a href="https://www.youtube.com/playlist?list=PLT98CRl2KxKEUHie1m24-wkyHpEsa4Y70" target="_blank" rel="noopener noreferrer" title="Playlist - Getting started with Ansible"><img decoding="async" loading="lazy" src="http://img.youtube.com/vi/3RiVKs8GHYQ/0.jpg" alt="Getting Started with Ansible - Learn Linux TV" class="img_ev3q"></a></p>
+<p>Jay from Learn Linux TV會提供很多有用的Linux教學影片（不過基本上都是比較基本的教學）除了Ansible也可以翻翻其他的主題影片</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="先前的卡關點">先前的卡關點<a href="https://kiwi0093.github.io/Public-Wiki/2024/11/ansible-learning#%E5%85%88%E5%89%8D%E7%9A%84%E5%8D%A1%E9%97%9C%E9%BB%9E" class="hash-link" aria-label="先前的卡關點的直接連結" title="先前的卡關點的直接連結">​</a></h2>
+<p>我之前使用ansible主要卡在以下兩點</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="變數迴圈使用">變數/迴圈使用<a href="https://kiwi0093.github.io/Public-Wiki/2024/11/ansible-learning#%E8%AE%8A%E6%95%B8%E8%BF%B4%E5%9C%88%E4%BD%BF%E7%94%A8" class="hash-link" aria-label="變數/迴圈使用的直接連結" title="變數/迴圈使用的直接連結">​</a></h3>
+<p>ansible的迴圈功能基本上都會伴隨變數一起,若是不會定義<code>"{{  }}"</code>的Jinja2變數格式基本上就用不了迴圈
+不用迴圈的ansible playbook就是一個肥大,機器與重複性動作越多就跑得越囉唆與緩慢的東西</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="條件">條件<a href="https://kiwi0093.github.io/Public-Wiki/2024/11/ansible-learning#%E6%A2%9D%E4%BB%B6" class="hash-link" aria-label="條件的直接連結" title="條件的直接連結">​</a></h3>
+<p>這個也是一個很大的重點,如同<code>shell script</code>不會使用<code>if ..else ..fi</code>來判斷狀態的話<code>shell script</code>也會寫不下去的....</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="其他上癮的地方">其他上癮的地方<a href="https://kiwi0093.github.io/Public-Wiki/2024/11/ansible-learning#%E5%85%B6%E4%BB%96%E4%B8%8A%E7%99%AE%E7%9A%84%E5%9C%B0%E6%96%B9" class="hash-link" aria-label="其他上癮的地方的直接連結" title="其他上癮的地方的直接連結">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="inculde_task-inculde_roles">inculde_task, inculde_roles<a href="https://kiwi0093.github.io/Public-Wiki/2024/11/ansible-learning#inculde_task-inculde_roles" class="hash-link" aria-label="inculde_task, inculde_roles的直接連結" title="inculde_task, inculde_roles的直接連結">​</a></h2>
+<p>之前我就針對<code>ansible</code>的<code>roles</code>機能很有好感,畢竟這是可以將一個很大的playbook.yml支解成多個小型好寫的<code>roles</code>來減輕編寫的負擔以及再利用等特徵
+但是<code>roles</code>是靜態的寫上的就是一定會被呼叫並且執行,但是搭配上<code>inculde_task</code>與變數判定,就可以做成依照<code>node</code>特性(例如<code>os_family</code>自動判別作業系統的類型）
+<code>動態的</code>載入對應的<code>task.yml</code>使一個playbook.yml的覆蓋範圍擴大到幾乎所有的機器（尤其是像我這種喜歡用不同<code>distrobution</code>來做不同類型server/workstation的人）</p>
+<h1>殘存的問題點</h1>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="高級用法還搞不清楚">高級用法還搞不清楚<a href="https://kiwi0093.github.io/Public-Wiki/2024/11/ansible-learning#%E9%AB%98%E7%B4%9A%E7%94%A8%E6%B3%95%E9%82%84%E6%90%9E%E4%B8%8D%E6%B8%85%E6%A5%9A" class="hash-link" aria-label="高級用法還搞不清楚的直接連結" title="高級用法還搞不清楚的直接連結">​</a></h2>
+<p>ansible是一個不停在改版而且有一大堆人在鑽研的工具,所以有蠻多複雜條件判斷與迴圈寫法我還不是很懂(對..就是那種看人家的範例也看不懂的那種...不懂）
+所以目前寫起來的playbook.yml還是看起來很粗糙,效率也沒最佳化到最好不過最起碼能動了....不過話說回來我<code>shell script</code>的寫作水準也就那樣...算是兩個半斤八兩吧...</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="output美化">Output美化<a href="https://kiwi0093.github.io/Public-Wiki/2024/11/ansible-learning#output%E7%BE%8E%E5%8C%96" class="hash-link" aria-label="Output美化的直接連結" title="Output美化的直接連結">​</a></h2>
+<p>這個單純就是有點沒苦硬吃的味道了...雖然可以靠定義<code>ansible.cfg</code>裡的參數<code>display.skipped.host=false</code>把skipped的item都不顯示來讓顯示好看點甚至更過份的把<code>display.ok.host=false</code>也定義上,這樣除了changed的item以外都不顯示....
+或是我有看到一個利用<code>callback</code>參數變化讓除了定義的顯示以外都不顯示（有點像<code>shell script</code>內有echo的文字才顯示的感覺）
+不過講穿了這個就算沒有花心力在上面也可以,畢竟我沒打算把我的ansible專案放到外面去....橫豎都只有我自己用,所以不好看也沒關係,堪用就好了</p>
+<h1>結語</h1>
+<p>首先,因為ansible的進度比以前增加許多,所以我多了不少該update進wiki的筆記在等著我寫....(懶癌要犯了...）
+所以可見的未來一段時間,我應該會有不少事情可以做了...好高興唷～～（ㄟ！？）
+坑也挖了...就看後面有沒有辦法填上囉</p>]]></content:encoded>
+            <category>Linux</category>
+            <category>Old-Blog</category>
+        </item>
+        <item>
+            <title><![CDATA[雜談 - Version 2024-10]]></title>
+            <link>https://kiwi0093.github.io/Public-Wiki/2024/10/free-talk-v2410</link>
+            <guid>https://kiwi0093.github.io/Public-Wiki/2024/10/free-talk-v2410</guid>
+            <pubDate>Tue, 15 Oct 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[一堆碎碎念]]></description>
+            <content:encoded><![CDATA[<blockquote>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
+</blockquote>
+<p>最近發生了一件令我傷心的小事情..</p>
+<p>我很喜歡的<code>manjaro-zsh-config</code>從AUR消失了,原因是原作者認為是Manjaro特有的Package所以不希望放在AUR內....</p>
+<h1>Manjaro-zsh-config</h1>
+<p>其實我翻找了一下我自己的<a href="https://kiwi0093.github.io/wiki/wiki/Misc/Zsh/1-Zsh&amp;Powerlevel10k/" target="_blank" rel="noopener noreferrer">Wiki</a>內是有手動安裝的方法的, 只不過我沒寫成script安裝而已</p>
+<p>即使是被拿掉也是可以裝的上去, 只不過感覺不太開心</p>
+<p>我可以試試是否依靠保留PKGBUILD檔案搭配<code>makepkg -si</code>的方法可能不能一樣安裝</p>
+<p>不過可能寫成script會比較好...</p>
+<h1>生成式AI</h1>
+<p>在同事的需求下,我也嘗試了<code>Ollama+WebUI</code>的方案搭配<code>LLaMA 3</code>的LLM測試過了....</p>
+<p>結果是跑得不快（我架在我的Orcal Free Tier - Arm VPS)而且看起來要讓它可以指令畫圖有點囉唆...</p>
+<p>所以我就把它砍了....</p>
+<p>有興趣的人可以參考下面的Blog</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="參考資料">參考資料<a href="https://kiwi0093.github.io/Public-Wiki/2024/10/free-talk-v2410#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99" class="hash-link" aria-label="參考資料的直接連結" title="參考資料的直接連結">​</a></h2>
+<ul>
+<li><a href="https://ivonblog.com/posts/foss-local-llm/" target="_blank" rel="noopener noreferrer">Ivon的Blog - 離線版ChatGPT安裝方法！在個人電腦跑AI大型語言模型的開源軟體列表</a></li>
+<li><a href="https://ivonblog.com/posts/ollama-llm-docker/" target="_blank" rel="noopener noreferrer">Ivon的Blog - Linux用docker-compose部署Open WebUI + Ollama語言模型網頁界面</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="垃圾話">垃圾話<a href="https://kiwi0093.github.io/Public-Wiki/2024/10/free-talk-v2410#%E5%9E%83%E5%9C%BE%E8%A9%B1" class="hash-link" aria-label="垃圾話的直接連結" title="垃圾話的直接連結">​</a></h2>
+<p>我最近都在翻這位Ivon的Blog, 不得不說我還真感謝它, 整個Blog的內容很多都是我感興趣的主題</p>
+<p>甚至有它都寫好了我幹麻要自己試過後再寫一遍的感想....</p>
+<h1>好用的工具 - Android相關</h1>
+<p>其實大多數也是從Ivon的Blog看到後裝來用看看的....所以我就不多寫,大概列一下我覺得對我真的有用的幾個</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="obtainium">Obtainium<a href="https://kiwi0093.github.io/Public-Wiki/2024/10/free-talk-v2410#obtainium" class="hash-link" aria-label="Obtainium的直接連結" title="Obtainium的直接連結">​</a></h3>
+<p>這個可以自動確認並update從Github安裝的apk程式真的還蠻屌的...要是他有出windows版我應該會裝上...
+（阿你不是都用<code>Winget</code>?）</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="innertune--pipepipe">Innertune &amp; Pipepipe<a href="https://kiwi0093.github.io/Public-Wiki/2024/10/free-talk-v2410#innertune--pipepipe" class="hash-link" aria-label="Innertune &amp; Pipepipe的直接連結" title="Innertune &amp; Pipepipe的直接連結">​</a></h3>
+<p>這兩個基本上都是無廣告Youtube的類型, 只是一個是看片,令一個是拿來聽youtube music的....
+雖然我因自己的松鼠屬性,大多數都會試圖把東西收在自己可以控制的地方,然後跑串流,但是對於少數想聽的但是又不想收一大堆的東西這還是很好用的（例如我還蠻喜歡Simyee的粵語版青花瓷的...但是我又不收中文歌...）</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="pairdrop">Pairdrop<a href="https://kiwi0093.github.io/Public-Wiki/2024/10/free-talk-v2410#pairdrop" class="hash-link" aria-label="Pairdrop的直接連結" title="Pairdrop的直接連結">​</a></h3>
+<p>這個真的是好用....其實就是open source的airdrop...我也試著自己架設<code>via docker</code>不過沒弄好,暫時就先用官方的服務,後續再來弄一下</p>
+<h1>煮飯...</h1>
+<p>好啦...其實我這段時間都比較集中在做菜上面</p>
+<p>為此還去裝上了<code>mealie</code>來紀錄自己的食譜...不過因為我很覽的拍照片...所以我也不知道這些食譜到底我有耐心紀錄到什麼時候....</p>
+<h1>觀影心得</h1>
+<p>無...老實說有小孩後我發現自己越來越不像阿宅了...（但是還是不喜歡出門）</p>
+<p>不要說動畫或是電影了...連書都少看了</p>
+<p>還是等小孩再大一點看看有沒有機會回歸好了...（嘆氣...）</p>
+<h1>總結</h1>
+<p>阿里阿雜的寫了一堆...</p>
+<p>這個Blog當初是為了紀錄我自己的做的翻牆學習筆記弄的....現在搞的很像一個失意中年的牢騷抒發空間...</p>
+<p>不過這樣也好,畢竟我都盡量把筆記都挪到Wiki去了...這裡基本上就當老頭子我的抒發天地好了....</p>]]></content:encoded>
+            <category>Life</category>
+            <category>Linux</category>
+            <category>Docker</category>
+            <category>Old-Blog</category>
+        </item>
+        <item>
+            <title><![CDATA[近日心情]]></title>
+            <link>https://kiwi0093.github.io/Public-Wiki/2021/08/feeling</link>
+            <guid>https://kiwi0093.github.io/Public-Wiki/2021/08/feeling</guid>
+            <pubDate>Fri, 20 Aug 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[這是一篇只跟大叔無效心裡狀態有關的廢文]]></description>
+            <content:encoded><![CDATA[<blockquote>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
+</blockquote>
+<p>最近,生活周遭有一些紛紛擾擾, 以及一些心境上的變化所以就一直很想寫一篇對讀者來說是單純廢話的東西...</p>
+<h1>總結</h1>
+<p>因為事情很亂很雜,所以我這篇改用<ruby><font size="+2" color="darkgreen"><del>倒敘法</del></font><rp>(</rp><rt><font size="+1" color="darkred">隨便亂跳</font></rt><rp>)</rp></ruby>的方式來敘述</p>
+<p>簡單的說,心情不太好,不僅僅是Server方面有些挫折,然後朋友發生了我實在很想翻白眼狂幹譙他的事情..以及一段時間後終於發現因為職場/生活發生變化後的一些心裡反應....</p>
+<p>不過我想我應該可以<ruby><font size="+2" color="darkgreen"><del>自我成長與調適</del></font><rp>(</rp><rt><font size="+1" color="darkred">狂看沒營養的小說/影片跟其他休閒</font></rt><rp>)</rp></ruby>讓自己逐步調整過來</p>
+<h1>事件概述</h1>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="desktop-crash">Desktop Crash<a href="https://kiwi0093.github.io/Public-Wiki/2021/08/feeling#desktop-crash" class="hash-link" aria-label="Desktop Crash的直接連結" title="Desktop Crash的直接連結">​</a></h2>
+<p>這個事情最單純也是最容易改善的,因為是單純的技術力不足造成的</p>
+<p>我上班時間<ruby><font size="+2" color="darkgreen"><del>偷偷摸摸掩人耳目</del></font><rp>(</rp><rt><font size="+1" color="darkred">囂張至極,根本沒在怕</font></rt><rp>)</rp></ruby>的Manjaro系統果然因為用USB stick的關係由I/O開始的crash發生了,昨天更是白痴到因為<code>yay -Syu</code>太慢於是我就把他停掉</p>
+<p>造成kernel missing無法開機的窘境...(事後是救回來了啦)</p>
+<p>然後反觀我弄的Manjaro xrdp,效能更是爛到我完全沒興趣使用....(好啦,最近會想辦法啦～～)</p>
+<p>所以一整個心情就是爛到底....</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="phpbb沒人用">PHPBB沒人用<a href="https://kiwi0093.github.io/Public-Wiki/2021/08/feeling#phpbb%E6%B2%92%E4%BA%BA%E7%94%A8" class="hash-link" aria-label="PHPBB沒人用的直接連結" title="PHPBB沒人用的直接連結">​</a></h2>
+<p>原來興高采烈的弄了個phpbb想說給自己人拿來抓東西...結果一看每個朋友的最後登入時間...</p>
+<p>幹～就是給我面子去註冊後就在也沒用過了....我還在那邊努力的post抓回來的東西....</p>
+<p>e04!!真的很厭世~~</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="朋友的鳥事">朋友的鳥事<a href="https://kiwi0093.github.io/Public-Wiki/2021/08/feeling#%E6%9C%8B%E5%8F%8B%E7%9A%84%E9%B3%A5%E4%BA%8B" class="hash-link" aria-label="朋友的鳥事的直接連結" title="朋友的鳥事的直接連結">​</a></h2>
+<p>基於我講出來就會被滅口...所以這個就只能</p>
+<font size="+10" color="darkpurple">幹～～ 你他媽早就不是處男了搞屁呀～～</font>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="心裡落差">心裡落差<a href="https://kiwi0093.github.io/Public-Wiki/2021/08/feeling#%E5%BF%83%E8%A3%A1%E8%90%BD%E5%B7%AE" class="hash-link" aria-label="心裡落差的直接連結" title="心裡落差的直接連結">​</a></h2>
+<p>好啦,這個其實才是主宰我最近情緒的部份</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="before">Before<a href="https://kiwi0093.github.io/Public-Wiki/2021/08/feeling#before" class="hash-link" aria-label="Before的直接連結" title="Before的直接連結">​</a></h3>
+<p>某大公司主管,底下有20個小嘍嘍,對上對下對外面管理都得心應手（雖然也被人覺得是個死白目,但是臨北才沒有在插洨他）</p>
+<p>任何事情都只要嘴巴說一說就有足夠的影響力...各種雜事都有小妹代勞（工作上的雜事啦 幹！)</p>
+<p>明明享受著title帶來的便利性與POWER~~但是很愛講,我才不在乎頭銜呢～～（對啦現在看就是個蹭的累）</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="after">After<a href="https://kiwi0093.github.io/Public-Wiki/2021/08/feeling#after" class="hash-link" aria-label="After的直接連結" title="After的直接連結">​</a></h3>
+<p>一人部門,全公司可能只有打掃阿姨講話比我沒份量....所有事情要親力親為...</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="場景敘述完畢之後">場景敘述完畢之後...<a href="https://kiwi0093.github.io/Public-Wiki/2021/08/feeling#%E5%A0%B4%E6%99%AF%E6%95%98%E8%BF%B0%E5%AE%8C%E7%95%A2%E4%B9%8B%E5%BE%8C" class="hash-link" aria-label="場景敘述完畢之後...的直接連結" title="場景敘述完畢之後...的直接連結">​</a></h3>
+<p>因為是自己的選擇導致的老實說我沒什麼好抱怨的,而且不用管人也的確讓我覺的某些地方的壓力輕鬆很多,不過還是會產生落差感</p>
+<p>於是我就在想,這樣的感受怎麼來的？？</p>
+<p>我想,也許就是過了這些歲月,脫下了本來就不屬於我的環境Buff後,讓我再次體會到我只不過就是個中年的肥宅....</p>
+<p>能力上並沒有比起同齡人傑出,過往的一切只是運氣好不是實力...</p>
+<p>大概就是這些讓我覺得失落,才會一直想抓著過去的榮光~~~</p>
+<p>古羅馬凱旋式的時候需要一個人在後面不斷的提醒"你是人,不是神,這個光榮且充滿全能感的時間只是暫時的..."</p>
+<p>古人的確很優秀也很務實</p>
+<p>我想,我該再去看一遍羅馬人的故事,再看一遍那些在身上有虛假Buff時代前構成我之所以為我的東西...</p>
+<p>也許</p>
+<p>這樣才能再次確認</p>
+<ruby><font size="+2" color="darkgreen"><del>我的自我價值</del></font><rp>(</rp><rt><font size="+1" color="darkred">我就是個隨處可見的平凡肥宅</font></rt><rp>)</rp></ruby>]]></content:encoded>
+            <category>Life</category>
+            <category>Old-Blog</category>
+        </item>
         <item>
             <title><![CDATA[好樣的Github]]></title>
             <link>https://kiwi0093.github.io/Public-Wiki/2021/08/GJ-Github</link>
@@ -269,509 +852,6 @@
             <category>V2ray</category>
             <category>VPN</category>
             <category>Server</category>
-            <category>Old-Blog</category>
-        </item>
-        <item>
-            <title><![CDATA[最近動態 - Calibre-web & Navidrome]]></title>
-            <link>https://kiwi0093.github.io/Public-Wiki/2021/07/calibre+navidrome</link>
-            <guid>https://kiwi0093.github.io/Public-Wiki/2021/07/calibre+navidrome</guid>
-            <pubDate>Mon, 05 Jul 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[用Docker架設Calibre-web跟navidrome]]></description>
-            <content:encoded><![CDATA[<blockquote>
-<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
-</blockquote>
-<p>針對之前的Server使用,我真的開始了使用docker的道路,並且參考了一些網路上的<code>Self-hosted</code>服務,挑選了兩個服務來使用</p>
-<ul>
-<li>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="電子書管理系統-calibre-web"><ruby>電子書管理系統<rt style="color:orange"> Calibre-Web</rt></ruby><a href="https://kiwi0093.github.io/Public-Wiki/2021/07/calibre+navidrome#%E9%9B%BB%E5%AD%90%E6%9B%B8%E7%AE%A1%E7%90%86%E7%B3%BB%E7%B5%B1-calibre-web" class="hash-link" aria-label="電子書管理系統-calibre-web的直接連結" title="電子書管理系統-calibre-web的直接連結">​</a></h2>
-</li>
-<li>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="音樂串流-navidrome"><ruby>音樂串流<rt style="color:orange"> Navidrome</rt></ruby><a href="https://kiwi0093.github.io/Public-Wiki/2021/07/calibre+navidrome#%E9%9F%B3%E6%A8%82%E4%B8%B2%E6%B5%81-navidrome" class="hash-link" aria-label="音樂串流-navidrome的直接連結" title="音樂串流-navidrome的直接連結">​</a></h2>
-</li>
-</ul>
-<h1>Markdown</h1>
-<p>忽然先跳tune去一個跟主題不搭嘎的Markdown, 其實也不是,主要就是我最近因為整理電子書的關係,看到很多酷炫的文字表現,所以就去找了Markdown &amp; Html語法,可以看到前面那個酷炫的顏色跟注音標示方法,沒錯就是我的最新娛樂</p>
-<h1>Calibre-Web &amp; Navidrome</h1>
-<p>搭建的方法都在<ruby><a href="https://kiwi0093.github.io/">我的筆記</a><rt style="color:orange"> Kiwi's Wiki</rt></ruby>裡面,我就不多說了主要還是來說說過程的辛酸....</p>
-<p>首先是PhotoOS這個玩意我很不熟,所以光是為了熟練它的操作我就<ruby>花了不少時間<rt style="color:orange"> 重新安裝很多次</rt></ruby>之後又花了很多時間在熟悉Docker的使用方法,最終確定還是docker-compose比較方便,然後就是好幾天的不斷四處搜括epub回來填充我的書庫,仔細想想花最多時間的果然不是架設服務而是整理內容...</p>
-<h1>電子書&amp;Kindle</h1>
-<p>不得不說要蒐集日輕的epub檔真的需要<ruby><del>偉大祖國 aka.天朝</del><rt style="color:orange"> 海峽對岸的鄰國</rt></ruby>同好的熱情與分享,找了一圈都是簡體的書,並且都是在簡體的網站上,令人感嘆現在對岸的ACG文化比<ruby><del>這個又小又老又窮的小島</del><rt style="color:orange"> 偉大的台灣</rt></ruby>來的興盛了(雖然講的難聽點就是盜版的還是很兇,不過既然自己也去拿這些東西就不要在那裏講什麼正論的屁話...)</p>]]></content:encoded>
-            <category>Life</category>
-            <category>Old-Blog</category>
-            <category>Docker</category>
-            <category>Linux</category>
-            <category>Server</category>
-        </item>
-        <item>
-            <title><![CDATA[Upgrade Esxi Server]]></title>
-            <link>https://kiwi0093.github.io/Public-Wiki/2021/06/esxi-upgrade</link>
-            <guid>https://kiwi0093.github.io/Public-Wiki/2021/06/esxi-upgrade</guid>
-            <pubDate>Sat, 26 Jun 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[升級esxi]]></description>
-            <content:encoded><![CDATA[<blockquote>
-<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
-</blockquote>
-<p>從回到台灣後,持續的家裡Server維護/升級就一直沒停,終於到了該對主要Server的ESXi進行升級的時候了...</p>
-<h1>升級ESXi</h1>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="參考資料">參考資料<a href="https://kiwi0093.github.io/Public-Wiki/2021/06/esxi-upgrade#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99" class="hash-link" aria-label="參考資料的直接連結" title="參考資料的直接連結">​</a></h2>
-<p>這次的升級主要參考<a href="https://roidintw.kaienroid.com/2020/09/vmware-esxi-upgrade-from-60-to-65-with.html" target="_blank" rel="noopener noreferrer">師匠的經驗</a></p>
-<p>不過他比較驚險沒有進入maintenance mode 就跑,我好歹還是有進maintenance mode去執行</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="檔案取得">檔案取得<a href="https://kiwi0093.github.io/Public-Wiki/2021/06/esxi-upgrade#%E6%AA%94%E6%A1%88%E5%8F%96%E5%BE%97" class="hash-link" aria-label="檔案取得的直接連結" title="檔案取得的直接連結">​</a></h2>
-<p>首先先去登入你的My VMware,然後找VMware vSphere Hypervisor下載,雖然6.X目前有6.7版了,不過看了看都是ISO,於是我就只下載了6.5的<strong>VMware vSphere Hypervisor (ESXi) Offline Bundle</strong></p>
-<p>這是個zip檔,下載完後扔到esxi的datastorage裡面去就可以了</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="升級順序">升級順序<a href="https://kiwi0093.github.io/Public-Wiki/2021/06/esxi-upgrade#%E5%8D%87%E7%B4%9A%E9%A0%86%E5%BA%8F" class="hash-link" aria-label="升級順序的直接連結" title="升級順序的直接連結">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="maintenance-mode">maintenance mode<a href="https://kiwi0093.github.io/Public-Wiki/2021/06/esxi-upgrade#maintenance-mode" class="hash-link" aria-label="maintenance mode的直接連結" title="maintenance mode的直接連結">​</a></h3>
-<p>這個很簡單,使用原來的client連上ESXi,然後選maintenance mode就好了</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="確認檔案位置">確認檔案位置<a href="https://kiwi0093.github.io/Public-Wiki/2021/06/esxi-upgrade#%E7%A2%BA%E8%AA%8D%E6%AA%94%E6%A1%88%E4%BD%8D%E7%BD%AE" class="hash-link" aria-label="確認檔案位置的直接連結" title="確認檔案位置的直接連結">​</a></h3>
-<p>使用putty ssh login你的ESXi主機</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">ls /vmfs/volume/</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<p>你就會看到datastorage,你剛剛upload的ZIP就在裡面</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="確認profile-image">確認Profile Image<a href="https://kiwi0093.github.io/Public-Wiki/2021/06/esxi-upgrade#%E7%A2%BA%E8%AA%8Dprofile-image" class="hash-link" aria-label="確認Profile Image的直接連結" title="確認Profile Image的直接連結">​</a></h3>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">esxcli software sources profile list -d /vmfs/volumes/$(your_volume)/$(your_file.zip)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<p>你就可以看到他的profile image</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="升級">升級<a href="https://kiwi0093.github.io/Public-Wiki/2021/06/esxi-upgrade#%E5%8D%87%E7%B4%9A" class="hash-link" aria-label="升級的直接連結" title="升級的直接連結">​</a></h3>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">esxcli software profile update -d /vmfs/volumes/$(your_volume)/$(your_file.zip) -p $(profile-image)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<p>他就會開始安裝一堆VIB,最後重開(這裡很討厭,因為他的shell不接受reboot或是shutdown指令,所以我去他的client上按reboot host)</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="升級重開後">升級重開後<a href="https://kiwi0093.github.io/Public-Wiki/2021/06/esxi-upgrade#%E5%8D%87%E7%B4%9A%E9%87%8D%E9%96%8B%E5%BE%8C" class="hash-link" aria-label="升級重開後的直接連結" title="升級重開後的直接連結">​</a></h3>
-<p>改用web介面登入後記得去關閉maintenance mode,然後把你的VM該開的打開就好了</p>
-<h1>後續規劃</h1>
-<p>這波主要的升級原因還是想開始把家裡的幾個服務從獨立的Linux VM改成直接在Photon OS上跑docker,這樣一來可以比較省空間跟機器的效能</p>
-<p>二來也減少跑服務的Linux安裝手順或是調教之類的</p>
-<p>因此後續有幾個學習的方向需要再花時間</p>
-<ul>
-<li>Photon OS的使用<!-- -->
-<ul>
-<li>Photon OS多IP的設定</li>
-<li>Photon OS shell變更與相關工具的安裝與調教(搞了半天還是得從Arch跳到Photon OS)</li>
-</ul>
-</li>
-<li>Docker用法<!-- -->
-<ul>
-<li>基本語法</li>
-<li>Docker的活用方式</li>
-</ul>
-</li>
-<li>我到底要整合哪些服務在家裡跑</li>
-</ul>
-<h1>結語</h1>
-<p>其實最後的問題才是最大的問題,最近弄了Nextcloud但是覺得很雞肋,感覺用不太到,想說建一個Airsonic來當作音樂串流又覺得動力沒那麼大(這個主要是Nextcloud Music雖然可以用但是感覺一下子就卡住),抑或是來架設Emby(感覺也用不太到,因為現在大多數都是直接上串流平台)架設Calibre-web好像有搞頭一點但是這個也牽扯到後續要整理一大堆的電子書...想到就很累...</p>]]></content:encoded>
-            <category>Server</category>
-            <category>Life</category>
-            <category>Old-Blog</category>
-        </item>
-        <item>
-            <title><![CDATA[近日幾點tmux, nextcloud]]></title>
-            <link>https://kiwi0093.github.io/Public-Wiki/2021/06/tmux+nextcloud</link>
-            <guid>https://kiwi0093.github.io/Public-Wiki/2021/06/tmux+nextcloud</guid>
-            <pubDate>Thu, 24 Jun 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[一個薪水小偷趁著WFH的休閒活動]]></description>
-            <content:encoded><![CDATA[<blockquote>
-<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
-</blockquote>
-<p>最近都在Work From Home,於是可以花一點時間假借工作之名,實則弄一點有意思的玩具</p>
-<p>所以我把家裡的Server進一步的整理過一遍(之前是應急恢復,現在是以擴充之名行娛樂之實)</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="tmux">Tmux<a href="https://kiwi0093.github.io/Public-Wiki/2021/06/tmux+nextcloud#tmux" class="hash-link" aria-label="Tmux的直接連結" title="Tmux的直接連結">​</a></h2>
-<p>老實說這是我在看Youtube的時候發現這玩意的(你看多廢,還得逛Youtube才知道有tmux).</p>
-<p>現在就已經成為我的標準配備(用來取代screen)</p>
-<p>這玩意支援powerline,但是蠻雞肋的在X環境下powerline才有用(至少我還沒找到console下powerline可以正確顯示相關字體的方法)</p>
-<p>不過講是這樣講,功能還是比screen稍微強一些,所以我就開始過度到tmux去了</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="nextcloud">Nextcloud<a href="https://kiwi0093.github.io/Public-Wiki/2021/06/tmux+nextcloud#nextcloud" class="hash-link" aria-label="Nextcloud的直接連結" title="Nextcloud的直接連結">​</a></h2>
-<p>這個就有點冷飯新炒...之前還在蘇州的時候其實就玩過了,但是其實當時不是很好用(老實說現在也沒好用到哪去...)</p>
-<p>不過這次倒是對於Nextcloud-Apps感到有趣</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="nextcloud-music">Nextcloud Music<a href="https://kiwi0093.github.io/Public-Wiki/2021/06/tmux+nextcloud#nextcloud-music" class="hash-link" aria-label="Nextcloud Music的直接連結" title="Nextcloud Music的直接連結">​</a></h4>
-<p>這個App的基本功能就是在網頁下可以直接撥放Nextcloud folder裡的音樂,並且同時在建立成媒體庫後可以串流出去</p>
-<p>搭配subsonic系列的apps(如<a href="https://play.google.com/store/apps/details?id=org.moire.ultrasonic&amp;hl=zh_TW&amp;gl=US" target="_blank" rel="noopener noreferrer">Ultrasonic</a>)就可以串流撥放,還支援封面等功能算是一個不用emby也可以使用的媒體Server</p>
-<p>(不過要是只剩下這個功能有用,那我可能還是會去找其他的串流server來使用)</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="nextcloud-deck">Nextcloud Deck<a href="https://kiwi0093.github.io/Public-Wiki/2021/06/tmux+nextcloud#nextcloud-deck" class="hash-link" aria-label="Nextcloud Deck的直接連結" title="Nextcloud Deck的直接連結">​</a></h4>
-<p>這就是一個Deck程式,說真的是沒有什麼google的替代方案所以我才用的(其實我是想要有免費的Milanote可以用...)</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="docker">Docker<a href="https://kiwi0093.github.io/Public-Wiki/2021/06/tmux+nextcloud#docker" class="hash-link" aria-label="Docker的直接連結" title="Docker的直接連結">​</a></h2>
-<p>這個也是不陌生的東西,但是老實說我一直沒有花時間去好好用過Docker,因為我都是用VMware ESXi直接架VM來用,很少會一台機器上跑好幾個docker的形式處理</p>
-<p>但是現在docker也越來越方便,很多東西都可以直接弄個Image跑起來就好,省的安裝跟設定</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="webtop"><a href="https://docs.linuxserver.io/images/docker-webtop" target="_blank" rel="noopener noreferrer">Webtop</a><a href="https://kiwi0093.github.io/Public-Wiki/2021/06/tmux+nextcloud#webtop" class="hash-link" aria-label="webtop的直接連結" title="webtop的直接連結">​</a></h4>
-<p>老實說這是一個看起來很炫,聽起來很炫,但是真的要用我還真找不到用途的東西....</p>
-<p>簡單的說就是用Browser就可以遠端跑DE的東西,目前支援Alpine/Ubuntu的Xfce/KDE/mate/iceWM/i3/Openbox(沒有我喜歡的Manjaro..=-=!!)</p>
-<p>聽起來好像還不錯對吧,但是你都有Browser可以用代表你在GUI環境,然後要開另一個DE來使用...除了架好給公司電腦什麼都鎖死的機器可以利用browser逃出去</p>
-<p>享受自由空氣以外,我還真沒想到能幹嘛</p>
-<h1>結語</h1>
-<p>其實就是在家工作很無聊,既不能玩遊戲,又不能專心工作,所以就會無聊到去找其他可以打斷的東西來試試</p>]]></content:encoded>
-            <category>Life</category>
-            <category>Old-Blog</category>
-            <category>Linux</category>
-            <category>Server</category>
-        </item>
-        <item>
-            <title><![CDATA[雜談]]></title>
-            <link>https://kiwi0093.github.io/Public-Wiki/2021/05/misc+talk</link>
-            <guid>https://kiwi0093.github.io/Public-Wiki/2021/05/misc+talk</guid>
-            <pubDate>Wed, 26 May 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[一些生活變動的心裡活動紀錄]]></description>
-            <content:encoded><![CDATA[<blockquote>
-<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
-</blockquote>
-<p>因為家庭因素,結束了在蘇州漂泊的外派生活回到台灣安分過日子</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="近況說明">近況說明<a href="https://kiwi0093.github.io/Public-Wiki/2021/05/misc+talk#%E8%BF%91%E6%B3%81%E8%AA%AA%E6%98%8E" class="hash-link" aria-label="近況說明的直接連結" title="近況說明的直接連結">​</a></h2>
-<p>其實最近基本上就是當廢人,回到台灣接受小孩的洗禮後基本上沒時間跟之前一樣把大把大把的時間花在玩新玩具上(其實這也跟上班時間得認真上班不能跟之前一樣一邊上班一邊寫Blog有關....)</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="server">Server<a href="https://kiwi0093.github.io/Public-Wiki/2021/05/misc+talk#server" class="hash-link" aria-label="Server的直接連結" title="Server的直接連結">​</a></h3>
-<p>因為回來台灣,所以重心自然就會從原來在蘇以<del>翻牆</del>科學上網為主,改回不用考慮網路環境主攻服務內容為主,Server的OS也自然從對科學上網友善的Arch Linux換回用了很久但是在對岸跟屎一樣難用的FreeBSD</p>
-<h5 class="anchor anchorWithStickyNavbar_LWe7" id="server-os">Server OS<a href="https://kiwi0093.github.io/Public-Wiki/2021/05/misc+talk#server-os" class="hash-link" aria-label="Server OS的直接連結" title="Server OS的直接連結">​</a></h5>
-<p>還是需要一點轉換期的不過重新安裝的時候發現其實安裝起來比Arch真的輕鬆太多了</p>
-<p>只要光碟開機,然後選擇要安裝的Item,其他的基本上啥都不用多用腦,就可以快速的裝完</p>
-<p>然後再把原來Server的設定資料</p>
-<ul>
-<li>/etc/rc.conf</li>
-<li>/usr/local/etc/screenrc</li>
-<li>/etc/csh.cshrc</li>
-<li>/etc/pf.conf</li>
-<li>/etc/ipfw.conf</li>
-</ul>
-<p>放回去重開機....搞定....實在太簡單了</p>
-<h5 class="anchor anchorWithStickyNavbar_LWe7" id="esxi">Esxi<a href="https://kiwi0093.github.io/Public-Wiki/2021/05/misc+talk#esxi" class="hash-link" aria-label="Esxi的直接連結" title="Esxi的直接連結">​</a></h5>
-<p>因為一些問題(對啦就是那個一周停兩次電)我有一台ESXi Server就掛掉了...</p>
-<p>但是也因為那台是把Esxi裝在USB內的所以很快地就可以重裝拿回去跑起來</p>
-<p>這次我選擇的是把Esxi5.1 改成Esxi 6.5U2 for HPE的custom ISO(因為我的Gen8只能用到6.5 pre-Gen9的ISO)</p>
-<p>換完的感覺是終於不需要另外安裝client了,畢竟原來用的vsphere client也只支援到6.0 我就沒有找到安裝檔了所以我就都改用html5的web client,用起來還是挺好用的</p>
-<p>不過,passthrough要是一次沒設定好就會有問題...得重裝(因為我沒有client可以修改)</p>
-<p>花了我一個早上....</p>
-<h5 class="anchor anchorWithStickyNavbar_LWe7" id="pchome-24-h-d">PCHome 24 <del>H</del> D<a href="https://kiwi0093.github.io/Public-Wiki/2021/05/misc+talk#pchome-24-h-d" class="hash-link" aria-label="pchome-24-h-d的直接連結" title="pchome-24-h-d的直接連結">​</a></h5>
-<p>過程中發現我自己的NAS有顆HDD掛了,在以前這只是掏出信用卡刷四顆HDD等他到就可以解決事情</p>
-<p>無奈這次遇到了十年難得一遇的PCHome 24D事件,變成等待HDD成了最辛苦最耗時的作業(雖然我最後都改到Momo上買....)</p>
-<p>現況無趣的報導就到此為止</p>]]></content:encoded>
-            <category>Life</category>
-            <category>Old-Blog</category>
-        </item>
-        <item>
-            <title><![CDATA[Fyde OS ＆....]]></title>
-            <link>https://kiwi0093.github.io/Public-Wiki/2020/12/fyde+os</link>
-            <guid>https://kiwi0093.github.io/Public-Wiki/2020/12/fyde+os</guid>
-            <pubDate>Fri, 18 Dec 2020 00:00:00 GMT</pubDate>
-            <description><![CDATA[追加測試的ChromeOS]]></description>
-            <content:encoded><![CDATA[<blockquote>
-<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
-</blockquote>
-<p>上次的Bliss OS以及Phoenix OS甚至原始的Android X86都有不能直接安裝apk的問題(主要是沒有Google簽章導致無法安裝)雖然看了不少利用<code>adb</code>安裝apk的方法之類的說明,不過實測上來看Bliss OS在Surface Pro4很常會出現Touch panel失效等問題..所以就只能另謀出路...</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="fyde-os">Fyde OS<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/fyde+os#fyde-os" class="hash-link" aria-label="Fyde OS的直接連結" title="Fyde OS的直接連結">​</a></h2>
-<p>基本上這個不是android,是個中國廠商二次創作的<em>ChromeOS</em>不過因為ChromeOS也可以安裝APK跑Android程式的特點,加上安裝起來比安裝ChromeOS簡單又有號稱針對Surface Pro4特化的Image,所以我就下載來試試了</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="官方訊息">官方訊息<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/fyde+os#%E5%AE%98%E6%96%B9%E8%A8%8A%E6%81%AF" class="hash-link" aria-label="官方訊息的直接連結" title="官方訊息的直接連結">​</a></h3>
-<p><a href="https://fydeos.com/" target="_blank" rel="noopener noreferrer">官方網頁</a></p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="安裝方式">安裝方式<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/fyde+os#%E5%AE%89%E8%A3%9D%E6%96%B9%E5%BC%8F" class="hash-link" aria-label="安裝方式的直接連結" title="安裝方式的直接連結">​</a></h3>
-<p>只要在<a href="https://fydeos.com/download" target="_blank" rel="noopener noreferrer">下載頁面</a>下載對應機種的Image檔,然後用<a href="https://www.balena.io/etcher/" target="_blank" rel="noopener noreferrer">Etcher</a>刷進USB裡用USB開機跑完安裝程式就算裝完了..</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="使用心得">使用心得<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/fyde+os#%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97" class="hash-link" aria-label="使用心得的直接連結" title="使用心得的直接連結">​</a></h3>
-<p>目前確認過可以安裝ChromeOS的程式,可以安裝Google play, 可以透過Google Play/豌豆莢/單獨的APK進行Android程式安裝,基本驅動也是ok的,正由機器的主人在做更進一步的使用體驗（看看容不容易掛掉或是什麼亂七八糟的問題...)目前已知若是很激烈的使用Touch Panel的話會導致Touch panel的驅動崩潰而無法使用Touch panel....所以要用這個玩Android遊戲的朋友還是去弄個藍芽把手吧...</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="不負責推論">不負責推論<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/fyde+os#%E4%B8%8D%E8%B2%A0%E8%B2%AC%E6%8E%A8%E8%AB%96" class="hash-link" aria-label="不負責推論的直接連結" title="不負責推論的直接連結">​</a></h2>
-<p>因為我在fydeos的Github專案上看到anbox_fyde,所以我推測這個FydeOS應該是用anbox來跑他所謂的android子系統,若是這樣過一段時間我也會找台VM在上面弄個Manjaro+anbox來試試看是不是Linux+anbox的效果都這麼好...</p>
-<p>若是這樣可能Ubuntu touch+anbox會是個好選擇！？</p>]]></content:encoded>
-            <category>Android</category>
-            <category>Chromebook</category>
-            <category>Old-Blog</category>
-        </item>
-        <item>
-            <title><![CDATA[Bliss OS]]></title>
-            <link>https://kiwi0093.github.io/Public-Wiki/2020/12/bliss+os</link>
-            <guid>https://kiwi0093.github.io/Public-Wiki/2020/12/bliss+os</guid>
-            <pubDate>Wed, 16 Dec 2020 00:00:00 GMT</pubDate>
-            <description><![CDATA[另一款中國產android x86]]></description>
-            <content:encoded><![CDATA[<blockquote>
-<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
-</blockquote>
-<p>最近不知道怎麼了,又迷上了在PC上安裝Android的風潮...</p>
-<p>繼Phoenix OS後又找了一個可以說更符合我的期望的Android X86 - Bliss OS</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="bliss-os"><a href="https://blissos.org/" target="_blank" rel="noopener noreferrer">Bliss OS</a><a href="https://kiwi0093.github.io/Public-Wiki/2020/12/bliss+os#bliss-os" class="hash-link" aria-label="bliss-os的直接連結" title="bliss-os的直接連結">​</a></h2>
-<p>這是一個Open source版的android x86,比起天朝公司的Phoenix OS可以說先天上就比較合我的胃口(好啦,我知道是我對於天朝製品有偏見...)</p>
-<p>更棒的是,這個團隊是用Surface作為開發機,所以對於Surface的相容性可以說是很好的</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="基本系統">基本系統<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/bliss+os#%E5%9F%BA%E6%9C%AC%E7%B3%BB%E7%B5%B1" class="hash-link" aria-label="基本系統的直接連結" title="基本系統的直接連結">​</a></h4>
-<p>這個一樣有分X86/X64兩種,基本上都是X86的版本都是比較舊的Android版本,不過這個系統貼心的點在於下載的時候會問你準備安裝的機器條件替你選擇該下載哪一個版本的ISO來安裝,很大程度可以迴避上次在Phoenix OS上遇到的悲劇....(不過這樣講不太公平,因為裝Phoenix OS之前我也不知道T100限制那麼多...)</p>
-<p>現在的stable版本是基於Android 9開發的版本</p>
-<p>裝起來很陽春,很乾淨,很大程度的很討我的歡心..(yes！我就是有這種怪癖)</p>
-<p>不過這一點在天朝似乎就不一定是好事..因為畢竟有GFW擋在那裡....</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="linux-driver-for-surface">Linux driver for Surface<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/bliss+os#linux-driver-for-surface" class="hash-link" aria-label="Linux driver for Surface的直接連結" title="Linux driver for Surface的直接連結">​</a></h4>
-<p>基本上是直接套用<a href="https://github.com/jakeday/linux-surface/tree/master/firmware" target="_blank" rel="noopener noreferrer">jakeday的linux-surface github project</a>開發的Linux版Surface Driver,不過痛苦的是不能直接把這些firmware塞進iso裡面直接裝了就好了</p>
-<p>而是需要先在觸控螢幕無法做動的環境下把東西塞進去然後重開(講到這裡就得感謝昨天實裝的surface pro4有著完整的配套docking/keyboard等東西...)</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="測試結果">測試結果<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/bliss+os#%E6%B8%AC%E8%A9%A6%E7%B5%90%E6%9E%9C" class="hash-link" aria-label="測試結果的直接連結" title="測試結果的直接連結">​</a></h2>
-<p>首先,不愧是Surface Pro4, i5的CPU+8G的RAM跑起來很順暢, 安裝過程也依照官方網頁的教學很順利(好啦,我現在對於這種只有UEFI開機的機器都覺得該敬遠...)</p>
-<p>雖然開機畫面蠻醜的,最好可以自己再改一下...</p>
-<p>不過可能最佳化還是沒弄好,昨天發現若是連著docking開機那wifi就不會動...</p>
-<p>後面的小問題還是有待實機的主人後面邊玩邊看吧....</p>]]></content:encoded>
-            <category>Android</category>
-            <category>Old-Blog</category>
-        </item>
-        <item>
-            <title><![CDATA[Phoenix OS]]></title>
-            <link>https://kiwi0093.github.io/Public-Wiki/2020/12/phoenix+os</link>
-            <guid>https://kiwi0093.github.io/Public-Wiki/2020/12/phoenix+os</guid>
-            <pubDate>Mon, 14 Dec 2020 00:00:00 GMT</pubDate>
-            <description><![CDATA[一款中國國產的android x86]]></description>
-            <content:encoded><![CDATA[<blockquote>
-<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
-</blockquote>
-<p>同是有台ASUS T100想改裝成Android給小朋友玩..</p>
-<p>看了看可能還是中國國產的Phoenix OS(其實就是客製的Android X86)比較適合他的需求...</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="asus-t100">ASUS T100<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/phoenix+os#asus-t100" class="hash-link" aria-label="ASUS T100的直接連結" title="ASUS T100的直接連結">​</a></h2>
-<p>這是一台ASUS早期的二合一小筆電,規格非常的陽春,算是Windows7轉Windows8.1各家廠商都把CPU &amp; RAM下降規格降價的時期產品</p>
-<p><a href="https://www.asus.com/us/2-in-1-PCs/ASUS_Transformer_Book_T100_Chi/specifications/" target="_blank" rel="noopener noreferrer">詳細Spec</a></p>
-<ul>
-<li>
-<p>Intel® Bay Trail-T Quad Core Z3775 1.46 GHz ~ 2.39 GHz Processor</p>
-</li>
-<li>
-<p>Memory</p>
-<p>OnBoard Memory 2 GB</p>
-</li>
-<li>
-<p>Display</p>
-<p>10.1" 16:10 Full HD (1920x1200) LED Backlight Touchscreen LCD Panel</p>
-</li>
-<li>
-<p>Graphic</p>
-<p>Integrated Intel® HD Graphics</p>
-</li>
-<li>
-<p>Storage</p>
-<p>32GB eMMC
-64GB eMMC</p>
-</li>
-<li>
-<p>Card Reader</p>
-<p>card reader (Micro SD )</p>
-</li>
-<li>
-<p>Camera</p>
-<p>Front 2 MP and Rear 5 MP</p>
-</li>
-<li>
-<p>Networking</p>
-<p>Dual-band 802.11 a/b/g/n
-Built-in Bluetooth™ V4.0+HS</p>
-</li>
-<li>
-<p>Interface</p>
-<p>1 x COMBO audio jack
-1 x Micro USB
-1 x micro HDMI
-1 x micro SDXC card reader
-1 x Volume up/down</p>
-</li>
-<li>
-<p>Audio</p>
-<p>Built-in Speakers And Array Microphone</p>
-</li>
-<li>
-<p>Battery</p>
-<p>31 Whrs</p>
-</li>
-<li>
-<p>Dimensions</p>
-<p>Tablet:
-10.1 x 6.9 x 0.3 inch (WxDxH)</p>
-</li>
-<li>
-<p>Weight</p>
-<p>Tablet:
-1.3 lbs (with Polymer Battery)</p>
-</li>
-</ul>
-<hr>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="phoenix-os"><a href="http://www.phoenixos.com/" target="_blank" rel="noopener noreferrer">Phoenix OS</a><a href="https://kiwi0093.github.io/Public-Wiki/2020/12/phoenix+os#phoenix-os" class="hash-link" aria-label="phoenix-os的直接連結" title="phoenix-os的直接連結">​</a></h2>
-<p>這是一個基於<a href="https://www.android-x86.org/" target="_blank" rel="noopener noreferrer">Android X86</a>中國客製化的Android系統</p>
-<p>特點是針對PC環境做了UI調整,加上有線網路連線的功能,並且預設的安裝方式中就有用exe檔直接裝在Windows下做成雙系統開機</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="結論">結論<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/phoenix+os#%E7%B5%90%E8%AB%96" class="hash-link" aria-label="結論的直接連結" title="結論的直接連結">​</a></h2>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="day-1">Day 1<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/phoenix+os#day-1" class="hash-link" aria-label="Day 1的直接連結" title="Day 1的直接連結">​</a></h4>
-<ul>
-<li>
-<p>在ASUS T100上就算讓他強制USB開機,也只會停在</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">grub&gt;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<p>這時候需要手動keyin才能boot</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">configfile /efi/boot/grub.cfg</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-</li>
-<li>
-<p>若選擇安裝,進入HDD選擇畫面鍵盤就失效了..所以無法下一步</p>
-</li>
-<li>
-<p>若改採用exe在WIndows界面下安裝,不管怎麼裝都會出現安裝失敗...</p>
-</li>
-</ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="day2">Day2<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/phoenix+os#day2" class="hash-link" aria-label="Day2的直接連結" title="Day2的直接連結">​</a></h4>
-<p>搞了一天才發現,其實是T100非常神奇的是32bit UFEI開機的奇妙舊時代產物...</p>
-<p>為了這個,我只好重新去download並做了一個Windows 10 32bit版的安裝USB來重裝那個被我搞壞掉的系統</p>
-<p>然後去下載32bit的PhoeinxOS(基於Android5的版本)</p>
-<p>重新安裝好Windows 10然後跑exe安裝,接著在開機的時候按<code>esc</code>進入選單選Phoenix OS就可以開機進入新裝好的Phoenix OS了</p>
-<p>什麼？你說可不可以用x86版的Iso整個裝Phoenix OS就好？</p>
-<p>我也想,但是該死的鍵盤還是不會動呀～～～～</p>]]></content:encoded>
-            <category>Android</category>
-            <category>Old-Blog</category>
-        </item>
-        <item>
-            <title><![CDATA[ベルウィックサーガ 再び]]></title>
-            <link>https://kiwi0093.github.io/Public-Wiki/2020/12/berwicksaga</link>
-            <guid>https://kiwi0093.github.io/Public-Wiki/2020/12/berwicksaga</guid>
-            <pubDate>Mon, 07 Dec 2020 00:00:00 GMT</pubDate>
-            <description><![CDATA[貝維克戰記,一款深得我心的類聖火降魔錄遊戲,目前我還沒玩到更對我胃口的]]></description>
-            <content:encoded><![CDATA[<blockquote>
-<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
-</blockquote>
-<p><img decoding="async" loading="lazy" src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/Berwick_Saga_boxart.png" alt="ベルウィックサーガ" class="img_ev3q"></p>
-<p>2005年的PS2遊戲 - ベルウィックサーガ,最近又翻出來用模擬器重玩一次</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="ベルウィックサーガ">ベルウィックサーガ<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/berwicksaga#%E3%83%99%E3%83%AB%E3%82%A6%E3%82%A3%E3%83%83%E3%82%AF%E3%82%B5%E3%83%BC%E3%82%AC" class="hash-link" aria-label="ベルウィックサーガ的直接連結" title="ベルウィックサーガ的直接連結">​</a></h2>
-<p>這是一個類似聖火降魔錄aka.火焰的紋章的回合制戰略遊戲(因為製作人之前就是做FE的後來跑出來做這個系列然後就跟任天堂有著一堆糾葛不多講)</p>
-<p><a href="https://ja.wikipedia.org/wiki/%E3%83%86%E3%82%A3%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0%E3%82%B5%E3%83%BC%E3%82%AC%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA_%E3%83%99%E3%83%AB%E3%82%A6%E3%82%A3%E3%83%83%E3%82%AF%E3%82%B5%E3%83%BC%E3%82%AC" target="_blank" rel="noopener noreferrer">日文的wiki在這裡</a></p>
-<p>對我來講有好玩的不只是<strong><em>馬是消耗品</em></strong>的騎兵系統,更加上這是一個<strong><em>主角也會騎馬</em></strong>全員一起<del>高速移動</del>當騎兵的遊戲(好啦就是這種莫名其妙的點點中我),加上是PS2時代的遊戲畫面(雖然現在玩起來也是很陽春啦～～)</p>
-<p>打算這輪過完後回去重玩PS版的前作 - <strong>ティアリングサーガ ユトナ英雄戦記</strong>好了,這個據說是雙主角的系統</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="pcx2">PCX2<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/berwicksaga#pcx2" class="hash-link" aria-label="PCX2的直接連結" title="PCX2的直接連結">​</a></h2>
-<p><a href="https://pcsx2.net/" target="_blank" rel="noopener noreferrer">Official Link在這裡</a></p>
-<p>老實說這是一個很強大的模擬器...用起來很直覺也很順手,而且還內建金手指作弊系統,真的很適合我這種休閒玩家拿來重溫PS2的遊戲用的</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="結論">結論<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/berwicksaga#%E7%B5%90%E8%AB%96" class="hash-link" aria-label="結論的直接連結" title="結論的直接連結">​</a></h2>
-<p>大概這段時間回到房間我就會黏在電腦前面玩這個...看看過一段時間又有什麼遊戲吸引了我的目光....</p>]]></content:encoded>
-            <category>Life</category>
-            <category>Game</category>
-            <category>Old-Blog</category>
-        </item>
-        <item>
-            <title><![CDATA[重整Wiki資料]]></title>
-            <link>https://kiwi0093.github.io/Public-Wiki/2020/12/re-sort-wiki</link>
-            <guid>https://kiwi0093.github.io/Public-Wiki/2020/12/re-sort-wiki</guid>
-            <pubDate>Fri, 04 Dec 2020 00:00:00 GMT</pubDate>
-            <description><![CDATA[針對Wiki內的Archlinux部份進行大手術]]></description>
-            <content:encoded><![CDATA[<blockquote>
-<p>: ::info
-本文轉載自舊站存檔。
-:::</p>
-</blockquote>
-<p>今天繼續沉迷在Arch Linux的安裝script裡,弄著弄著,就把Wiki裡面的內容幾乎全改了....</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="故事大綱">故事大綱<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/re-sort-wiki#%E6%95%85%E4%BA%8B%E5%A4%A7%E7%B6%B1" class="hash-link" aria-label="故事大綱的直接連結" title="故事大綱的直接連結">​</a></h3>
-<p>為了讓那個很私人使用的script變得稍微通用一點點,今天把那整個部份幾乎重寫了..</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="除去幹話的重點">除去幹話的重點<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/re-sort-wiki#%E9%99%A4%E5%8E%BB%E5%B9%B9%E8%A9%B1%E7%9A%84%E9%87%8D%E9%BB%9E" class="hash-link" aria-label="除去幹�話的重點的直接連結" title="除去幹話的重點的直接連結">​</a></h3>
-<p>簡單的說就是我把昨天學會的case loop應用上去了,並且將原來看起來支離破碎的多個安裝script整合成使用者只要key一次就可以用選的一路裝完我預設好的幾種安裝結果</p>
-<ul>
-<li>單純的Arch Linux - 老實說這個安裝結果有可能未來是我實驗東西最常用的script..因為什麼都沒裝,就是個可以開機有網路用而的東西</li>
-<li>Nextcloud預裝好的Arch Linux - 這個應該是使用幅度最低,然後內容跟其他的script最不一樣...(也應該是我最後才可能完成的script<del>若是我沒有嫌麻煩最後把這個選項砍掉的話</del>)</li>
-<li>V2ray Server - 這個基本上就是用來跑在台灣家裡的Arch Linux base的V2ray server專用,因為根本沒看到哪個VPS可以用Arch的<del>就算有我也不會為了arch去租用比較貴的..</del></li>
-<li>V2ray Gateway - 這個是等於我現在在蘇州房間裡面Gateway的雛型,基本框架都弄好了就差V2ray跟iptable的設定就一模一樣</li>
-<li>V2ray Gateway ver.K - 這個就是最矛盾的啦,這個選項就是完全重現我現在正在服役的Arch Linux Gateway with V2ray/Iptable設定的東西,可以說寫這種自動安裝script的核心就是為了他..但是.....因為現在的wiki跟script的放法基本上就是脫光光給人看,再怎麼說也不可能會把現在正在用的設定全部公開給人抄...所以這個會比較彆扭..要用上加密/解密的方式來復原設定檔</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="感想">感想<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/re-sort-wiki#%E6%84%9F%E6%83%B3" class="hash-link" aria-label="感想的直接連結" title="感想的直接連結">​</a></h3>
-<p>我想就一句話</p>
-<blockquote>
-<p>我還真的是閒的蛋疼,祕密的script不弄搞成公開形式的複雜版...</p>
-<p>加上寫著寫著覺得每一篇都落落長乾脆都支解弄成很多小檔案...</p>
-</blockquote>
-<p>我真的給人感覺過太爽也說不定....</p>
-<p>好了,六點到了,也該是薪水小偷下班的時間了~~各位啾掰～～</p>]]></content:encoded>
-            <category>Life</category>
-            <category>Linux</category>
-            <category>Old-Blog</category>
-        </item>
-        <item>
-            <title><![CDATA[整理Arch linux自動安裝的囉唆抱怨]]></title>
-            <link>https://kiwi0093.github.io/Public-Wiki/2020/12/archlinux+auto+install</link>
-            <guid>https://kiwi0093.github.io/Public-Wiki/2020/12/archlinux+auto+install</guid>
-            <pubDate>Thu, 03 Dec 2020 00:00:00 GMT</pubDate>
-            <description><![CDATA[在還沒有archinstall前的個人掙扎與碎碎念]]></description>
-            <content:encoded><![CDATA[<blockquote>
-<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
-</blockquote>
-<p>雖然Wiki裡面寫了一堆Archlinux自動安裝用的script,不過昨天才開始<em>本格的</em>進行驗證跟補充,然後就很想把自己打死...</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="前言">前言<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/archlinux+auto+install#%E5%89%8D%E8%A8%80" class="hash-link" aria-label="前言的直接連結" title="前言的直接連結">​</a></h2>
-<p>首先這一篇不是什麼技術補充的Blog,而是一篇純粹抱怨的<strong><em>深宮怨婦文章</em></strong>, 若是希望在這裡尋得什麼有價值的資料的捧油麻煩左轉去<a href="https://kiwi0093.github.io/Wiki-site/wiki/Linux/Arch%20Linux%20&amp;%20Manjaro/Archlinux%20Gateway%E8%87%AA%E5%8B%95%E5%AE%89%E8%A3%9D/1-Arch_linux_Gateway_installation/" target="_blank" rel="noopener noreferrer">Wiki</a>可能對你才有幫助</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="以下全是抱怨">以下全是抱怨<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/archlinux+auto+install#%E4%BB%A5%E4%B8%8B%E5%85%A8%E6%98%AF%E6%8A%B1%E6%80%A8" class="hash-link" aria-label="以下全是抱怨的直接連結" title="以下全是抱怨的直接連結">​</a></h2>
-<ul>
-<li>
-<p><a href="https://raw.githubusercontent.xn--com-1d9go96g/" target="_blank" rel="noopener noreferrer">https://raw.githubusercontent.com被牆</a></p>
-<p>真的很想罵人...把東西放在Gitub上就是想說<del>牆國</del>天朝不會對github下手,所以東西放在上面使用很方便,結果...天朝還是來了一記DNS污染..真的很OOXX</p>
-</li>
-<li>
-<p>pacstrap /mnt base沒有安裝kernel</p>
-<p>看著新的<a href="https://wiki.archlinux.org/index.php/installation_guide" target="_blank" rel="noopener noreferrer">Archlinux installation Guide</a>裡面說不需要跑mkinitpico這是實話,~~但是沒說跑pacstrap的時候不會順手裝上kernel package,所以當然不會跑mkinitpico,然後grub-mkconfig當然也就不會建立選單...~~然後開機就變成一個悲劇....</p>
-<p>更正:好吧是我自己白目,最新版的Installation Guide裡面是要求</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">pacstrap /mnt base linux linux-firmware</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<p>這個算是自己白目..但是還是罵一下...</p>
-</li>
-<li>
-<p>netctl變成另外裝的</p>
-<p>其實我也忘記之前是不是另外裝,原來預設的網路界面設定說明是用netctl的,現在變成用ip指令,不過還是可以以package安裝後拿來使用</p>
-</li>
-<li>
-<p>pacman-mirrors居然不是arch linux的package</p>
-<p>因為我Linux Desktop喜歡用Manjaro,而Manjaro幾乎跟archlinux一模一樣(好啦其實除了Logo還是有些差別啦),不過沒想到繼yay之後還有package是archlinux裡面沒有的...這樣在安裝的時候就只能用sed指令去篩選出mirrorlist裡面想要的location..後面研究一下AUR可不可以安裝好了...</p>
-<p>追申:查過Arch的AUR,裡面沒有pacman-mirrors...（哭哭）</p>
-</li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="抱怨之後">抱怨之後<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/archlinux+auto+install#%E6%8A%B1%E6%80%A8%E4%B9%8B%E5%BE%8C" class="hash-link" aria-label="抱怨之後的直接連結" title="抱怨之後的直接連結">​</a></h2>
-<p>雖說我喜歡Arch,但是仔細想想,其實我喜歡的是Manjaro....</p>
-<p>Arch linux大概只有在Server端或是Gateway上我才會使用...不過似乎也可以使用Manjaro直接裝沒有GUI的版本來使用...</p>
-<p>不過我個人比較龜毛,對於Server跟Desktop的要求不太一樣,Server還是盡量簡潔乾淨最好,而Desktop還是方便為主只要還是在Arch系內就好...</p>]]></content:encoded>
-            <category>Linux</category>
-            <category>Life</category>
-            <category>Old-Blog</category>
-        </item>
-        <item>
-            <title><![CDATA[間歇性斷食]]></title>
-            <link>https://kiwi0093.github.io/Public-Wiki/2020/12/intermittent+fasting</link>
-            <guid>https://kiwi0093.github.io/Public-Wiki/2020/12/intermittent+fasting</guid>
-            <pubDate>Thu, 03 Dec 2020 00:00:00 GMT</pubDate>
-            <description><![CDATA[在極度需要減重的時期,從網路上導入的方法,真實有效但是容易破功]]></description>
-            <content:encoded><![CDATA[<blockquote>
-<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
-</blockquote>
-<p><a href="https://www.youtube.com/watch?v=SlzBMJvtGHo" target="_blank" rel="noopener noreferrer" title="斷食體內變化"><img decoding="async" loading="lazy" src="http://img.youtube.com/vi/SlzBMJvtGHo/0.jpg" alt="Dr.Berg的斷食說明" class="img_ev3q"></a></p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="前言">前言<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/intermittent+fasting#%E5%89%8D%E8%A8%80" class="hash-link" aria-label="前言的直接連結" title="前言的直接連結">​</a></h2>
-<p>身為一個母胎肥仔,自今年年初因為高血壓住院後,考慮到還有老婆小孩,還是該認真減重來延長自己的壽命,上網查詢了減重相關的東西後發現了似乎從這一兩年開始,一堆人開始鼓吹利用間<strong><em>間歇性斷食</em></strong>來進行減重</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="階段性斷食">階段性斷食<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/intermittent+fasting#%E9%9A%8E%E6%AE%B5%E6%80%A7%E6%96%B7%E9%A3%9F" class="hash-link" aria-label="階段性斷食的直接連結" title="階段性斷食的直接連結">​</a></h2>
-<blockquote>
-<p><strong><em>*間歇性斷食法（intermittent fasting）*</em>，作法是有策略的在*<em>進食*</em>期間正確飲食，在*<em>禁食*</em>期間則是不能吃下任何有熱量的東西，讓胰島素休息，升糖素起來作用分解脂肪。</strong></p>
-</blockquote>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="親身體驗">親身體驗<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/intermittent+fasting#%E8%A6%AA%E8%BA%AB%E9%AB%94%E9%A9%97" class="hash-link" aria-label="親身體驗的直接連結" title="親身體驗的直接連結">​</a></h2>
-<p>就我個人來說,在出院後實行過超低熱量飲食,低碳飲食,16/8間歇性斷食法,曾將體重從112.7KG降低到98Kg並且當時看起來還會有持續下降的趨勢..</p>
-<p>不過來了趟返台休假,在飯店隔離/food panda/以及那個花了快三十年把我養成這種體型的媽,不是很拼命的effort下,我的體重開始快速回升,然後..我又一次的因為女兒出生再次返台,體重就回到了109KG並且頑固的死不降低</p>
-<p>基本上都是穩定在執行16/8間歇性斷食,但是可能我的身體狀況真的不好,以及進食的時候吃的太多,所以很難看出持續有效的脂肪消耗,所以最近開始採用更加激進的23/1間歇性斷食,第一天實施就開始降從109.6Kg--&gt;107.8Kg,不過第一天是不凖的預計要觀察至少一週後看看效果如何</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="結論">結論<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/intermittent+fasting#%E7%B5%90%E8%AB%96" class="hash-link" aria-label="結論的直接連結" title="結論的直接連結">​</a></h2>
-<p>目前看起來間歇性斷食是我試過最有效果的方式,後面的主要課題應該是看如何可以完整的併入生活中,畢竟上次的破功是來自於生活模式的劇烈改變(隔離是變胖的主因？？還是隔離就開始卯起來吃是主因？？)</p>]]></content:encoded>
-            <category>Life</category>
-            <category>Old-Blog</category>
-        </item>
-        <item>
-            <title><![CDATA[梯子,後篇...]]></title>
-            <link>https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2</link>
-            <guid>https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2</guid>
-            <pubDate>Tue, 01 Dec 2020 00:00:00 GMT</pubDate>
-            <description><![CDATA[V2Ray改Vless及其擴充]]></description>
-            <content:encoded><![CDATA[<blockquote>
-<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
-</blockquote>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="現況說明">現況說明<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E7%8F%BE%E6%B3%81%E8%AA%AA%E6%98%8E" class="hash-link" aria-label="現況說明的直接連結" title="現��況說明的直接連結">​</a></h2>
-<p>這幾天勸敗了幾台新的RackNerd的VPS後,著實的好好練習了V2ray 4.33的安裝..(截至今天一共弄了四台新的加兩台update),但是除了名下的機器外,看著我的CF裡的DNS列表...還是有在我的DN下的別人家的機器,其實是該幫人家升級的...</p>
-<p>因為討人厭的是</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="不是每個43x的client都跟42x的server相容"><em>不是每個4.3x的Client都跟4.2x的Server相容</em><a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E4%B8%8D%E6%98%AF%E6%AF%8F%E5%80%8B43x%E7%9A%84client%E9%83%BD%E8%B7%9F42x%E7%9A%84server%E7%9B%B8%E5%AE%B9" class="hash-link" aria-label="不是每個43x的client都跟42x的server相容的直接連結" title="不是每個43x的client都跟42x的server相容的直接連結">​</a></h2>
-<p>所以要就得一口氣連同Client一起升一下不然很容易出悲劇...</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="升級">升級<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E5%8D%87%E7%B4%9A" class="hash-link" aria-label="升級的直接連結" title="升級的直接連結">​</a></h2>
-<p>其實依照我的尿性,不過就是VPS,上面也沒什麼重要的東西..保留一下<strong>V2Ray</strong>的<strong>config.json</strong>裡的內容,然後直接選<strong>reinstall</strong>一切重來可能還比較省事...不過既然有不是我可以隨便<strong>reinstall</strong>的VPS那還是來弄個複雜版的升級好了....</p>
-<p>你說為什麼技術性的東西不抄來放在Wiki裡?這種一次性的東西做完就可以忘記的東西為什麼要放在Wiki裡面??</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="升級細節">升級細節<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E5%8D%87%E7%B4%9A%E7%B4%B0%E7%AF%80" class="hash-link" aria-label="升級細節的直接連結" title="升級細節的直接連結">​</a></h3>
-<p>簡單的說他的流程就是</p>
-<ul>
-<li>把systemd裡面的service停掉並且disable</li>
-<li>用rm把之前裝的Bin等東西都砍掉</li>
-<li>用mv把設定檔從原來預設的*/etc/v2ray/<em>挪到</em>/usr/local/etc/v2ray/*至於為什麼要換位置?我猜可能是<del>中了FreeBSD的魅惑</del>想把v2ray的設定跟系統的主設定位置分開</li>
-<li>用新的script安裝(若是不想變更預設位置就要手工修改script,但是這樣要放進crontab裡面就麻煩了耶~~)</li>
-<li>enable v2ray.service</li>
-<li>V2ray.service跑起來就可以收工了</li>
-</ul>
-<p>若是要改用<strong>VLESS</strong>的話就再加上增加v2ray帳號,處理certbot的key(或是用其他方式弄Key也可以只不過我還不會)最後再改一下config.json的內容就可以了</p>
-<p>詳細的作法,算是<a href="https://github.com/v2fly/fhs-install-v2ray/wiki/Migrate-from-the-old-script-to-this" target="_blank" rel="noopener noreferrer">官方文件</a>裡面寫得很清楚</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="若是你的server使用的是archlinux">若是你的Server使用的是Archlinux....<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E8%8B%A5%E6%98%AF%E4%BD%A0%E7%9A%84server%E4%BD%BF%E7%94%A8%E7%9A%84%E6%98%AFarchlinux" class="hash-link" aria-label="若是你的Server使用的是Archlinux....的直接連結" title="若是你的Server使用的是Archlinux....的直接連結">​</a></h4>
-<p>那就只要來一行</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">pacman -Syu</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="複製代碼至剪貼簿" title="複製" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<p>你的V2ray就會升級到最新....什麼屁事沒有..超輕鬆的....</p>
-<p>真的很討厭為什麼VPS的OS預設都沒有arch可以選...煩死了</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="client-選用">Client 選用<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#client-%E9%81%B8%E7%94%A8" class="hash-link" aria-label="Client 選用的直接連結" title="Client 選用的直接連結">​</a></h2>
-<p>Client的部分,老實說我用得最兇的是Archlinux下的V2ray,相容性最好(因為跟Server是一模一樣的程式),穩定性也高,不過就如同之前講過,還是會考慮一下其他的client</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="android">Android<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#android" class="hash-link" aria-label="Android的直接連結" title="Android的直接連結">​</a></h4>
-<p>最近真的是迷上了<strong>V2RayNG</strong>不過這個也是我目前遇到4.33的core連不上4.23的Server的唯一一個Client....最新改版之前的那一版(1.33)與現在最新改過的對於VLESS的支援性以及速度上真的有差,可能未來會變成Server的 V2Ray-Core升級了這個就得馬上跟著升級才會順.....(我希望不會是這樣...)</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="windows">Windows<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#windows" class="hash-link" aria-label="Windows的直接連結" title="Windows的直接連結">​</a></h4>
-<p>因為Linux Desktop下我都是用QV2Ray+V2Ray-Core所以用起來很順暢,沒什麼問題,不過Windows下就<del>得換一下了</del>一樣用QV2ray就好了...(這玩意是跨平台的..WIndows/Linux/MacOS都通吃)</p>
-<p>下載位置<a href="https://github.com/Qv2ray/Qv2ray/releases" target="_blank" rel="noopener noreferrer">QV2Ray</a>,搭配服用的<a href="https://github.com/v2fly/v2ray-core/releases" target="_blank" rel="noopener noreferrer">V2Ray-Core</a></p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="ios">iOS<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#ios" class="hash-link" aria-label="iOS的直接連結" title="iOS的直接連結">​</a></h4>
-<p>中國區的捧油,請去找有沒有善心人士的美區帳號用一下就好了....</p>]]></content:encoded>
-            <category>V2ray</category>
-            <category>VPN</category>
             <category>Old-Blog</category>
         </item>
     </channel>
