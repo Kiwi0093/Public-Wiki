@@ -1,5 +1,6 @@
 /**
- * 🛠️ Kiwi Wiki 旗艦整合版 - 2026 最終對齊修正
+ * 🛠️ Kiwi Wiki 最終校正版
+ * 解決年份圓圈消失、圓心對齊偏移、以及 Tags 文章卡片化
  */
 
 :root {
@@ -9,54 +10,43 @@
 }
 
 /* ============================================================
-   SECTION 1: Archive 歸檔頁面 (NexT 時間軸精準對齊)
+   SECTION 1: Archive 歸檔頁面 (圓心絕對對齊方案)
    ============================================================ */
-.archive-page-main {
-  display: flex !important;
-  justify-content: center !important;
-  padding: 2rem 0;
-}
-
-.archive-page-wrapper {
-  width: 100%;
-  max-width: 800px;
-  padding: 0 20px;
-}
-
 .archive-timeline {
   position: relative;
-  margin-left: 30px; 
-  padding-left: 40px;
-  border-left: 2px solid rgba(255, 255, 255, 0.1);
+  margin-left: 50px; /* 整體向右移，給圓圈預留空間 */
+  padding-left: 0;
+  border-left: 2px solid rgba(255, 255, 255, 0.1); /* 這是你的基準垂直線 */
   min-height: 400px;
 }
 
 .archive-year-title {
   position: relative;
-  /* 關鍵位移：往左拉回並覆蓋基準線 */
-  margin: 60px 0 30px -73px !important; 
-  padding-left: 35px;
-  background: var(--ifm-background-color); 
-  display: inline-block;
-  font-size: 2rem;
+  margin: 60px 0 30px 0 !important;
+  padding-left: 40px; /* 文字離線條的距離 */
+  background: transparent;
+  display: block;
+  font-size: 2.2rem;
   font-weight: 800;
   color: var(--kiwi-primary);
-  z-index: 5;
 }
 
-/* 年份空心大圓圈 */
+/* 年份空心大圓圈 - 修正：強制顯示並物理對齊 */
 .archive-year-title::before {
   content: "";
   position: absolute;
-  left: 0px; 
+  /* 關鍵：left 為 0 代表在父層容器的最左邊，也就是那條 2px 線的位置 */
+  left: -1px; 
   top: 50%;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-  background: var(--ifm-background-color);
+  /* 絕對對齊：向左推回自身半徑，向上推回自身半徑 */
+  transform: translate(-50%, -50%); 
+  width: 22px;
+  height: 22px;
+  background: #1b1b1d; /* 遮住後面的線條 */
   border: 4px solid var(--kiwi-primary);
   border-radius: 50%;
   z-index: 10;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 增加層次感 */
 }
 
 .archive-list {
@@ -67,174 +57,102 @@
 
 .archive-item {
   position: relative;
-  padding: 1.2rem 0;
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+  margin-left: 0;
+  padding: 1.2rem 0 1.2rem 40px; /* 同樣離線條 40px */
 }
 
-/* 文章實心小圓點：精準壓線 */
+/* 文章實心小圓點 */
 .archive-item::before {
   content: "";
   position: absolute;
-  left: -46px; 
-  top: 22px;
+  left: -1px;
+  top: 50%;
+  transform: translate(-50%, -50%);
   width: 10px;
   height: 10px;
   background: #666;
   border-radius: 50%;
-  border: 2px solid var(--ifm-background-color);
-  z-index: 1;
+  border: 2px solid #1b1b1d;
+  z-index: 5;
+  transition: all 0.2s;
 }
 
 .archive-item:hover::before {
   background: var(--kiwi-primary);
-  box-shadow: 0 0 10px var(--kiwi-primary);
-}
-
-.archive-date {
-  font-family: var(--ifm-font-family-monospace);
-  color: #888;
-  margin-right: 1.5rem;
+  box-shadow: 0 0 8px var(--kiwi-primary);
+  width: 12px;
+  height: 12px;
 }
 
 /* ============================================================
-   SECTION 2: Tags 頁面 (Showcase 2.0 多列過濾版)
+   SECTION 2: Tags Showcase 2.0 (多列卡片 + 文章清單)
    ============================================================ */
 .tags-dashboard {
-  background: rgba(255, 255, 255, 0.02);
+  background: #161618;
   padding: 2rem;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid #333;
   margin-bottom: 2rem;
 }
 
-.tags-search-row {
-  display: flex;
-  gap: 15px;
-  margin-bottom: 25px;
-}
-
-.showcase-search-input {
-  flex: 1;
-  background: #1b1b1d !important;
-  border: 1px solid var(--kiwi-primary) !important;
-  color: white !important;
-  padding: 12px 20px !important;
-  border-radius: 8px;
-  outline: none;
-}
-
-.tag-clear-btn {
-  background: #333;
-  color: #eee;
-  border: 1px solid #444;
-  padding: 0 25px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.2s;
-  font-weight: bold;
-}
-
-.tag-clear-btn:hover {
-  background: #ff4757;
-  border-color: #ff4757;
-  color: white;
-}
-
-/* AND/OR 開關樣式 */
-.tags-logic-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 25px;
-  font-size: 0.9rem;
-  font-weight: bold;
-}
-
-.active-logic { color: var(--kiwi-primary); }
-
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 46px;
-  height: 24px;
-}
-
-.switch input { opacity: 0; width: 0; height: 0; }
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-color: #444;
-  transition: .4s;
-  border-radius: 24px;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 18px; width: 18px;
-  left: 3px; bottom: 3px;
-  background-color: white;
-  transition: .4s;
-  border-radius: 50%;
-}
-
-input:checked + .slider { background-color: var(--kiwi-primary); }
-input:checked + .slider:before { transform: translateX(22px); }
-
-/* 多列標籤卡片網格 */
 .tag-card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 15px;
+  gap: 12px;
+  margin-top: 20px;
 }
 
 .tag-big-card {
-  background: #1b1b1d;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #242426;
+  border: 1px solid #3e3e42;
   padding: 15px;
-  border-radius: 12px;
+  border-radius: 10px;
   text-align: center;
   cursor: pointer;
-  transition: all 0.2s;
-}
-
-.tag-big-card:hover {
-  border-color: var(--kiwi-primary);
-  transform: translateY(-2px);
+  transition: 0.2s;
 }
 
 .tag-big-card.selected {
-  background: rgba(227, 179, 65, 0.1);
   border-color: var(--kiwi-primary);
-  box-shadow: 0 0 15px rgba(227, 179, 65, 0.2);
+  background: rgba(227, 179, 65, 0.15);
+  box-shadow: inset 0 0 10px rgba(227, 179, 65, 0.1);
 }
 
-.tag-card-name {
-  font-size: 1.1rem;
-  font-weight: bold;
+/* 下方文章卡片容器 */
+.post-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+  margin-top: 2rem;
+}
+
+.post-item-card {
+  background: #1b1b1d;
+  border: 1px solid #333;
+  border-radius: 12px;
+  text-decoration: none !important;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-item-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--kiwi-primary);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.post-card-content { padding: 1.5rem; }
+.post-card-date { color: #888; font-size: 0.85rem; font-family: monospace; }
+.post-card-title {
   color: var(--kiwi-primary);
-  margin-bottom: 4px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 10px 0;
 }
-
-.tag-card-count {
-  font-size: 0.8rem;
-  color: #888;
-}
-
-/* 下方清單 Frame 效果 */
-.tag-results-frame {
-  min-height: 250px;
-  background: #111;
-  border: 2px dashed #333;
-  border-radius: 16px;
-  padding: 2.5rem;
-  margin-top: 1rem;
-}
-
-.empty-state {
-  color: #666;
-  text-align: center;
-  font-style: italic;
+.post-card-description {
+  color: #bbb;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
 }
