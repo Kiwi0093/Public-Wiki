@@ -1,161 +1,135 @@
 /**
- * 🛠️ Kiwi Wiki 旗艦整合版
- * 琥珀金方框 + 物理跨線 + 強制全寬 + 閱讀更多修復
+ * 🛠️ Kiwi Wiki 歸檔頁面特規版
+ * 修正垂直線偏移與點點對齊問題
  */
 
 :root {
-  --kiwi-primary: #e3b341; 
-  --ifm-color-primary: var(--kiwi-primary);
+  --kiwi-primary: #e3b341;
   --kiwi-bg: #1b1b1d;
-  --kiwi-card-bg: rgba(255, 255, 255, 0.03);
 }
 
-/* --- 全域佈局：隱藏側邊欄並強迫全寬 --- */
-.container .row aside.col--3 {
-  display: none !important;
+/* --- 1. 全域一欄式鎖定 (保持不變) --- */
+aside.col--3, .blog-sidebar-col { display: none !important; }
+main.col--7, main.col--9 { 
+  flex: 0 0 100% !important; 
+  max-width: 100% !important; 
 }
 
-.container .row main.col--7, 
-.container .row main.col--9 {
-  flex: 0 0 100% !important;
-  max-width: 100% !important;
-}
+/* --- 2. Archive 歸檔核心修正 --- */
 
-/* --- Blog 列表卡片化樣式 --- */
-article.margin-bottom--xl {
-  background: var(--kiwi-card-bg);
-  border: 1px solid #333;
-  border-radius: 12px;
-  padding: 2.5rem;
-  margin-bottom: 3rem !important;
-  transition: 0.3s ease;
+/* 讓容器相對定位，作為垂直線的家 */
+.container.margin-vert--xl {
   position: relative;
 }
 
-article.margin-bottom--xl:hover {
-  border-color: var(--kiwi-primary);
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-}
-
-/* 強制修復/模擬 Read More 按鈕樣式 */
-footer.row.margin-vert--md {
-  margin-top: 2rem !important;
-}
-
-/* 針對 Docusaurus 預設 Read More 連結的美化 */
-a[href*="#more"], 
-.blog-list-item footer a,
-footer a.margin-horiz--sm {
-  background: transparent !important;
-  color: var(--kiwi-primary) !important;
-  border: 1px solid var(--kiwi-primary) !important;
-  padding: 8px 20px !important;
-  border-radius: 6px !important;
-  text-decoration: none !important;
-  font-weight: bold !important;
-  display: inline-block !important;
-  transition: 0.2s !important;
-}
-
-a[href*="#more"]:hover {
-  background: var(--kiwi-primary) !important;
-  color: #000 !important;
-  box-shadow: 0 0 10px var(--kiwi-primary);
-}
-
-/* --- Archive 歸檔頁面 (物理跨線鎖定) --- */
+/* 垂直線：強制固定在左側 40px 的位置 */
 .archive-timeline {
   position: relative;
-  margin-left: 60px; 
+  margin-left: 40px !important; /* 縮小一點邊距，防止太靠右 */
   border-left: 2px solid #333 !important;
-  padding: 20px 0;
+  padding: 20px 0 !important;
 }
 
+/* 年份的大圓圈：精準壓在線上 */
 .archive-year-node {
   position: absolute;
-  left: -1px;
+  left: -1px !important; /* 鎖死在 border-left 上 */
   top: 1.6rem;
   transform: translate(-50%, -50%);
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   background: var(--kiwi-bg);
   border: 4px solid var(--kiwi-primary);
   border-radius: 50%;
   z-index: 10;
-  display: block !important;
 }
 
+.archive-year-header {
+  padding-left: 30px !important;
+  color: var(--kiwi-primary);
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+/* 列表項目 */
+.archive-item {
+  position: relative;
+  padding: 0.8rem 0 !important;
+  list-style: none !important;
+  display: flex;
+  align-items: center;
+}
+
+/* 橫線：從垂直線出發 */
 .archive-item::before {
   content: "";
   position: absolute;
-  left: -31px; 
+  left: -2px; /* 從垂直線開始 */
   top: 50%;
-  width: 45px; 
+  width: 30px; /* 橫線長度 */
   height: 1px;
   background: #444;
   z-index: 5;
 }
 
+/* 實心小點：精準對齊橫線末端 */
 .archive-item::after {
   content: "";
   position: absolute;
-  left: 20px; 
+  left: 28px; /* 橫線末端 */
   top: 50%;
   transform: translateY(-50%);
-  width: 10px; 
-  height: 10px;
-  background: #555;
+  width: 8px;
+  height: 8px;
+  background: #666;
   border-radius: 50%;
   z-index: 6;
+  transition: 0.2s;
 }
 
+/* 滑鼠經過特效 */
 .archive-item:hover::before { background: var(--kiwi-primary); }
 .archive-item:hover::after { 
   background: var(--kiwi-primary); 
-  box-shadow: 0 0 10px var(--kiwi-primary);
+  box-shadow: 0 0 8px var(--kiwi-primary);
 }
 
+/* 日期與標題文字：推開足夠距離避免撞到點點 */
 .archive-date {
-  color: #888;
+  color: #777;
   font-family: monospace;
-  font-weight: bold;
-  margin-left: 50px; 
+  margin-left: 50px !important; /* 確保在點點右邊 */
+  font-size: 0.9rem;
 }
 
 .archive-link {
   color: #ddd !important;
   text-decoration: none !important;
+  margin-left: 15px;
+  transition: 0.2s;
 }
 
 .archive-link:hover { color: var(--kiwi-primary) !important; }
 
-/* --- Tags 全頁面方框 --- */
+/* --- 3. Tags 頁面快速修正 --- */
+/* 截圖中你的 Tags 變得很擠，我們讓它恢復網格 */
 .tag-card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1.2rem;
-  padding: 2rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 1rem 0;
 }
 
 .tag-card-item {
-  background: var(--kiwi-card-bg) !important;
-  border: 1px solid #333 !important;
-  border-radius: 12px;
-  padding: 1.5rem;
-  text-decoration: none !important; 
-  transition: 0.3s ease;
-  display: block;
+  background: #222 !important;
+  border: 1px solid #444 !important;
+  border-radius: 6px;
+  padding: 6px 15px;
+  display: flex;
+  align-items: center;
+  text-decoration: none !important;
 }
 
-.tag-card-item:hover {
-  border-color: var(--kiwi-primary) !important;
-  transform: translateY(-5px);
-  background: rgba(227, 179, 65, 0.05) !important;
-}
-
-.tag-card-name {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: var(--kiwi-primary);
-}
+.tag-card-item:hover { border-color: var(--kiwi-primary) !important; }
+.tag-card-name { color: var(--kiwi-primary); font-weight: bold; }
+.tag-card-count { color: #666; margin-left: 8px; font-size: 0.8rem; }
