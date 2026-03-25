@@ -1,99 +1,190 @@
 /**
- * 🛠️ Kiwi Wiki Archive 最終精修版 - 工業刻度風
+ * 🛠️ Kiwi Wiki 旗艦整合版
+ * 琥珀金配色 + 物理跨線時間軸 + 全域 Tags 方框
  */
 
 :root {
+  /* 全域鎖定琥珀金 */
   --kiwi-primary: #e3b341; 
+  --ifm-color-primary: var(--kiwi-primary);
+  --ifm-link-color: var(--kiwi-primary);
+  /* 背景色，用於遮擋線條 */
   --kiwi-bg: #1b1b1d;
 }
 
+/* ============================================================
+   SECTION 1: Archive 歸檔頁面 (物理跨線 + 大實心點版)
+   ============================================================ */
+.archive-page-main {
+  display: flex !important;
+  justify-content: center !important;
+  padding: 2rem 0;
+}
+
+.archive-page-wrapper {
+  width: 100%;
+  max-width: 900px;
+  padding: 0 20px;
+}
+
+/* 垂直軸容器 */
 .archive-timeline {
   position: relative;
-  margin-left: 50px; 
-  border-left: 2px solid #333;
-  padding: 40px 0;
+  margin-left: 60px; /* 給年份大圈預留空間 */
+  padding: 20px 0;
 }
 
-/* 經典年份大圈圈回歸 */
-.archive-year-group {
+/* 經典年份大圈圈 - 物理鎖定中心 */
+.archive-year-title {
   position: relative;
-  margin-bottom: 50px;
+  margin: 50px 0 30px -73px !important; /* 強制往左推覆蓋線條 */
+  padding-left: 35px;
+  background: var(--kiwi-bg); /* 背景色蓋掉線條 */
+  display: inline-block;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--kiwi-primary);
+  z-index: 5;
 }
 
-.archive-year-node {
+/* 年份旁邊的空心圓點 (20px x 20px) */
+.archive-year-title::before {
+  content: "";
   position: absolute;
-  left: -1px;
-  top: 1.8rem;
-  transform: translate(-50%, -50%);
-  width: 24px;
-  height: 24px;
+  left: 0px; 
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
   background: var(--kiwi-bg);
   border: 4px solid var(--kiwi-primary);
   border-radius: 50%;
   z-index: 10;
-  box-shadow: 0 0 10px rgba(227, 179, 65, 0.3);
 }
 
-.archive-year-header {
-  padding-left: 35px;
-  color: var(--kiwi-primary);
-  font-size: 2.5rem;
-  font-weight: 900;
-  margin: 0;
+/* 文章清單 (移除預設 padding) */
+.archive-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
-/* 文章刻度線 + 實心點 */
 .archive-item {
   position: relative;
-  padding: 1rem 0 1rem 0;
-  list-style: none !important;
+  padding: 1.2rem 0;
   display: flex;
   align-items: center;
 }
 
-/* 加長橫線，稍微凸出垂直軸 */
+/* 物理裝飾橫線：跨過垂直軸 */
 .archive-item::before {
   content: "";
   position: absolute;
-  left: -10px; /* 往左凸出垂直線 10px */
-  width: 35px;  /* 總長度確保跨越垂直軸 */
+  /* 鎖定在垂直軸中心線 (left: -2px for 2px border) */
+  left: -2px; 
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px; /* 線的總長度 */
   height: 1px;
-  background: #444;
-  z-index: 1;
+  background: #333; /* 預設深灰色 */
+  z-index: 1; /* 在垂直線上面 */
+  transition: all 0.2s;
 }
 
-/* 直線跟日期之間的實心點 */
+/* 文章加大實心點：鎖定在橫線末端 + 空格 */
 .archive-item::after {
   content: "";
   position: absolute;
-  left: 25px; /* 放在橫線末端附近 */
-  width: 6px;
-  height: 6px;
-  background: #666;
+  /* 放在橫線末端 (40px) 加上一點間距 (10px) */
+  left: 50px; 
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px; /* 小點加大為 10px */
+  height: 10px;
+  background: #666; /* 預設中灰色 */
   border-radius: 50%;
-  z-index: 2;
+  z-index: 2; /* 確保大點壓在橫線末端 */
+  transition: all 0.2s;
 }
 
-.archive-item:hover::before { background: var(--kiwi-primary); }
-.archive-item:hover::after { background: var(--kiwi-primary); box-shadow: 0 0 5px var(--kiwi-primary); }
+/* Hover 效果：線變亮、點變亮，並產生科技感發光 */
+.archive-item:hover::before {
+  background: var(--kiwi-primary);
+  width: 45px; /* Hover 時線稍微變長，更有跨越感 */
+}
+
+.archive-item:hover::after {
+  background: var(--kiwi-primary);
+  box-shadow: 0 0 10px var(--kiwi-primary);
+  width: 12px; /* Hover 時點稍微變大 */
+  height: 12px;
+}
 
 .archive-date {
-  font-family: 'JetBrains Mono', monospace;
-  color: #666;
-  font-size: 0.9rem;
-  margin-left: 45px; /* 給橫線和點留空間 */
-  min-width: 60px;
+  font-family: var(--ifm-font-family-monospace);
+  color: #888;
+  margin-right: 1.5rem;
+  font-size: 0.95rem;
+  min-width: 60px; /* 鎖定日期寬度，防止文字推擠 */
 }
 
 .archive-link {
-  color: #ddd !important;
-  font-size: 1.1rem;
-  text-decoration: none;
+  color: var(--ifm-font-color-base) !important;
+  text-decoration: none !important;
+  font-weight: 500;
   transition: 0.2s;
 }
 
 .archive-link:hover {
   color: var(--kiwi-primary) !important;
   transform: translateX(5px);
+  display: inline-block;
+}
+
+/* 移除 03/24 前面可能存在的默認 50% 線條邏輯 */
+@media (min-width: 997px) {
+  .archive-item { padding: 1.2rem 0; }
+}
+
+/* ============================================================
+   SECTION 2: Tags 頁面 (全頁面方框版)
+   ============================================================ */
+
+/* 強制 Tags 大卡片鋪滿整個頁面 */
+.tag-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.2rem;
+  padding: 1rem 0;
+}
+
+.tag-card-item {
+  background: var(--kiwi-bg) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-decoration: none !important;
+  transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.tag-card-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--kiwi-primary) !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.tag-card-name {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--kiwi-primary) !important;
+}
+
+.tag-card-count {
+  font-size: 0.8rem;
+  color: #999;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 3px 12px;
+  border-radius: 15px;
+  margin-top: 5px;
   display: inline-block;
 }
