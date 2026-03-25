@@ -35,7 +35,7 @@ const config = {
           blogDescription: 'Kiwi自言自語,一個中年男性宣洩自己壓力的地方',
           postsPerPage: 5,
           blogSidebarTitle: '近期文章',
-          blogSidebarCount: '0',
+          blogSidebarCount: 0,
           admonitions: true,
         },
         theme: {
