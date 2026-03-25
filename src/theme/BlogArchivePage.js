@@ -5,7 +5,7 @@ import Link from '@docusaurus/Link';
 function YearSection({year, posts}) {
   return (
     <div className="archive-year-group">
-      {/* 強制插入實體圓圈節點 */}
+      {/* 實體節點，CSS 鎖定 top: 1.5rem */}
       <div className="archive-year-node"></div>
       <h2 className="archive-year-header">{year}</h2>
       <ul className="archive-list">
