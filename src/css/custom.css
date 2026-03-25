@@ -1,14 +1,43 @@
 /**
- * 🛠️ Kiwi Wiki 旗艦整合版 - 語法校正版
+ * 🛠️ Kiwi Wiki 旗艦整合版
+ * 琥珀金配色 + 物理跨線 + Blog/Tags 全方框化
  */
 
 :root {
   --kiwi-primary: #e3b341; 
   --ifm-color-primary: var(--kiwi-primary);
   --kiwi-bg: #1b1b1d;
+  --kiwi-card-bg: rgba(255, 255, 255, 0.03);
 }
 
-/* --- Archive 歸檔頁面 --- */
+/* --- 全域佈局：隱藏側邊欄並強迫全寬 --- */
+.container .row .col--3 {
+  display: none !important;
+}
+
+.container .row .col--7, 
+.container .row .col--9 {
+  flex: 0 0 100% !important;
+  max-width: 100% !important;
+}
+
+/* --- Blog 首頁文章卡片化 --- */
+.blog-list-item {
+  background: var(--kiwi-card-bg);
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  transition: 0.3s ease;
+}
+
+.blog-list-item:hover {
+  border-color: var(--kiwi-primary);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Archive 歸檔頁面 (物理跨線鎖定) --- */
 .archive-timeline {
   position: relative;
   margin-left: 60px; 
@@ -52,7 +81,6 @@
   align-items: center;
 }
 
-/* 橫線跨越垂直線 */
 .archive-item::before {
   content: "";
   position: absolute;
@@ -65,7 +93,6 @@
   transition: 0.2s;
 }
 
-/* 實心大點 */
 .archive-item::after {
   content: "";
   position: absolute;
@@ -102,7 +129,7 @@
 
 .archive-link:hover { color: var(--kiwi-primary) !important; }
 
-/* --- Tags 全頁面方框 (修正報錯位置) --- */
+/* --- Tags 全頁面方框 --- */
 .tag-card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -111,11 +138,10 @@
 }
 
 .tag-card-item {
-  background: rgba(255, 255, 255, 0.03) !important;
+  background: var(--kiwi-card-bg) !important;
   border: 1px solid #333 !important;
   border-radius: 12px;
   padding: 1.5rem;
-  /* 修正處：確保屬性寫完整 */
   text-decoration: none !important; 
   transition: 0.3s ease;
   display: block;
@@ -138,21 +164,4 @@
 .tag-card-count {
   font-size: 0.8rem;
   color: #666;
-}
-
-/* 讓 Blog 文章列表與內容頁強迫全寬 */
-.container .row .col--3 {
-  display: none; /* 隱藏側邊欄容器 */
-}
-
-.container .row .col--7, 
-.container .row .col--9 {
-  flex: 0 0 100% !important;
-  max-width: 100% !important;
-}
-
-/* 如果你想讓文章讀起來舒服點，可以限制一個最大寬度並居中 */
-.blog-post-container {
-  max-width: 800px;
-  margin: 0 auto;
 }
