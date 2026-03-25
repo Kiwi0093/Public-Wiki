@@ -1,6 +1,5 @@
 /**
- * 🛠️ Kiwi Wiki 旗艦整合版 - Ge國昌檢討版
- * 琥珀金配色 + 強制年份圓圈 + 絕對對齊
+ * 🛠️ Kiwi Wiki 旗艦整合版 - 物理鎖定修復版
  */
 
 :root {
@@ -9,71 +8,62 @@
   --ifm-link-color: var(--kiwi-primary);
 }
 
-/* ============================================================
-   SECTION 1: Archive 歸檔頁面 (圓心與圓圈消失修正版)
-   ============================================================ */
+/* --- Archive 物理對齊 --- */
 .archive-timeline {
   position: relative;
-  /* 鎖定整體向右推 50px */
   margin-left: 50px; 
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
   padding-left: 0;
-  border-left: 2px solid rgba(255, 255, 255, 0.1); /* 垂直線主體 */
 }
 
-.archive-year-section {
+.archive-year-group {
   position: relative;
-  margin-bottom: 4rem;
+  margin-top: 50px;
 }
 
-/* 核心：大圓點 (強制顯現版) */
+/* 年份大圓圈 - 物理鎖定 */
 .archive-year-node {
   position: absolute;
-  /* 精準物理對齊：(2px線/2)=1px，所以設為 1px */
-  left: -1px; 
-  top: 1.5rem; /* 對齊文字第一行 */
-  transform: translate(-50%, -50%); /* 圓心對齊 */
-  width: 18px;
-  height: 18px;
-  background: #1b1b1d; /* 背景色蓋住線條 */
+  /* 2px 線的中心是 1px，22px 圓的一半是 11px，所以 left 是 -10px 或 -11px */
+  left: -11px; 
+  top: 1.5rem;
+  width: 22px;
+  height: 22px;
+  background: #1b1b1d; /* 遮住背景線 */
   border: 4px solid var(--kiwi-primary);
   border-radius: 50%;
   z-index: 10;
   display: block !important;
 }
 
-/* 年份標題 */
-.archive-year-title {
-  position: relative;
-  margin: 0 !important;
-  padding-left: 40px; /* 文字離線條的距離 */
-  background: transparent;
-  display: block;
+.archive-year-header {
+  padding-left: 40px;
   font-size: 2rem;
   font-weight: 800;
   color: var(--kiwi-primary);
-  line-height: 1.2;
+  margin-bottom: 20px;
 }
 
 .archive-list {
   list-style: none !important;
   padding: 0 !important;
-  margin: 1.5rem 0 0 0 !important;
+  margin: 0 !important;
 }
 
 .archive-item {
   position: relative;
-  padding: 1rem 0 1rem 40px; /* 同樣離線條 40px */
+  padding: 1rem 0 1rem 40px;
 }
 
-/* 文章實心小圓點 */
+/* 小圓點 */
 .archive-item::before {
   content: "";
   position: absolute;
-  left: -1px;
+  left: -5px; /* (10px 寬度的一半加上線寬校正) */
   top: 50%;
-  transform: translate(-50%, -50%);
-  width: 8px;
-  height: 8px;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
   background: #666;
   border-radius: 50%;
   border: 2px solid #1b1b1d;
@@ -85,109 +75,19 @@
   box-shadow: 0 0 8px var(--kiwi-primary);
 }
 
-.archive-date {
-  font-family: monospace;
-  color: #888;
-  margin-right: 1.2rem;
-  font-size: 0.9rem;
-}
-
-.archive-link {
-  color: #ccc !important;
-  text-decoration: none !important;
-  font-weight: 500;
-}
-
-.archive-link:hover {
-  color: var(--kiwi-primary) !important;
-}
-
-/* ============================================================
-   SECTION 2: Tags Showcase (圖 10 之 UI 與開關)
-   ============================================================ */
+/* --- Tags 佈局 --- */
 .tags-dashboard {
   background: rgba(255, 255, 255, 0.02);
   padding: 2rem;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  margin-bottom: 2rem;
 }
 
-.tags-search-row {
-  display: flex;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.showcase-search-input {
-  flex: 1;
-  background: #1b1b1d !important;
-  border: 1px solid var(--kiwi-primary) !important;
-  color: white !important;
-  padding: 12px 20px !important;
-  border-radius: 8px;
-  outline: none;
-}
-
-.tag-clear-btn {
-  background: #333;
-  color: white;
-  border: none;
-  padding: 0 20px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.tag-clear-btn:hover { background: #ff4757; }
-
-/* OR/AND 開關 */
-.tags-logic-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: bold;
-  font-size: 0.8rem;
-  color: #888;
-}
-
-.active-logic { color: var(--kiwi-primary); }
-
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 42px;
-  height: 22px;
-}
-
-.switch input { opacity: 0; width: 0; height: 0; }
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-color: #444;
-  transition: .4s;
-  border-radius: 20px;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 16px; width: 16px;
-  left: 3px; bottom: 3px;
-  background-color: white;
-  transition: .4s;
-  border-radius: 50%;
-}
-
-input:checked + .slider { background-color: var(--kiwi-primary); }
-input:checked + .slider:before { transform: translateX(20px); }
-
-/* 多列標籤大卡片 */
 .tag-card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 15px;
+  margin-top: 20px;
 }
 
 .tag-big-card {
@@ -197,29 +97,9 @@ input:checked + .slider:before { transform: translateX(20px); }
   border-radius: 10px;
   text-align: center;
   cursor: pointer;
-  transition: all 0.2s;
 }
 
 .tag-big-card.selected {
   border-color: var(--kiwi-primary);
   background: rgba(227, 179, 65, 0.1);
-  box-shadow: 0 0 10px rgba(227, 179, 65, 0.1);
-}
-
-.tag-card-name {
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: var(--kiwi-primary);
-  margin-bottom: 5px;
-}
-
-.tag-card-count {
-  font-size: 0.8rem;
-  color: #888;
-}
-
-/* 下方清單預覽 */
-.tag-results-container {
-  margin-top: 2rem;
-  min-height: 200px;
 }
