@@ -5,6 +5,8 @@ import Link from '@docusaurus/Link';
 function YearSection({year, posts}) {
   return (
     <div className="archive-year-group">
+      {/* 強制插入實體圓圈節點 */}
+      <div className="archive-year-node"></div>
       <h2 className="archive-year-header">{year}</h2>
       <ul className="archive-list">
         {posts.map((post) => (
@@ -37,7 +39,6 @@ export default function BlogArchivePage({archive}) {
         <div className="archive-container">
           <h1>文章歸檔</h1>
           <p>目前共有 {archive.blogPosts.length} 篇文章</p>
-          {/* 這條線由 .archive-timeline 畫出 */}
           <div className="archive-timeline">
             {sortedYears.map((year) => (
               <YearSection key={year} year={year} posts={years[year]} />
