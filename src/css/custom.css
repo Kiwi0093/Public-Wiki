@@ -1,80 +1,69 @@
-/* ============================================================
-   ARCHIVE - NexT 時間軸風格 (大叔專用版)
-   ============================================================ */
+/**
+ * 🛠️ Kiwi Wiki 旗艦版整合樣式
+ * 琥珀金配色 + NexT 時間軸 (對齊修正) + Showcase Tags 卡片
+ */
 
-/* 1. 全域佈局與居中 */
+:root {
+  /* 視覺研究推薦：琥珀金，在深色模式下最具高級感且不刺眼 */
+  --kiwi-primary: #e3b341; 
+  --ifm-color-primary: var(--kiwi-primary);
+  --ifm-link-color: var(--kiwi-primary);
+}
+
+/* ============================================================
+   SECTION 1: Archive 歸檔頁面 (NexT 時間軸)
+   ============================================================ */
 .archive-page-main {
   display: flex !important;
   justify-content: center !important;
   padding: 2rem 0;
-  /* 針對大叔反映的年份太偏左：加大外邊距 */
-  margin-left: 20px !important; 
 }
 
 .archive-page-wrapper {
   width: 100%;
-  max-width: 800px; /* 窄一點更有質感 */
+  max-width: 800px;
   padding: 0 20px;
 }
 
-.archive-header {
-  margin-bottom: 3rem;
-  text-align: left; /* NexT 風格偏向左對齊 */
-}
-
-/* 2. 核心時間軸：垂直線 */
+/* 時間軸容器：這條左邊框就是那條「線」 */
 .archive-timeline-content {
   position: relative;
-  /* 這裡定義線條離文字的距離：40px */
-  padding-left: 40px; 
+  margin-left: 20px; /* 整體向右微調，避免年份太偏左 */
+  padding-left: 40px;
+  border-left: 2px solid rgba(255, 255, 255, 0.1); /* 這是你的垂直基準線 */
 }
 
-/* 針對大叔反映的線沒對齊：改用「容器邊框線」技術 */
-.archive-timeline-content::before {
-  content: "";
-  position: absolute;
-  top: 15px; /* 從第一個年份大圓中心開始 */
-  bottom: 0;
-  /* 將基準線鎖定在左側 0px */
-  left: 0; 
-  width: 2px;
-  /* 使用官網 Showcase 的邊框色 */
-  background: var(--ifm-color-emphasis-200); 
-}
-
-/* 3. 年份樣式 (大節點) */
+/* 年份大圓圈 */
 .archive-year-title {
   position: relative;
-  /* 關鍵對齊：往左推回線上 (40px) 加上一點點修正量 */
-  margin-left: -48px; 
+  margin-left: -53px; /* 精準回推：40px padding + 13px (圓半徑+修正) */
   margin-top: 50px;
   margin-bottom: 25px;
-  padding-left: 32px; /* 文字離圓圈的距離 */
-  background: var(--ifm-background-color); /* 用背景色蓋住後面的線 */
+  padding-left: 35px;
+  background: var(--ifm-background-color); 
   display: inline-block;
-  font-size: 1.85rem;
+  font-size: 1.8rem;
   font-weight: 800;
-  color: var(--ifm-color-primary);
-  z-index: 2; /* 確保在線上面 */
+  color: var(--kiwi-primary);
+  z-index: 2;
 }
 
-/* 年份旁邊的空心圓點 (14px x 14px) */
 .archive-year-title::before {
   content: "";
   position: absolute;
-  /* 圓心對齊：(14px寬/2) = 7px，所以設為 2px 讓中心點精準疊在 2px 寬的垂直線上 */
-  left: 2px; 
+  /* 讓 14px 寬的圓圈中心點，完美壓在 2px 的邊框線上 */
+  left: 5px; 
   top: 50%;
   transform: translateY(-50%);
   width: 14px;
   height: 14px;
   background: var(--ifm-background-color);
-  border: 3px solid var(--ifm-color-primary);
+  border: 3px solid var(--kiwi-primary);
   border-radius: 50%;
   z-index: 3;
 }
 
-/* 4. 文章條目與小圓點 (徹底拔掉預設點點) */
+/* 文章條目與小圓點 */
 .archive-list {
   list-style: none !important;
   padding: 0 !important;
@@ -83,45 +72,84 @@
 
 .archive-item {
   position: relative;
-  padding: 1.25rem 0;
-  border-bottom: 1px dashed var(--ifm-color-emphasis-200);
-  transition: background 0.2s ease;
+  padding: 1.2rem 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
 }
 
-/* 文章實心小圓點 (10px x 10px) */
 .archive-item::before {
   content: "";
   position: absolute;
-  /* 寬 10px，中心點應在 -44px 位置 */
-  left: -44px; 
+  /* 鎖定小圓點在線上：-40px padding + 修正位移 */
+  left: -45px; 
   top: 1.6rem;
-  width: 10px;
-  height: 10px;
-  background: var(--ifm-color-emphasis-400);
+  width: 8px;
+  height: 8px;
+  background: #555;
   border-radius: 50%;
   border: 2px solid var(--ifm-background-color);
   z-index: 1;
 }
 
-/* Hover 效果：點點變亮、文字變色 */
 .archive-item:hover::before {
-  background: var(--ifm-color-primary);
-  box-shadow: 0 0 12px var(--ifm-color-primary);
+  background: var(--kiwi-primary);
+  box-shadow: 0 0 10px var(--kiwi-primary);
 }
 
 .archive-date {
-  font-family: var(--ifm-font-family-monospace);
-  font-size: 0.95rem;
-  color: var(--ifm-color-content-secondary);
-  margin-right: 1.5rem;
+  font-family: monospace;
+  color: #888;
+  margin-right: 15px;
 }
 
 .archive-link {
-  font-weight: 500;
-  color: var(--ifm-font-color-base);
+  color: var(--ifm-font-color-base) !important;
   text-decoration: none !important;
 }
 
 .archive-link:hover {
-  color: var(--ifm-color-primary);
+  color: var(--kiwi-primary) !important;
+}
+
+/* ============================================================
+   SECTION 2: Tags 頁面 (Showcase 卡片佈局)
+   ============================================================ */
+.tag-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.tag-card-item {
+  background: #1b1b1d;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tag-card-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--kiwi-primary);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.tag-card-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--kiwi-primary);
+  margin-bottom: 0.5rem;
+}
+
+.tag-card-count {
+  font-size: 0.85rem;
+  color: #888;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2px 12px;
+  border-radius: 20px;
 }
