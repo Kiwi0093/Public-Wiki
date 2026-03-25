@@ -34,8 +34,8 @@ const config = {
           blogTitle: '大叔的自言自語',
           blogDescription: 'Kiwi自言自語,一個中年男性宣洩自己壓力的地方',
           postsPerPage: 5,
-//          blogSidebarTitle: '近期文章',
-//          blogSidebarCount: 'ALL',
+          blogSidebarTitle: '近期文章',
+          blogSidebarCount: '0',
           admonitions: true,
         },
         theme: {
@@ -54,7 +54,7 @@ const config = {
 //          label: 'Home', 
 //          position: 'left',
 //          activeBaseRegex: '^/$',
-        },
+//        },
         {
           to: '/tags',
           label: 'Tags',
