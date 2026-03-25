@@ -17,7 +17,7 @@
 </blockquote>
 <p>為了安全性,從今年的8/13開始Github就不再接受使用username/password via https來login github了...</p>
 <p>詳情請看<a href="https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/" target="_blank" rel="noopener noreferrer">這篇文章</a></p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="變�更login方法">變更Login方法<a href="https://kiwi0093.github.io/Public-Wiki/2021/08/GJ-Github#%E8%AE%8A%E6%9B%B4login%E6%96%B9%E6%B3%95" class="hash-link" aria-label="變更Login方法的直接連結" title="變更Login方法的直接連結">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="變更login方法">變更Login方法<a href="https://kiwi0093.github.io/Public-Wiki/2021/08/GJ-Github#%E8%AE%8A%E6%9B%B4login%E6%96%B9%E6%B3%95" class="hash-link" aria-label="變更Login方法的直接連結" title="變更Login方法的直接連結">​</a></h2>
 <p>可能是我嫌使用ssh的方式還得建立ssh key等方法很囉唆,所以我就一直採用帳號/密碼的方式來update我的Blog/Wiki</p>
 <p>然而今天就出包了</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="token">Token<a href="https://kiwi0093.github.io/Public-Wiki/2021/08/GJ-Github#token" class="hash-link" aria-label="Token的直接連結" title="Token的直接連結">​</a></h2>
@@ -503,7 +503,7 @@
 </blockquote>
 <p>同是有台ASUS T100想改裝成Android給小朋友玩..</p>
 <p>看了看可能還是中國國產的Phoenix OS(其實就是客製的Android X86)比較適合他的需求...</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="asus-t100">ASUS T100<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/phoenix+os#asus-t100" class="hash-link" aria-label="ASUS T100的直接連結" title="ASUS T100的直接連�結">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="asus-t100">ASUS T100<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/phoenix+os#asus-t100" class="hash-link" aria-label="ASUS T100的直接連結" title="ASUS T100的直接連結">​</a></h2>
 <p>這是一台ASUS早期的二合一小筆電,規格非常的陽春,算是Windows7轉Windows8.1各家廠商都把CPU &amp; RAM下降規格降價的時期產品</p>
 <p><a href="https://www.asus.com/us/2-in-1-PCs/ASUS_Transformer_Book_T100_Chi/specifications/" target="_blank" rel="noopener noreferrer">詳細Spec</a></p>
 <ul>
@@ -636,7 +636,7 @@ Built-in Bluetooth™ V4.0+HS</p>
 <p>今天繼續沉迷在Arch Linux的安裝script裡,弄著弄著,就把Wiki裡面的內容幾乎全改了....</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="故事大綱">故事大綱<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/re-sort-wiki#%E6%95%85%E4%BA%8B%E5%A4%A7%E7%B6%B1" class="hash-link" aria-label="故事大綱的直接連結" title="故事大綱的直接連結">​</a></h3>
 <p>為了讓那個很私人使用的script變得稍微通用一點點,今天把那整個部份幾乎重寫了..</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="除去幹話的重點">除去幹話的重點<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/re-sort-wiki#%E9%99%A4%E5%8E%BB%E5%B9%B9%E8%A9%B1%E7%9A%84%E9%87%8D%E9%BB%9E" class="hash-link" aria-label="除去幹話的重點的直接連結" title="除去幹話的重點的直接連結">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="除去幹話的重點">除去幹話的重點<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/re-sort-wiki#%E9%99%A4%E5%8E%BB%E5%B9%B9%E8%A9%B1%E7%9A%84%E9%87%8D%E9%BB%9E" class="hash-link" aria-label="除去幹�話的重點的直接連結" title="除去幹話的重點的直接連結">​</a></h3>
 <p>簡單的說就是我把昨天學會的case loop應用上去了,並且將原來看起來支離破碎的多個安裝script整合成使用者只要key一次就可以用選的一路裝完我預設好的幾種安裝結果</p>
 <ul>
 <li>單純的Arch Linux - 老實說這個安裝結果有可能未來是我實驗東西最常用的script..因為什麼都沒裝,就是個可以開機有網路用而的東西</li>
@@ -734,7 +734,7 @@ Built-in Bluetooth™ V4.0+HS</p>
         <content type="html"><![CDATA[<blockquote>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>信息</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
 </blockquote>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="現況說明">現況說明<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E7%8F%BE%E6%B3%81%E8%AA%AA%E6%98%8E" class="hash-link" aria-label="現況說明的直接連結" title="現況說明的直接連結">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="現況說明">現況說明<a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E7%8F%BE%E6%B3%81%E8%AA%AA%E6%98%8E" class="hash-link" aria-label="現況說明的直接連結" title="現��況說明的直接連結">​</a></h2>
 <p>這幾天勸敗了幾台新的RackNerd的VPS後,著實的好好練習了V2ray 4.33的安裝..(截至今天一共弄了四台新的加兩台update),但是除了名下的機器外,看著我的CF裡的DNS列表...還是有在我的DN下的別人家的機器,其實是該幫人家升級的...</p>
 <p>因為討人厭的是</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="不是每個43x的client都跟42x的server相容"><em>不是每個4.3x的Client都跟4.2x的Server相容</em><a href="https://kiwi0093.github.io/Public-Wiki/2020/12/ladders-part2#%E4%B8%8D%E6%98%AF%E6%AF%8F%E5%80%8B43x%E7%9A%84client%E9%83%BD%E8%B7%9F42x%E7%9A%84server%E7%9B%B8%E5%AE%B9" class="hash-link" aria-label="不是每個43x的client都跟42x的server相容的直接連結" title="不是每個43x的client都跟42x的server相容的直接連結">​</a></h2>
