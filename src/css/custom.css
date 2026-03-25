@@ -1,6 +1,6 @@
 /**
  * 🛠️ Kiwi Wiki 旗艦整合版
- * 琥珀金配色 + 物理跨線 + Blog/Tags 全方框化
+ * 琥珀金方框 + 物理跨線 + 強制全寬 + 閱讀更多修復
  */
 
 :root {
@@ -11,30 +11,57 @@
 }
 
 /* --- 全域佈局：隱藏側邊欄並強迫全寬 --- */
-.container .row .col--3 {
+.container .row aside.col--3 {
   display: none !important;
 }
 
-.container .row .col--7, 
-.container .row .col--9 {
+.container .row main.col--7, 
+.container .row main.col--9 {
   flex: 0 0 100% !important;
   max-width: 100% !important;
 }
 
-/* --- Blog 首頁文章卡片化 --- */
-.blog-list-item {
+/* --- Blog 列表卡片化樣式 --- */
+article.margin-bottom--xl {
   background: var(--kiwi-card-bg);
   border: 1px solid #333;
   border-radius: 12px;
-  padding: 2rem;
-  margin-bottom: 2rem;
+  padding: 2.5rem;
+  margin-bottom: 3rem !important;
   transition: 0.3s ease;
+  position: relative;
 }
 
-.blog-list-item:hover {
+article.margin-bottom--xl:hover {
   border-color: var(--kiwi-primary);
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* 強制修復/模擬 Read More 按鈕樣式 */
+footer.row.margin-vert--md {
+  margin-top: 2rem !important;
+}
+
+/* 針對 Docusaurus 預設 Read More 連結的美化 */
+a[href*="#more"], 
+.blog-list-item footer a,
+footer a.margin-horiz--sm {
+  background: transparent !important;
+  color: var(--kiwi-primary) !important;
+  border: 1px solid var(--kiwi-primary) !important;
+  padding: 8px 20px !important;
+  border-radius: 6px !important;
+  text-decoration: none !important;
+  font-weight: bold !important;
+  display: inline-block !important;
+  transition: 0.2s !important;
+}
+
+a[href*="#more"]:hover {
+  background: var(--kiwi-primary) !important;
+  color: #000 !important;
+  box-shadow: 0 0 10px var(--kiwi-primary);
 }
 
 /* --- Archive 歸檔頁面 (物理跨線鎖定) --- */
@@ -43,12 +70,6 @@
   margin-left: 60px; 
   border-left: 2px solid #333 !important;
   padding: 20px 0;
-}
-
-.archive-year-group {
-  position: relative;
-  margin-top: 50px;
-  margin-bottom: 40px;
 }
 
 .archive-year-node {
@@ -65,22 +86,6 @@
   display: block !important;
 }
 
-.archive-year-header {
-  padding-left: 35px;
-  color: var(--kiwi-primary);
-  font-size: 2.2rem;
-  font-weight: 800;
-  margin: 0 !important;
-}
-
-.archive-item {
-  position: relative;
-  padding: 1.2rem 0;
-  list-style: none !important;
-  display: flex;
-  align-items: center;
-}
-
 .archive-item::before {
   content: "";
   position: absolute;
@@ -90,7 +95,6 @@
   height: 1px;
   background: #444;
   z-index: 5;
-  transition: 0.2s;
 }
 
 .archive-item::after {
@@ -104,7 +108,6 @@
   background: #555;
   border-radius: 50%;
   z-index: 6;
-  transition: 0.2s;
 }
 
 .archive-item:hover::before { background: var(--kiwi-primary); }
@@ -118,13 +121,11 @@
   font-family: monospace;
   font-weight: bold;
   margin-left: 50px; 
-  min-width: 60px;
 }
 
 .archive-link {
   color: #ddd !important;
   text-decoration: none !important;
-  transition: 0.2s;
 }
 
 .archive-link:hover { color: var(--kiwi-primary) !important; }
@@ -157,11 +158,4 @@
   font-size: 1.2rem;
   font-weight: bold;
   color: var(--kiwi-primary);
-  display: block;
-  margin-bottom: 8px;
-}
-
-.tag-card-count {
-  font-size: 0.8rem;
-  color: #666;
 }
