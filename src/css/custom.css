@@ -1,103 +1,76 @@
 /**
- * 🛠️ Kiwi Wiki 物理校正終極版 (微調版)
+ * 🛠️ Kiwi Wiki 物理校正 - 刻度線版
  */
 
 :root {
   --kiwi-primary: #e3b341; 
 }
 
-/* --- Archive 垂直軸 --- */
 .archive-timeline {
   position: relative;
-  margin-left: 40px; /* 稍微縮小左邊距 */
-  border-left: 2px solid #333;
+  margin-left: 30px; 
+  border-left: 1px solid #333; /* 軸線變細，更優雅 */
   padding: 20px 0;
 }
 
 .archive-year-group {
   position: relative;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
-/* 年份空心圓 */
-.archive-year-node {
-  position: absolute;
-  left: -1px; 
-  top: 1.6rem;
-  transform: translate(-50%, -50%); /* 完美居中於軸線 */
-  width: 20px;
-  height: 20px;
-  background: #1b1b1d;
-  border: 3px solid var(--kiwi-primary);
-  border-radius: 50%;
-  z-index: 10;
-}
-
-/* 文章實心點：物理修正偏右問題 */
-.archive-item::before {
-  content: "";
-  position: absolute;
-  left: -1px; /* 這裡對齊 border-left 的中心 */
-  top: 50%; 
-  transform: translate(-50%, -50%); /* 用 translate 確保圓心壓在線上 */
-  width: 10px;
-  height: 10px;
-  background: #555;
-  border-radius: 50%;
-  border: 2px solid #1b1b1d;
-  z-index: 5;
-  transition: 0.2s;
-}
-
-.archive-item:hover::before {
-  background: var(--kiwi-primary);
-  box-shadow: 0 0 8px var(--kiwi-primary);
-  scale: 1.2;
+/* 年份標題改為直接靠線 */
+.archive-year-header {
+  padding-left: 20px;
+  color: var(--kiwi-primary);
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 20px !important;
 }
 
 .archive-item {
   position: relative;
-  padding: 1rem 0 1rem 35px;
+  padding: 1rem 0 1rem 0; /* 移除原本的 padding */
   list-style: none !important;
+  display: flex;
+  align-items: center;
 }
 
-.archive-year-header {
-  padding-left: 35px;
-  color: var(--kiwi-primary);
-  font-size: 2.2rem;
-  margin: 0;
+/* 這裡就是你說的「畫線」：從軸線延伸出來的橫線 */
+.archive-item::before {
+  content: "";
+  width: 20px; /* 線的長度 */
+  height: 1px;
+  background: #444;
+  margin-right: 15px; /* 線與日期的距離 */
+  display: inline-block;
+}
+
+.archive-item:hover::before {
+  background: var(--kiwi-primary);
+  width: 30px; /* 懸停時線變長 */
+  transition: 0.3s;
 }
 
 .archive-date {
-  color: #666;
-  font-weight: bold;
-  margin-right: 15px;
+  font-family: 'JetBrains Mono', monospace;
+  color: #555;
+  font-size: 0.9rem;
+  min-width: 50px;
 }
 
 .archive-link {
-  color: #ddd !important;
+  color: #bbb !important;
+  font-size: 1.1rem;
+  margin-left: 10px;
   text-decoration: none;
+  transition: color 0.2s;
 }
 
 .archive-link:hover {
   color: var(--kiwi-primary) !important;
 }
 
-/* --- Tags Switch --- */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 34px;
-  height: 18px;
+/* 移除之前所有的年份圓圈樣式 */
+.archive-year-node {
+  display: none !important;
 }
-.switch input { opacity: 0; width: 0; height: 0; }
-.slider {
-  position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
-  background-color: #444; transition: .4s; border-radius: 20px;
-}
-.slider:before {
-  position: absolute; content: ""; height: 12px; width: 12px; left: 3px; bottom: 3px;
-  background-color: white; transition: .4s; border-radius: 50%;
-}
-input:checked + .slider { background-color: var(--kiwi-primary); }
-input:checked + .slider:before { transform: translateX(16px); }
