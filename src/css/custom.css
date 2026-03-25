@@ -139,3 +139,20 @@
   font-size: 0.8rem;
   color: #666;
 }
+
+/* 讓 Blog 文章列表與內容頁強迫全寬 */
+.container .row .col--3 {
+  display: none; /* 隱藏側邊欄容器 */
+}
+
+.container .row .col--7, 
+.container .row .col--9 {
+  flex: 0 0 100% !important;
+  max-width: 100% !important;
+}
+
+/* 如果你想讓文章讀起來舒服點，可以限制一個最大寬度並居中 */
+.blog-post-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
