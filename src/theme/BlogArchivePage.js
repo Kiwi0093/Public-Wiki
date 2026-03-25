@@ -4,25 +4,20 @@ import Link from '@docusaurus/Link';
 
 function YearSection({year, posts}) {
   return (
-    <div className="archive-year-wrapper">
-      {/* 年份標題，內含圓圈 */}
-      <h2 className="archive-year-header">
-        <span className="archive-year-circle"></span>
-        {year}
-      </h2>
-      <div className="archive-posts-container">
+    <div className="archive-year-group">
+      <h2 className="archive-year-header">{year}</h2>
+      <ul className="archive-list">
         {posts.map((post) => (
-          <div key={post.metadata.permalink} className="archive-post-item">
-            <span className="archive-post-dot"></span>
-            <time className="archive-post-date">
+          <li key={post.metadata.permalink} className="archive-item">
+            <time className="archive-date">
               {new Date(post.metadata.date).toLocaleDateString('zh-TW', { month: '2-digit', day: '2-digit' })}
             </time>
-            <Link to={post.metadata.permalink} className="archive-post-link">
+            <Link to={post.metadata.permalink} className="archive-link">
               {post.metadata.title}
             </Link>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 }
@@ -38,15 +33,16 @@ export default function BlogArchivePage({archive}) {
 
   return (
     <Layout title="文章歸檔">
-      <main className="container margin-vert--xl archive-main">
-        <div className="archive-content">
-          <header className="archive-top-header">
-            <h1>文章歸檔</h1>
-            <p>目前共有 {archive.blogPosts.length} 篇文章</p>
-          </header>
-          {sortedYears.map((year) => (
-            <YearSection key={year} year={year} posts={years[year]} />
-          ))}
+      <main className="container margin-vert--xl">
+        <div className="archive-container">
+          <h1>文章歸檔</h1>
+          <p>目前共有 {archive.blogPosts.length} 篇文章</p>
+          {/* 這條線由 .archive-timeline 畫出 */}
+          <div className="archive-timeline">
+            {sortedYears.map((year) => (
+              <YearSection key={year} year={year} posts={years[year]} />
+            ))}
+          </div>
         </div>
       </main>
     </Layout>
