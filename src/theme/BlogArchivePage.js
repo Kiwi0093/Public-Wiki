@@ -5,15 +5,16 @@ import Link from '@docusaurus/Link';
 function YearSection({year, posts}) {
   return (
     <div className="archive-year-group">
-      {/* 實體節點，CSS 鎖定 top: 1.5rem */}
       <div className="archive-year-node"></div>
       <h2 className="archive-year-header">{year}</h2>
       <ul className="archive-list">
         {posts.map((post) => (
           <li key={post.metadata.permalink} className="archive-item">
+            {/* 這裡加了空格，防止日期跟標題黏在一起 */}
             <time className="archive-date">
               {new Date(post.metadata.date).toLocaleDateString('zh-TW', { month: '2-digit', day: '2-digit' })}
             </time>
+            &nbsp;&nbsp;&nbsp;
             <Link to={post.metadata.permalink} className="archive-link">
               {post.metadata.title}
             </Link>
