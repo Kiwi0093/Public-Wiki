@@ -3,17 +3,12 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 
 export default function BlogTagsListPage({tags}) {
-  const [selectedTags, setSelectedTags] = useState(new Set()); // 改用 Set 避免全亮
-  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedTags, setSelectedTags] = useState(new Set());
   const [isAnd, setIsAnd] = useState(false);
 
   const allTags = useMemo(() => 
     Object.values(tags).sort((a, b) => b.count - a.count), 
     [tags]
-  );
-
-  const filteredTags = allTags.filter(tag => 
-    tag.label.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const toggleTag = (tagName) => {
@@ -25,64 +20,67 @@ export default function BlogTagsListPage({tags}) {
     });
   };
 
-  const filteredPostsData = useMemo(() => {
+  const filteredPosts = useMemo(() => {
     if (selectedTags.size === 0) return [];
-    const postLists = Array.from(selectedTags)
-      .map(name => tags[name]?.items)
-      .filter(items => Array.isArray(items));
     
-    if (postLists.length === 0) return [];
+    // 這裡改為抓取完整的 post 物件而非只有 permalink
+    const lists = Array.from(selectedTags)
+      .map(name => tags[name]?.items || [])
+      .filter(items => items.length > 0);
+    
+    if (lists.length === 0) return [];
+
+    let result;
     if (isAnd) {
-      return postLists.reduce((a, b) => a.filter(c => b.includes(c)));
+      result = lists.reduce((a, b) => a.filter(postA => b.some(postB => postB.permalink === postA.permalink)));
+    } else {
+      const seen = new Set();
+      result = lists.flat().filter(post => {
+        if (seen.has(post.permalink)) return false;
+        seen.add(post.permalink);
+        return true;
+      });
     }
-    return [...new Set(postLists.flat())];
+    // 依照日期排序
+    return result.sort((a, b) => new Date(b.date) - new Date(a.date));
   }, [selectedTags, tags, isAnd]);
 
   return (
     <Layout title="熱門標籤">
       <main className="container margin-vert--lg">
-        <h1 style={{color: '#e3b341'}}>熱門標籤</h1>
+        <h1 style={{color: '#e3b341', fontWeight: '800'}}>熱門標籤</h1>
         
-        <div className="tags-dashboard" style={{background: '#1b1b1d', padding: '25px', borderRadius: '12px', border: '1px solid #333', marginBottom: '30px'}}>
-          <div style={{display: 'flex', gap: '10px', marginBottom: '20px'}}>
-            <input 
-              type="text" 
-              placeholder="搜尋標籤..." 
-              style={{flex: 1, padding: '12px', borderRadius: '6px', border: '1px solid #444', background: '#000', color: '#fff'}}
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            <button style={{padding: '0 20px', borderRadius: '6px', cursor: 'pointer', background: '#e3b341', color: '#000', fontWeight: 'bold', border: 'none'}} onClick={() => setSelectedTags(new Set())}>重置</button>
-          </div>
-
-          <div style={{display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px'}}>
-            <span style={{fontSize: '0.9rem', color: isAnd ? '#666' : '#e3b341'}}>聯集 (OR)</span>
+        <div style={{background: '#1b1b1d', padding: '30px', borderRadius: '15px', border: '1px solid #333', marginBottom: '40px'}}>
+          <div style={{display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '25px'}}>
             <label className="switch">
               <input type="checkbox" checked={isAnd} onChange={() => setIsAnd(!isAnd)} />
               <span className="slider"></span>
             </label>
-            <span style={{fontSize: '0.9rem', color: isAnd ? '#e3b341' : '#666'}}>交集 (AND)</span>
+            <span style={{color: '#888', fontSize: '0.9rem'}}>目前模式：<b>{isAnd ? '精確交集 (AND)' : '聯集搜尋 (OR)'}</b></span>
+            <button 
+              onClick={() => setSelectedTags(new Set())}
+              style={{marginLeft: 'auto', background: 'transparent', border: '1px solid #555', color: '#888', padding: '5px 15px', borderRadius: '5px', cursor: 'pointer'}}
+            >Reset</button>
           </div>
 
-          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: '15px'}}>
-            {filteredTags.map((tag) => {
-              const isSelected = selectedTags.has(tag.name);
+          <div style={{display: 'flex', flexWrap: 'wrap', gap: '10px'}}>
+            {allTags.map((tag) => {
+              const active = selectedTags.has(tag.name);
               return (
                 <div 
                   key={tag.name} 
                   onClick={() => toggleTag(tag.name)}
                   style={{
-                    padding: '15px',
-                    borderRadius: '8px',
-                    border: `2px solid ${isSelected ? '#e3b341' : '#333'}`,
-                    background: isSelected ? 'rgba(227, 179, 65, 0.1)' : 'transparent',
+                    padding: '8px 16px',
+                    borderRadius: '20px',
+                    border: `1px solid ${active ? '#e3b341' : '#444'}`,
+                    background: active ? 'rgba(227, 179, 65, 0.2)' : '#111',
+                    color: active ? '#e3b341' : '#aaa',
                     cursor: 'pointer',
-                    transition: '0.2s',
-                    position: 'relative'
+                    transition: '0.3s'
                   }}
                 >
-                  <div style={{color: isSelected ? '#e3b341' : '#ccc', fontWeight: 'bold'}}>{tag.label}</div>
-                  <div style={{fontSize: '0.8rem', color: '#666'}}>{tag.count} 篇</div>
+                  {tag.label} <small style={{opacity: 0.6, marginLeft: '5px'}}>{tag.count}</small>
                 </div>
               );
             })}
@@ -91,21 +89,22 @@ export default function BlogTagsListPage({tags}) {
 
         <div>
           {selectedTags.size > 0 ? (
-            <div style={{animation: 'fadeIn 0.5s'}}>
-              <h3>符合條件的文章 ({filteredPostsData.length})</h3>
-              <ul style={{listStyle: 'none', padding: 0}}>
-                {filteredPostsData.map(postPermalink => (
-                  <li key={postPermalink} style={{padding: '10px 0', borderBottom: '1px solid #222'}}>
-                    <Link to={postPermalink} style={{color: '#e3b341', textDecoration: 'none'}}>
-                      {postPermalink.split('/').pop().replace('.html', '')}
-                    </Link>
-                  </li>
+            <div>
+              <h2 style={{color: '#e3b341'}}>符合的文章 ({filteredPosts.length})</h2>
+              <div style={{display: 'grid', gap: '15px'}}>
+                {filteredPosts.map(post => (
+                  <Link key={post.permalink} to={post.permalink} style={{textDecoration: 'none'}}>
+                    <div style={{background: '#1b1b1d', padding: '20px', borderRadius: '10px', border: '1px solid #222'}}>
+                      <div style={{color: '#eee', fontSize: '1.2rem', fontWeight: 'bold'}}>{post.title}</div>
+                      <div style={{color: '#666', fontSize: '0.8rem', marginTop: '5px'}}>{new Date(post.date).toLocaleDateString()}</div>
+                    </div>
+                  </Link>
                 ))}
-              </ul>
+              </div>
             </div>
           ) : (
-            <div style={{textAlign: 'center', padding: '40px', border: '1px dashed #333', color: '#666', borderRadius: '12px'}}>
-              請點擊標籤開始過濾
+            <div style={{textAlign: 'center', color: '#444', padding: '100px 0'}}>
+              <h3>請從上方選擇標籤</h3>
             </div>
           )}
         </div>
