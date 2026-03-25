@@ -1,76 +1,99 @@
 /**
- * 🛠️ Kiwi Wiki 物理校正 - 刻度線版
+ * 🛠️ Kiwi Wiki Archive 最終精修版 - 工業刻度風
  */
 
 :root {
   --kiwi-primary: #e3b341; 
+  --kiwi-bg: #1b1b1d;
 }
 
 .archive-timeline {
   position: relative;
-  margin-left: 30px; 
-  border-left: 1px solid #333; /* 軸線變細，更優雅 */
-  padding: 20px 0;
+  margin-left: 50px; 
+  border-left: 2px solid #333;
+  padding: 40px 0;
 }
 
+/* 經典年份大圈圈回歸 */
 .archive-year-group {
   position: relative;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
 }
 
-/* 年份標題改為直接靠線 */
+.archive-year-node {
+  position: absolute;
+  left: -1px;
+  top: 1.8rem;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+  background: var(--kiwi-bg);
+  border: 4px solid var(--kiwi-primary);
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow: 0 0 10px rgba(227, 179, 65, 0.3);
+}
+
 .archive-year-header {
-  padding-left: 20px;
+  padding-left: 35px;
   color: var(--kiwi-primary);
   font-size: 2.5rem;
   font-weight: 900;
-  margin-bottom: 20px !important;
+  margin: 0;
 }
 
+/* 文章刻度線 + 實心點 */
 .archive-item {
   position: relative;
-  padding: 1rem 0 1rem 0; /* 移除原本的 padding */
+  padding: 1rem 0 1rem 0;
   list-style: none !important;
   display: flex;
   align-items: center;
 }
 
-/* 這裡就是你說的「畫線」：從軸線延伸出來的橫線 */
+/* 加長橫線，稍微凸出垂直軸 */
 .archive-item::before {
   content: "";
-  width: 20px; /* 線的長度 */
+  position: absolute;
+  left: -10px; /* 往左凸出垂直線 10px */
+  width: 35px;  /* 總長度確保跨越垂直軸 */
   height: 1px;
   background: #444;
-  margin-right: 15px; /* 線與日期的距離 */
-  display: inline-block;
+  z-index: 1;
 }
 
-.archive-item:hover::before {
-  background: var(--kiwi-primary);
-  width: 30px; /* 懸停時線變長 */
-  transition: 0.3s;
+/* 直線跟日期之間的實心點 */
+.archive-item::after {
+  content: "";
+  position: absolute;
+  left: 25px; /* 放在橫線末端附近 */
+  width: 6px;
+  height: 6px;
+  background: #666;
+  border-radius: 50%;
+  z-index: 2;
 }
+
+.archive-item:hover::before { background: var(--kiwi-primary); }
+.archive-item:hover::after { background: var(--kiwi-primary); box-shadow: 0 0 5px var(--kiwi-primary); }
 
 .archive-date {
   font-family: 'JetBrains Mono', monospace;
-  color: #555;
+  color: #666;
   font-size: 0.9rem;
-  min-width: 50px;
+  margin-left: 45px; /* 給橫線和點留空間 */
+  min-width: 60px;
 }
 
 .archive-link {
-  color: #bbb !important;
+  color: #ddd !important;
   font-size: 1.1rem;
-  margin-left: 10px;
   text-decoration: none;
-  transition: color 0.2s;
+  transition: 0.2s;
 }
 
 .archive-link:hover {
   color: var(--kiwi-primary) !important;
-}
-
-/* 移除之前所有的年份圓圈樣式 */
-.archive-year-node {
-  display: none !important;
+  transform: translateX(5px);
+  display: inline-block;
 }
