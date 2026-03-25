@@ -1,73 +1,63 @@
 /**
- * 🛠️ Kiwi Wiki 旗艦版整合樣式
- * 琥珀金配色 + NexT 時間軸 (對齊修正) + Showcase Tags 卡片
+ * 🛠️ Kiwi Wiki 旗艦版 - 百寶袋奪回計畫版
+ * 琥珀金配色 + 絕對對齊線條 + 穩定顯示卡片
  */
 
 :root {
-  /* 視覺研究推薦：琥珀金，在深色模式下最具高級感且不刺眼 */
+  /* 琥珀金：#e3b341，這才是洗鍊的感覺 */
   --kiwi-primary: #e3b341; 
   --ifm-color-primary: var(--kiwi-primary);
   --ifm-link-color: var(--kiwi-primary);
 }
 
 /* ============================================================
-   SECTION 1: Archive 歸檔頁面 (NexT 時間軸)
+   ARCHIVE - NexT 時間軸 (絕對對齊版)
    ============================================================ */
+
+/* 確保容器居中，年份不偏左 */
 .archive-page-main {
-  display: flex !important;
-  justify-content: center !important;
-  padding: 2rem 0;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 20px;
 }
 
-.archive-page-wrapper {
-  width: 100%;
-  max-width: 800px;
-  padding: 0 20px;
-}
-
-/* 時間軸容器：這條左邊框就是那條「線」 */
+/* 時間軸總容器 */
 .archive-timeline-content {
   position: relative;
-  margin-left: 20px; /* 整體向右微調，避免年份太偏左 */
-  padding-left: 40px;
-  border-left: 2px solid rgba(255, 255, 255, 0.1); /* 這是你的垂直基準線 */
+  padding-left: 50px; /* 線條離左側的距離 */
+  border-left: 2px solid rgba(255, 255, 255, 0.1); /* 垂直線主體 */
+  margin-left: 10px;
 }
 
-/* 年份大圓圈 */
+/* 年份標題：改用絕對定位處理圓點，避免計算誤差 */
 .archive-year-title {
   position: relative;
-  margin-left: -53px; /* 精準回推：40px padding + 13px (圓半徑+修正) */
-  margin-top: 50px;
-  margin-bottom: 25px;
-  padding-left: 35px;
-  background: var(--ifm-background-color); 
-  display: inline-block;
-  font-size: 1.8rem;
+  margin: 50px 0 30px 0;
+  font-size: 2rem;
   font-weight: 800;
   color: var(--kiwi-primary);
-  z-index: 2;
+  display: block;
 }
 
+/* 年份大圓點：直接壓在 border-left 上 */
 .archive-year-title::before {
   content: "";
   position: absolute;
-  /* 讓 14px 寬的圓圈中心點，完美壓在 2px 的邊框線上 */
-  left: 5px; 
+  /* 50px (padding) + 1px (半條線寬) = 51px，圓寬 14px，所以 left 為 -57px */
+  left: -57.5px; 
   top: 50%;
   transform: translateY(-50%);
-  width: 14px;
-  height: 14px;
+  width: 15px;
+  height: 15px;
   background: var(--ifm-background-color);
   border: 3px solid var(--kiwi-primary);
   border-radius: 50%;
-  z-index: 3;
+  z-index: 5;
 }
 
-/* 文章條目與小圓點 */
 .archive-list {
   list-style: none !important;
   padding: 0 !important;
-  margin: 0 !important;
 }
 
 .archive-item {
@@ -76,18 +66,19 @@
   border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
 }
 
+/* 文章小圓點：同樣直接壓在線上面 */
 .archive-item::before {
   content: "";
   position: absolute;
-  /* 鎖定小圓點在線上：-40px padding + 修正位移 */
-  left: -45px; 
+  /* 線在 left 0，圓寬 10px，所以推 -54px (50+4) */
+  left: -55px;
   top: 1.6rem;
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   background: #555;
   border-radius: 50%;
   border: 2px solid var(--ifm-background-color);
-  z-index: 1;
+  z-index: 4;
 }
 
 .archive-item:hover::before {
@@ -98,11 +89,12 @@
 .archive-date {
   font-family: monospace;
   color: #888;
-  margin-right: 15px;
+  margin-right: 1.5rem;
+  font-size: 1rem;
 }
 
 .archive-link {
-  color: var(--ifm-font-color-base) !important;
+  color: #eee !important; /* 一般文字淺灰色，Hover 變金色 */
   text-decoration: none !important;
 }
 
@@ -111,45 +103,47 @@
 }
 
 /* ============================================================
-   SECTION 2: Tags 頁面 (Showcase 卡片佈局)
+   TAGS - 官方 Showcase 風格 (強制卡片化)
    ============================================================ */
+
 .tag-card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.5rem;
-  padding: 1rem 0;
+  /* 強制卡片不要縮小到不見 */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 2rem 0;
+  list-style: none !important;
 }
 
 .tag-card-item {
-  background: #1b1b1d;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #1b1b1d !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 2rem;
   text-decoration: none !important;
   transition: all 0.3s ease;
-  display: flex;
+  display: flex !important;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 .tag-card-item:hover {
   transform: translateY(-5px);
-  border-color: var(--kiwi-primary);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  border-color: var(--kiwi-primary) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .tag-card-name {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: bold;
-  color: var(--kiwi-primary);
-  margin-bottom: 0.5rem;
+  color: var(--kiwi-primary) !important;
+  margin-bottom: 10px;
 }
 
 .tag-card-count {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: #888;
   background: rgba(255, 255, 255, 0.05);
-  padding: 2px 12px;
+  padding: 4px 15px;
   border-radius: 20px;
 }
