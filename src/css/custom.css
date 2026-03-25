@@ -1,20 +1,16 @@
 /**
- * 🛠️ Kiwi Wiki 旗艦整合版
- * 琥珀金配色 + NexT 時間軸 (對齊鎖定) + Showcase Tags 卡片 (功能鎖定)
+ * 🛠️ Kiwi Wiki 旗艦整合版 - 2026 最終對齊修正
  */
 
 :root {
-  /* 琥珀金：#e3b341，這才是洗鍊的感覺 */
   --kiwi-primary: #e3b341; 
   --ifm-color-primary: var(--kiwi-primary);
   --ifm-link-color: var(--kiwi-primary);
 }
 
 /* ============================================================
-   SECTION 1: Archive 歸檔頁面 (NexT 時間軸 - 對齊鎖定版)
+   SECTION 1: Archive 歸檔頁面 (NexT 時間軸精準對齊)
    ============================================================ */
-
-/* 1.1 全域佈局 */
 .archive-page-main {
   display: flex !important;
   justify-content: center !important;
@@ -23,59 +19,46 @@
 
 .archive-page-wrapper {
   width: 100%;
-  max-width: 800px; /* 窄一點更有 NexT 的質感 */
+  max-width: 800px;
   padding: 0 20px;
 }
 
-.archive-header {
-  margin-bottom: 3rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  padding-bottom: 1rem;
-}
-
-/* 1.2 核心時間軸：那條垂直線 */
-/* 我們直接將 border-left 設在這個容器上，這就是你的垂直基準線 */
 .archive-timeline {
   position: relative;
-  /* 這裡控制線條在頁面上的整體位置 */
-  margin-left: 20px; 
-  padding-left: 40px; /* 線條與文字的距離 */
-  border-left: 2px solid rgba(255, 255, 255, 0.1); 
+  margin-left: 30px; 
+  padding-left: 40px;
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+  min-height: 400px;
 }
 
-/* 1.3 年份樣式 (大節點) */
 .archive-year-title {
   position: relative;
-  /* 精準對齊關鍵：往左推回線上 (40px) 加上一點點修正量 */
-  margin-left: -53px; 
-  margin-top: 50px;
-  margin-bottom: 25px;
-  padding-left: 35px; /* 文字離圓圈的距離 */
-  background: var(--ifm-background-color); /* 用背景色蓋住後面的線 */
+  /* 關鍵位移：往左拉回並覆蓋基準線 */
+  margin: 60px 0 30px -73px !important; 
+  padding-left: 35px;
+  background: var(--ifm-background-color); 
   display: inline-block;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 800;
   color: var(--kiwi-primary);
-  z-index: 2; /* 確保在線上面 */
+  z-index: 5;
 }
 
-/* 年份旁邊的空心圓點 (14px x 14px) */
+/* 年份空心大圓圈 */
 .archive-year-title::before {
   content: "";
   position: absolute;
-  /* 讓 14px 寬的圓圈中心點，完美壓在 2px 的邊框線上 */
-  left: 5px; 
+  left: 0px; 
   top: 50%;
   transform: translateY(-50%);
-  width: 14px;
-  height: 14px;
+  width: 20px;
+  height: 20px;
   background: var(--ifm-background-color);
-  border: 3px solid var(--kiwi-primary);
+  border: 4px solid var(--kiwi-primary);
   border-radius: 50%;
-  z-index: 3;
+  z-index: 10;
 }
 
-/* 1.4 文章清單與小圓點 (徹底拔掉預設點點) */
 .archive-list {
   list-style: none !important;
   padding: 0 !important;
@@ -86,25 +69,22 @@
   position: relative;
   padding: 1.2rem 0;
   border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
-  transition: background 0.2s ease;
 }
 
-/* 文章實心小圓點 (10px x 10px) */
+/* 文章實心小圓點：精準壓線 */
 .archive-item::before {
   content: "";
   position: absolute;
-  /* 鎖定小圓點在線上：-40px padding + 修正位移 */
-  left: -45px; 
-  top: 1.6rem;
+  left: -46px; 
+  top: 22px;
   width: 10px;
   height: 10px;
-  background: var(--ifm-color-emphasis-400);
+  background: #666;
   border-radius: 50%;
   border: 2px solid var(--ifm-background-color);
   z-index: 1;
 }
 
-/* Hover 效果：點點變亮、文字變色 */
 .archive-item:hover::before {
   background: var(--kiwi-primary);
   box-shadow: 0 0 10px var(--kiwi-primary);
@@ -112,66 +92,71 @@
 
 .archive-date {
   font-family: var(--ifm-font-family-monospace);
-  font-size: 0.95rem;
   color: #888;
   margin-right: 1.5rem;
 }
 
-.archive-link {
-  color: var(--ifm-font-color-base) !important;
-  text-decoration: none !important;
-  font-weight: 500;
-}
-
-.archive-link:hover {
-  color: var(--kiwi-primary) !important;
-}
-
 /* ============================================================
-   SECTION 2: Tags 頁面 (Showcase 功能與 UI)
+   SECTION 2: Tags 頁面 (Showcase 2.0 多列過濾版)
    ============================================================ */
-.showcase-controls {
+.tags-dashboard {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
   margin-bottom: 2rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 2rem;
 }
 
-.showcase-filters-bar {
+.tags-search-row {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 25px;
 }
 
-/* 搜尋框樣式 */
 .showcase-search-input {
+  flex: 1;
   background: #1b1b1d !important;
   border: 1px solid var(--kiwi-primary) !important;
   color: white !important;
-  padding: 10px 20px !important;
+  padding: 12px 20px !important;
   border-radius: 8px;
-  width: 300px;
   outline: none;
 }
 
-/* OR/AND 切換開關 */
-.operator-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: bold;
-  font-size: 0.8rem;
+.tag-clear-btn {
+  background: #333;
   color: #eee;
+  border: 1px solid #444;
+  padding: 0 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-weight: bold;
 }
 
-.active-op { color: var(--kiwi-primary); }
+.tag-clear-btn:hover {
+  background: #ff4757;
+  border-color: #ff4757;
+  color: white;
+}
+
+/* AND/OR 開關樣式 */
+.tags-logic-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.active-logic { color: var(--kiwi-primary); }
 
 .switch {
   position: relative;
   display: inline-block;
-  width: 42px;
-  height: 22px;
+  width: 46px;
+  height: 24px;
 }
 
 .switch input { opacity: 0; width: 0; height: 0; }
@@ -182,13 +167,13 @@
   top: 0; left: 0; right: 0; bottom: 0;
   background-color: #444;
   transition: .4s;
-  border-radius: 20px;
+  border-radius: 24px;
 }
 
 .slider:before {
   position: absolute;
   content: "";
-  height: 16px; width: 16px;
+  height: 18px; width: 18px;
   left: 3px; bottom: 3px;
   background-color: white;
   transition: .4s;
@@ -196,12 +181,60 @@
 }
 
 input:checked + .slider { background-color: var(--kiwi-primary); }
-input:checked + .slider:before { transform: translateX(20px); }
+input:checked + .slider:before { transform: translateX(22px); }
 
-/* 卡片網格與樣式 (強制卡片化) */
+/* 多列標籤卡片網格 */
 .tag-card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
-  padding: 1rem 0;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+.tag-big-card {
+  background: #1b1b1d;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tag-big-card:hover {
+  border-color: var(--kiwi-primary);
+  transform: translateY(-2px);
+}
+
+.tag-big-card.selected {
+  background: rgba(227, 179, 65, 0.1);
+  border-color: var(--kiwi-primary);
+  box-shadow: 0 0 15px rgba(227, 179, 65, 0.2);
+}
+
+.tag-card-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--kiwi-primary);
+  margin-bottom: 4px;
+}
+
+.tag-card-count {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+/* 下方清單 Frame 效果 */
+.tag-results-frame {
+  min-height: 250px;
+  background: #111;
+  border: 2px dashed #333;
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin-top: 1rem;
+}
+
+.empty-state {
+  color: #666;
+  text-align: center;
+  font-style: italic;
 }
