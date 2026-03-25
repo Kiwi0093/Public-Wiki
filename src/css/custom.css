@@ -1,35 +1,34 @@
 /**
- * 🛠️ Kiwi Wiki 旗艦整合版 - 物理鎖定修復版
+ * 🛠️ Kiwi Wiki 物理校正終極版
  */
 
 :root {
   --kiwi-primary: #e3b341; 
   --ifm-color-primary: var(--kiwi-primary);
-  --ifm-link-color: var(--kiwi-primary);
 }
 
-/* --- Archive 物理對齊 --- */
+/* --- Archive 垂直軸 --- */
 .archive-timeline {
   position: relative;
   margin-left: 50px; 
   border-left: 2px solid rgba(255, 255, 255, 0.1);
-  padding-left: 0;
+  padding: 10px 0;
 }
 
 .archive-year-group {
   position: relative;
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
-/* 年份大圓圈 - 物理鎖定 */
+/* 大圓圈：鎖定在文字第一行的高度中心 */
 .archive-year-node {
   position: absolute;
-  /* 2px 線的中心是 1px，22px 圓的一半是 11px，所以 left 是 -10px 或 -11px */
   left: -11px; 
-  top: 1.5rem;
+  top: 1.5rem; /* 與 header 的 line-height 配合 */
+  transform: translateY(-50%);
   width: 22px;
   height: 22px;
-  background: #1b1b1d; /* 遮住背景線 */
+  background: #1b1b1d;
   border: 4px solid var(--kiwi-primary);
   border-radius: 50%;
   z-index: 10;
@@ -38,16 +37,17 @@
 
 .archive-year-header {
   padding-left: 40px;
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 800;
   color: var(--kiwi-primary);
-  margin-bottom: 20px;
+  margin: 0 !important;
+  line-height: 3rem; /* 確保高度恆定 */
 }
 
 .archive-list {
   list-style: none !important;
   padding: 0 !important;
-  margin: 0 !important;
+  margin: 1rem 0 0 0 !important;
 }
 
 .archive-item {
@@ -55,12 +55,12 @@
   padding: 1rem 0 1rem 40px;
 }
 
-/* 小圓點 */
+/* 小圓點：同樣鎖定 1.5rem 的位置 */
 .archive-item::before {
   content: "";
   position: absolute;
-  left: -5px; /* (10px 寬度的一半加上線寬校正) */
-  top: 50%;
+  left: -5px; 
+  top: 1.5rem; 
   transform: translateY(-50%);
   width: 10px;
   height: 10px;
@@ -75,31 +75,21 @@
   box-shadow: 0 0 8px var(--kiwi-primary);
 }
 
-/* --- Tags 佈局 --- */
-.tags-dashboard {
-  background: rgba(255, 255, 255, 0.02);
-  padding: 2rem;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+/* --- Tags Switch UI --- */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
 }
-
-.tag-card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 15px;
-  margin-top: 20px;
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+  position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #444; transition: .4s; border-radius: 20px;
 }
-
-.tag-big-card {
-  background: #1b1b1d;
-  border: 1px solid #333;
-  padding: 15px;
-  border-radius: 10px;
-  text-align: center;
-  cursor: pointer;
+.slider:before {
+  position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px;
+  background-color: white; transition: .4s; border-radius: 50%;
 }
-
-.tag-big-card.selected {
-  border-color: var(--kiwi-primary);
-  background: rgba(227, 179, 65, 0.1);
-}
+input:checked + .slider { background-color: var(--kiwi-primary); }
+input:checked + .slider:before { transform: translateX(20px); }
