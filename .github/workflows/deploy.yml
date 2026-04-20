@@ -49,6 +49,8 @@ jobs:
           # 執行 build 前先清快取，確保讀到 Python 改過的最新硬碟檔案
           npx docusaurus clear
           npm run build
+        env:
+          PROGRESS: false  # 關鍵：這會叫 Docusaurus 不要加載出問題的 ProgressPlugin
 
       - name: 🚀 Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
