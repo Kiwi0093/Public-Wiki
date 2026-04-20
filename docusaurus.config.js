@@ -7,8 +7,16 @@ const config = {
   url: 'https://kiwi0093.github.io', 
   baseUrl: '/Public-Wiki/',           
   onBrokenLinks: 'ignore',
-  onBrokenMarkdownLinks: 'ignore',
   
+  // 修正：將過時的選項搬移至 markdown.hooks
+  markdown: {
+    format: 'mdx',
+    mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: 'ignore',
+    }
+  },
+
   i18n: {
     defaultLocale: 'zh-Hant',
     locales: ['zh-Hant'],
@@ -47,16 +55,8 @@ const config = {
     navbar: {
       title: 'Kiwi Wiki',
       items: [
-        {
-          to: '/tags',
-          label: 'Tags',
-          position: 'left',
-        },
-        {
-          to: '/archive',
-          label: 'Archives',
-          position: 'left',
-        },
+        { to: '/tags', label: 'Tags', position: 'left' },
+        { to: '/archive', label: 'Archives', position: 'left' },
         {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
