@@ -4,9 +4,6 @@ on:
     branches: [main]
   workflow_dispatch:
 
-#env:
-#  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -24,7 +21,6 @@ jobs:
       - name: 📂 Prepare Folders (搬移 Wiki 和 Blog)
         run: |
           mkdir -p docs blog static/img
-          # 搬移檔案 (這部分維持你的邏輯)
           find . -type d -iname "Wiki" -not -path "./docs*" -exec cp -R {}/. ./docs/ \; 2>/dev/null || true
           find . -type d -iname "Blog" -not -path "./blog*" -exec cp -R {}/. ./blog/ \; 2>/dev/null || true
 
@@ -33,10 +29,12 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: 🐍 終極修復：由 Python 統一處理所有 MDX 語法
+      - name: 🐍 MDX Syntax Fix
         run: |
-          # 我們把之前的 sed 邏輯全部整合進 fix-mdx.py
-          python3 fix-mdx.py
+          # 確保專案根目錄有這個 fix-mdx.py
+          if [ -f "fix-mdx.py" ]; then
+            python3 fix-mdx.py
+          fi
 
       - name: 🟢 Setup Node
         uses: actions/setup-node@v4
@@ -47,8 +45,13 @@ jobs:
         run: |
           npm install
           npx docusaurus clear
-          npm run build
-          
+          # 關鍵修復：DBAR=false 停用 WebpackBar，PROGRESS=false 停用內建進度條
+          DBAR=false PROGRESS=false npm run build -- --locale zh-Hant
+        env:
+          PROGRESS: false
+          DBAR: false
+          NODE_OPTIONS: "--no-warnings"
+      
       - name: 🚀 Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
