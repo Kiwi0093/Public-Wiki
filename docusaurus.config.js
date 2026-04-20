@@ -70,26 +70,6 @@ const config = {
       copyright: `Copyright © ${new Date().getFullYear()} Kiwi Wiki. Built with Docusaurus.`,
     },
   },
-
-  // 🛠️ 終極修復：將 configureWebpack 包裝成符合 v3 規範的本地插件
-  plugins: [
-    function removeProgressPlugin() {
-      return {
-        name: 'remove-progress-plugin',
-        configureWebpack(config) {
-          // 取得原本的 plugins 陣列，若無則給空陣列
-          const currentPlugins = config.plugins || [];
-          
-          return {
-            plugins: currentPlugins.filter((plugin) => {
-              // 加上防呆機制：確保 plugin 有 constructor 屬性，避免 null reference 報錯
-              return plugin && plugin.constructor && plugin.constructor.name !== 'ProgressPlugin';
-            }),
-          };
-        },
-      };
-    },
-  ],
 };
 
 module.exports = config;
