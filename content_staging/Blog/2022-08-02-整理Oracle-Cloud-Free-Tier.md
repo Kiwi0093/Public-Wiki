@@ -7,7 +7,6 @@ tags:
   - Old-Blog
 slug: 2022/08/sort+OCI+free
 description: 免錢的也是要顧
-image:
 ---
 
 >  :::info 

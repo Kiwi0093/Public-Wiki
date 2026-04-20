@@ -7,7 +7,6 @@ tags:
   - Old-Blog
 slug: 2023/07/new+working+nb
 description: 新的玩具,而且是公司出錢的
-image:
 ---
 
 >  :::info 

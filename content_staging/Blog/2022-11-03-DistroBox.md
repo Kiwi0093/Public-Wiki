@@ -7,7 +7,6 @@ tags:
   - Old-Blog
 slug: 2022/11/distrobox
 description: 這玩意真屌
-image:
 ---
 
 >  :::info 

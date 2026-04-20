@@ -7,7 +7,6 @@ tags:
   - Old-Blog
 slug: 2022/10/amazing+kde
 description: 傑克, 這真的太神奇了
-image:
 ---
 
 >  :::info 

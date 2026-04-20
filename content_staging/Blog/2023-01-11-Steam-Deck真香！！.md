@@ -7,7 +7,6 @@ tags:
   - Old-Blog
 slug: 2023/01/steam+deck+great
 description: G胖你真是好樣的
-image:
 ---
 
 >  :::info 

@@ -8,7 +8,6 @@ tags:
   - Old-Blog
 slug: 2022/01/Oracle+cloud
 description: 佛心的雲端供應商
-image:
 ---
 
 

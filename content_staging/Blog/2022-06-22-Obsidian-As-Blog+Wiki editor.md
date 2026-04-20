@@ -7,7 +7,6 @@ tags:
   - Old-Blog
 slug: 2022/06/obsidian+blog+editor
 description: 使用obsidian當主編輯器
-image:
 ---
 
 >  :::info 

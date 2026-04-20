@@ -7,7 +7,6 @@ tags:
   - Old-Blog
 slug: 2022/07/Ansible+again
 description: 永不放棄的ansible
-image:
 ---
 
 >  :::info 

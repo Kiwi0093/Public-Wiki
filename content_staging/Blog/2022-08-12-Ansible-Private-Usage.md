@@ -7,7 +7,6 @@ tags:
   - Old-Blog
 slug: 2022/08/ansible+private+usage
 description: 私人用途
-image:
 ---
 
 >  :::info 

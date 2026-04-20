@@ -7,7 +7,6 @@ tags:
   - Old-Blog
 slug: 2022/07/isso+again
 description: 不死心的評論系統
-image:
 ---
 
 >  :::info 

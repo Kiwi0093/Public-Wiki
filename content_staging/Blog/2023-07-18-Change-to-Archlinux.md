@@ -6,7 +6,6 @@ tags:
   - Old-Blog
 slug: 2023/07/change+archlinux
 description: 皈依Archlinux
-image:
 ---
 
 >  :::info 

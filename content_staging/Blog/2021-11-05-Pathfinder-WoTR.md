@@ -6,7 +6,6 @@ tags:
   - Old-Blog
 slug: 2021/11/Pathfiner+WoTR
 description: CRPG:我喜歡的類DND
-image:
 ---
 
 >  :::info 

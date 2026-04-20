@@ -7,7 +7,6 @@ tags:
   - Old-Blog
 slug: 2024/01/new+server+device
 description: 新玩具～～～
-image:
 ---
 >  :::info 
 > 本文轉載自舊站存檔。

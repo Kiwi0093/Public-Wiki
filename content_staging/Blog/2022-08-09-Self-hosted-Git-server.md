@@ -7,7 +7,6 @@ tags:
   - Old-Blog
 slug: 2022/08/self+hosted+git+server
 description: 自己動手豐衣足食
-image:
 ---
 
 >  :::info 

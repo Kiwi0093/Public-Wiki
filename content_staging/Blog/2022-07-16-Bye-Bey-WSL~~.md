@@ -7,7 +7,6 @@ tags:
   - Old-Blog
 slug: 2022/07/bye+WSL
 description: 再會了
-image:
 ---
 
 >  :::info 

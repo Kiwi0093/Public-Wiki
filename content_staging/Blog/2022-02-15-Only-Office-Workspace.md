@@ -8,7 +8,6 @@ tags:
   - Old-Blog
 slug: 2022/02/only+office
 description: open office
-image:
 ---
 
 >  :::info 
