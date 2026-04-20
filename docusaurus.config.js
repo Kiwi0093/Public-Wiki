@@ -71,17 +71,25 @@ const config = {
     },
   },
 
-  // 🛠️ 終極修復：攔截 Webpack 配置並移除導致崩潰的 ProgressPlugin
-  configureWebpack: (config, isServer, utils) => {
-    return {
-      plugins: (config.plugins || []).filter(
-        (plugin) => {
-          // 檢查插件的建構函式名稱，排除掉 ProgressPlugin
-          return plugin.constructor.name !== 'ProgressPlugin';
-        }
-      ),
-    };
-  },
+  // 🛠️ 終極修復：將 configureWebpack 包裝成符合 v3 規範的本地插件
+  plugins: [
+    function removeProgressPlugin() {
+      return {
+        name: 'remove-progress-plugin',
+        configureWebpack(config) {
+          // 取得原本的 plugins 陣列，若無則給空陣列
+          const currentPlugins = config.plugins || [];
+          
+          return {
+            plugins: currentPlugins.filter((plugin) => {
+              // 加上防呆機制：確保 plugin 有 constructor 屬性，避免 null reference 報錯
+              return plugin && plugin.constructor && plugin.constructor.name !== 'ProgressPlugin';
+            }),
+          };
+        },
+      };
+    },
+  ],
 };
 
 module.exports = config;
