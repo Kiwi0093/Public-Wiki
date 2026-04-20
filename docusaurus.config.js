@@ -27,9 +27,7 @@ const config = {
         },
         blog: {
           routeBasePath: '/', 
-          path: 'blog', // 確保指向你的 blog 目錄
-          //archiveBasePath: 'archive', // 這是正名運動的關鍵！
-          //archivePerPage: 1,
+          path: 'blog',
           showReadingTime: true,
           blogTitle: '大叔的自言自語',
           blogDescription: 'Kiwi自言自語,一個中年男性宣洩自己壓力的地方',
@@ -49,12 +47,6 @@ const config = {
     navbar: {
       title: 'Kiwi Wiki',
       items: [
-//        {
-//          to: '/', 
-//          label: 'Home', 
-//          position: 'left',
-//          activeBaseRegex: '^/$',
-//        },
         {
           to: '/tags',
           label: 'Tags',
@@ -77,6 +69,18 @@ const config = {
       style: 'dark',
       copyright: `Copyright © ${new Date().getFullYear()} Kiwi Wiki. Built with Docusaurus.`,
     },
+  },
+
+  // 🛠️ 終極修復：攔截 Webpack 配置並移除導致崩潰的 ProgressPlugin
+  configureWebpack: (config, isServer, utils) => {
+    return {
+      plugins: (config.plugins || []).filter(
+        (plugin) => {
+          // 檢查插件的建構函式名稱，排除掉 ProgressPlugin
+          return plugin.constructor.name !== 'ProgressPlugin';
+        }
+      ),
+    };
   },
 };
 
