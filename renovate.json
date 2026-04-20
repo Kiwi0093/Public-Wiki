@@ -1,0 +1,22 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "timezone": "Asia/Taipei",
+  "schedule": ["at any time"],
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["@docusaurus/*"],
+      "groupName": "docusaurus packages",
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchCurrentVersion": "!/^0/",
+      "automerge": true
+    }
+  ],
+  "labels": ["dependencies", "automated-pr"]
+}
