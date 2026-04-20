@@ -47,12 +47,8 @@ jobs:
         run: |
           npm install
           npx docusaurus clear
-          # 直接在指令前加上變數，並明確指定編譯語系（避免它在語系切換時迷路）
-          PROGRESS=false npm run build -- --locale zh-Hant
-        env:
-          PROGRESS: false
-          NODE_OPTIONS: "--no-warnings" # 順便減少 Node v22 的警告干擾
-      
+          npm run build
+          
       - name: 🚀 Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
