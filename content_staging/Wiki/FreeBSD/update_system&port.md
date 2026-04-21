@@ -9,9 +9,11 @@ description: FreeBSD的系統/安裝包升級方法
 
 
 
-:::info []
-<img src='https://img.shields.io/badge/Status-Active-A8FF24? style="for-the-badge&labelWidth=100"' height='38' />
-:::
+><img src='https://img.shields.io/badge/Status-Active-A8FF24? style="for-the-badge&labelW idth="100""' height='38' />
+>
+
+![FreeBSD](https://img.shields.io/badge/FreeBSD-Supported-green?style=plastic&logo=freebsd)
+
 
 <!--truncate-->
 
