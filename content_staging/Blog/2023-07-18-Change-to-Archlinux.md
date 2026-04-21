@@ -45,13 +45,13 @@ description: 皈依Archlinux
   # 定義wheel群組的User都可以sudo
   [root@wsl]$ echo "%wheel ALL=(ALL) ALL" > /etc/sudoers.d/wheel
   # 建立一個{username}帳號,並且屬於wheel群組
-  [root@wsl]$ useradd -m -G wheel -s /bin/bash {username}
+  [root@wsl]$ useradd -m -G wheel -s /bin/bash `{username}`
   ```
 
 * 需要設定預設的user為{username},這個操作得在WSL外面
   
   ```bash
-  [User@Windows]$ Arch.exe config --default-user {username}
+  [User@Windows]$ Arch.exe config --default-user `{username}`
   ```
 
 # Archlinux Guest in Virtualbox
