@@ -11,7 +11,7 @@ image:
 
 
 :::info []
-<img src="https://img.shields.io/badge/Status-Active-A8FF24? style="for-the-badge&labelWidth=100"" height="38" />
+<img src="https://img.shields.io/badge/Status-Active-A8FF24? style="for-the-badge&labelWidth=100"" height= "38" />
 :::
 
 ### FreeBSD指令,用來update system, port, and packages
