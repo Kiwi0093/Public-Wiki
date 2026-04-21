@@ -61,10 +61,6 @@ const config = {
     navbar: {
       title: 'Kiwi Wiki',
       // 加入 Navbar Logo (奇威鳥)
-      logo: {
-        alt: 'Kiwi Logo',
-        src: 'https://api.iconify.design/fluent-emoji-flat:kiwi-bird.svg?color=%234EAA25',
-      },
       items: [
         { to: '/tags', label: 'Tags', position: 'left' },
         { to: '/archive', label: 'Archives', position: 'left' },
