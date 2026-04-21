@@ -93,8 +93,8 @@ const config = {
       ],
       // 這裡改用字串定義主題，Docusaurus 3.x 會自動從內建預設中尋找
       // 這樣就不會因為 require 找不到路徑或變數未定義而崩潰
-      theme: { plain: {}, styles: [] }, // 先預設空，或保持預設
-      darkTheme: { plain: {}, styles: [] },
+      //theme: { plain: {}, styles: [] }, // 先預設空，或保持預設
+      //darkTheme: { plain: {}, styles: [] },
     },
   },
 };
