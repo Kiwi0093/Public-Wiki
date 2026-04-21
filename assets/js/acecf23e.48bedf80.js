@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkkiwi_wiki=self.webpackChunkkiwi_wiki||[]).push([[1903],{1912(i){i.exports=JSON.parse('{"blogBasePath":"/Public-Wiki/","blogTitle":"\u5927\u53d4\u7684\u81ea\u8a00\u81ea\u8a9e","authorsListPath":"/Public-Wiki/authors"}')}}]);

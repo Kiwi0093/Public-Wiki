@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkkiwi_wiki=self.webpackChunkkiwi_wiki||[]).push([[7476],{3457(i){i.exports=JSON.parse('{"label":"Game","permalink":"/Public-Wiki/tags/game","allTagsPath":"/Public-Wiki/tags","count":1,"unlisted":false}')}}]);

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-Hant" dir="ltr" class="blog-wrapper blog-post-page plugin-blog plugin-id-default" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.0">
+<title data-rh="true">Ansible Private Usage | Kiwi Reich</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://kiwi0093.github.io/Public-Wiki/2022/08/ansible+private+usage"><meta data-rh="true" property="og:locale" content="zh_Hant"><meta data-rh="true" name="docusaurus_locale" content="zh-Hant"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="zh-Hant"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="Ansible Private Usage | Kiwi Reich"><meta data-rh="true" name="description" content="私人用途"><meta data-rh="true" property="og:description" content="私人用途"><meta data-rh="true" property="og:type" content="article"><meta data-rh="true" property="article:published_time" content="2022-08-12T00:00:00.000Z"><meta data-rh="true" property="article:tag" content="Linux,Life,Old-Blog"><link data-rh="true" rel="canonical" href="https://kiwi0093.github.io/Public-Wiki/2022/08/ansible+private+usage"><link data-rh="true" rel="alternate" href="https://kiwi0093.github.io/Public-Wiki/2022/08/ansible+private+usage" hreflang="zh-Hant"><link data-rh="true" rel="alternate" href="https://kiwi0093.github.io/Public-Wiki/2022/08/ansible+private+usage" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","@id":"https://kiwi0093.github.io/Public-Wiki/2022/08/ansible+private+usage","mainEntityOfPage":"https://kiwi0093.github.io/Public-Wiki/2022/08/ansible+private+usage","url":"https://kiwi0093.github.io/Public-Wiki/2022/08/ansible+private+usage","headline":"Ansible Private Usage","name":"Ansible Private Usage","description":"私人用途","datePublished":"2022-08-12T00:00:00.000Z","author":[],"keywords":[],"isPartOf":{"@type":"Blog","@id":"https://kiwi0093.github.io/Public-Wiki/","name":"大叔的自言自語"}}</script><link rel="alternate" type="application/rss+xml" href="/Public-Wiki/rss.xml" title="Kiwi Reich RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/Public-Wiki/atom.xml" title="Kiwi Reich Atom Feed"><link rel="stylesheet" href="/Public-Wiki/assets/css/styles.488f9456.css">
+<script src="/Public-Wiki/assets/js/runtime~main.4e559621.js" defer="defer"></script>
+<script src="/Public-Wiki/assets/js/main.99e45bfc.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="跳至主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳至主要内容</a></div><nav aria-label="主導航" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切換導覽列" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/Public-Wiki/"><b class="navbar__title text--truncate">Kiwi Wiki</b></a><a class="navbar__item navbar__link" href="/Public-Wiki/tags">Tags</a><a class="navbar__item navbar__link" href="/Public-Wiki/archive">Archives</a><a class="navbar__item navbar__link" href="/Public-Wiki/docs/">Wiki 知識庫</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切換淺色/深色模式（當前為system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="container margin-vert--lg"><div class="row"><main class="col col--9 col--offset-1"><article class=""><header><h1 class="title_f1Hy">Ansible Private Usage</h1><div class="container_mt6G margin-vert--md"><time datetime="2022-08-12T00:00:00.000Z">2022年8月12日</time> · <!-- -->閱讀時間約 2 分鐘</div></header><div id="__blog-post-container" class="markdown"><blockquote>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>資訊</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
+</blockquote>
+<p>玩了幾  天的Ansible後針對私人使用用途有一點感想   </p>
+<h1>概念</h1>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="about-ansible">About Ansible<a href="#about-ansible" class="hash-link" aria-label="About Ansible的直接連結" title="About Ansible的直接連結" translate="no">​</a></h2>
+<p>老實說，Ansible真的是個很強大的工具，而且還有眾多的社群在後面默默的付出，以便在<code>Github</code>上有許多可以參考借鑒的<code>playbook</code></p>
+<p>能順利的進行方案測試真的要感謝以下兩個參考資料</p>
+<ul>
+<li class="">
+<p>Ansible 教學系列影片 by Learn Linux TV
+<a href="https://www.youtube.com/watch?v=3RiVKs8GHYQ&amp;list=PLT98CRl2KxKEUHie1m24-wkyHpEsa4Y70" target="_blank" rel="noopener noreferrer" class=""><img decoding="async" loading="lazy" src="http://img.youtube.com/vi/3RiVKs8GHYQ/sddefault.jpg" alt="Getting started with Ansible 01 - Introduction - YouTube" class="img_ev3q"></a>
+這個系列其實講得很詳細，對Ansible有興趣的人應該要先看完</p>
+</li>
+<li class="">
+<p><a href="https://github.com/PauloPortugal/manjaro-playbook" target="_blank" rel="noopener noreferrer" class="">GitHub - PauloPortugal/manjaro-playbook: Manjaro/Arch Linux Ansible provision playbook</a></p>
+<p>因為我主要的Desktop是<code>Manjaro</code>所以這個Repo對我來說很有幫助</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="ansible的限制">Ansible的限制<a href="#ansible的限制" class="hash-link" aria-label="Ansible的限制的直接連結" title="Ansible的限制的直接連結" translate="no">​</a></h2>
+<p>雖然說Ansible功能強大看起來什麼都好棒棒，但是仍有以下這些限制(對我來說)</p>
+<ul>
+<li class="">
+<p>運作期間沒有手動輸入的功能，所有的東西都先預先寫好，若使用公開的Git Server如<code>Github</code>可能會擔心安全性的問題</p>
+</li>
+<li class="">
+<p>行為差異由Host Vars定義，非重複的行為由獨立的playbook section控制，跟上面那點合併的感覺就不太好用在初次安裝期間的Server設定</p>
+</li>
+<li class="">
+<p>透過SSH account控制，同上若是剛裝好的機器沒有帳號與對應的ssh key就沒辦法馬上用</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="kiwi流用法">Kiwi流用法<a href="#kiwi流用法" class="hash-link" aria-label="Kiwi流用法的直接連結" title="Kiwi流用法的直接連結" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p>一般安裝透過<code>shell script</code>進行，保留可手動輸入等相關選項讓script泛用性提高</p>
+</li>
+<li class="">
+<p>搭配Script，Ansible主要用於重複性高，同質性高的行為控制，例如同步更新所有的Server，透過Ansible對所有Server的設定檔案進行版本控制（因為Ansible基本上會搭配Git server使用</p>
+</li>
+<li class="">
+<p>透過Ansible自動完成需要複雜設定的使用環境，例如複數Desktop，或是重裝Desktop的時候可以簡化作業（這點雖然也是跟script功能一樣，但是Script比較難單獨針對設定檔做版本管控）</p>
+</li>
+</ul>
+<h1>作法</h1>
+<p>其實現在正在進行中的東西仔細看看，除了不在內部的機器<code>ansible</code>可以派上用場以外，其他的幾乎都是靠內部<code>Git server</code>+<code>shell script</code>就可以搞定的東西（某程度上原來想要的<code>rsync</code>+<code>shell script</code>也是可以滿足的啦....）</p></div><footer class="docusaurus-mt-lg"><div class="row margin-top--sm theme-blog-footer-edit-meta-row"><div class="col"><b>標籤：</b><ul class="tags_jXut padding--none margin-left--sm"><li class="tag_QGVx"><a rel="tag" class="tag_zVej tagRegular_sFm0" href="/Public-Wiki/tags/linux">Linux</a></li><li class="tag_QGVx"><a rel="tag" class="tag_zVej tagRegular_sFm0" href="/Public-Wiki/tags/life">Life</a></li><li class="tag_QGVx"><a rel="tag" class="tag_zVej tagRegular_sFm0" href="/Public-Wiki/tags/old-blog">Old-Blog</a></li></ul></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="部落格文章分頁導覽"><a class="pagination-nav__link pagination-nav__link--prev" href="/Public-Wiki/2022/07/sad"><div class="pagination-nav__sublabel">較新一篇</div><div class="pagination-nav__label">悲劇....</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/Public-Wiki/2022/08/self+hosted+git+server"><div class="pagination-nav__sublabel">較舊一篇</div><div class="pagination-nav__label">Self-hosted Git server</div></a></nav></main><div class="col col--2"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#about-ansible" class="table-of-contents__link toc-highlight">About Ansible</a></li><li><a href="#ansible的限制" class="table-of-contents__link toc-highlight">Ansible的限制</a></li><li><a href="#kiwi流用法" class="table-of-contents__link toc-highlight">Kiwi流用法</a></li></ul></div></div></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Kiwi Wiki. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkkiwi_wiki=self.webpackChunkkiwi_wiki||[]).push([[4552],{1199(i){i.exports=JSON.parse('{"label":"Chromebook","permalink":"/Public-Wiki/tags/chromebook","allTagsPath":"/Public-Wiki/tags","count":1,"unlisted":false}')}}]);
