@@ -39,25 +39,23 @@ jobs:
       - name: 🟢 Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20 # 建議用 LTS 20，最穩
-          cache: 'npm'
-
+          node-version: 20
+          # ❌ 刪掉 cache: 'npm'，因為沒有 lock file 會報錯
+          
       - name: 📦 Install & Build
         run: |
-          # 使用 npm ci (Clean Install) 會嚴格遵循 package-lock.json
-          npm ci
+          # ✅ 使用 npm install 而不是 npm ci
+          # 這會讓 GitHub 現場掃描 package.json 並下載最新套件
+          npm install 
           
-          # 預防萬一，執行 docusaurus 的清理指令
           npx docusaurus clear
-          
-          # 執行編譯
           npm run build -- --locale zh-Hant
         env:
-          # 官方解決方案提到的環境變數，現在是雙重保險
+          NODE_OPTIONS: "--no-warnings"
+          # 雙重保險，停用可能報錯的進度條
           PROGRESS: false
           DBAR: false
-          NODE_OPTIONS: "--no-warnings"
-              
+                        
       - name: 🚀 Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
