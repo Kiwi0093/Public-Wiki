@@ -368,7 +368,7 @@ Amazon官方的<a href="https://www.amazon.com/sendtokindle" target="_blank" rel
 <p><code>有同事被版權蟑螂訴訟後賠了一筆錢...</code>
 這件事其實或多或少都在我的心裡留下了一個擔心的種子...所以當我看到<code>Ivon的Blog</code>內提到的Gluetun相關介紹
 我就蠢蠢欲動</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="實作">實作<a href="https://kiwi0093.github.io/Public-Wiki/2025/01/misc-talk-250103#%E5%AF%A6%E4%BD%9C" class="hash-link" aria-label="實作的直接連結" title="實作的直接連結" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="實��作">實作<a href="https://kiwi0093.github.io/Public-Wiki/2025/01/misc-talk-250103#%E5%AF%A6%E4%BD%9C" class="hash-link" aria-label="實作的直接連結" title="實作的直接連結" translate="no">​</a></h2>
 <p>我已經Update到<a href="https://kiwi0093.github.io/wiki/wiki/VM&amp;Container/Service%20Container/Home%20Lab/3-auto-chasing-drama/" target="_blank" rel="noopener noreferrer" class="">我的Wiki</a>去了,有興趣的同學可以參考一下小弟的作法</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="心得">心得<a href="https://kiwi0093.github.io/Public-Wiki/2025/01/misc-talk-250103#%E5%BF%83%E5%BE%97" class="hash-link" aria-label="心得的直接連結" title="心得的直接連結" translate="no">​</a></h2>
 <p>目前看起來算是會動,但是看起來qbittorrent的效率不是很好,加上我目前沒有成功弄出<code>port forwarding</code>的功能，所以我其實是有在考慮是不是要花錢買ProtonVPN的服務....
@@ -386,7 +386,7 @@ Amazon官方的<a href="https://www.amazon.com/sendtokindle" target="_blank" rel
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="client">Client<a href="https://kiwi0093.github.io/Public-Wiki/2025/01/misc-talk-250103#client" class="hash-link" aria-label="Client的直接連結" title="Client的直接連結" translate="no">​</a></h2>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="windows">Windows<a href="https://kiwi0093.github.io/Public-Wiki/2025/01/misc-talk-250103#windows" class="hash-link" aria-label="Windows的直接連結" title="Windows的直接連結" translate="no">​</a></h3>
 <p>基本上<code>V2RayN</code>就可以用了,只要導入群組之後refresh後就可以用了</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="android">Android<a href="https://kiwi0093.github.io/Public-Wiki/2025/01/misc-talk-250103#android" class="hash-link" aria-label="Android的直接連結" title="Android的直�接連結" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="android">Android<a href="https://kiwi0093.github.io/Public-Wiki/2025/01/misc-talk-250103#android" class="hash-link" aria-label="Android的直接連結" title="Android的直接連結" translate="no">​</a></h3>
 <p>可惜的是<code>V2Rayng</code>不支援群組訂閱的功能,所以我就只能另外測試了<a href="https://github.com/MetaCubeX/ClashMetaForAndroid" target="_blank" rel="noopener noreferrer" class="">ClashMeta for Android</a>我是用<code>Obtainium</code>直接從Github安裝的..
 詳細的設定方法...懶的寫了..基本上會用<code>V2rayng</code>的人就會自己設定從URL設定,把<code>https://your.domain.or.workers.dev/UUID</code>填入URL就好了.....</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ios">iOS<a href="https://kiwi0093.github.io/Public-Wiki/2025/01/misc-talk-250103#ios" class="hash-link" aria-label="iOS的直接連結" title="iOS的直接連結" translate="no">​</a></h3>
@@ -626,7 +626,7 @@ Cloudflare其實是可以把Domain的Email alias到Gmail透過設定後除了可
 <p>搬家住了一陣子,生活也日趨平淡,除了惱人的坐骨神經痛以外,平靜的生活沒有什麼特別的....</p>
 <h1>最近的動向</h1>
 <p>一言以蔽之，就是又把心思放在學習做飯上面...（沒錯...就是做飯）</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="藏書水盆羊肉山寨版">藏書/水盆羊肉(山寨版)<a href="https://kiwi0093.github.io/Public-Wiki/2024/03/talk-ver2403#%E8%97%8F%E6%9B%B8%E6%B0%B4%E7%9B%86%E7%BE%8A%E8%82%89%E5%B1%B1%E5%AF%A8%E7%89%88" class="hash-link" aria-label="藏書/水盆羊肉(山寨版)的直接連結" title="藏書/水盆羊肉(山寨版)的直接連結" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="藏書水盆羊肉山寨版">藏書/水盆羊肉(山寨版)<a href="https://kiwi0093.github.io/Public-Wiki/2024/03/talk-ver2403#%E8%97%8F%E6%9B%B8%E6%B0%B4%E7%9B%86%E7%BE%8A%EF%BF%BD%EF%BF%BD%E8%82%89%E5%B1%B1%E5%AF%A8%E7%89%88" class="hash-link" aria-label="藏書/水盆羊肉(山寨版)的直接連結" title="藏書/水盆羊肉(山寨版)的直接連結" translate="no">​</a></h2>
 <p>在蘇州生活的那些年，一到冬天，就常常跟同事去吃個藏書羊肉，對於不喜歡羊羶味的我來說這是少數幾個我還蠻喜歡的羊肉料理(其他還有烤羊肉串)</p>
 <p>去年跟著老婆回家省親的時候也順便帶了水盆羊肉的燉料回來，所以就做了以下這個
 <img decoding="async" loading="lazy" src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/lamp.jpg" alt="山寨版藏書/水盆混何" class="img_ev3q"></p>
@@ -874,7 +874,7 @@ GPU from Intel Iris@Xe to Nvidia T600 Laptop(好啦有快一些)</p>
 </ul>
 </li>
 </ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="必須packages">必須packages<a href="https://kiwi0093.github.io/Public-Wiki/2023/07/change+archlinux#%E5%BF%85%E9%A0%88packages" class="hash-link" aria-label="必須packages的直接連結" title="必須packages的直接連結" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="必須packages">必須packages<a href="https://kiwi0093.github.io/Public-Wiki/2023/07/change+archlinux#%E5%BF%85%EF%BF%BD%EF%BF%BD%E9%A0%88packages" class="hash-link" aria-label="必須packages的直接連結" title="必須packages的直接連結" translate="no">​</a></h2>
 <p>建議必裝的package如下</p>
 <table><thead><tr><th>Pkg Name</th><th>Description</th></tr></thead><tbody><tr><td>git</td><td>除了一般Git使用以外,在安裝上<code>yay</code>之前<code>AUR</code>的package安裝也要靠它（包括安裝<code>yay</code>)</td></tr><tr><td>base-devel</td><td>這個其實是一個package的集合,主要是一些compiler跟相關工具,需要自己compile package的人需要安裝</td></tr><tr><td>virtualbox-guest-utils</td><td>這個是VirtualBox的guest端工具包括特殊的driver之類的等同於VMware tools</td></tr><tr><td>yay</td><td>有在用Arch base的人都知道這是什麼, Manjaro可以直接用pacman安裝,但是Arch內只能用下面附上的方式安裝</td></tr></tbody></table>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="yay安裝方式under-archlinux">yay安裝方式(under Archlinux)<a href="https://kiwi0093.github.io/Public-Wiki/2023/07/change+archlinux#yay%E5%AE%89%E8%A3%9D%E6%96%B9%E5%BC%8Funder-archlinux" class="hash-link" aria-label="yay安裝方式(under Archlinux)的直接連結" title="yay安裝方式(under Archlinux)的直接連結" translate="no">​</a></h3>
