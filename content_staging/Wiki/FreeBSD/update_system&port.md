@@ -1,5 +1,5 @@
 ---
-title: update_system&port
+title: System & Packages Update
 tags:
   - FreeBSD
 slug: FreeBSD
@@ -20,7 +20,9 @@ description: FreeBSD的系統/安裝包升級方法
 
 ### FreeBSD指令,用來update system, port, and packages
 
+
 <!--truncate-->
+
 
 # 基本概念
 
