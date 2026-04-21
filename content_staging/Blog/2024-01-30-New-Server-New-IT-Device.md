@@ -1,6 +1,6 @@
 ---
-title: 2024-01-30-New-Server-New-IT-Device
-date: 2026-04-21
+title: New Server! New IT Device!
+date: 2024-01-30
 tags:
   - Life
   - Linux
