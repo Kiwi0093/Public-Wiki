@@ -83,7 +83,7 @@ const config = {
       // 加入 Obsidian 常用語言
       additionalLanguages: [
         'bash',
-        'sh',
+        //'sh',
         'yaml',
         'python',
         'cue',
