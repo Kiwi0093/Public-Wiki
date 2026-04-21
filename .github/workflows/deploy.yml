@@ -44,18 +44,9 @@ jobs:
           
       - name: 📦 Install & Build
         run: |
-          # ✅ 使用 npm install 而不是 npm ci
-          # 這會讓 GitHub 現場掃描 package.json 並下載最新套件
-          npm install 
-          
-          npx docusaurus clear
+          npm install
           npm run build -- --locale zh-Hant
-        env:
-          NODE_OPTIONS: "--no-warnings"
-          # 雙重保險，停用可能報錯的進度條
-          PROGRESS: false
-          DBAR: false
-                        
+                                
       - name: 🚀 Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
