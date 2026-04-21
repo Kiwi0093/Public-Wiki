@@ -4,7 +4,6 @@ tags:
   - FreeBSD
 slug: FreeBSD
 date: 2026-04-21
-description:
 ---
 
 
