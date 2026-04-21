@@ -2,7 +2,6 @@
 title: System & Packages Update
 tags:
   - FreeBSD
-slug: FreeBSD
 date: 2026-04-21
 description: FreeBSD的系統/安裝包升級方法
 ---

@@ -3,7 +3,6 @@ title: Dummynet & ipfw 流量控制指南
 tags:
   - FreeBSD
   - Network
-slug: FreeBSD
 date: 2026-04-21
 description: 利用ipfw來進行網路速度限制
 ---
