@@ -4,105 +4,10 @@
         <title>Kiwi Reich Blog</title>
         <link>https://kiwi0093.github.io/Public-Wiki/</link>
         <description>Kiwi Reich Blog</description>
-        <lastBuildDate>Tue, 21 Apr 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 20 Apr 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-Hant</language>
-        <item>
-            <title><![CDATA[2024-01-30-New-Server-New-IT-Device]]></title>
-            <link>https://kiwi0093.github.io/Public-Wiki/2024/01/new+server+device</link>
-            <guid>https://kiwi0093.github.io/Public-Wiki/2024/01/new+server+device</guid>
-            <pubDate>Tue, 21 Apr 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[新玩具～～～]]></description>
-            <content:encoded><![CDATA[<blockquote>
-<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>資訊</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
-</blockquote>
-<p>前一陣子終於完成新家的裝潢及搬運,稟持著<ruby><font color="lightblue"><del>更新換代</del></font><rp>(</rp><rt><font color="red">喜新厭舊</font></rt><rp>)</rp></ruby>,新家的網路設備與相關Server我幾乎都換了,所以自然會有一些更換機器與設定的部份要來筆記一下</p>
-<h1>硬體介紹</h1>
-<ul>
-<li class="">
-<p>ASUS TS110-E14</p>
-<ul>
-<li class="">
-<p>這台現在是我的主要Esxi Server,目前跑以下VM</p>
-<ul>
-<li class="">
-<p>FreeBSD 14-release X1 : Gateway + Firewall</p>
-</li>
-<li class="">
-<p>Archlinux X1 : DHCPd + DNS + Unifi Network Application</p>
-</li>
-<li class="">
-<p>PhotonOS 5 X3 : Docker hosts for Containers</p>
-</li>
-<li class="">
-<p>Xigmanas 13 With PCI passthrough X2 : Server Backup and Temp</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="">
-<p>HPE Microserver Gen8</p>
-<ul>
-<li class="">Xigmanas 13 : Main NAS for Media Center</li>
-</ul>
-</li>
-<li class="">
-<p>Unifi Switch Enterprise 8 PoE</p>
-<ul>
-<li class="">Main Switch</li>
-</ul>
-</li>
-<li class="">
-<p>Access Point U6 In-Wall</p>
-</li>
-<li class="">
-<p>Access Point U6 Pro(運送中)</p>
-</li>
-</ul>
-<h1>內容介紹</h1>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="unifi系列">Unifi系列<a href="https://kiwi0093.github.io/Public-Wiki/2024/01/new+server+device#unifi%E7%B3%BB%E5%88%97" class="hash-link" aria-label="Unifi系列的直接連結" title="Unifi系列的直接連結" translate="no">​</a></h2>
-<p>其實主打的就是一個騷包....</p>
-<p>想說把新家的IT基礎設備換成類商用等級的,並且可以用一個中控台直接apply設定到AP,應該會比較方便,並且剛好被老家之前換的<strong>TP-Link Deco X75</strong>雷到,高單價的Mesh AP居然沒有whitelist mode的MAC Address filter功能...</p>
-<p>原來想說房子不大用台<strong>U6 In-Wall</strong>就可以搞定,無奈位置不好電視牆背後的空間訊號都不好</p>
-<p>所以再買台<strong>U6 Pro</strong>來補一下</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="hpe-microserver-gen8">HPE Microserver Gen8<a href="https://kiwi0093.github.io/Public-Wiki/2024/01/new+server+device#hpe-microserver-gen8" class="hash-link" aria-label="HPE Microserver Gen8的直接連結" title="HPE Microserver Gen8的直接連結" translate="no">​</a></h2>
-<p>這台是舊機本來有兩台,不過因為老家的ASUS Server硬體掛了(10年左右也夠本了)所以得挪用一台回老家充當NAS使用,剩下的一台就直接<strong>10GbE NIC + 16TB HDD X4</strong>變成一台有<strong>48T</strong>可用空間的<strong>raidz1</strong> NAS</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="asus-ts110-e14">ASUS TS110-E14<a href="https://kiwi0093.github.io/Public-Wiki/2024/01/new+server+device#asus-ts110-e14" class="hash-link" aria-label="ASUS TS110-E14的直接連結" title="ASUS TS110-E14的直接連結" translate="no">​</a></h2>
-<p>這台沒什麼懸念就是<strong>Esxi Server</strong>,不過在建構基礎網路環境的時候還是很痛</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="freebsd-14-gateway">FreeBSD 14 Gateway<a href="https://kiwi0093.github.io/Public-Wiki/2024/01/new+server+device#freebsd-14-gateway" class="hash-link" aria-label="FreeBSD 14 Gateway的直接連結" title="FreeBSD 14 Gateway的直接連結" translate="no">​</a></h3>
-<p>沿用過去的習慣,Gateway還是選用老牌可靠的FreeBSD+pf+ipfw</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="網路架構">網路架構<a href="https://kiwi0093.github.io/Public-Wiki/2024/01/new+server+device#%E7%B6%B2%E8%B7%AF%E6%9E%B6%E6%A7%8B" class="hash-link" aria-label="網路架構的直接連結" title="網路架構的直接連結" translate="no">​</a></h4>
-<p>本來是想要全部用一個C class子網路搞定所有的（這樣可以簡化架構,只是沒有在我手上跟殘廢沒兩樣的DMZ區隔）結果發現因為<strong>NAT Loopback</strong>問題導致內部網路沒辦法Access<del>我對外的Service所以只能再次改回原來的WAN+LAN+DMZ的架構</del>修改pf設定後解決了這個問題-參考<a href="https://www.twbsd.org/cht/book/new/ch12.htm" target="_blank" rel="noopener noreferrer" class="">這裡</a></p>
-<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain"># Nat Loopback</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">no nat on $int_if proto tcp from $int_if to $int_net</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">rdr on $int_if proto tcp from $int_net to $ext_ip port { 25, 165, 993 } -&gt; 192.168.0.2</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">nat on $int_if proto tcp from $int_net to 192.168.0.2 port { 25, 165, 993 } -&gt; $int_if</span><br></div></code></pre></div></div>
-<p>所以最終還是整回一個C Class subnet解決</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="archlinux-dnsmasqunifi">Archlinux Dnsmasq+Unifi<a href="https://kiwi0093.github.io/Public-Wiki/2024/01/new+server+device#archlinux-dnsmasqunifi" class="hash-link" aria-label="Archlinux Dnsmasq+Unifi的直接連結" title="Archlinux Dnsmasq+Unifi的直接連結" translate="no">​</a></h3>
-<p>這個算是本次的大型地雷的一部份,在原始的構想中我是打算把<strong>dnsmasq</strong>還有<strong>Unifi Network Application</strong>都用docker container掛起來就好了結果</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="dnsmasq">Dnsmasq<a href="https://kiwi0093.github.io/Public-Wiki/2024/01/new+server+device#dnsmasq" class="hash-link" aria-label="Dnsmasq的直接連結" title="Dnsmasq的直接連結" translate="no">​</a></h4>
-<p>用Docker是可以跑得起來,但是因為IP區段的關係加上我沒有認真去研究Mapping,所以就出現了,service雖然有跑起來,但是其他client根本沒有辦法正常跑dhcp跟dns,搞了半天一把dnsmasq移到獨立的VM上就好了什麼都不用改....</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="unifi-network-application">Unifi Network Application<a href="https://kiwi0093.github.io/Public-Wiki/2024/01/new+server+device#unifi-network-application" class="hash-link" aria-label="Unifi Network Application的直接連結" title="Unifi Network Application的直接連結" translate="no">​</a></h4>
-<p>這個就更氣人,不是依照說明搭配的<strong>mongodb</strong>有問題就是mongodb搞定後controller因為java問題無法正確跑出網頁...看了原來落落長的說明之後發現只需要在<strong>Archlinux</strong>有安裝yay的狀態下</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">yay -S unifi</span><br></div></code></pre></div></div>
-<p>然後只要確認jre的version是17就好了....一行指定搞定所有.....</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="xigmanas">XigmaNAS<a href="https://kiwi0093.github.io/Public-Wiki/2024/01/new+server+device#xigmanas" class="hash-link" aria-label="XigmaNAS的直接連結" title="XigmaNAS的直接連結" translate="no">​</a></h3>
-<p>有鑑於Docker後端及一些系統的備份需求,我掛了一個ZFS Mirror的NAS透過nfs掛到各server上進行基本備份, 後續會搭配自建的Git server一併做整體內部的專案管理</p>
-<p>另外,老家的機器之前是直接在Esxi上加HDD做TEMP供BT download或是其他系統需要的容量擴充使用,但是在這次的移機中我也飽受因為沒有同時加掛該HDD導致某些VM開不起來</p>
-<p>所以這次我就把Temp HDD掛在XigmaNAS內再走nfs export出去</p>
-<h1>酸爽的過程重點</h1>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="xigmanas無法加掛temp槽">XigmaNAS無法加掛Temp槽<a href="https://kiwi0093.github.io/Public-Wiki/2024/01/new+server+device#xigmanas%E7%84%A1%E6%B3%95%E5%8A%A0%E6%8E%9Btemp%E6%A7%BD" class="hash-link" aria-label="XigmaNAS無法加掛Temp槽的直接連結" title="XigmaNAS無法加掛Temp槽的直接連結" translate="no">​</a></h2>
-<p>不知道是啥原因,我的XigmaNAS就是沒辦法加上Temp槽,所以最後我只好再加開一台VM以及其配套PCI Passthrough的硬體去跑一個單獨的XigmaNAS專做Temp export使用</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="unifi系列-1">Unifi系列<a href="https://kiwi0093.github.io/Public-Wiki/2024/01/new+server+device#unifi%E7%B3%BB%E5%88%97-1" class="hash-link" aria-label="Unifi系列的直接連結" title="Unifi系列的直接連結" translate="no">​</a></h2>
-<p>如同前面提到的,該死的Unifi-Network-Application沒辦法在Docker上好好的運作...加上Dnsmasq也不順所以最終多開了一台VM</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="wifi-ap位置不良">WiFi AP位置不良<a href="https://kiwi0093.github.io/Public-Wiki/2024/01/new+server+device#wifi-ap%E4%BD%8D%E7%BD%AE%E4%B8%8D%E8%89%AF" class="hash-link" aria-label="WiFi AP位置不良的直接連結" title="WiFi AP位置不良的直接連結" translate="no">​</a></h2>
-<p>裝潢設計的時候大概我的腦子被什麼東西啃了,所以U6 In-Wall的安裝位置不好,會背對兩個臥室及兩個洗手間導致訊號不好...所以只好在加裝一顆U6 Pro提早達成Unifi無性增殖...</p>
-<h1>結論</h1>
-<p>住在新家是個很高興的事情,但是過程中的搬家卻不是....使用新的Server及變更架構是很高興(?)的事情,但是硬體爆掉得緊急救援以及大量資料搬遷卻不是....</p>
-<p>一些詳細的設定變更部份我會再update到wiki裡面去</p>]]></content:encoded>
-            <category>Life</category>
-            <category>Linux</category>
-            <category>Old-Blog</category>
-        </item>
         <item>
             <title><![CDATA[G Suite要收費所衍生的悲劇～～Part-II]]></title>
             <link>https://kiwi0093.github.io/Public-Wiki/2022/02/G+Guite+II</link>
@@ -803,6 +708,101 @@ Cloudflare其實是可以把Domain的Email alias到Gmail透過設定後除了可
 因為我家小孩好像很喜歡吃義大利麵，所以後面應該會稍微花時間研究一下好吃的義大利麵怎麼做...</p>
 <p>另外上面照片的食物作法..我都不會放在wiki唷...</p>]]></content:encoded>
             <category>Life</category>
+            <category>Old-Blog</category>
+        </item>
+        <item>
+            <title><![CDATA[New Server! New IT Device!]]></title>
+            <link>https://kiwi0093.github.io/Public-Wiki/2024/01/new+server+device</link>
+            <guid>https://kiwi0093.github.io/Public-Wiki/2024/01/new+server+device</guid>
+            <pubDate>Tue, 30 Jan 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[新玩具～～～]]></description>
+            <content:encoded><![CDATA[<blockquote>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>資訊</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
+</blockquote>
+<p>前一陣子終於完成新家的裝潢及搬運,稟持著<ruby><font color="lightblue"><del>更新換代</del></font><rp>(</rp><rt><font color="red">喜新厭舊</font></rt><rp>)</rp></ruby>,新家的網路設備與相關Server我幾乎都換了,所以自然會有一些更換機器與設定的部份要來筆記一下</p>
+<h1>硬體介紹</h1>
+<ul>
+<li class="">
+<p>ASUS TS110-E14</p>
+<ul>
+<li class="">
+<p>這台現在是我的主要Esxi Server,目前跑以下VM</p>
+<ul>
+<li class="">
+<p>FreeBSD 14-release X1 : Gateway + Firewall</p>
+</li>
+<li class="">
+<p>Archlinux X1 : DHCPd + DNS + Unifi Network Application</p>
+</li>
+<li class="">
+<p>PhotonOS 5 X3 : Docker hosts for Containers</p>
+</li>
+<li class="">
+<p>Xigmanas 13 With PCI passthrough X2 : Server Backup and Temp</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="">
+<p>HPE Microserver Gen8</p>
+<ul>
+<li class="">Xigmanas 13 : Main NAS for Media Center</li>
+</ul>
+</li>
+<li class="">
+<p>Unifi Switch Enterprise 8 PoE</p>
+<ul>
+<li class="">Main Switch</li>
+</ul>
+</li>
+<li class="">
+<p>Access Point U6 In-Wall</p>
+</li>
+<li class="">
+<p>Access Point U6 Pro(運送中)</p>
+</li>
+</ul>
+<h1>內容介紹</h1>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="unifi系列">Unifi系列<a href="https://kiwi0093.github.io/Public-Wiki/2024/01/new+server+device#unifi%E7%B3%BB%E5%88%97" class="hash-link" aria-label="Unifi系列的直接連結" title="Unifi系列的直接連結" translate="no">​</a></h2>
+<p>其實主打的就是一個騷包....</p>
+<p>想說把新家的IT基礎設備換成類商用等級的,並且可以用一個中控台直接apply設定到AP,應該會比較方便,並且剛好被老家之前換的<strong>TP-Link Deco X75</strong>雷到,高單價的Mesh AP居然沒有whitelist mode的MAC Address filter功能...</p>
+<p>原來想說房子不大用台<strong>U6 In-Wall</strong>就可以搞定,無奈位置不好電視牆背後的空間訊號都不好</p>
+<p>所以再買台<strong>U6 Pro</strong>來補一下</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="hpe-microserver-gen8">HPE Microserver Gen8<a href="https://kiwi0093.github.io/Public-Wiki/2024/01/new+server+device#hpe-microserver-gen8" class="hash-link" aria-label="HPE Microserver Gen8的直接連結" title="HPE Microserver Gen8的直接連結" translate="no">​</a></h2>
+<p>這台是舊機本來有兩台,不過因為老家的ASUS Server硬體掛了(10年左右也夠本了)所以得挪用一台回老家充當NAS使用,剩下的一台就直接<strong>10GbE NIC + 16TB HDD X4</strong>變成一台有<strong>48T</strong>可用空間的<strong>raidz1</strong> NAS</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="asus-ts110-e14">ASUS TS110-E14<a href="https://kiwi0093.github.io/Public-Wiki/2024/01/new+server+device#asus-ts110-e14" class="hash-link" aria-label="ASUS TS110-E14的直接連結" title="ASUS TS110-E14的直接連結" translate="no">​</a></h2>
+<p>這台沒什麼懸念就是<strong>Esxi Server</strong>,不過在建構基礎網路環境的時候還是很痛</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="freebsd-14-gateway">FreeBSD 14 Gateway<a href="https://kiwi0093.github.io/Public-Wiki/2024/01/new+server+device#freebsd-14-gateway" class="hash-link" aria-label="FreeBSD 14 Gateway的直接連結" title="FreeBSD 14 Gateway的直接連結" translate="no">​</a></h3>
+<p>沿用過去的習慣,Gateway還是選用老牌可靠的FreeBSD+pf+ipfw</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="網路架構">網路架構<a href="https://kiwi0093.github.io/Public-Wiki/2024/01/new+server+device#%E7%B6%B2%E8%B7%AF%E6%9E%B6%E6%A7%8B" class="hash-link" aria-label="網路架構的直接連結" title="網路架構的直接連結" translate="no">​</a></h4>
+<p>本來是想要全部用一個C class子網路搞定所有的（這樣可以簡化架構,只是沒有在我手上跟殘廢沒兩樣的DMZ區隔）結果發現因為<strong>NAT Loopback</strong>問題導致內部網路沒辦法Access<del>我對外的Service所以只能再次改回原來的WAN+LAN+DMZ的架構</del>修改pf設定後解決了這個問題-參考<a href="https://www.twbsd.org/cht/book/new/ch12.htm" target="_blank" rel="noopener noreferrer" class="">這裡</a></p>
+<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain"># Nat Loopback</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">no nat on $int_if proto tcp from $int_if to $int_net</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">rdr on $int_if proto tcp from $int_net to $ext_ip port { 25, 165, 993 } -&gt; 192.168.0.2</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">nat on $int_if proto tcp from $int_net to 192.168.0.2 port { 25, 165, 993 } -&gt; $int_if</span><br></div></code></pre></div></div>
+<p>所以最終還是整回一個C Class subnet解決</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="archlinux-dnsmasqunifi">Archlinux Dnsmasq+Unifi<a href="https://kiwi0093.github.io/Public-Wiki/2024/01/new+server+device#archlinux-dnsmasqunifi" class="hash-link" aria-label="Archlinux Dnsmasq+Unifi的直接連結" title="Archlinux Dnsmasq+Unifi的直接連結" translate="no">​</a></h3>
+<p>這個算是本次的大型地雷的一部份,在原始的構想中我是打算把<strong>dnsmasq</strong>還有<strong>Unifi Network Application</strong>都用docker container掛起來就好了結果</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="dnsmasq">Dnsmasq<a href="https://kiwi0093.github.io/Public-Wiki/2024/01/new+server+device#dnsmasq" class="hash-link" aria-label="Dnsmasq的直接連結" title="Dnsmasq的直接連結" translate="no">​</a></h4>
+<p>用Docker是可以跑得起來,但是因為IP區段的關係加上我沒有認真去研究Mapping,所以就出現了,service雖然有跑起來,但是其他client根本沒有辦法正常跑dhcp跟dns,搞了半天一把dnsmasq移到獨立的VM上就好了什麼都不用改....</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="unifi-network-application">Unifi Network Application<a href="https://kiwi0093.github.io/Public-Wiki/2024/01/new+server+device#unifi-network-application" class="hash-link" aria-label="Unifi Network Application的直接連結" title="Unifi Network Application的直接連結" translate="no">​</a></h4>
+<p>這個就更氣人,不是依照說明搭配的<strong>mongodb</strong>有問題就是mongodb搞定後controller因為java問題無法正確跑出網頁...看了原來落落長的說明之後發現只需要在<strong>Archlinux</strong>有安裝yay的狀態下</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">yay -S unifi</span><br></div></code></pre></div></div>
+<p>然後只要確認jre的version是17就好了....一行指定搞定所有.....</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="xigmanas">XigmaNAS<a href="https://kiwi0093.github.io/Public-Wiki/2024/01/new+server+device#xigmanas" class="hash-link" aria-label="XigmaNAS的直接連結" title="XigmaNAS的直接連結" translate="no">​</a></h3>
+<p>有鑑於Docker後端及一些系統的備份需求,我掛了一個ZFS Mirror的NAS透過nfs掛到各server上進行基本備份, 後續會搭配自建的Git server一併做整體內部的專案管理</p>
+<p>另外,老家的機器之前是直接在Esxi上加HDD做TEMP供BT download或是其他系統需要的容量擴充使用,但是在這次的移機中我也飽受因為沒有同時加掛該HDD導致某些VM開不起來</p>
+<p>所以這次我就把Temp HDD掛在XigmaNAS內再走nfs export出去</p>
+<h1>酸爽的過程重點</h1>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="xigmanas無法加掛temp槽">XigmaNAS無法加掛Temp槽<a href="https://kiwi0093.github.io/Public-Wiki/2024/01/new+server+device#xigmanas%E7%84%A1%E6%B3%95%E5%8A%A0%E6%8E%9Btemp%E6%A7%BD" class="hash-link" aria-label="XigmaNAS無法加掛Temp槽的直接連結" title="XigmaNAS無法加掛Temp槽的直接連結" translate="no">​</a></h2>
+<p>不知道是啥原因,我的XigmaNAS就是沒辦法加上Temp槽,所以最後我只好再加開一台VM以及其配套PCI Passthrough的硬體去跑一個單獨的XigmaNAS專做Temp export使用</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="unifi系列-1">Unifi系列<a href="https://kiwi0093.github.io/Public-Wiki/2024/01/new+server+device#unifi%E7%B3%BB%E5%88%97-1" class="hash-link" aria-label="Unifi系列的直接連結" title="Unifi系列的直接連結" translate="no">​</a></h2>
+<p>如同前面提到的,該死的Unifi-Network-Application沒辦法在Docker上好好的運作...加上Dnsmasq也不順所以最終多開了一台VM</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="wifi-ap位置不良">WiFi AP位置不良<a href="https://kiwi0093.github.io/Public-Wiki/2024/01/new+server+device#wifi-ap%E4%BD%8D%E7%BD%AE%E4%B8%8D%E8%89%AF" class="hash-link" aria-label="WiFi AP位置不良的直接連結" title="WiFi AP位置不良的直接連結" translate="no">​</a></h2>
+<p>裝潢設計的時候大概我的腦子被什麼東西啃了,所以U6 In-Wall的安裝位置不好,會背對兩個臥室及兩個洗手間導致訊號不好...所以只好在加裝一顆U6 Pro提早達成Unifi無性增殖...</p>
+<h1>結論</h1>
+<p>住在新家是個很高興的事情,但是過程中的搬家卻不是....使用新的Server及變更架構是很高興(?)的事情,但是硬體爆掉得緊急救援以及大量資料搬遷卻不是....</p>
+<p>一些詳細的設定變更部份我會再update到wiki裡面去</p>]]></content:encoded>
+            <category>Life</category>
+            <category>Linux</category>
             <category>Old-Blog</category>
         </item>
         <item>
