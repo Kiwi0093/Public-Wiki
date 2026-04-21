@@ -48,7 +48,7 @@ description: 皈依Archlinux
   [root@wsl]$ useradd -m -G wheel -s /bin/bash `{username}`
   ```
 
-* 需要設定預設的user為{username},這個操作得在WSL外面
+* 需要設定預設的user為`{username}`,這個操作得在WSL外面
   
   ```bash
   [User@Windows]$ Arch.exe config --default-user `{username}`
