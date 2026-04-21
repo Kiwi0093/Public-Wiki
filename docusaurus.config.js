@@ -80,7 +80,7 @@ const config = {
       theme: {light: 'neutral', dark: 'forest'},
     },
     prism: {
-      // 這裡包含了你要求的所有語言
+      // 加入 Obsidian 常用語言
       additionalLanguages: [
         'bash',
         'sh',
@@ -91,9 +91,10 @@ const config = {
         'powershell',
         'ini',
       ],
-      // 修正：使用更穩定的 themes 物件載入方式
-      theme: themes.github,
-      darkTheme: themes.dracula,
+      // 這裡改用字串定義主題，Docusaurus 3.x 會自動從內建預設中尋找
+      // 這樣就不會因為 require 找不到路徑或變數未定義而崩潰
+      theme: { plain: {}, styles: [] }, // 先預設空，或保持預設
+      darkTheme: { plain: {}, styles: [] },
     },
   },
 };
