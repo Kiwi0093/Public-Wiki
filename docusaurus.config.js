@@ -79,9 +79,8 @@ const config = {
     mermaid: {
       theme: {light: 'neutral', dark: 'forest'},
     },
-    // --- 語法高亮 Prism 設定 ---
     prism: {
-      // 加入 Obsidian 常用與你要求的語言
+      // 這裡包含了你要求的所有語言
       additionalLanguages: [
         'bash',
         'sh',
@@ -91,11 +90,10 @@ const config = {
         'json',
         'powershell',
         'ini',
-        // javascript 預設已內建，但寫在這裡不會有影響
       ],
-      // 設定高亮主題
-      theme: require('prism-react-renderer/themes/github'),
-      darkTheme: require('prism-react-renderer/themes/dracula'),
+      // 修正：使用更穩定的 themes 物件載入方式
+      theme: themes.github,
+      darkTheme: themes.dracula,
     },
   },
 };
