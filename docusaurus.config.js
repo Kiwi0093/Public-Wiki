@@ -59,7 +59,7 @@ const config = {
     // 這裡可以加入 Metadata 確保分享時有圖
     image: 'https://api.iconify.design/fluent-emoji-flat:kiwi-bird.svg?color=%234EAA25',
     navbar: {
-      title: 'Kiwi Wiki',
+      title: 'Kiwi Blog',
       // 加入 Navbar Logo (奇威鳥)
       items: [
         { to: '/tags', label: 'Tags', position: 'left' },
@@ -74,11 +74,28 @@ const config = {
     },
     footer: {
       style: 'dark',
-      copyright: `Copyright © ${new Date().getFullYear()} Kiwi Wiki. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Kiwireich. Built with Docusaurus.`,
     },
-    // 如果你有用 Mermaid，建議在 themeConfig 也加一下
     mermaid: {
       theme: {light: 'neutral', dark: 'forest'},
+    },
+    // --- 語法高亮 Prism 設定 ---
+    prism: {
+      // 加入 Obsidian 常用與你要求的語言
+      additionalLanguages: [
+        'bash',
+        'sh',
+        'yaml',
+        'python',
+        'cue',
+        'json',
+        'powershell',
+        'ini',
+        // javascript 預設已內建，但寫在這裡不會有影響
+      ],
+      // 設定高亮主題
+      theme: require('prism-react-renderer/themes/github'),
+      darkTheme: require('prism-react-renderer/themes/dracula'),
     },
   },
 };
