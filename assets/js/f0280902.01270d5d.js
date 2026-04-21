@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkkiwi_wiki=self.webpackChunkkiwi_wiki||[]).push([[5088],{145(e){e.exports=JSON.parse('{"tags":[{"label":"FreeBSD","permalink":"/Public-Wiki/docs/tags/free-bsd","count":3},{"label":"Network","permalink":"/Public-Wiki/docs/tags/network","count":1}]}')}}]);
