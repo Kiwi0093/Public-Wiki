@@ -17,5 +17,8 @@
     "prism-react-renderer": "latest",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "overrides": {
+    "webpack": "5.105.0"
   }
 }
