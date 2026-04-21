@@ -39,19 +39,25 @@ jobs:
       - name: 🟢 Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 20 # 建議用 LTS 20，最穩
+          cache: 'npm'
 
       - name: 📦 Install & Build
         run: |
-          npm install
+          # 使用 npm ci (Clean Install) 會嚴格遵循 package-lock.json
+          npm ci
+          
+          # 預防萬一，執行 docusaurus 的清理指令
           npx docusaurus clear
-          # 關鍵修復：DBAR=false 停用 WebpackBar，PROGRESS=false 停用內建進度條
-          DBAR=false PROGRESS=false npm run build -- --locale zh-Hant
+          
+          # 執行編譯
+          npm run build -- --locale zh-Hant
         env:
+          # 官方解決方案提到的環境變數，現在是雙重保險
           PROGRESS: false
           DBAR: false
           NODE_OPTIONS: "--no-warnings"
-      
+              
       - name: 🚀 Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
