@@ -194,7 +194,7 @@ reboot
 
 ```bash
 pacman -Syu sudo
-echo <USER_NAME> ALL=(ALL) ALL >> /etc/sudoers
+echo <user_NAME> ALL=(ALL) ALL >> /etc/sudoers
 ```
 這個script要用root跑,中間會要你輸入一個none root的帳號就是你有放進sudoer裡的帳號
 因為Archlinux不能用root跑yay才會這麼麻煩
