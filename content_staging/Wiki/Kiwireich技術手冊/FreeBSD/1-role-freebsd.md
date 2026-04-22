@@ -1,5 +1,5 @@
 ---
-title: FreeBSD在Kiwireich的角色
+title: FreeBSD的角色
 date: 2026-04-22
 tags:
   - FreeBSD

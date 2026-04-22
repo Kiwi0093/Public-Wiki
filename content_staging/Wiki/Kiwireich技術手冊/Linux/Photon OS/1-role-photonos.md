@@ -1,5 +1,5 @@
 ---
-title: Photon OS在Kiwireich的角色
+title: Photon OS的角色
 date: 2026-04-22
 tags:
   - Linux
