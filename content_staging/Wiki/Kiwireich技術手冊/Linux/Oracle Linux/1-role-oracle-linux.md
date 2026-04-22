@@ -1,5 +1,5 @@
 ---
-title: 1-role-oracle-linux
+title: Oracle Linux在Kiwireich的角色
 date: 2026-04-22
 tags:
   - Linux
