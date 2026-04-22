@@ -17,8 +17,6 @@ description: 利用ipfw來進行網路速度限制
 
 :::
 
-<!--truncate-->
-
 ## Dummynet
 
 ### 動態載入

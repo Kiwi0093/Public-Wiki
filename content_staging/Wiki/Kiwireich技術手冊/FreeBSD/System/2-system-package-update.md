@@ -14,15 +14,12 @@ description: FreeBSD的系統/安裝包升級方法
 ![FreeBSD](https://img.shields.io/badge/FreeBSD-Supported-green?style=plastic&logo=freebsd)
 
 
-<!--truncate-->
-
-
+:::tip
 ### FreeBSD指令,用來update system, port, and packages
+:::
 
 <img src="https://img.shields.io/badge/Kiwi-%E4%B8%8D%E9%81%8E%E5%9B%A0%E7%82%BAFreeBSD%E5%BE%88%E7%A9%A9%E5%AE%9A%2C%E6%89%80%E4%BB%A5%E5%B8%B8%E5%B8%B8%E5%BF%98%E8%A8%98%E6%9B%B4%E6%96%B0%E4%BB%96-A8FF24?style=social&logo=kiwix&logoColor=EA7500" height="40" />
 
-
-<!--truncate-->
 
 # 基本概念
 

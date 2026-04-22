@@ -12,12 +12,14 @@ tags:
 ![Oracle_linux](https://img.shields.io/badge/Oracle_Linux-Supported-green?style=plastic&logo=linux)
 ![Docker](https://img.shields.io/badge/Docker-Supported-green?style=plastic&logo=docker)
 
+:::tip
+在<ruby><del>正常使用</del><rt style="color:orange">白嫖</rt></ruby>OCI的免費服務的時候,會需要開一個`Linux instance`這時候免費的預設`Oracle Linux` 就變成我的預設選項,而且是<ruby><del>免費</del><rt style="color:orange">可白嫖</rt></ruby>的
+:::
+
 ## Main Role in Kiwireich
 
  * #### Docker Host
  * #### Standard Linux for OCI
-
-在<ruby><del>正常使用</del><rt style="color:orange">白嫖</rt></ruby>OCI的免費服務的時候,會需要開一個`Linux instance`這時候免費的預設`Oracle Linux` 就變成我的預設選項,而且是<ruby><del>免費</del><rt style="color:orange">可白嫖</rt></ruby>的
 
 ## Major Service:
 

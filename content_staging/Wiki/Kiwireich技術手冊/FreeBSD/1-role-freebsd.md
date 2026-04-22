@@ -10,12 +10,14 @@ tags:
 
 ![FreeBSD](https://img.shields.io/badge/FreeBSD-Supported-green?style=plastic&logo=freebsd) 
 
+:::tip
+### FreeBSD因其穩定,不會亂搞,高效率的特性, 我主要是拿來當Gateway以及提供一些非常底層的網路服務
+:::
+
 ## Main Role in Kiwireich
 
  * #### Network Gateway
  * #### Network Infrastructure 
-
-FreeBSD因其穩定,不會亂搞,高效率的特性, 我主要是拿來當Gateway以及提供一些非常底層的網路服務
 
 ## Major Service:
 
