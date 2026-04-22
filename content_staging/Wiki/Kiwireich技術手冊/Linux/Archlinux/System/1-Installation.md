@@ -25,13 +25,13 @@ tags:
 
 它不只是個腳本，它是一個基於選單的互動式安裝程式（TUI）。比起像 Ubuntu 或 Manjaro 那種肥大的 Calamares GUI 介面，archinstall 更快、更穩，而且最重要的是：它讓你對系統保有完全的控制權，卻不用浪費時間在重複的勞力活上。
 
-##### 🛠 核心流程：開機、聯網、執行
+### 🛠 核心流程：開機、聯網、執行
 
 進入 Arch Live 環境後，別急著分區，照這三步走：
 
 檢查網路： `ping google.com` 看一下。如果是 WiFi，用 `iwctl` 連一下，這步沒過後面都不用談。
 
-##### 啟動神器：
+### 啟動神器：
 
 直接在 Shell 輸入：
 
@@ -39,35 +39,35 @@ tags:
 archinstall
 
 ```
-##### 填空題時間：
+### 填空題時間：
 
 畫面會出現一連串選單。這不是考試，按照你的直覺填就好（細節請看下方進階配置）。
 
-#### ⚡ 進階配置要點（別亂填，看這裡）
+### ⚡ 進階配置要點（別亂填，看這裡）
 
 雖然是自動化，但有些選項選對了，你的 Arch 才會真的「起飛」：
 
-##### 1. 磁碟分割 (Disk Layout) —— 建議選 Btrfs
+#### 1. 磁碟分割 (Disk Layout) —— 建議選 Btrfs
 
 別再用傳統的 ext4 了。選 "Wipe all selected drives" 然後檔案系統指名 Btrfs。它支援壓縮和子卷（Subvolumes），以後要配快照備份（如 Timeshift）超方便。
 
 <img src='https://img.shields.io/badge/Kiwi-%E4%BD%86%E6%98%AF%E6%88%91%E9%83%BD%E7%94%A8ext4-A8FF24?style=social&logo=kiwix&logoColor=EA7500' height='40' />
 
-##### 2. 核心 (Kernels) —— 效能黨必選
+#### 2. 核心 (Kernels) —— 效能黨必選
 
 想穩定：選 linux。
 
 想噴射：選 linux-zen。 對於桌面用戶來說，Zen kernel 的反應速度和調度優化真的有感。
 
-##### 3. 功能組合 (Profiles) —— 懶人福音
+#### 3. 功能組合 (Profiles) —— 懶人福音
 
 這步最爽。選 Desktop 後，你可以直接挑 KDE, GNOME, Sway, 或 Hyprland。它會自動幫你把相關的 Display Manager（如 SDDM 或 GDM）跟基礎驅動一次補齊。
 
-##### 4. 顯示卡驅動 (Graphics Driver)
+#### 4. 顯示卡驅動 (Graphics Driver)
 
 它會自動偵測硬體。如果你是 NVIDIA 用戶，選專有驅動（Proprietary）；如果是 AMD 或 Intel，選開源驅動就好。它裝得比你自己手動抓還準。
 
-#### 💾 神技：設定檔的「傳家寶」模式
+### 💾 神技：設定檔的「傳家寶」模式
 
 這是我覺得 `archinstall` 徹底擊敗 `Calamares` 的地方。
 
@@ -89,7 +89,7 @@ archinstall --config my_favorite_setup.json
 
 自動化彈性： 你可以隨時進去修改它的 config.json，這種客製化程度是 GUI 介面永遠給不了的。
 
-### 總結： 
+## 總結： 
 
 > 以前裝 Arch 是為了證明技術，現在裝 Arch 是為了效率。如果你追求的是「快、準、穩」，`archinstall` 就是目前最完美的解決方案，沒有之一。
 
