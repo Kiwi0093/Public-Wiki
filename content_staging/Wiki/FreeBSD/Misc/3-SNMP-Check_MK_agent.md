@@ -12,7 +12,9 @@ date: 2026-04-21
 
 ### Librenms需要SNMP才能監控,另外也可以使用check_mk_agent來輔助
 
-:::info 但是我現在已經沒在用Librenms,也許哪天想不開又要用的時候會裝上
+:::info 
+但是我現在已經沒在用Librenms,也許哪天想不開又要用的時候會裝上
+:::
 
 <!--truncate-->
 

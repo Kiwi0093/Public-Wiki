@@ -12,8 +12,10 @@ description: 利用ipfw來進行網路速度限制
 
 ![FreeBSD](https://img.shields.io/badge/FreeBSD-Supported-green?style=plastic&logo=freebsd) 
 
-### FreeBSD Gateway可以利用ipfw來達成流量限制的功能,想要使用這個除了/etc/rc.conf需要設定以外,還需要讓kernel的dummynet啟動才會正常啟動
+:::tip
+### FreeBSD Gateway可以利用ipfw來達成流量限制的功能,需要搭配`dummynet`才能正常作動
 
+:::
 
 <!--truncate-->
 
