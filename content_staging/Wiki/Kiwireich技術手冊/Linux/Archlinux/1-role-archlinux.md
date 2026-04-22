@@ -1,5 +1,5 @@
 ---
-title: 1-role-archlinux
+title: Archlinux在Kiwireich的角色
 date: 2026-04-22
 tags:
   - Linux

@@ -1,5 +1,5 @@
 ---
-title: Dummynet & ipfw 流量控制指南
+title: IPFW流量控制
 tags:
   - FreeBSD
   - Network

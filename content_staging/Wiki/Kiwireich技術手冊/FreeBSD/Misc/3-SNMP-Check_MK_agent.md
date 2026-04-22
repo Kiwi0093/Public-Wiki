@@ -1,5 +1,5 @@
 ---
-title: SNMP & Check_MK_agent
+title: SNMP & Check MK Agent
 tags:
   - FreeBSD
 date: 2026-04-21

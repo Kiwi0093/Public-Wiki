@@ -25,4 +25,4 @@ Photon OS是VMware的輕量container host用OS, 在VMware ESXi上因Kernel可以
 
 * #### Docker engine service
 
-目前版本`Photon OS 5`
+目前版本`VMware Photon OS 5.0`
