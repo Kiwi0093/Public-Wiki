@@ -4,10 +4,79 @@
         <title>Kiwi Reich Blog</title>
         <link>https://kiwi0093.github.io/Public-Wiki/</link>
         <description>Kiwi Reich Blog</description>
-        <lastBuildDate>Mon, 20 Apr 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 01 Sep 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-Hant</language>
+        <item>
+            <title><![CDATA[久未更新,甚是想念]]></title>
+            <link>https://kiwi0093.github.io/Public-Wiki/2026/09/update260901</link>
+            <guid>https://kiwi0093.github.io/Public-Wiki/2026/09/update260901</guid>
+            <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[又是雜唸]]></description>
+            <content:encoded><![CDATA[<p>從四月份開始調整新Blog/Wiki的呈現方式後,我有很長一段時間都沒碰這些
+一方面是沉迷在vibe coding, 一方面是工作繁忙</p>
+<h1>近況報告</h1>
+<p>雖然說沒人會在意一個大叔的近況,不過我還是類似日記一樣的整理一下我這段日子都在幹嘛,以及後面打算做什麼</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="vibe-coding">Vibe Coding<a href="https://kiwi0093.github.io/Public-Wiki/2026/09/update260901#vibe-coding" class="hash-link" aria-label="Vibe Coding的直接連結" title="Vibe Coding的直接連結" translate="no">​</a></h2>
+<p>就結論上來說,失敗了,不僅沒弄出個有用的東西,還花錢買了一整年的<code>Gemini AI Pro</code>,不過有些心得我想留下來</p>
+<p>簡單的說Vibe Coding失敗這件事到不能完全怪Google, 雖然網上很多人說Gemini寫程式很廢物, bla bla,但是平心而論,整個失敗的主因有以下兩點</p>
+<ul>
+<li class="">
+<p>沒有明確想要作的東西
+嚴格說起來,應該是我缺乏創造力,想了一堆可能有搞頭的東西結果最終都發現效益很差,沒有投入的需要,或是已經有別人寫得很好的open source project可以拿來直接用就好了
+導致我後面提不起興趣繼續燒腦子</p>
+</li>
+<li class="">
+<p>對於程式的概念太少,AI就算寫了一堆不僅看不懂,也無法理解哪裡會有問題
+這個問題非常明顯,從一個程式的框架,如何規劃架構,挑選語言,如何定義變數,如何控制AI在多輪之後不會亂掉,如何在最初就考慮未來維護與改版這些都遠遠超過我的能力可以提前規劃的,換句話說就算AI再會寫code, 作為藍圖規劃的人類要是腦子裡面空空的其實也沒屁用（好啦這個可以引伸到很多領域例如國家治理,公司治理,專案治理都是一樣的）</p>
+</li>
+</ul>
+<p>所以目前這一部份就是完全停擺, 不過嚴格來說要是只要AI寫簡單的shell script這種我看的比較懂的東西,還是很好用的</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="公司相關">公司相關<a href="https://kiwi0093.github.io/Public-Wiki/2026/09/update260901#%E5%85%AC%E5%8F%B8%E7%9B%B8%E9%97%9C" class="hash-link" aria-label="公司相關的直接連結" title="公司相關的直接連結" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="辦公室政治">辦公室政治<a href="https://kiwi0093.github.io/Public-Wiki/2026/09/update260901#%E8%BE%A6%E5%85%AC%E5%AE%A4%E6%94%BF%E6%B2%BB" class="hash-link" aria-label="辦公室政治的直接連結" title="辦公室政治的直接連結" translate="no">​</a></h3>
+<p>以為我會寫什麼東西嗎？？答案是不會,我還沒蠢到在這種地方透露出什麼工作上的資訊,只是紀錄一下,就情緒上來說對於這段時間的工作,我有相當不愉快的回憶,所以作個註腳</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="薪水小偷">薪水小偷<a href="https://kiwi0093.github.io/Public-Wiki/2026/09/update260901#%E8%96%AA%E6%B0%B4%E5%B0%8F%E5%81%B7" class="hash-link" aria-label="薪水小偷的直接連結" title="薪水小偷的直接連結" translate="no">​</a></h3>
+<p>這點嚴格說起來應該是公司換發了NB給我,這次的機器很有趣是一台Lenovo Thinkpad P16 Gen3, 搭配NVIDIA RTX PRO 1000 GPU, 兩個SSD, 我鑽了安裝公司Windows的時候有一個SSD沒有mount, format納入管理的漏洞,用他安裝了我現在寫作用的Archlinux, 讓我在辦公室也能有台工作用的Archlinux可以使用不用長期靠WSL(不過公司的Windows內還是有WSL啦)</p>
+<p>關於這台Archlinux的故事我打算後面有想寫再多提, 要是沒寫就算了</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="新玩具入手">新玩具入手<a href="https://kiwi0093.github.io/Public-Wiki/2026/09/update260901#%E6%96%B0%E7%8E%A9%E5%85%B7%E5%85%A5%E6%89%8B" class="hash-link" aria-label="新玩具入手的直接連結" title="新玩具入手的直接連結" translate="no">​</a></h3>
+<p>其實就是便宜撿了一台公司淘汰的Dell Latitude 5411回家,考慮了很久拿來當我自己的第一台Archlinux NB</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="忙碌主力">忙碌主力<a href="https://kiwi0093.github.io/Public-Wiki/2026/09/update260901#%E5%BF%99%E7%A2%8C%E4%B8%BB%E5%8A%9B" class="hash-link" aria-label="忙碌主力的直接連結" title="忙碌主力的直接連結" translate="no">​</a></h2>
+<p>其實上述的都是幾個月來的瑣事,最近真的在考慮跟在忙的是下面這個</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="家庭娛樂中心重構">家庭娛樂中心重構<a href="https://kiwi0093.github.io/Public-Wiki/2026/09/update260901#%E5%AE%B6%E5%BA%AD%E5%A8%9B%E6%A8%82%E4%B8%AD%E5%BF%83%E9%87%8D%E6%A7%8B" class="hash-link" aria-label="家庭娛樂中心重構的直接連結" title="家庭娛樂中心重構的直接連結" translate="no">​</a></h3>
+<p>我以前開始就一直在想要把家裡的遊戲環境徹底的重整一遍,最好是達到我期望的客廳有串流或是一定性能以內可以跑得動的主機,然後核心的PC大作,則是可以透過在書房直接玩或是串流出來客廳玩這樣的方式進行,所以我就盤點我手上的機器們（都是老機器）打算重整</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="nvidia-shield-tv-pro">NVIDIA SHIELD TV Pro<a href="https://kiwi0093.github.io/Public-Wiki/2026/09/update260901#nvidia-shield-tv-pro" class="hash-link" aria-label="NVIDIA SHIELD TV Pro的直接連結" title="NVIDIA SHIELD TV Pro的直接連結" translate="no">​</a></h4>
+<p>這個目前是我家客廳看影片主流的機上盒,我曾經試過在上面安裝RetroArch以及Moonlight,實驗結果</p>
+<ul>
+<li class="">Moonlight 可以跑, 但是很依賴跑Sunshine的Gaming stream machine</li>
+<li class="">RetroArch SFC時代為止還是可以跑得順的,不過儲存空間是個大問題</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="steam-deck">Steam Deck<a href="https://kiwi0093.github.io/Public-Wiki/2026/09/update260901#steam-deck" class="hash-link" aria-label="Steam Deck的直接連結" title="Steam Deck的直接連結" translate="no">​</a></h4>
+<p>作為我的主力掌機, 其實我有在考慮把他換個Steam帳號, 然後弄好模擬器, 把整個連同他的dock都移到客廳取代目前的Switch(因為Switch把手都壞掉了...螢幕也有裂痕)
+但是這個作法卡在以下幾點</p>
+<ul>
+<li class="">Steam Deck的模擬器能力超過PS2後可能就吃力了,不過確實是目前我最佳的客廳主機的選項</li>
+<li class="">那是我的個人玩具,我實在不太想讓小孩去糟蹋</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="dell-latitude-5411">Dell Latitude 5411<a href="https://kiwi0093.github.io/Public-Wiki/2026/09/update260901#dell-latitude-5411" class="hash-link" aria-label="Dell Latitude 5411的直接連結" title="Dell Latitude 5411的直接連結" translate="no">​</a></h4>
+<p>這台其實就遊戲來講沒有價值,因為沒有獨立GPU也只有8GB RAM, 是一台對遊戲沒有什麼有效貢獻的機器,但是因為他的存在,所以我的Steam Deck擔任我的簡單Linux Desktop的功能被取代了
+所以我才可以騰出Steam Deck</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="msi-gl73">MSI GL73<a href="https://kiwi0093.github.io/Public-Wiki/2026/09/update260901#msi-gl73" class="hash-link" aria-label="MSI GL73的直接連結" title="MSI GL73的直接連結" translate="no">​</a></h4>
+<p>這台搭載Nvidia RTX 2060 Mobile的Gaming NB是我目前手上遊戲效能最佳的機器, 系統是最適合遊戲的Windows</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="問題點">問題點<a href="https://kiwi0093.github.io/Public-Wiki/2026/09/update260901#%E5%95%8F%E9%A1%8C%E9%BB%9E" class="hash-link" aria-label="問題點的直接連結" title="問題點的直接連結" translate="no">​</a></h3>
+<p>想法很美好但是現實骨感到不行還沒開始動工就發現有問題</p>
+<p>其實最主要的問題就是,這套家庭娛樂中心不是只服務我一個人的, 現在可以用的技術與手段基本上都是建立在以下一個大前提下</p>
+<p><code>遊戲的持有者=遊玩者=所有一切的掌控者</code></p>
+<p>一旦需要考慮小朋友也會遊玩,需要控制時間,控制他們可以玩的遊戲, 立刻就會得到Steam子帳號加入家庭群組這個解答,透過steam的功能來管理小孩的遊戲時間跟遊戲內容,模擬器的部份則是受限於客廳主機的容量,所以一開始就只放挑過的遊戲, 聽起來很美好,但是問題來了, 若客廳的機器很強大,不需要串流那一切的問題就解決了等於是一台獨立的遊戲主機,但是若需要更強大的串流源提供需要高階硬體功能才能跑得遊戲呢？</p>
+<p>先說結論,我試過在我家的網路環境下, steam deck透過steam link來跑遊戲只能用慘不忍睹來描述....
+而Moonlight/Sunshine方案則是沒有什麼帳號管控(因為他是串流整個桌面), 所以要考慮到連同大作,那最終來說我就得連同串流源準備給他們,另外還得另外找方法設定若是想串流我自己玩的遊戲怎麼辦,如何作帳號管控與分流.....問題會變得很麻煩,得增加機器才能作到</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="目前為止的實做進度">目前為止的實做進度<a href="https://kiwi0093.github.io/Public-Wiki/2026/09/update260901#%E7%9B%AE%E5%89%8D%E7%82%BA%E6%AD%A2%E7%9A%84%E5%AF%A6%E5%81%9A%E9%80%B2%E5%BA%A6" class="hash-link" aria-label="目前為止的實做進度的直接連結" title="目前為止的實做進度的直接連結" translate="no">​</a></h4>
+<p>基本上我最近正在統一化我的實體Archlinux, 並且讓他們在配置上很接近steam deck的steam OS加上 Emudeck, 作整合, 一邊重新整理以前懶惰荒蕪的EMU resource, 另一方面也在為未來不再使用Windows鋪路....</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="結論">結論<a href="https://kiwi0093.github.io/Public-Wiki/2026/09/update260901#%E7%B5%90%E8%AB%96" class="hash-link" aria-label="結論的直接連結" title="結論的直接連結" translate="no">​</a></h3>
+<p>若犧牲客廳串流這個選項,倒是可以把Steam Deck轉換成EMU+部份適合小朋友與在客廳遊玩的steam遊戲, 只是我以後就等於沒有掌機,或是合併跟小朋友共用主機的方式遊玩...
+這樣的作法在我購入新的Gaming主機前不失為一個好的折中, 前提是孩子的媽不會因為我讓小孩方便玩遊戲而叫我去罰跪跟拆掉.....</p>]]></content:encoded>
+            <category>Life</category>
+        </item>
         <item>
             <title><![CDATA[新Blog開張]]></title>
             <link>https://kiwi0093.github.io/Public-Wiki/2026/04/new+blog+open</link>
@@ -16,7 +85,7 @@
             <description><![CDATA[其實是一篇碎念]]></description>
             <content:encoded><![CDATA[<p>前一陣子想用Obsidian來管理Wiki, 結果為了換wiki的網頁,一路弄下來就連Blog也換了</p>
 <h1>感言</h1>
-<p>老實說,針對Blog的主題,我個人是比較喜歡原來的<code>Hexo+NeXT</code>但是無奈,為了後台的整合,我就把他換去新的<code>[Docusaurus](https://docusaurus.io/blog/releases/3.10)'了,界面上得要魔改CSS才有接近那麼一點點原來的,不過後台的整合到是不錯,以前是得要一份一份文檔用</code>Marktext<code>寫, 現在就在</code>Obsidain`內開個新的Note編輯,寫好後git push就完事了....</p>
+<p>老實說,針對Blog的主題,我個人是比較喜歡原來的<code>Hexo+NeXT</code>但是無奈,為了後台的整合,我就把他換去新的<code>[Docusaurus](https://docusaurus.io/blog/releases/3.10)</code>了,界面上得要魔改CSS才有接近那麼一點點原來的,不過後台的整合到是不錯,以前是得要一份一份文檔用<code>Marktext</code>寫, 現在就在<code>Obsidain</code>內開個新的Note編輯,寫好後git push就完事了....</p>
 <p>這段修改的時間其實發生了很多,但是我實在懶的記..後面有遇到詳細的再一個一個的寫好了</p>]]></content:encoded>
             <category>Life</category>
             <category>Blog</category>
@@ -288,7 +357,7 @@ Amazon官方的<a href="https://www.amazon.com/sendtokindle" target="_blank" rel
 </blockquote>
 <p>沒錢但是又有深深的慾念真的很折磨人</p>
 <h1>慾念</h1>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="電視">電視<a href="https://kiwi0093.github.io/Public-Wiki/2025/02/purchase-things#%E9%9B%BB%E8%A6%96" class="hash-link" aria-label="電視的直接連結" title="電視的直接連結" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="電視">電視<a href="https://kiwi0093.github.io/Public-Wiki/2025/02/purchase-things#%E9%9B%BB%E8%A6%96" class="hash-link" aria-label="電視的直接連結" title="電�視的直接連結" translate="no">​</a></h2>
 <p>去年年底,我終於決定把客廳的電視補上,因為我實在受不了全家人擠在我的書房一起盯著一台32"寸的螢幕看電影....
 再三考慮下買了這台86"的便宜電視</p>
 <p><img decoding="async" loading="lazy" src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/000001_1737016623.webp" alt="" class="img_ev3q"></p>
@@ -368,7 +437,7 @@ Amazon官方的<a href="https://www.amazon.com/sendtokindle" target="_blank" rel
 <p><code>有同事被版權蟑螂訴訟後賠了一筆錢...</code>
 這件事其實或多或少都在我的心裡留下了一個擔心的種子...所以當我看到<code>Ivon的Blog</code>內提到的Gluetun相關介紹
 我就蠢蠢欲動</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="實��作">實作<a href="https://kiwi0093.github.io/Public-Wiki/2025/01/misc-talk-250103#%E5%AF%A6%E4%BD%9C" class="hash-link" aria-label="實作的直接連結" title="實作的直接連結" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="實作">實作<a href="https://kiwi0093.github.io/Public-Wiki/2025/01/misc-talk-250103#%E5%AF%A6%E4%BD%9C" class="hash-link" aria-label="實作的直接連結" title="實作的直接連結" translate="no">​</a></h2>
 <p>我已經Update到<a href="https://kiwi0093.github.io/wiki/wiki/VM&amp;Container/Service%20Container/Home%20Lab/3-auto-chasing-drama/" target="_blank" rel="noopener noreferrer" class="">我的Wiki</a>去了,有興趣的同學可以參考一下小弟的作法</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="心得">心得<a href="https://kiwi0093.github.io/Public-Wiki/2025/01/misc-talk-250103#%E5%BF%83%E5%BE%97" class="hash-link" aria-label="心得的直接連結" title="心得的直接連結" translate="no">​</a></h2>
 <p>目前看起來算是會動,但是看起來qbittorrent的效率不是很好,加上我目前沒有成功弄出<code>port forwarding</code>的功能，所以我其實是有在考慮是不是要花錢買ProtonVPN的服務....
@@ -626,7 +695,7 @@ Cloudflare其實是可以把Domain的Email alias到Gmail透過設定後除了可
 <p>搬家住了一陣子,生活也日趨平淡,除了惱人的坐骨神經痛以外,平靜的生活沒有什麼特別的....</p>
 <h1>最近的動向</h1>
 <p>一言以蔽之，就是又把心思放在學習做飯上面...（沒錯...就是做飯）</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="藏書水盆羊肉山寨版">藏書/水盆羊肉(山寨版)<a href="https://kiwi0093.github.io/Public-Wiki/2024/03/talk-ver2403#%E8%97%8F%E6%9B%B8%E6%B0%B4%E7%9B%86%E7%BE%8A%EF%BF%BD%EF%BF%BD%E8%82%89%E5%B1%B1%E5%AF%A8%E7%89%88" class="hash-link" aria-label="藏書/水盆羊肉(山寨版)的直接連結" title="藏書/水盆羊肉(山寨版)的直接連結" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="藏書水盆羊肉山寨版">藏書/水盆羊肉(山寨版)<a href="https://kiwi0093.github.io/Public-Wiki/2024/03/talk-ver2403#%E8%97%8F%E6%9B%B8%E6%B0%B4%E7%9B%86%E7%BE%8A%E8%82%89%E5%B1%B1%E5%AF%A8%E7%89%88" class="hash-link" aria-label="藏書/水盆羊肉(山寨版)的直接連結" title="藏書/水盆羊肉(山寨版)的直接連結" translate="no">​</a></h2>
 <p>在蘇州生活的那些年，一到冬天，就常常跟同事去吃個藏書羊肉，對於不喜歡羊羶味的我來說這是少數幾個我還蠻喜歡的羊肉料理(其他還有烤羊肉串)</p>
 <p>去年跟著老婆回家省親的時候也順便帶了水盆羊肉的燉料回來，所以就做了以下這個
 <img decoding="async" loading="lazy" src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/lamp.jpg" alt="山寨版藏書/水盆混何" class="img_ev3q"></p>
@@ -989,95 +1058,6 @@ GPU from Intel Iris@Xe to Nvidia T600 Laptop(好啦有快一些)</p>
 </ul>]]></content:encoded>
             <category>Life</category>
             <category>Linux</category>
-            <category>Old-Blog</category>
-        </item>
-        <item>
-            <title><![CDATA[Steam Deck真香！！]]></title>
-            <link>https://kiwi0093.github.io/Public-Wiki/2023/01/steam+deck+great</link>
-            <guid>https://kiwi0093.github.io/Public-Wiki/2023/01/steam+deck+great</guid>
-            <pubDate>Wed, 11 Jan 2023 00:00:00 GMT</pubDate>
-            <description><![CDATA[G胖你真是好樣的]]></description>
-            <content:encoded><![CDATA[<blockquote>
-<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>資訊</div><div class="admonitionContent_BuS1"><p>本文轉載自舊站存檔。</p></div></div>
-</blockquote>
-<p>我入手了一台Steam Deck,算是有小孩後久違了的玩具...</p>
-<p>至於為什麼拖了那麼久才拿出來寫，我只能說因為它真香....</p>
-<p>讓我體驗了許久未能爽到的 - 通關遊戲的快感</p>
-<h1>簡單說明</h1>
-<p>趁著KOMODO的亞洲代理販賣,我也買了一台512GB版的Steam Deck(雖然我手上也是有2230的1TB SSD,不過我倒是沒有打算自己改....)</p>
-<p>什麼開箱的東西我就不寫了,畢竟網路上一大堆相關的開箱文跟影片，我就來說說我自己的感受...</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="主要用途">主要用途<a href="https://kiwi0093.github.io/Public-Wiki/2023/01/steam+deck+great#%E4%B8%BB%E8%A6%81%E7%94%A8%E9%80%94" class="hash-link" aria-label="主要用途的直接連結" title="主要用途的直接連結" translate="no">​</a></h2>
-<p>入手前，我很大程度上沒有真的期望我會常常拿來玩遊戲....我更多的是認為我應該會拿來把本體玩一玩然後他的下場大概就會跟我的PSP一樣拿去堆灰...結果我發現我錯了....</p>
-<p>適逢剛好遇到Steam冬季特賣，我剛好趁打折入手了大概是純收藏等級的幾個遊戲</p>
-<p><code>歧路旅人</code>與<code>三角戰略</code>..從這兩個遊戲開始我就發現我的深夜離不開Steam Deck了....</p>
-<p>（所以後續又在還很貴的時候買了<code>Tactic Orge Reborn</code>)</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="簡單評測">簡單評測<a href="https://kiwi0093.github.io/Public-Wiki/2023/01/steam+deck+great#%E7%B0%A1%E5%96%AE%E8%A9%95%E6%B8%AC" class="hash-link" aria-label="簡單評測的直接連結" title="簡單評測的直接連結" translate="no">​</a></h2>
-<p>其實valve在Steam OS上還是蠻用心的,有很多小工具整合得很不錯,幾個少數的缺點不外乎是</p>
-<ul>
-<li class="">
-<p>系統是read only的安裝新的程式都是靠<code>flatpak</code></p>
-</li>
-<li class="">
-<p>Valve的repo庫穩定性不佳（但是我自己用是沒出過問題大概是初期）</p>
-</li>
-<li class="">
-<p>3.0 --&gt; 3.3.4變化很大, 這個我個人覺得某程度上也是Arch base的習性,改版就會改比較大，另一方面的看法則是Valve很積極的在改善他們的產品</p>
-</li>
-<li class="">
-<p>續航力不足</p>
-</li>
-<li class="">
-<p>畫面只有1280x800解析度不足1080p(但是畫面那麼小看起來差距沒那麼大)</p>
-</li>
-<li class="">
-<p>太大太重（其實我自己使用是還好）</p>
-</li>
-</ul>
-<p>優點的部份其實也是不少的算是特點吧</p>
-<ul>
-<li class="">
-<p>UI整合完整，雖說這是一台掌機肯定要做好的，但是看著其他使用Windows平台的強國掌機就覺得贏了不知道幾條街</p>
-</li>
-<li class="">
-<p>可鎖定FPS降低耗電，有沒有設定為40fps真的影響續航非常嚴重</p>
-</li>
-<li class="">
-<p>夜間模式等小調整，算是貼心</p>
-</li>
-<li class="">
-<p>有桌面模式可以用，老實說桌面模式是蠻雞肋的，因為一般玩家只玩遊戲的前提下幾乎用不上，但是當你需要弄一些額外的東西的時候就很需要了（但是還是最好外接鍵盤滑鼠前提下使用）</p>
-</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="好用的額外工具">好用的額外工具<a href="https://kiwi0093.github.io/Public-Wiki/2023/01/steam+deck+great#%E5%A5%BD%E7%94%A8%E7%9A%84%E9%A1%8D%E5%A4%96%E5%B7%A5%E5%85%B7" class="hash-link" aria-label="好用的額外工具的直接連結" title="好用的額外工具的直接連結" translate="no">​</a></h2>
-<ul>
-<li class="">
-<p><a href="https://github.com/sonic2kk/steamtinkerlaunch" target="_blank" rel="noopener noreferrer" class="">Steam Tinker Launch</a></p>
-<p>基本上透過<code>ProtonUP-Qt</code>安裝就好了，基本上就是神工具，使用上是在Steam啟動部份類似<code>Proton</code>一樣設定，設定好了會在啟動遊戲前先啟動這個launcher的menu, 然後可以設定<code>custom program</code>連動,也可以在勾選<code>tool -&gt; cheat engine</code>後自動在啟動遊戲後啟動<code>cheat engine</code>並且已經設定好process連動,使用時直接load CT file就好了</p>
-<p>唯一美中不足的就是當啟動cheat engine的時候畫面的觸控範圍跟實際畫面有落差</p>
-</li>
-<li class="">
-<p><a href="https://davidotek.github.io/protonup-qt/" target="_blank" rel="noopener noreferrer" class="">ProtonUp-Qt</a></p>
-<p>算是一個steam proton或是其他Plugin(例如STL)的安裝工具,可透過Discover安裝flatpak版（或是直接下載AppImage版也行），喜歡的話也可以透過這個安裝<code>Proton-GE</code></p>
-</li>
-<li class="">
-<p><a href="https://github.com/GloriousEggroll/proton-ge-custom" target="_blank" rel="noopener noreferrer" class="">Proton-GE</a></p>
-<p>這算是客製版的Proton加了不少東西在裡面</p>
-<p><a href="https://www.linuxadictos.com/zh-TW/proton-ge-en-que-se-diferencia-con-proton.html" target="_blank" rel="noopener noreferrer" class="">Proton GE：它與 Proton 有什麼不同？ （遊戲） | Linux 癮君子</a></p>
-</li>
-<li class="">
-<p><a href="https://www.emudeck.com/" target="_blank" rel="noopener noreferrer" class="">Emudeck</a></p>
-<p>由於Steam Deck<code>優異的性能</code>所以很適合在上面跑EMU, Emudeck是一個整合安裝的程式（是的他的用途就是整合安裝而已，EMU還是其他各個獨立的EMU)這也是這堆工具中我唯一還沒安裝的（因為我的SD卡還沒到所以沒空間可以放）</p>
-</li>
-</ul>
-<h1>結論</h1>
-<p>若你的Steam收藏庫內都是類似<code>AOE</code>, <code>HOI</code>這種很靠滑鼠鍵盤控制的PC Game,那麼Steam Deck就不是那麼適合你, 若你只玩超吃硬體性能的大型PC Game，那麼Steam Deck也不適合你，Steam Deck就適合玩需要把手, loading沒那麼重的遊戲而且很適合只有零碎時間可以玩遊戲的人，至於你是不是很習慣/擅長Linux跟他本體沒有什麼嚴重的關聯性，充其量就是越會使用Linux的人越容易去亂搞Steam OS的設定或是調整</p>
-<p>你問我會不會安利Steam Deck給其他人？？</p>
-<p>老實說同樣的價格（或稍微多一點點）就可以買的的到低階的電競筆電了...而再低階的電競筆電性能幾乎都是屌打Steam Deck...</p>
-<p>你說但是他有專用的Steam OS超屌,可是你裝個Manjaro不要Game Mode. 也可以弄的跟Steam OS有87％像，更何況還有人放出可以安裝在一般PC硬體上的Holo ISO（只是我沒在VirtualBox上安裝成功過）所以也沒必要為了他的OS去買Steam Deck</p>
-<p>大概這樣刪去的最終客群就剩一群人傻錢多的....（可是我很窮,應該不屬於這個分類）</p>
-<p>這個商品對我來說就像微軟會了教NB製造商怎麼設計生產出符合Windows 8/10的硬體而去做了CP值不高的Surface系列（老實說用surface跑windows還真的蠻舒服的，可惜我已經不太使用WIndows了）Valve為Linux Gaming做出了軟硬體方面的貢獻希望後面還真的有不少廠商願意投入爭先恐後的做出更好的產品</p>]]></content:encoded>
-            <category>Life</category>
-            <category>Game</category>
             <category>Old-Blog</category>
         </item>
     </channel>
