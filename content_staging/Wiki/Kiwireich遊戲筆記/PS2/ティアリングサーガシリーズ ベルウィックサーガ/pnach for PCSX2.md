@@ -1,10 +1,12 @@
 ---
-slug:
+slug: GAME/PS2/Berwick/pnach
 title: pnach for PCSX2
 date: 2026-09-01
-description:
-image:
+description: ティアリングサーガシリーズ ベルウィックサーガの改造コードfor PCSX2
 tags:
+  - Game
+  - PS2
+  - SLG
 ---
 
 
