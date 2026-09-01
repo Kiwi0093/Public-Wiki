@@ -8,7 +8,7 @@ tags: [Game,PC-Game,RPG]
 
 其實Save檔裡面就定義了你的角色外型,技能,Feat, Ability,Inventory等資料,若是不喜歡用Mod或是其他工具修改的人可以手工修改,不過建議盡量不要玩到遊戲忠厚其後才修改(除非有必要)不然檔案會很大很難改
 
-<!--more-->
+<!--truncate-->
 
 # Party.json sample
 

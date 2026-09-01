@@ -3,13 +3,9 @@ title: BATTLETECH - Mod武器修改技巧
 date: 2021-5-19
 tags: [Game,PC-Game,SLG]
 ---
-
-## Mod
-
+;;;tip
 這個遊戲的Mod在[Nexus mods](https://www.nexusmods.com/battletech)裡面就有
-
-<!--more-->
-
+;;;
 ## Modify
 
 * 修改武器參數,可隨意複製後修改

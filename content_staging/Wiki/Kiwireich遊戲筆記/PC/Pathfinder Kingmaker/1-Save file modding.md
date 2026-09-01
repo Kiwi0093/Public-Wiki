@@ -8,7 +8,7 @@ tags: [Game,PC-Game,RPG]
 
 我很喜歡D&D類型的RPG,也很喜歡這種類冰風谷的CRPG,然而更大的樂趣,卻是亂搞遊戲本身...
 
-<!--more-->
+<!--truncate-->
 
 ### Save檔所在位置
 

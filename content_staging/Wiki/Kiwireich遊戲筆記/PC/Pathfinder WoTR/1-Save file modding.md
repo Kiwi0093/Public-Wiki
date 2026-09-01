@@ -8,7 +8,7 @@ tags: [Game,PC-Game,RPG]
 
 上一代的Pathfinder:Kingmaker的時候已經搞過一次，這次也不免俗也要改一下
 
-<!--more-->
+<!--truncate-->
 
 # 主要變更
 
