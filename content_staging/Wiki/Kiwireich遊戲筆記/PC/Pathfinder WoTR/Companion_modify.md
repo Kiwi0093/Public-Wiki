@@ -1,14 +1,17 @@
 ---
-title: Pathfinder:WoTR - MythicSkeletonCompanion Modify
+title: MythicSkeletonCompanion Modify
 date: 2021-11-05
-tags: [Game,PC-Game,RPG]
+tags:
+  - Game
+  - PC-Game
+  - RPG
 ---
 
-# 前言
-
+;;;Tips
 其實把跟班改好改滿後根本不用帶同伴一起冒險了,因為你這樣就等於有一個五人小隊了....
+;;;
 
-<!--truncate-->
+<img src='https://img.shields.io/badge/Kiwi-%E5%BE%8C%E4%BE%86%E9%81%8A%E6%88%B2%E5%A4%9A%E6%AC%A1%E6%94%B9%E7%89%88%2C%E5%85%B6%E5%AF%A6%E9%80%99%E5%80%8B%E4%BD%9C%E6%B3%95%E5%BE%8C%E9%9D%A2%E6%98%AF%E4%B8%8D%E6%98%AF%E9%82%84%E5%8F%AF%E4%BB%A5%E6%88%96%E6%98%AF%E6%90%AD%E9%85%8D%E5%85%B6%E4%BB%96mod%E4%B8%80%E8%B5%B7%E6%94%B9%E6%89%8D%E5%8F%AF%E4%BB%A5%E5%B7%B2%E7%B6%93%E4%B8%8D%E5%8F%AF%E8%80%83%E4%BA%86-A8FF24?style=social&logo=kiwix&logoColor=EA7500' height='40' />
 
 # 基本流程
 
