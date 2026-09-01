@@ -11,6 +11,8 @@ tags:
 我很喜歡D&D類型的RPG,也很喜歡這種類冰風谷的CRPG,然而更大的樂趣,卻是亂搞遊戲本身...
 ;;;
 
+<img src='https://img.shields.io/badge/Kiwi-%E4%BA%82%E6%90%9E%E7%BE%8E%E5%BC%8FCRPG%E5%B9%BE%E4%B9%8E%E5%8F%AF%E4%BB%A5%E8%AA%AA%E6%98%AF%E6%88%91%E5%80%8B%E4%BA%BA%E5%B0%8D%E6%96%BCCRPG%E7%9A%84%E7%86%B1%E6%84%9B%E6%A0%B9%E6%BA%90-A8FF24?style=social&logo=kiwix&logoColor=EA7500' height='40' />
+
 ### Save檔所在位置
 
 `C:\Users\{Username}\AppData\LocalLow\Owlcat Games\Pathfinder Kingmaker\Saved Games`
