@@ -7,9 +7,9 @@ tags:
   - RPG
 ---
 
-;;;tips
+:::tip
 上一代的Pathfinder:Kingmaker的時候已經搞過一次，這次也不免俗也要改一下
-;;;
+:::
 
 <img src='https://img.shields.io/badge/Kiwi-%E5%9B%A0%E7%82%BA%E6%98%AF%E5%90%8C%E5%80%8B%E5%BC%95%E6%93%8E%2C%E6%89%80%E4%BB%A5%E5%85%B6%E5%AF%A6%E5%85%A7%E5%AE%B9%E6%98%AF%E4%B8%80%E6%A8%A3%E7%9A%84%E5%8F%AA%E6%98%AFWoTR%E6%9C%83%E5%A4%9A%E6%AA%A2%E6%9F%A5%E4%B8%80%E4%B8%8Bfeat-A8FF24?style=social&logo=kiwix&logoColor=EA7500' height='40' />
 

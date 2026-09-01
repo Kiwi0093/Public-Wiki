@@ -12,20 +12,22 @@ tags:
 
 > <img src='https://img.shields.io/badge/Status-Active-A8FF24?style=for-the-badge&labelWidth=100' height='38' />
 
+:::tip
+PCSX2要用的cheat檔案,不需要Master code, 而且要利用omniconverterCS來幫忙轉成`.pnach`檔
+:::
+
 | ゲーム番号      | ゲーム名前                         | CRC      |
 | ---------- | ----------------------------- | -------- |
 | SLPS-25496 | ティアリングサーガシリーズ ベルウィックサーガ DXパック |          |
 | SLPS-25497 | ティアリングサーガシリーズ ベルウィックサーガ [通常版] | 2FCA8492 |
 
-|ジャンル|[シミュレーションRPG](https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%AB%E3%83%97%E3%83%AC%E3%82%A4%E3%83%B3%E3%82%B0%E3%82%B2%E3%83%BC%E3%83%A0 "シミュレーションロールプレイングゲーム")|
-|---|---|
-|対応機種|[PlayStation 2](https://ja.wikipedia.org/wiki/PlayStation_2 "PlayStation 2")|
-|開発元|[ティルナノーグ](https://ja.wikipedia.org/wiki/%E3%83%86%E3%82%A3%E3%83%AB%E3%83%8A%E3%83%8E%E3%83%BC%E3%82%B0_\(%E3%82%B2%E3%83%BC%E3%83%A0%E4%BC%9A%E7%A4%BE\) "ティルナノーグ (ゲーム会社)")|
-|発売元|[エンターブレイン](https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%96%E3%83%AC%E3%82%A4%E3%83%B3 "エンターブレイン")|
-|人数|1人|
-|発売日|[2005年](https://ja.wikipedia.org/wiki/2005%E5%B9%B4 "2005年")[5月26日](https://ja.wikipedia.org/wiki/5%E6%9C%8826%E6%97%A5 "5月26日")  <br />2005年[12月1日](https://ja.wikipedia.org/wiki/12%E6%9C%881%E6%97%A5 "12月1日")(PS2 the Best)|
-
-<!--truncate-->
+| ジャンル | [シミュレーションRPG](https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%AB%E3%83%97%E3%83%AC%E3%82%A4%E3%83%B3%E3%82%B0%E3%82%B2%E3%83%BC%E3%83%A0 "シミュレーションロールプレイングゲーム") |
+| ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 対応機種 | [PlayStation 2](https://ja.wikipedia.org/wiki/PlayStation_2 "PlayStation 2")                                                                                                                                                                   |
+| 開発元  | [ティルナノーグ](https://ja.wikipedia.org/wiki/%E3%83%86%E3%82%A3%E3%83%AB%E3%83%8A%E3%83%8E%E3%83%BC%E3%82%B0_\(%E3%82%B2%E3%83%BC%E3%83%A0%E4%BC%9A%E7%A4%BE\) "ティルナノーグ (ゲーム会社)")                                                                   |
+| 発売元  | [エンターブレイン](https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%96%E3%83%AC%E3%82%A4%E3%83%B3 "エンターブレイン")                                                                                                                  |
+| 人数   | 1人                                                                                                                                                                                                                                             |
+| 発売日  | [2005年](https://ja.wikipedia.org/wiki/2005%E5%B9%B4 "2005年")[5月26日](https://ja.wikipedia.org/wiki/5%E6%9C%8826%E6%97%A5 "5月26日")  <br />2005年[12月1日](https://ja.wikipedia.org/wiki/12%E6%9C%881%E6%97%A5 "12月1日")(PS2 the Best)                |
 
 ---
 

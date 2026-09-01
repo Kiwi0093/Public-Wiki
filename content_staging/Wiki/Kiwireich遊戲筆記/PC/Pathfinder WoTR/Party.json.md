@@ -7,9 +7,9 @@ tags:
   - RPG
 ---
 
-;;;Tips
+:::
 其實Save檔裡面就定義了你的角色外型,技能,Feat, Ability,Inventory等資料,若是不喜歡用Mod或是其他工具修改的人可以手工修改,不過建議盡量不要玩到遊戲中後期後才修改(除非有必要)不然檔案會很大很難改
-;;;
+:::
 
 <img src='https://img.shields.io/badge/Kiwi-%E8%80%81%E5%AF%A6%E8%AA%AA%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8ToyBox%E6%AF%94%E8%BC%83%E5%BF%AB%E5%95%A6-A8FF24?style=social&logo=kiwix&logoColor=EA7500' height='40' />
 
