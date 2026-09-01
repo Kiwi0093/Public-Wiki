@@ -27,6 +27,8 @@ tags:
 
 <!--truncate-->
 
+---
+
 gametitle=ティアリングサーガシリーズ ベルウィックサーガ (Japan) [SLPS-25497]
 
 [資金MAX]
