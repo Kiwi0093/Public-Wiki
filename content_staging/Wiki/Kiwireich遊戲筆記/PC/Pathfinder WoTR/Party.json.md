@@ -8,521 +8,125 @@ tags:
 ---
 
 :::
-其實Save檔裡面就定義了你的角色外型,技能,Feat, Ability,Inventory等資料,若是不喜歡用Mod或是其他工具修改的人可以手工修改,不過建議盡量不要玩到遊戲中後期後才修改(除非有必要)不然檔案會很大很難改
+在《正義之怒》中，`party.json` 是整個存檔的核心，記錄了隊伍中每一個角色（包含主角、NPC 隊友、傭兵與各類跟班）的所有數據。了解其底層的 JSON 結構，是進行任何高階修改（如自訂外觀、多重跟班綁定）的基礎。
 :::
 
 <img src='https://img.shields.io/badge/Kiwi-%E8%80%81%E5%AF%A6%E8%AA%AA%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8ToyBox%E6%AF%94%E8%BC%83%E5%BF%AB%E5%95%A6-A8FF24?style=social&logo=kiwix&logoColor=EA7500' height='40' />
 
-# Party.json sample
+## 🏗️ 1. 基本存檔結構 (Basic Structure)
 
-```json
+打開 `party.json` 後，你會看到整個檔案被包裝在一個巨大的物件中。每個角色都是 `m_EntityData` 陣列（Array）裡的一個獨立區塊。
+
+JSON
+
+```
 {
     "SceneName": "<cross-scene>",
     "HasEntityData": false,
     "m_EntityData": [
-        {
-            "$id": "1",
-            "$type": "Kingmaker.EntitySystem.Entities.UnitEntityData, Assembly-CSharp",
-            "m_GroupId": "<directly-controllable-unit>",
-            "Position": "-6788|4068|603",
-            "m_Orientation": 251.672562,
-            "Sleepless": 0,
-            "Parts": {
-                "$id": "2",
-                "m_Parts": [
-                    {},
-                    {
-                        "$id": "4",
-                        "$type": "Kingmaker.UnitLogic.Parts.UnitPartCompanion, Assembly-CSharp",
-                        "m_Spawner": null,
-                        "m_HealOnExit": false,
-                        "State": "InParty",
-                        "LastCampingRole": "Alchemist"
-                    },
-                    {},
-                    {
-                        "$id": "6",
-                        "$type": "Kingmaker.UnitLogic.Parts.UnitPartDollData, Assembly-CSharp",
-                        "Default": {
-                            "$id": "7",
-                            "EquipmentEntityIds": [
-                                "7368eafa3f5ee9d4bb9739b80faefdc3",
-                                "9ab83dd3a06ba6a4e97900bd6ffc4aab",
-                                "7c55ae7f07c9d4741b4837bd305d3ec0",
-                                "b8b615fabc0f7af448fb68f009113c61",
-                                "8a008a34d7462524c9b96132a28bb606"
-                            ],
-                            "EntityRampIdices": {
-                                "7c55ae7f07c9d4741b4837bd305d3ec0": 15,
-                                "861171cdd3930a84faab08ab85ba924a": 8,
-                                "7368eafa3f5ee9d4bb9739b80faefdc3": 8,
-                                "9ab83dd3a06ba6a4e97900bd6ffc4aab": 15
-                            },
-                            "EntitySecondaryRampIdices": {},
-                            "Gender": "Female",
-                            "RacePreset": "ee326fab8804493499ce07c5cd8759e2",
-                            "ClothesPrimaryIndex": 9,
-                            "ClothesSecondaryIndex": 9
-                        }
-                    },
-                    {},
-                    {},
-                    {
-                        "$id": "10",
-                        "$type": "Kingmaker.UnitLogic.Parts.UnitPartPetMaster, Assembly-CSharp",
-                        "m_Pets": [
-                            {
-                                "m_Ref": "b27cd89c-a8b0-4a1c-a5f0-379c5e5fd9c3"
-                            },
-                             {
-                                "m_Ref": "46694232-fba8-4a18-8daa-1a1c933290e2"
-                            },
-                             {
-                                "m_Ref": "14547546-c716-4e63-9a5c-d8126e9c01f6"
-                            },
-                             {
-                                "m_Ref": "2577f7e3-a782-439d-90df-eaa70a440af4"
-                            }
-                        ],
-                        "m_ExPets": []
-                    },
-                    {},
-                    {},
-                    {}
-                ]
-            },
-            "Facts": {},
-            "m_IsRevealed": true,
-            "Stealth": {},
-            "SpawnPosition": "0|0|0",
-            "LastMoveTime": "2.12:30:27.8830000",
-            "Descriptor": {
-                "$id": "2065",
-                "m_Inventory": {},
-                "m_Spellbooks": [],
-                "Faction": "72f240260881111468db610b6c37c099",
-                "Stats": {
-                    "$id": "2309",
-                    "Strength": {},
-                    "Dexterity": {},
-                    "Constitution": {},
-                    "Intelligence": {},
-                    "Wisdom": {},
-                    "Charisma": {},
-                    "HitPoints": {},
-                    "TemporaryHitPoints": {},
-                    "AC": {},
-                    "AdditionalAttackBonus": {},
-                    "AdditionalDamage": {},
-                    "BaseAttackBonus": {},
-                    "AttackOfOpportunityCount": {},
-                    "AdditionalCMB": {},
-                    "AdditionalCMD": {},
-                    "Initiative": {},
-                    "Speed": {},
-                    "SaveFortitude": {},
-                    "SaveReflex": {},
-                    "SaveWill": {},
-                    "SkillMobility": {},
-                    "SkillAthletics": {},
-                    "SkillPerception": {},
-                    "SkillThievery": {},
-                    "SkillPersuasion": {},
-                    "SkillStealth": {},
-                    "SkillUseMagicDevice": {},
-                    "SkillKnowledgeArcana": {},
-                    "SkillKnowledgeWorld": {},
-                    "SkillLoreNature": {},
-                    "SkillLoreReligion": {},
-                    "CheckBluff": {},
-                    "CheckDiplomacy": {},
-                    "CheckIntimidate": {},
-                    "SneakAttack": {},
-                    "DamageNonLethal": {},
-                    "Reach": {}
-                },
-                "AttackFactions": {},
-                "Resources": {},
-                "Progression": {},
-                "UISettings": {
-                    "$id": "2400",
-                    "m_AlreadyAutomaticallyAdded": [],
-                    "m_CustomPortrait": {
-                        "$id": "2401",
-                        "m_CustomPortraitId": "4BE5DB6815BD1B86F14B4B687F1BA1FF"
-                    },
-                    "m_Slots": {}
-                },
-                "State": {},
-                "Proficiencies": {},
-                "Alignment": {},
-                "CustomGender": "Female",
-                "LeftHandedOverride": true,
-                "CustomName": "Kiwi Von Hohenzollen",
-                "CustomAsks": "e7b22776ba8e2b84eaaff98e439639a7",
-                "ForcceUseClassEquipment": true,
-                "BirthDay": 23,
-                "BirthMonth": 10,
-                "m_IsEssentialForGame": 1,
-                "Body": {},
-                "Brain": {},
-                "OriginalBlueprint": "4391e8b9afbb0cf43aeba700c089f56d",
-                "Blueprint": "4391e8b9afbb0cf43aeba700c089f56d",
-                "MainFact": {},
-                "Encumbrance": "Light",
-                "HasOwnInventory": false,
-                "LastRestTime": "2.07:02:52.1970000"
-            },
-            "PreviousPosition": "-6788|4068|603",
-            "DesiredOrientation": 251.672562,
-            "TimeToNextRoundTick": 2.977339,
-            "LootViewed": false,
-            "UniqueId": "e51cd2f4-f8e6-4956-93a7-86281cd5e92a"
-        },
-        {
-            "$id": "2457",
-            "$type": "Kingmaker.EntitySystem.Entities.UnitEntityData, Assembly-CSharp",
-            "m_GroupId": "<directly-controllable-unit>",
-            "Position": "-7137|4068|442",
-            "m_Orientation": 270.454346,
-            "Sleepless": 0,
-            "Parts": {
-                "$id": "2458",
-                "m_Parts": [
-                    {
-                        "$id": "2459",
-                        "$type": "Kingmaker.UnitLogic.Parts.UnitPartPet, Assembly-CSharp",
-                        "m_MasterRef": {
-                            "m_Ref": "e51cd2f4-f8e6-4956-93a7-86281cd5e92a"
-                        },
-                        "Type": "MythicSkeletalChampion"
-                    },
-                    {},
-                    {
-                        "$id": "2461",
-                        "$type": "Kingmaker.UnitLogic.Parts.UnitPartDollData, Assembly-CSharp",
-                        "Default": {
-                            "$id": "2462",
-                            "EquipmentEntityIds": [
-                                "971d4ec9ff97af447b415c8eb4c5b0b5",
-                                "6831469a4e2bc664f9622bdfbf5ed30c",
-                                "3fa56cc5d206ca142bde8f93ad089a02",
-                                "b8b615fabc0f7af448fb68f009113c61",
-                                "8a008a34d7462524c9b96132a28bb606"
-                            ],
-                            "EntityRampIdices": {
-                                "3fa56cc5d206ca142bde8f93ad089a02": 11,
-                                "bb6988a21733fad4296ad22537248fea": 8,
-                                "971d4ec9ff97af447b415c8eb4c5b0b5": 8,
-                                "6831469a4e2bc664f9622bdfbf5ed30c": 11
-                            },
-                            "EntitySecondaryRampIdices": {},
-                            "Gender": "Female",
-                            "RacePreset": "e03b9c63971878743b8f53bdf14673ee",
-                            "ClothesPrimaryIndex": 54,
-                            "ClothesSecondaryIndex": 12
-                        }
-                    },
-                    {}
-                ]
-            },
-            "Facts": {},
-            "m_IsRevealed": true,
-            "Stealth": {},
-            "SpawnPosition": "0|0|0",
-            "LastMoveTime": "2.12:30:38.7740000",
-            "Descriptor": {
-                "$id": "2631",
-                "m_Inventory": {},
-                "m_Damage": 291,
-                "m_Spellbooks": [],
-                "Faction": "72f240260881111468db610b6c37c099",
-                "Stats": {},
-                "AttackFactions": {},
-                "Resources": {},
-                "Progression": {},
-                "UISettings": {
-                    "$id": "2694",
-                    "m_AlreadyAutomaticallyAdded": [],
-                    "m_CustomPortrait": {
-                        "$id": "2695",
-                        "m_CustomPortraitId": "B28894B2200AAE6300A928653E91CD2B"
-                    },
-                    "m_Slots": {}
-                },
-                "State": {},
-                "Proficiencies": {},
-                "Alignment": {},
-                "CustomGender": "Female",
-                "LeftHandedOverride": true,
-                "CustomName": "烏緹卡",
-                "BirthDay": 25,
-                "BirthMonth": 12,
-                "CustomPrefabGuid": null,
-                "m_IsEssentialForGame": 0,
-                "Body": {},
-                "Brain": {},
-                "OriginalBlueprint": "3038bf627339a4d469e3c7455007f10d",
-                "Blueprint": "3038bf627339a4d469e3c7455007f10d",
-                "MainFact": {
-                    "$ref": "2471"
-                },
-                "Encumbrance": "Light",
-                "HasOwnInventory": false,
-                "LastRestTime": "2.07:02:52.1970000"
-            },
-            "PreviousPosition": "-7137|4068|442",
-            "DesiredOrientation": 270.454346,
-            "TimeToNextRoundTick": 5.049661,
-            "LootViewed": false,
-            "UniqueId": "b27cd89c-a8b0-4a1c-a5f0-379c5e5fd9c3"
-        }
+        { 角色 A 的完整資料 },
+        { 角色 B 的完整資料 },
+        { 角色 C 的完整資料 }
+    ]
 }
 ```
 
-# Save檔的結構
+> 💡 **快速搜尋技巧**：
+> 
+> 在龐大的文件中，建議使用 `"m_GroupId": "<directly-controllable-unit>"` 作為搜尋關鍵字，這能幫你快速定位到玩家可控制的核心角色區塊。
 
-## 基本結構
+## 🧩 2. 角色實體拆解 (UnitEntityData)
 
-基本上就如sample一樣, 它是一個人完整定義完了之後在開始下一個重點
+每一個角色的區塊都被宣告為 `UnitEntityData`。以下是該區塊內最重要的五大一級節點：
 
-```json
+|**節點名稱**|**內容說明**|
+|---|---|
+|**`UniqueId`**|**角色的唯一身分證號碼**。位於該角色區塊的最底層（如 `"e51cd2f4-f8e6-..."`），在進行主從綁定時極為重要。|
+|**`Parts`**|**附加組件區**。管理角色的 3D 外型 (Doll)、寵物主從關係 (Pet/Master)、Buff 狀態等。|
+|**`Facts`**|**能力區**。角色的專長 (Feats)、技能 (Abilities) 都儲存在這裡。|
+|**`Descriptor`**|**核心敘述區**。定義角色的名字、性別、2D 頭像、基礎屬性 (Stats) 與陣營。|
+|**`Position`**|**座標**。角色在當前地圖上的 X/Y/Z 絕對位置。|
+
+## 🔗 3. 主從關係綁定 (Parts: Pet & Master)
+
+要讓系統承認跟班，必須在 `Parts` 區塊中進行「雙向綁定」。
+
+### 主人端 (Master) 的設定
+
+主人必須具備 `UnitPartPetMaster` 組件。若要增加多個跟班，請在 `"m_Pets"` 陣列中依序增加跟班的 UUID。
+
+JSON
+
+```
 {
-    "SceneName": "<cross-scene>",
-    "HasEntityData": false,
-    "m_EntityData": [
-        {
-            "$id": "1",
-            "$type": "Kingmaker.EntitySystem.Entities.UnitEntityData, Assembly-CSharp",
-            "m_GroupId": "<directly-controllable-unit>",
-            "Position": "-6788|4068|603",
-            "m_Orientation": 251.672562,
-            "Sleepless": 0,
-            "Parts": {},
-            "Facts": {},
-            "m_IsRevealed": true,
-            "Stealth": {},
-            "SpawnPosition": "0|0|0",
-            "LastMoveTime": "2.12:30:27.8830000",
-            "Descriptor": {},
-            "PreviousPosition": "-6788|4068|603",
-            "DesiredOrientation": 251.672562,
-            "TimeToNextRoundTick": 2.977339,
-            "LootViewed": false,
-            "UniqueId": "e51cd2f4-f8e6-4956-93a7-86281cd5e92a"
-        },
-        {
-            "$id": "2457",
-            "$type": "Kingmaker.EntitySystem.Entities.UnitEntityData, Assembly-CSharp",
-            "m_GroupId": "<directly-controllable-unit>",
-            "Position": "-7137|4068|442",
-            "m_Orientation": 270.454346,
-            "Sleepless": 0,
-            "Parts": {},
-            "Facts": {},
-            "m_IsRevealed": true,
-            "Stealth": {},
-            "SpawnPosition": "0|0|0",
-            "LastMoveTime": "2.12:30:38.7740000",
-            "Descriptor": {},
-            "PreviousPosition": "-7137|4068|442",
-            "DesiredOrientation": 270.454346,
-            "TimeToNextRoundTick": 5.049661,
-            "LootViewed": false,
-            "UniqueId": "b27cd89c-a8b0-4a1c-a5f0-379c5e5fd9c3"
-        },
-        {}
+    "$type": "Kingmaker.UnitLogic.Parts.UnitPartPetMaster, Assembly-CSharp",
+    "m_Pets": [
+        { "m_Ref": "跟班A的-UUID" },
+        { "m_Ref": "跟班B的-UUID" },
+        { "m_Ref": "跟班C的-UUID" }
+    ],
+    "m_ExPets": []
 }
 ```
 
-所以若要搜索建議可以用`"m_GroupId"`作為關鍵字進行搜尋
+### 跟班端 (Pet) 的設定
 
-## 大致分類
+跟班必須具備 `UnitPartPet` 組件，並指回主人的 UUID。
 
-### 主結構
+JSON
 
-```json
-"$id": "2457",
-"$type": "Kingmaker.EntitySystem.Entities.UnitEntityData, Assembly-CSharp",
-"m_GroupId": "<directly-controllable-unit>",
-"Position": "-7137|4068|442",
-"m_Orientation": 270.454346,
-"Sleepless": 0,
-"Parts": {},																	#角色的外型,buff,Pet都在這一個Section
-"Facts": {},																	#角色的feat, ability都在這一個Section
-"m_IsRevealed": true,
-"Stealth": {},
-"SpawnPosition": "0|0|0",
-"LastMoveTime": "2.12:30:38.7740000",
-"Descriptor": {},																#角色最重要的定義,後面會另外break down
-"PreviousPosition": "-7137|4068|442",
-"DesiredOrientation": 270.454346,
-"TimeToNextRoundTick": 5.049661,
-"LootViewed": false,
-"UniqueId": "b27cd89c-a8b0-4a1c-a5f0-379c5e5fd9c3"								#角色的UniqueID,每個角色都有一個不重複的
 ```
-
-### Parts - Pet & Master
-
-```json
-#定義Pet種類與其Master
-"Parts": {
-                "$id": "2458",
-                "m_Parts": [
-                    {
-                        "$id": "2459",
-                        "$type": "Kingmaker.UnitLogic.Parts.UnitPartPet, Assembly-CSharp",
-                        "m_MasterRef": {
-                            "m_Ref": "e51cd2f4-f8e6-4956-93a7-86281cd5e92a"						#這裡要確認跟Master的UniqueID一致
-                        },
-                        "Type": "MythicSkeletalChampion"										#這種一共有三大種
-                    },
-                   ]
-          }
-#定義Master的Pet們
-"Parts": {
-                "$id": "2",
-                "m_Parts": [
-                    {
-                        "$id": "10",
-                        "$type": "Kingmaker.UnitLogic.Parts.UnitPartPetMaster, Assembly-CSharp",
-                        "m_Pets": [
-                            {
-                                "m_Ref": "b27cd89c-a8b0-4a1c-a5f0-379c5e5fd9c3"					#定義寵物的UniqueID,用這個格式增加數量
-                            },
-                            {
-                                "m_Ref": "46694232-fba8-4a18-8daa-1a1c933290e2"
-                            },
-                            {
-                                "m_Ref": "14547546-c716-4e63-9a5c-d8126e9c01f6"
-                            },
-                            {
-                                "m_Ref": "2577f7e3-a782-439d-90df-eaa70a440af4"
-                            }
-                        ],
-                        "m_ExPets": []
-                    }
-                ]
-            },
-```
-
-因為系統限制,除了不同大種類差異的會增加以外其他的不會自動加上第二個所以需要手動加上
-
-#### Pet Type
-
-* AnimeCompanion
-* MythicSkeletalChampion
-* DragonAzataCompaion
-
-### Part - 外型
-
-```json
-"Parts": {
-                "$id": "2",
-                "m_Parts": [
-                    {
-                        "$id": "6",
-                        "$type": "Kingmaker.UnitLogic.Parts.UnitPartDollData, Assembly-CSharp",
-                        "Default": {
-                            "$id": "7",
-                            "EquipmentEntityIds": [									#各外型部位的UUID,若有總表可以直接修改
-                                "7368eafa3f5ee9d4bb9739b80faefdc3",									
-                                "9ab83dd3a06ba6a4e97900bd6ffc4aab",
-                                "7c55ae7f07c9d4741b4837bd305d3ec0",
-                                "b8b615fabc0f7af448fb68f009113c61",
-                                "8a008a34d7462524c9b96132a28bb606"
-                            ],
-                            "EntityRampIdices": {								   #顏色定義,髮色/膚色什麼的
-                                "7c55ae7f07c9d4741b4837bd305d3ec0": 15,				
-                                "861171cdd3930a84faab08ab85ba924a": 8,
-                                "7368eafa3f5ee9d4bb9739b80faefdc3": 8,
-                                "9ab83dd3a06ba6a4e97900bd6ffc4aab": 15
-                            },
-                            "EntitySecondaryRampIdices": {},
-                            "Gender": "Female",										#外型性別
-                            "RacePreset": "ee326fab8804493499ce07c5cd8759e2",		
-                            "ClothesPrimaryIndex": 9,								#衣服顏色
-                            "ClothesSecondaryIndex": 9
-                        }
-                    }
-                ]
-}
-```
-
-基本上只有第一個MythicSkeletalChampion會需要去剪下其他的來貼,其他的都會建議用傭兵來改會比較快
-
-### Descriptor
-
-```json
-"Descriptor": {
-    			"$id": "2631",
-                "m_Inventory": {},
-                "m_Damage": 291,
-                "m_Spellbooks": [],
-                "Faction": "72f240260881111468db610b6c37c099",
-                "Stats": {},
-                "AttackFactions": {},
-                "Resources": {},
-                "Progression": {},
-                "UISettings": {
-                    "$id": "2694",
-                    "m_AlreadyAutomaticallyAdded": [],
-                    "m_CustomPortrait": {
-                        "$id": "2695",
-                        "m_CustomPortraitId": "B28894B2200AAE6300A928653E91CD2B"		#定義頭像
-                    },
-                    "m_Slots": {}
-                },
-                "State": {},
-                "Proficiencies": {},
-                "Alignment": {},
-                "CustomGender": "Female",												#系統性別跟外型沒關係
-                "LeftHandedOverride": true,
-                "CustomName": "烏緹卡",												  #名字可以用中文
-                "BirthDay": 25,
-                "BirthMonth": 12,
-                "CustomPrefabGuid": null,
-                "m_IsEssentialForGame": 0,
-                "Body": {},
-                "Brain": {},
-                "OriginalBlueprint": "3038bf627339a4d469e3c7455007f10d",
-                "Blueprint": "3038bf627339a4d469e3c7455007f10d",
-                "MainFact": {},
-                "Encumbrance": "Light",
-                "HasOwnInventory": false,
-                "LastRestTime": "2.07:02:52.1970000"
-},
-```
-
-
-
-
-# 其他重點
-## Json construction
-
-```json
 {
-    "All":(
-    	"data": "A"
-        ),{
-    	"wrote": {
-    		"like":{
-    				"this": "B"
-				}
-    		}
-		}
+    "$type": "Kingmaker.UnitLogic.Parts.UnitPartPet, Assembly-CSharp",
+    "m_MasterRef": {
+        "m_Ref": "主人的-UUID"
+    },
+    "Type": "MythicSkeletalChampion"
 }
 ```
 
-用`{` `}`或是`[` `]`把設定框起來,同一層定義的用`,`連結,所以要變成人看得懂的需要先整理成sample那樣的格式
+**WotR 支援的三大寵物類型 (`Type`)：**
 
-## id & $ref
+- `AnimalCompanion` (常規動物夥伴)
+- `MythicSkeletalChampion` (神話骷髏戰士)
+- `DragonAzataCompanion` (靈使道途專屬龍伴)
+    
 
-在Pathfinder兩代的save file中需要注意每個獨立的項目均會assign一個id,這個id不需要依照順序只要不重複即可
+## 👗 4. 外觀與紙娃娃系統 (Parts: Doll Data)
 
-$ref是用來呼叫被定義好的id
+角色的 3D 模型外觀由 `UnitPartDollData` 組件控制。若要替換跟班外觀（尤其是骷髏變體），通常會修改這裡。
 
-## `"` `"`符號與`:`不要忘記
+|**參數名稱**|**設定影響與說明**|
+|---|---|
+|**`EquipmentEntityIds`**|**外觀部件 UUID 陣列**。包含頭部、身體、髮型、鬍鬚等各部位的模型代碼。若有全遊戲的部件總表，可直接替換這裡的字串來變更長相。|
+|**`EntityRampIdices`**|**顏色定義**。利用 Key (部件 UUID) 與 Value (色號代碼) 的對應，來決定膚色、髮色與細節顏色。|
+|**`Gender`**|**外觀性別**。決定模型是使用男性骨架還是女性骨架 (`Male` / `Female`)。|
+|**`RacePreset`**|**種族預設值**。決定基本體型與種族特徵（如精靈耳朵、矮人身高）。|
+|**`ClothesPrimaryIndex`** / **`Secondary`**|**衣服主副顏色**。對應遊戲內的色盤代碼（整數值）。|
 
-若是`"` `"` `:` `[` `]` `{` `}`符號有漏的就會讓整個文件的對齊跑了機器會讀不出來
+## 👤 5. 核心屬性宣告 (Descriptor)
+
+`Descriptor` 是系統識別角色狀態的地方。尋找你要修改的跟班時，第一步就是來這裡看名字。
+
+|**參數名稱**|**設定影響與說明**|
+|---|---|
+|**`CustomName`**|**顯示名稱**。遊戲內顯示的名字，支援輸入中文（如 `"烏緹卡"`）。|
+|**`m_CustomPortraitId`**|**2D 頭像 ID**。對應遊戲資料夾內的自訂頭像（Custom Portrait）名稱。|
+|**`CustomGender`**|**系統性別**。影響遊戲文本的代名詞（He/She）與部分裝備限制。與前述的 3D 外觀性別無直接綁定，可分開設定。|
+|**`Alignment`** / **`Faction`**|陣營與派系判定。|
+
+## ⚠️ 6. JSON 修改防呆守則 (Modding Rules)
+
+手動編輯存檔極易因為語法錯誤導致遊戲讀檔崩潰，請務必謹記以下鐵則：
+
+### 關於 ID 與參照 (`$id` & `$ref`)
+
+- **`$id` (身分證發放)**：Owlcat 引擎會為每一個獨立的 JSON 節點分配一個 `$id`（如 `"$id": "2457"`）。這個數字**絕對不可與檔案內的其他 `$id` 重複**。若你複製了別人的區塊過來，請隨意修改這些數字（例如改成 `"992457"`），只要不重複即可，不需要照順序排列。
+- **`$ref` (呼叫身分證)**：當系統需要引用已經宣告過的節點時，會使用 `"$ref": "2471"`。若你亂改了前面的 `$id`，記得同步檢查是否有 `$ref` 正在呼叫它。
+
+### 標點符號的致命傷
+
+1. **引號不可少**：所有的字串與 Key 值都必須用雙引號 `""` 包起來。
+2. **逗號結尾**：同階層的元素之間必須用逗號 `,` 隔開。但**陣列或物件的「最後一個元素」後方絕對不能有逗號**。
+3. **括號配對**：大括號 `{}` 用於定義物件 (Object)，中括號 `[]` 用於定義陣列 (Array)。漏掉任何一個都會導致解析失敗。強烈建議依賴 Notepad++ 的 Jstool 進行格式化檢查。
 

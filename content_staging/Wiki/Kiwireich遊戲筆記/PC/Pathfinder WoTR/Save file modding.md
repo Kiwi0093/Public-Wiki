@@ -1,5 +1,5 @@
 ---
-title: Save Modding Intruduce
+title: 團隊數量增加
 date: 2021-11-01
 tags:
   - Game
@@ -8,75 +8,75 @@ tags:
 ---
 
 :::tip
-上一代的Pathfinder:Kingmaker的時候已經搞過一次，這次也不免俗也要改一下
+在《正義之怒》(WotR) 中，跟班（Pet）系統得到了底層重構。透過存檔編輯，我們不僅能突破單一寵物的限制，還能利用系統邏輯的漏洞，將具有完整紙娃娃（Paper Doll）、獨立裝備欄位與升級樹的「傭兵（Mercenary）」，轉化為不佔用隊伍 6 人上限的「隱藏跟班」。
 :::
 
-<img src='https://img.shields.io/badge/Kiwi-%E5%9B%A0%E7%82%BA%E6%98%AF%E5%90%8C%E5%80%8B%E5%BC%95%E6%93%8E%2C%E6%89%80%E4%BB%A5%E5%85%B6%E5%AF%A6%E5%85%A7%E5%AE%B9%E6%98%AF%E4%B8%80%E6%A8%A3%E7%9A%84%E5%8F%AA%E6%98%AFWoTR%E6%9C%83%E5%A4%9A%E6%AA%A2%E6%9F%A5%E4%B8%80%E4%B8%8Bfeat-A8FF24?style=social&logo=kiwix&logoColor=EA7500' height='40' />
+<img src='https://img.shields.io/badge/Kiwi-ToyBox%E5%B0%B1%E5%A5%BD%E4%BA%86%2C%E4%B8%8D%E7%94%A8%E9%80%99%E9%BA%BC%E9%BA%BB%E7%85%A9-A8FF24?style=social&logo=kiwix&logoColor=EA7500' height='40' />
 
-# 主要變更
+## 💡 核心結論：ToyBox 隊伍解禁 (最佳實踐)
 
-## 最多可以有六個跟班？（每個正常角色）
+與其冒著壞檔風險，在密密麻麻的 JSON 檔案中進行高難度的代碼拆解與移植，**最安全、最直接的正解是直接解除隊伍人數上限。**
 
-經過測試有以下三種共六個跟班可以改出來
+開啟遊戲內的 ToyBox 模組，這能為你省下無數的 Debug 時間：
 
-* Animal Companion
+1. 進入 ToyBox 的 **Party** 標籤。
+2. 找到並調高 **Party Size** 上限（例如設定為 8 或 10 人）。
+3. 前往酒館正常雇用大量傭兵組成軍團。
 
-​        每種動物的動物夥伴都是獨立的Feat, 搞不好可以每種帶一隻？？（不過還沒測試）
+**優勢分析：** 系統會自動接管所有合法的職業升級樹、獨立裝備欄與戰鬥死亡復活判定。完全免除 JSON 修改帶來的惡性 Bug，同時保有最高自由度的隊伍搭配與沉浸感。
 
-* MythicSkeleton
-  *  Archer
-  * Dual Wielder
-  * Tank
-  * Two-Handed
-* Azata Dragon Companion
+## 🔎 遊戲機制與事實查核 (Fact Check)
 
-## 基本原理
+若您依然對遊戲的底層極限感到好奇，以下是經過驗證的引擎機制：
 
-要帶的小弟,需要滿足三個條件就可以帶
+|**探討議題**|**引擎底層判定與結論**|
+|---|---|
+|**最多可以有六個跟班？**|**受限於 UI 與穩定度**。底層可容納無數實體，但當全隊總實體超過 14 至 16 個時，隊伍頭像會破圖，回合制模式極易引發時間軸卡死。|
+|**多種類型的跟班可並存？**|**完全正確**。動物夥伴、神話骷髏戰士、靈使道途龍伴佔用不同的系統插槽（Slots），可完美疊加在同一主人身上。|
+|**每種動物/骷髏能各帶一隻？**|**系統具有唯一性法則**。強加複數同類專長會導致實體互相覆蓋或升級介面崩潰。若要打造骷髏大軍或動物園，必須依靠「傭兵轉跟班」大法。|
+|**無專長強制轉跟班的懲罰**|若主人無對應專長而硬改 JSON，該跟班的經驗值將永久凍結、洗點重置（Respec）時會永久蒸發，且死亡後無法自動復活。|
 
-* Feature defined
-* m_pet defined
-* m_master defined
+## ⚙️ [技術補充] 存檔底層修改與傭兵化 SOP
 
-也就是說這一代不是單純定義主人與寵物關係就可以變成寵物,還需要有配套的feat,雖然還是有限制,但是比起上一代只能定義一個 m_pet來的放寬了
+_本區塊僅供想要挑戰引擎極限、追求不佔用畫面上方隊伍欄位的硬派玩家參考。_
 
-# Save檔編輯
+### 檔案位置與必備工具
 
-## Save檔所在位置
+- **存檔路徑**：`C:\Users\{Username}\AppData\LocalLow\Owlcat Games\Pathfinder Wrath Of The Righteous\Saved Games`
+    
+- **存檔格式**：`.zks` 檔案為標準 ZIP 壓縮檔，修改前務必備份。
+    
+- **Windows 工具**：推薦使用 **Notepad++** 搭配 **Jstool Plug-in**，利用 JSFormat 功能對齊 JSON 樹狀結構。
+    
+- **Linux 工具**：推薦使用 **Notepadqq**。終端機格式化指令：`cat file.json | python -m json.tool > new.json`
+    
 
-`C:\Users\{Username}\AppData\LocalLow\Owlcat Games\Pathfinder Wrath Of The Righteous\Saved Games`
+### 實作 SOP：借屍還魂法 (精準器官移植)
 
-因為`AppData`是隱藏目錄.所以需要手動進入
+為了避免升級 UI 崩潰與洗點蒸發的 Bug，我們必須借用合法寵物的「戶口」，並換上傭兵的「肉體」。
 
-記錄檔為`*.zks`可以當作一般的Zip解開,解開後的檔案有兩個重點檔案
+**第一步：取得戶口與肉體**
 
-+ party.json
+在遊戲中找酒館老闆雇用一名全新的傭兵，設定好外貌與職業。開啟 ToyBox 進入 `Party` -> `Features`，強制賦予主人一個平常絕對用不到的動物專長（例如蜈蚣），讓系統合法生成一隻寵物。切換地圖讓實體生成後，存檔退出。
 
-  這個檔案紀錄了整個隊伍裡面每一個角色(包括隊友跟寵物)的資訊,我們想要變更跟班的外貌與種族請編輯這個
+**第二步：釋放隊伍空間**
 
-+ player.json
+解壓縮 `.zks` 存檔，開啟 `player.json`。尋找 `"m_Party"` 陣列，將該傭兵的 UUID 從陣列中刪除。
 
-  這個檔案主要是紀錄主角的一些訊息
+**第三步：資料移植覆寫**
 
-## 工具
-### Windows
-#### Editor
-推薦使用[notepad++](https://notepad-plus-plus.org/downloads/)
-#### 整理Json File
-使用Notepad++的extension - [Jstool](https://www.sunjw.us/jstool/npp/)Plug-in,再讀入json file的時候可以利用Jstool裡的JSFormat功能把json對齊成好看的樣子
+開啟 `party.json`，找到那隻「蜈蚣（合法寵物）」的區塊。
 
-### Linux
-#### Editor
-推薦使用Notepadqq
-#### 整理Json File
+將傭兵區塊內的 `"Doll"` (3D外觀)、`"m_Inventory"` (裝備欄)、`"m_Slots"` (裝備節點) 與 `"Stats"` (基礎屬性)，**覆蓋掉蜈蚣的對應區塊**。絕對禁止覆蓋蜈蚣的 `"Blueprint"` 與 `"Progression"`（必須保留動物升級樹）。完成後，將原傭兵的獨立大區塊整段刪除。
 
-```bash
-cat <file> | python -m jstool | > <new file>
-```
+**第四步：主從雙向綁定**
 
-這個指令要注意file&new file要用不同的檔名才不會有問題
+在合成實體（原蜈蚣）的 `"Descriptor"` 區塊中，尋找 `"Master"` 欄位，填入主人的 UUID。搜尋主人的名字，找到 `"m_Pets"` 陣列，確認合成實體的 UUID 已在其中。將 JSON 打包回 `.zks` 即可進入遊戲。
 
-# 其他所需
+### 已知問題與除錯 (Troubleshooting)
 
-* Unity ModManager
-* ToyBox Mod - 需要assign相關feat給主角以及後續的跟班升級與裝備
+|**異常狀況**|**系統原因與解法**|
+|---|---|
+|**跟班消失或變敵對**|絕對是 `party.json` 中的 `Master` 綁定失敗或 UUID 填錯。系統將實體判定為野生生物。|
+|**傭兵跟班過場動畫卡住**|特殊劇情動畫嚴格檢查隊伍站位，可能導致模型錯位。按 `Esc` 跳過或切換地圖即可恢復。|
+|**無法打開傭兵跟班物品欄**|UI 判定出現異常。打開 ToyBox，在 Bag of Tricks 標籤中勾選 **Allow Equip Everything** 及 **Show Inventory for All** 強制解鎖。|

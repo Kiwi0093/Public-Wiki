@@ -1,5 +1,5 @@
 ---
-title: Save檔修改技巧
+title: 利用save檔修改出跟班
 date: 2020-11-17
 tags:
   - Game
@@ -8,132 +8,110 @@ tags:
 ---
 
 :::tip
-我很喜歡D&D類型的RPG,也很喜歡這種類冰風谷的CRPG,然而更大的樂趣,卻是亂搞遊戲本身...
+修改外觀後，跟班的升級機制仍被系統判定為 Pet，不會擁有獨立經驗值。此問題建議搭配 **Bag of Tricks** 模組來進行經驗值與升級的輔助管理。
 :::
 
-<img src='https://img.shields.io/badge/Kiwi-%E4%BA%82%E6%90%9E%E7%BE%8E%E5%BC%8FCRPG%E5%B9%BE%E4%B9%8E%E5%8F%AF%E4%BB%A5%E8%AA%AA%E6%98%AF%E6%88%91%E5%80%8B%E4%BA%BA%E5%B0%8D%E6%96%BCCRPG%E7%9A%84%E7%86%B1%E6%84%9B%E6%A0%B9%E6%BA%90-A8FF24?style=social&logo=kiwix&logoColor=EA7500' height='40' />
+<img src='https://img.shields.io/badge/Kiwi-%E6%88%91%E5%BE%88%E5%96%9C%E6%AD%A1D%26D%E9%A1%9E%E5%9E%8B%E7%9A%84RPG%2C%E4%B9%9F%E5%BE%88%E5%96%9C%E6%AD%A1%E9%80%99%E7%A8%AE%E9%A1%9E%E5%86%B0%E9%A2%A8%E8%B0%B7%E7%9A%84CRPG%2C%E7%84%B6%E8%80%8C%E6%9B%B4%E5%A4%A7%E7%9A%84%E6%A8%82%E8%B6%A3%2C%E5%8D%BB%E6%98%AF%E4%BA%82%E6%90%9E%E9%81%8A%E6%88%B2%E6%9C%AC%E8%BA%AB...-A8FF24?style=social&logo=kiwix&logoColor=EA7500' height='40' />
 
-### Save檔所在位置
+## 📂 1. 存檔位置與必備工具
 
-`C:\Users\{Username}\AppData\LocalLow\Owlcat Games\Pathfinder Kingmaker\Saved Games`
+在進行任何修改前，請務必備份原始存檔。
 
-因為`AppData`是隱藏目錄.所以需要手動進入
+- **存檔路徑**：
+    
+    `C:\Users\{Username}\AppData\LocalLow\Owlcat Games\Pathfinder Kingmaker\Saved Games`
+    
+    _(註：`AppData` 為系統隱藏資料夾，需在檔案總管開啟「顯示隱藏的項目」或直接在網址列手動輸入路徑進入。)_
+    
+- **檔案格式**：遊戲的 `.zks` 存檔檔實際上就是標準的 **ZIP 壓縮檔**。請直接使用解壓縮軟體將其解開。
+    
+- **推薦編輯工具**：強烈建議使用 **Notepad++** 並安裝 **Jstool Plug-in**。
+    
+    - 開啟 JSON 檔後，利用 Jstool 內的 `JSFormat` 功能，可以將原本擠成一團的代碼自動對齊成易讀的樹狀結構。
+        
 
-記錄檔為`*.zks`可以當作一般的Zip解開,解開後的檔案有兩個重點檔案
+## 📄 2. 核心檔案說明
 
-+ party.json
+解開 `.zks` 壓縮檔後，我們會看到許多檔案，其中修改外貌的核心檔案有兩個：
 
-  這個檔案紀錄了整個隊伍裡面每一個角色(包括隊友跟寵物)的資訊,我們想要變更跟班的外貌與種族請編輯這個
+|**檔案名稱**|**內容說明**|
+|---|---|
+|**`party.json`**|**主要修改目標**。記錄整個隊伍內「所有角色」（包含主角、NPC 隊友與寵物跟班）的詳細資訊。更改跟班種族與外貌都在此處進行。|
+|**`player.json`**|主要記錄主角（主人公）的進度與個人狀態訊息。|
 
-+ player.json
+## 📊 3. party.json 關鍵參數字典
 
-  這個檔案主要是紀錄主角的一些訊息
+在 `party.json` 中，每一個角色的所有設定都被包裝在 `"Descriptor"` 這個大區塊（Section）內。以下為控制外貌與身分的核心參數：
 
-### Json file好用的Editor
+|**參數名稱 (Key)**|**設定影響與說明**|
+|---|---|
+|`"CustomName"`|**角色名稱**。尋找特定角色的最佳定位點（例如搜尋 `"Kiwi Von Hohenzollen"` 來找到你要改的角色）。|
+|`"CustomGender"`|**性別**。通常設定為 `"Male"` 或 `"Female"`。|
+|`"LeftHandedOverride"`|**左撇子設定**。布林值 (`true`/`false`)。|
+|`"m_CustomPortrait"`|**自訂頭像**。指定該角色使用的 2D 頭像資料夾 ID（例如 `"aa28"`）。|
+|`"Doll"`|**紙娃娃系統 (3D 模型)**。控制角色的種族、臉型、髮型與配件的完整區塊。|
+|`"Blueprint"`|**角色藍圖 (UUID)**。定義該角色在遊戲系統中的唯一身分證字號。|
 
-可以使用[notepad++](https://notepad-plus-plus.org/downloads/)加上[Jstool](https://www.sunjw.us/jstool/npp/)Plug-in,再讀入json file的時候可以利用Jstool裡的JSFormat功能把json對齊成好看的樣子
+## 🛠️ 4. 修改實作 SOP (替換跟班外貌)
 
-### Party.json
+由於直接手寫 UUID 與外觀參數極容易出錯，請依照以下「借屍還魂」流程進行替換：
 
-在使用CoTW這個mod之後,有一些職業會帶有跟班,例如牧師的Undead Lord或是Summoner
+### 步驟一：生成合法的新外貌資料
 
-這樣的跟班在系統中與動物夥伴一樣都被視作Pet,不會佔夥伴的人數,CoTW內的跟班預設是寫死的模型
+1. 開啟遊戲，利用系統的角色創建工具（或招募新傭兵），捏出一個你想要的「理想跟班外貌與頭像」。
+    
+2. 進入遊戲後存檔，產生一個暫時用的新 Save 檔。
+    
+3. 解開這個新存檔的 `party.json`，找到這個新角色的 `"Blueprint"`、`"Doll"` 區塊以及 `"m_CustomPortrait"` 區塊，並將其複製到另一個文字檔備用。
+    
 
-沒有像傭兵一樣的紙娃娃系統可以變更外貌,但是可以透過修改save檔的方式把Pet變成跟傭兵一樣效果(不過升級的部分還是同Pet沒有自己的經驗值,這點可以靠Bag of Tricks來解決)
+### 步驟二：轉移資料至目標存檔
 
-##### 修改跟班
+1. 解開你要修改的「主要進度存檔」的 `party.json`。
+    
+2. 搜尋你想修改的跟班名字（利用 `"CustomName"`），定位到該跟班的 `"Descriptor"` 區塊。
+    
+3. 將剛剛複製的 `"Doll"` 與 `"m_CustomPortrait"` 覆蓋掉跟班原本的對應區塊。
+    
 
-###### 文件說明
+### 步驟三：處理內部參照 ID `$id` (極為重要)
 
-在party.json內用來定義一個角色的內容在"Descriptor"這個大section內,我們只要修改這個Section內用來控制相關部分就好
+在 JSON 結構中，會有許多系統生成的流水號標籤（例如 `"$id": "644"`）。
 
-```json
-"UISettings": {
-...
-"m_CustomPortrait": {
-                        "$id": "582",
-                        "m_CustomPortraitId": "aa28" //使用aa28頭像
-                    }
-              }
+- **絕對不可重複**：你複製過來的區塊中，所有帶有 `"$id"` 的數值，**絕對不能**跟整份 `party.json` 裡的其他 `$id` 重複。
+    
+- **解決方式**：請隨意修改這些 `$id` 的數字（例如改成 `"999644"`），只要確保在這個檔案內是唯一值即可，不需照順序排列。
+    
+
+## 🔗 5. 主人與寵物的綁定邏輯 (聯動檢查)
+
+遊戲系統依靠 UUID 來確認「誰是誰的寵物」。如果這組連結斷裂，寵物會變成無主狀態或直接從隊伍消失。修改完畢後，請務必檢查以下對應關係：
+
+**在「主人」的 `Descriptor` 區塊中：**
+
+JSON
+
 ```
-
-這段定義的是角色的頭像照片
-
-```json
-"CustomGender": "Male", //定義這個角色的性別
-"LeftHandedOverride": false, //定義是不是左撇子
-"CustomName": "Kiwi Von Hohenzollen", //角色的名字,基本上可以利用這個找到想修改的角色
-```
-這段定義角色名字與性別
-
-```json
-//這一整段是定義這個角色的外型
-"Doll": {
-                    "$id": "644",
-                    "Gender": "Male",
-                    "RacePreset": "7f4584a1e1ad4135aef72ebd41462271",
-                    "EquipmentEntityIds": ["ee_head_face02_m_dp", "ee_eyebrows_face03_m_dp", "24c5b0a90952b8843a93ec33feacb78b", "ee_facialandhair_empty_u_dp"],
-                    "EntityRampIdices": [{
-                            "Key": "24c5b0a90952b8843a93ec33feacb78b",
-                            "Value": 1
-                        }, {
-                            "Key": "ee_naked_m_dp",
-                            "Value": 2
-                        }, {
-                            "Key": "ee_head_face02_m_dp",
-                            "Value": 2
-                        }, {
-                            "Key": "ee_facialandhair_empty_u_dp",
-                            "Value": 1
-                        }, {
-                            "Key": "ee_eyebrows_face03_m_dp",
-                            "Value": 1
-                        }
-                    ],
-                    "EntitySecondaryRampIdices": [],
-                    "LeftHanded": false,
-                    "ClothesPrimaryIndex": 31,
-                    "ClothesSecondaryIndex": 19
-                },
-```
-這段定義角色的3D model也就是紙娃娃的外型,定義了種族,身體,頭,髮型,鬍子等
-```json
-//這段是定義對應的Pet UUID
 "m_Pet": {
-                    "m_UniqueId": "81851e9f-0723-4290-91ab-3cd29ab6e731"
-                },
+    "m_UniqueId": "這裡必須填入寵物角色的 UUID"
+}
 ```
 
-與
+**在「寵物 (跟班)」的 `Descriptor` 區塊中：**
 
-```json
-//這是定義主人
+JSON
+
+```
 "Master": {
-                    "m_UniqueId": null
-                },
+    "m_UniqueId": "這裡必須填入主人角色的 UUID"
+}
 ```
 
-是要對應的,也就是說主人定義的Pet要定義pet角色的UUID, 而Pet的Master段要定義主人的UUID
+_(註：UUID 絕對不可與遊戲內建 NPC 的 UUID 衝突，這就是為什麼在步驟一建議使用遊戲內建工具創新角色來獲取安全 UUID 的原因。)_
 
-這樣才不會有問題
+## ⚠️ 6. 已知問題與後遺症 (Troubleshooting)
 
-```json
-"Blueprint": "4391e8b9afbb0cf43aeba700c089f56d",
-```
-
-在`"Descriptor"`階層下的'Blueprint是指這個角色的UUID,要注意對應階層的角色
-
-###### 相關作法
-
-+ Pet角色的UUID不能使用原先遊戲檔案內藍圖創好的UUID,例如直接copy某NPC的UUID,這樣會因為UUID重複的關係產生錯誤
-
-+ 為了有一個獨特的UUID,建議可以另外開一個新檔案,然後使用遊戲的角色建立工具建立新角色後
-
-  再把該角色的`UUID`, `doll section`,`m_CustomPortrait` copy對應到想要的Pet對應位置去
-  
-+ 最後要確認的是所有Copy的條目內若有`id`的都不能跟文件內的其他id重複,可以不照順序增加就好了
-
-###### 後遺症
-
-這個方法改出來的角色不知道為什麼都沒穿衣服...應該是沒看到衣服的定義區塊後面有找到再更新
+- **國王的新衣 BUG**：使用此方法替換出的 3D 紙娃娃模型，在遊戲中顯示時**會沒有穿衣服**。
+    
+    - **目前推測**：`"Doll"` 區塊內的 `"ClothesPrimaryIndex"` 與 `"ClothesSecondaryIndex"` 僅定義了顏色，而實際「穿上裝備與衣服」的宣告區塊遺失或未被正確套用。若後續在存檔中找到實體裝備的綁定區塊（Equipment Definition），再行更新此條目。
 
