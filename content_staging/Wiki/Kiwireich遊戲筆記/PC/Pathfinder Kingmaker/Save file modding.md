@@ -1,14 +1,15 @@
 ---
-title: Pathfinder:Kingmaker - Save檔修改技巧
+title: Save檔修改技巧
 date: 2020-11-17
-tags: [Game,PC-Game,RPG]
+tags:
+  - Game
+  - PC-Game
+  - RPG
 ---
 
-# 前言
-
+;;;tips
 我很喜歡D&D類型的RPG,也很喜歡這種類冰風谷的CRPG,然而更大的樂趣,卻是亂搞遊戲本身...
-
-<!--truncate-->
+;;;
 
 ### Save檔所在位置
 

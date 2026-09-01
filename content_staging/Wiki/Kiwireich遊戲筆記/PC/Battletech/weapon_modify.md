@@ -1,11 +1,17 @@
 ---
-title: BATTLETECH - Mod武器修改技巧
+title: Mod武器修改技巧
 date: 2021-5-19
-tags: [Game,PC-Game,SLG]
+tags:
+  - Game
+  - PC-Game
+  - SLG
 ---
 ;;;tip
 這個遊戲的Mod在[Nexus mods](https://www.nexusmods.com/battletech)裡面就有
 ;;;
+
+<img src='https://img.shields.io/badge/Kiwi-%E9%80%99%E5%80%8B%E5%85%B6%E5%AF%A6%E5%B0%B1%E6%98%AFArmor%20Core%2FFront%20Mission%E9%80%99%E7%A8%AE%E9%81%8A%E6%88%B2%E7%9A%84%E5%89%8D%E8%BA%AB%E5%90%A7%EF%BC%9F-A8FF24?style=social&logo=kiwix&logoColor=EA7500' height='40' />
+
 ## Modify
 
 * 修改武器參數,可隨意複製後修改
