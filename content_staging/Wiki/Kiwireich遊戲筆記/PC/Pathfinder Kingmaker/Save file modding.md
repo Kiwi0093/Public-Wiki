@@ -5,6 +5,7 @@ tags:
   - Game
   - PC-Game
   - RPG
+slug: Game/PC/KingMaker/Save
 ---
 
 :::tip

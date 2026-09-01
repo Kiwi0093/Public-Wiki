@@ -5,6 +5,7 @@ tags:
   - Game
   - PC-Game
   - RPG
+slug: Game/PC/WoTR/Skeleton
 ---
 
 :::tip
