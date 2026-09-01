@@ -35,9 +35,8 @@ tags:
 
 直接在 Shell 輸入：
 
-```Bash
+```bash
 archinstall
-
 ```
 ### 填空題時間：
 
@@ -75,7 +74,7 @@ archinstall
 
 怎麼用： 把那個 JSON 丟到隨身碟，開機後執行：
 
-```Bash
+```bash
 archinstall --config my_favorite_setup.json
 ```
 
