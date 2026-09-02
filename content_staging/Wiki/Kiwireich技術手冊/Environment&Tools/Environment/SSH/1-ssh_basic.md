@@ -122,7 +122,7 @@ ssh -i /your/key/file user@hostname.or.ip
 cat <server_or_service_name>.pub >> ~/.ssh/authorized_keys
 ```
 
-不過一般來說在做這件事的時候都會懶的先upload <server_or_service_name>.pub到目標server上,所以很少會這樣用
+不過一般來說在做這件事的時候都會懶的先upload `<server_or_service_name>.pub`到目標server上,所以很少會這樣用
 
 #### Putty Keygen轉換
 
