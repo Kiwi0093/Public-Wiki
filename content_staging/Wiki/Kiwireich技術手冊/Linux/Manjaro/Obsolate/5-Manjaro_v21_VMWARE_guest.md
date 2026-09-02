@@ -15,7 +15,7 @@ date: 2026-09-02
 :::
 
 >:::tip
-Manjaro 21 KDE,不知道發了什麼瘋,安裝到VMWare Workstation裡面的時候會有下面兩個問題
+>Manjaro 21 KDE,不知道發了什麼瘋,安裝到VMWare Workstation裡面的時候會有下面兩個問題
 >* ~~用Free driver & none-Free driver無法開機~~(21.0.7修好了)
 >* 安裝後沒有VM用的Display driver顯示有問題
 >:::

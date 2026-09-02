@@ -16,8 +16,8 @@ date: 2026-09-02
 :::
 
 >:::tip
-之前為了家裡要有個client console以便使用,所以我弄了個XFCE的VNC server
-不過我自己比較喜歡用KDE所以...
+>之前為了家裡要有個client console以便使用,所以我弄了個XFCE的VNC server
+>不過我自己比較喜歡用KDE所以...
 >:::
 # 參考文獻
 
