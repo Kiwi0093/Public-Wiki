@@ -4,11 +4,11 @@ date: 2026-09-02
 tags:
   - FreeBSD
 ---
+# FreeBSD 系統密碼與效期管理
 
 > <img src='https://img.shields.io/badge/Status-Active-A8FF24?style=for-the-badge&labelWidth=100' height='38' />
 
 ![FreeBSD](https://img.shields.io/badge/FreeBSD-Supported-green?style=plastic&logo=freebsd) 
-
 
 
 **login.conf 與 pw 指令集** FreeBSD 的機制與 Linux 不同，它透過登入類別（Login Classes）與帳號管理指令來控制生命週期。

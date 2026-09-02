@@ -4,7 +4,7 @@ tags:
   - SSH
 date: 2026-09-02
 ---
-
+# SSH的基本
 
 > <img src='https://img.shields.io/badge/Status-Active-A8FF24?style=for-the-badge&labelWidth=100' height='38' />
 
@@ -20,7 +20,7 @@ date: 2026-09-02
 現在要求用Key pair的SSH越來越多,不管是Git, Ansible或是Oracle Cloud的VM都會要求用Key pair來連線,所以就把相關的指令整理一下
 :::
 
-# SSH key Pair
+## SSH key Pair
 
 ## 參考資料
 

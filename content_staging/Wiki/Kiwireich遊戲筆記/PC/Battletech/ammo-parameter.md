@@ -7,6 +7,8 @@ tags:
   - PC-Game
   - SLG
 ---
+# 彈藥系統與自訂彈藥箱
+
 > <img src='https://img.shields.io/badge/Status-Active-A8FF24?style=for-the-badge&labelWidth=100' height='38' />
 
 :::tip

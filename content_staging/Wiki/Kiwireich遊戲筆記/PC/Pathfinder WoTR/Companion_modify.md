@@ -7,6 +7,7 @@ tags:
   - RPG
 slug: Game/PC/WoTR/Skeleton
 ---
+# MythicSkeletonCompanion Modify
 
 :::tip
 其實把跟班改好改滿後根本不用帶同伴一起冒險了,因為你這樣就等於有一個五人小隊了....

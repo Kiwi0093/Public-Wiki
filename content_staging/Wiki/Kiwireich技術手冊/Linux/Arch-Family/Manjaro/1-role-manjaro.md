@@ -5,6 +5,7 @@ tags:
   - Linux
   - Manjaro
 ---
+# Manjaro的角色
 
 > <img src='https://img.shields.io/badge/Status-Obsolete-red?style=for-the-badge&labelWidth=100' height='38' />
 

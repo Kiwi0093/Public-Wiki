@@ -8,7 +8,7 @@ tags:
   - RHEL
   - Fedora
 ---
-
+# Red Hat / Fedora DNF 實用指令與維護技巧筆記
 
 > <img src='https://img.shields.io/badge/Status-Active-A8FF24?style=for-the-badge&labelWidth=100' height='38' />
 

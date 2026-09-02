@@ -6,6 +6,7 @@ tags:
   - Windows
 date: 2026-09-02
 ---
+# Zsh美化
 
 > <img src='https://img.shields.io/badge/Status-Active-A8FF24?style=for-the-badge&labelWidth=100' height='38' />
 

@@ -4,6 +4,7 @@ tags:
   - FreeBSD
 date: 2026-04-21
 ---
+# SNMP & Check MK Agent
 
 > <img src='https://img.shields.io/badge/Status-Obsolete-red?style=for-the-badge&labelWidth=100' height='38' />
 

@@ -7,6 +7,7 @@ tags:
   - Fedora
 date: 2026-09-02
 ---
+# 在桌面環境用root身份執行程式
 
 > <img src='https://img.shields.io/badge/Status-Active-A8FF24?style=for-the-badge&labelWidth=100' height='38' />
 

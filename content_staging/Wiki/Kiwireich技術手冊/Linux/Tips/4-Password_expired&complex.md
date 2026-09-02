@@ -7,7 +7,7 @@ tags:
   - PhotonOS
 date: 2026-09-02
 ---
-
+# Linux 系統密碼與效期管理
 
 > <img src='https://img.shields.io/badge/Status-Active-A8FF24?style=for-the-badge&labelWidth=100' height='38' />
 

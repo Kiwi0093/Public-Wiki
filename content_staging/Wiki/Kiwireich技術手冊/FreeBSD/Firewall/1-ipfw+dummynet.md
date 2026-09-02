@@ -6,7 +6,7 @@ tags:
 date: 2026-04-21
 description: 利用ipfw來進行網路速度限制
 ---
-
+# IPFW流量控制
 
 > <img src='https://img.shields.io/badge/Status-Active-A8FF24?style=for-the-badge&labelWidth=100' height='38' />
 

@@ -7,6 +7,7 @@ tags:
   - RPG
 slug: Game/PC/KingMaker/Save
 ---
+# 利用save檔修改出跟班
 
 :::tip
 修改外觀後，跟班的升級機制仍被系統判定為 Pet，不會擁有獨立經驗值。此問題建議搭配 **Bag of Tricks** 模組來進行經驗值與升級的輔助管理。

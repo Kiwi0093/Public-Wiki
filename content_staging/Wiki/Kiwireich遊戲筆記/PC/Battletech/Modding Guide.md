@@ -7,6 +7,8 @@ tags:
   - SLG
 slug: Game/PC/Battletech/guide
 ---
+# Modding 總綱與流程
+
 :::tip
 這個遊戲的Mod在[Nexus mods](https://www.nexusmods.com/battletech)裡面就有
 :::

@@ -4,7 +4,7 @@ date: 2026-04-22
 tags:
   - FreeBSD
 ---
-
+# FreeBSD的角色
 
 > <img src='https://img.shields.io/badge/Status-Active-A8FF24?style=for-the-badge&labelWidth=100' height='38' />
 

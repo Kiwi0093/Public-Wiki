@@ -5,9 +5,9 @@ tags:
   - Windows
   - WSL
 ---
+# WSL 1.0 安裝
 
 > <img src='https://img.shields.io/badge/Status-Active-A8FF24?style=for-the-badge&labelWidth=100' height='38' />
-
 
 ![WSL](https://img.shields.io/badge/WSL-Supported-green?style=plastic&logo=linux) 
 
