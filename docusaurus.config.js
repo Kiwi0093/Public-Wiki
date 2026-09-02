@@ -65,8 +65,9 @@ const config = {
         { to: '/tags', label: 'Tags', position: 'left' },
         { to: '/archive', label: 'Archives', position: 'left' },
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          //type: 'docSidebar',
+          //sidebarId: 'tutorialSidebar',
+          to: '/docs', // 這會直接對應到你 docs 目錄下的 index.md (slug: /)
           position: 'left',
           label: 'Wiki 知識庫',
         },
