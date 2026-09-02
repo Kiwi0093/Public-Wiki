@@ -4,10 +4,7 @@ tags:
   - Linux
   - Manjaro
   - Windows
-slug:
 date: 2026-09-02
-description:
-image:
 ---
 
 > <img src='https://img.shields.io/badge/Status-Obsolete-red?style=for-the-badge&labelWidth=100' height='38' />
