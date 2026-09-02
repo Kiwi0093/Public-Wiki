@@ -3,7 +3,7 @@ title: Majaro KDE的RDP Host設定
 tags:
   - Linux
   - Manjaro
-  - Windows
+  - Windowsc
 date: 2026-09-02
 ---
 

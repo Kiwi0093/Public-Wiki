@@ -18,7 +18,7 @@ date: 2026-09-02
 >:::tip
 >因為佛心的[Oracle終身免費VM](https://www.oracle.com/tw/cloud/free/),所以我去弄了幾個VM來跑
 >不過因為他的免費系統基本上沒什麼可以選的,所以我就都集中使用`Oracle Linux 8`
-:::
+>:::
 
 # 基本需求
 
