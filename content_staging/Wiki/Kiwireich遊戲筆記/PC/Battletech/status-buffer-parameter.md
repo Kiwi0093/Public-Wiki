@@ -19,8 +19,8 @@ tags:
 | **參數名稱 (Key)**                    | **設定影響與說明**                                                                              |
 | --------------------------------- | ---------------------------------------------------------------------------------------- |
 | `durationData.duration`           | **持續回合數**：設為 `-1` 代表永久生效（只要裝備還在）。若設為正整數（如 `2`），則代表效果持續 2 回合（通常用於擊中敵方時附加的 Debuff）。        |
-| `targetingData.effectTriggerType` | **觸發時機**：<br>• `Passive`：被動常駐，只要裝備著就生效。<br>• `OnHit`：當武器擊中目標時觸發。                         |
-| `targetingData.effectTargetType`  | **作用目標**：<br>• `Creator`：作用於裝備此武器/組件的機甲本身（Buff）。<br>• `Target`：作用於被此武器擊中的敵方機甲（Debuff）。   |
+| `targetingData.effectTriggerType` | **觸發時機**：<br />• `Passive`：被動常駐，只要裝備著就生效。<br />• `OnHit`：當武器擊中目標時觸發。                         |
+| `targetingData.effectTargetType`  | **作用目標**：<br />• `Creator`：作用於裝備此武器/組件的機甲本身（Buff）。<br />• `Target`：作用於被此武器擊中的敵方機甲（Debuff）。   |
 | `targetingData.showInStatusPanel` | **UI 顯示**：`true` 或 `false`。是否在戰鬥畫面的狀態列顯示這個 Buff/Debuff 的圖示。隱藏的被動能力通常設為 `false`，以免介面過於雜亂。 |
 
 ## 2. 顯示與描述 (Description)
@@ -40,11 +40,11 @@ tags:
 
 | **參數名稱 (Key)**                   | **設定影響與說明**                                                                                                 |
 | -------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `statisticData.targetCollection` | **作用範圍**：<br>• `Weapon`：效果僅限於提供此 Buff 的武器本身。<br>• `StatCollection`：效果擴及整台機甲的所有組件與基礎數值。                      |
+| `statisticData.targetCollection` | **作用範圍**：<br />• `Weapon`：效果僅限於提供此 Buff 的武器本身。<br />• `StatCollection`：效果擴及整台機甲的所有組件與基礎數值。                      |
 | `statisticData.statName`         | **修改的屬性對象**：你要更改哪一個系統數值（請參考下方的「常用屬性名稱字典」）。                                                                  |
-| `statisticData.operation`        | **運算邏輯**：<br>• `Float_Add` / `Int_Add`：加法運算（輸入負數即為減法）。<br>• `Float_Multiply`：乘法運算，用於計算倍率（如 `1.1` 代表增加 10%）。 |
+| `statisticData.operation`        | **運算邏輯**：<br />• `Float_Add` / `Int_Add`：加法運算（輸入負數即為減法）。<br />• `Float_Multiply`：乘法運算，用於計算倍率（如 `1.1` 代表增加 10%）。 |
 | `statisticData.modValue`         | **修改數值**：要改變的具體數字。**注意：在 JSON 中必須用雙引號包起來當作字串**（如 `"-1.0"` 或 `"15"`）。                                        |
-| `statisticData.modType`          | **資料型態**：<br>• `System.Single`：對應浮點數（帶小數點的數值）。<br>• `System.Int32`：對應整數（沒有小數點的數值）。                          |
+| `statisticData.modType`          | **資料型態**：<br />• `System.Single`：對應浮點數（帶小數點的數值）。<br />• `System.Int32`：對應整數（沒有小數點的數值）。                          |
 
 ## 📖 常用屬性名稱 (statName) 字典
 
