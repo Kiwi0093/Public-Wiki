@@ -5,7 +5,6 @@ tags:
 date: 2026-04-21
 ---
 
-
 > <img src='https://img.shields.io/badge/Status-Obsolete-red?style=for-the-badge&labelWidth=100' height='38' />
 
 ![FreeBSD](https://img.shields.io/badge/FreeBSD-Supported-green?style=plastic&logo=freebsd) 
