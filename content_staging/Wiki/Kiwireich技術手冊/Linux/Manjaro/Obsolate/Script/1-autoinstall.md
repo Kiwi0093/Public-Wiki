@@ -1,6 +1,5 @@
 ---
 title: 自動安裝script
-date: 2026-09-02
 tags:
   - Linunx
   - Manjaro

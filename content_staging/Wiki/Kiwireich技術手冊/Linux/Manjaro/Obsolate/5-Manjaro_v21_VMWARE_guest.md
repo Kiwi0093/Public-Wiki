@@ -3,7 +3,6 @@ title: Manjaro Ver.21 在VMWare Guest的開機黑屏問題
 tags:
   - Linux
   - Manjaro
-date: 2026-09-02
 ---
 
 > <img src='https://img.shields.io/badge/Status-Obsolete-red?style=for-the-badge&labelWidth=100' height='38' />

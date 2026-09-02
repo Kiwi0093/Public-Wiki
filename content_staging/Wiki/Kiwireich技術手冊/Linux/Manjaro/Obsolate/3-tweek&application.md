@@ -1,6 +1,5 @@
 ---
 title: 系統調整與應用程式
-date: 2026-09-02
 tags:
   - Linunx
   - Manjaro

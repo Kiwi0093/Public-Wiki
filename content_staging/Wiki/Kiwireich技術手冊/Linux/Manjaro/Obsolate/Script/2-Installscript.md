@@ -1,6 +1,5 @@
 ---
 title: 安裝script-2
-date: 2026-09-02
 tags:
   - Linunx
   - Manjaro
