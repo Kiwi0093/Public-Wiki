@@ -3,10 +3,7 @@ title: Vim 終端機美化與進階折疊
 tags:
   - Editor
   - Unix
-slug:
 date: 2026-09-02
-description:
-image:
 ---
 
 # Vim 終端機美化與進階折疊技巧
