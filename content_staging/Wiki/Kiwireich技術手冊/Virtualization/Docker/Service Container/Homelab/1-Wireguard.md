@@ -1,5 +1,5 @@
 ---
-title: "# WireGuard VPN 服務端 (Docker) 與全平台客戶端設定"
+title: WireGuard VPN 服務端 (Docker) 與全平台客戶端設定
 tags:
   - VPN
   - VM
@@ -253,9 +253,9 @@ _(LinuxServer.io 預設生成的 peer.conf 通常已內建此行設定)_。
 
 ## 7. 伺服端核心轉發與常見故障排除 (Troubleshooting)
 
-| **異常現象**                      | **根本原因**                                                                                           | **排除步驟**                                                                                                                                           |
-| ----------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **連線後 Client 端完全沒有網際網路**      | 宿主機 Linux 核心未開啟 IPv4 Forwarding                                                                    | 在**宿主機**執行：<br />`echo "net.ipv4.ip_forward = 1" \| sudo tee /etc/sysctl.d/99-wireguard.conf`<br />`sudo sysctl -p /etc/sysctl.d/99-wireguard.conf`    |
+| **異常現象**                      | **根本原因**                                                                                               | **排除步驟**                                                                                                                                             |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **連線後 Client 端完全沒有網際網路**      | 宿主機 Linux 核心未開啟 IPv4 Forwarding                                                                        | 在**宿主機**執行：<br />`echo "net.ipv4.ip_forward = 1" \| sudo tee /etc/sysctl.d/99-wireguard.conf`<br />`sudo sysctl -p /etc/sysctl.d/99-wireguard.conf`  |
 | **能連線但傳輸量只有 TX 增加、RX 為 0**    | 1. 外部防火牆未放行 UDP 51820。<br />2. `SERVERURL` 或 `SERVERPORT` 填寫錯誤。<br />3. 雲端平台（如 OCI、AWS、GCP）安全群組漏開 UDP。 | 1. 確認雲端控制台放行 **`0.0.0.0/0 -> UDP 51820`**。<br />2. 在宿主機檢查監聽：`sudo ss -ulpn \| grep 51820`。                                                           |
-| **Client 手機連線正常，但換 IP 後偶爾卡死** | MTU 過大造成封包分段被電信商丟棄                                                                                 | 手機端通常預設 1420 即可。若在行動網路下不穩定，可嘗試將客戶端 `[Interface]` 的 `MTU = 1280` 手動寫入。                                                                              |
-| **想動態新增更多 Peer**              | Compose 檔案變更環境變數                                                                                   | 1. 編輯 `docker-compose.yml`，在 `PEERS=` 後方加入新名字（如 `PEERS=phone,laptop,ipad,newpc`）。<br />2. 執行 `docker compose up -d`，容器會自動補建新 Peer 的設定檔，原有 Peer 不受影響。 |
+| **Client 手機連線正常，但換 IP 後偶爾卡死** | MTU 過大造成封包分段被電信商丟棄                                                                                     | 手機端通常預設 1420 即可。若在行動網路下不穩定，可嘗試將客戶端 `[Interface]` 的 `MTU = 1280` 手動寫入。                                                                                |
+| **想動態新增更多 Peer**              | Compose 檔案變更環境變數                                                                                       | 1. 編輯 `docker-compose.yml`，在 `PEERS=` 後方加入新名字（如 `PEERS=phone,laptop,ipad,newpc`）。<br />2. 執行 `docker compose up -d`，容器會自動補建新 Peer 的設定檔，原有 Peer 不受影響。 |
