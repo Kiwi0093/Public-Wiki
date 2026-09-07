@@ -239,9 +239,9 @@ labels:
 
 ### 5.2 憑證申請失敗排查重點
 
-| **常見錯誤現象**                                                         | **根本原因**                     | **排除處置**                                                                                                           |
-| ------------------------------------------------------------------ | ---------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| `permissions of /letsencrypt/acme.json are too open`               | 檔案權限不是 600                   | 執行 `chmod 600 /opt/traefik/letsencrypt/acme.json` 並重啟 Traefik。                                                     |
-| `Cannot obtain certificates: 403 / 400 urn:ietf:params:acme:error` | 外部 Port 80/443 未打通或 DNS 尚未生效 | 確認外部防火牆/路由器有將 80/443 對齊主機，且 Public DNS A 紀錄已完全指向本機公網 IP。                                                           |
-| `Bad Gateway (502)`                                                | Traefik 無法連通後端容器             | 1. 檢查後端容器是否有加入 `proxy-network`。<br><br>  <br><br>2. 檢查 `loadbalancer.server.port` 指定的 Port 是否與容器內部 Listen Port 一致。 |
-| 容器有多個 Port 時轉發混亂                                                   | 映像檔定義了多個 EXPOSE 埠            | 必須透過 `traefik.http.services.<name>.loadbalancer.server.port=<port>` 明確鎖定。                                          |
+| **常見錯誤現象**                                                         | **根本原因**                     | **排除處置**                                                                                             |
+| ------------------------------------------------------------------ | ---------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `permissions of /letsencrypt/acme.json are too open`               | 檔案權限不是 600                   | 執行 `chmod 600 /opt/traefik/letsencrypt/acme.json` 並重啟 Traefik。                                       |
+| `Cannot obtain certificates: 403 / 400 urn:ietf:params:acme:error` | 外部 Port 80/443 未打通或 DNS 尚未生效 | 確認外部防火牆/路由器有將 80/443 對齊主機，且 Public DNS A 紀錄已完全指向本機公網 IP。                                             |
+| `Bad Gateway (502)`                                                | Traefik 無法連通後端容器             | 1. 檢查後端容器是否有加入 `proxy-network`。<br />2. 檢查 `loadbalancer.server.port` 指定的 Port 是否與容器內部 Listen Port 一致。 |
+| 容器有多個 Port 時轉發混亂                                                   | 映像檔定義了多個 EXPOSE 埠            | 必須透過 `traefik.http.services.<name>.loadbalancer.server.port=<port>` 明確鎖定。                            |
