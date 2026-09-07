@@ -30,7 +30,7 @@ date: 2026-09-04
 
 1. <font size="+1" color="Green"><code>vi mariadb.yml</code></font>
 
-```yml
+```yaml
 # mariadb.yml
 --------------------------------------------------------------------------------------------------------------------------------
 services:
@@ -229,7 +229,11 @@ esxcli system snmp set -C noc@example.com                # 設定你的聯絡人
 esxcli system snmp set -e yes                            # 設定啟用
 ```
 
-2. <font size="+1" color="Green">到其他可以讀snmp的機器上執行<code>snmpwalk -v2c -c ${YOUR_STRING} ${your_server_IP}</code></font> 
+2. <font size="+1" color="Green">到其他可以讀snmp的機器上執行</font>
+
+```bash
+snmpwalk -v2c -c ${YOUR_STRING} ${your_server_IP}</code> 
+```
 
 確認有沒有資料就好了
 
