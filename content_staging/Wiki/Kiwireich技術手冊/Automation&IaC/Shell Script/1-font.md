@@ -7,7 +7,6 @@ tags:
 ---
 # Linux / Bash Shell 特殊字元與萬用字元
 
-
 > <img src='https://img.shields.io/badge/Status-Active-A8FF24?style=for-the-badge&labelWidth=100' height='38' />
 
 ![FreeBSD](https://img.shields.io/badge/FreeBSD-Supported-green?style=plastic&logo=freebsd) 
@@ -48,7 +47,7 @@ tags:
 | **`?`**                        | **剛好 1 個任意字元** | 必須且只能匹配 1 個字元（不能為 0 個，也不能超過 1 個） | `ls file?.txt` _(匹配 `file1.txt`、`fileA.txt`，但不匹配 `file10.txt`)_        |
 | **`[abc]`**                    | 集合內任一字元        | 匹配括號內列出的任一單一字元                   | `ls report_[abc].pdf` _(匹配 `report_a.pdf`、`report_b.pdf` 等)_           |
 | **`[0-9]`**                    | 編碼範圍內任一字元      | 匹配 ASCII / 編碼連續範圍內的任一字元          | `ls img_[0-9].png` _(匹配 0 至 9 的單碼數字)_<br />`ls [a-z]*.md` _(以小寫字母開頭的檔案)_ |
-| **`[!abc]`**<br>_(或 `[^abc]`)_ | 排除集合 (否定)      | **不包含** 括號內指定字元的任一單一字元           | `ls file[!0-9].txt` _(匹配 `fileA.txt`，排除 `file1.txt`)_                  |
+| **`[!abc]`**<br />_(或 `[^abc]`)_ | 排除集合 (否定)      | **不包含** 括號內指定字元的任一單一字元           | `ls file[!0-9].txt` _(匹配 `fileA.txt`，排除 `file1.txt`)_                  |
 
 ## 3. 進階工程師必備：容易混淆的邊界細節 (Tips)
 
