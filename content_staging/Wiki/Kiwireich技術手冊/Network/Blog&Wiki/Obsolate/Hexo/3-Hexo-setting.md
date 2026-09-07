@@ -6,10 +6,7 @@ tags:
   - Git
   - Blog
   - Wiki
-slug:
 date: 2026-09-07
-description:
-image:
 ---
 # Hexo - Setting
 
@@ -289,8 +286,6 @@ $ hexo server --config custom.yml,custom2.json
 [OHLIA's Wiki](https://ohlia.github.io/Wiki-site/wiki/Hexo/build-blog-by-hexo/)
 
 [Hexo的官方文件](https://hexo.io/zh-tw/docs/)
-
-
 
 ## 同場加映
 

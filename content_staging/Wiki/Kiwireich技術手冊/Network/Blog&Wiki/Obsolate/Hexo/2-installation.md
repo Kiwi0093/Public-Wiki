@@ -6,10 +6,7 @@ tags:
   - Git
   - Blog
   - Wiki
-slug:
 date: 2026-09-07
-description:
-image:
 ---
 # Hexo - Installation
 

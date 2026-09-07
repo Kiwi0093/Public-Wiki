@@ -6,10 +6,7 @@ tags:
   - Git
   - Blog
   - Wiki
-slug:
 date: 2026-09-07
-description:
-image:
 ---
 # Hexo - Plugin
 
@@ -67,7 +64,6 @@ npm update
 * [hexo-renderer-markdown-it-plus](https://github.com/CHENXCHEN/hexo-renderer-markdown-it-plus)
 
 * [hexo-html-minifier](https://github.com/hexojs/hexo-html-minifier)
-
 
 ## 相關設定
 
