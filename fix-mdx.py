@@ -9,97 +9,131 @@ def process_file(filepath):
     fname = os.path.basename(filepath)
     modified = False
 
-    # --- 1. 搬移原本 YAML 裡的 sed 邏輯 ---
-    
-    # 暴力清除 Frontmatter 中的 image: null (避免 Docusaurus 報錯)
-    if 'image: null' in content:
-        content = re.sub(r'^image:\s*null\s*$', '', content, flags=re.M)
-        modified = True
-        
-    # 暴力清除 id: 行 (大叔原本 sed 做的，避免自定義 ID 衝突)
-    if 'id: ' in content:
-        content = re.sub(r'^id:\s+.*$', '', content, flags=re.M)
-        modified = True
+    # --------------------------------------------------------------------------
+    # 0. 保護機制：暫時抽離 Code Blocks (```...``` 與 `...`)
+    # 避免腳本誤傷程式碼區塊內的原始代碼、範例與 shell 變數
+    # --------------------------------------------------------------------------
+    code_blocks = []
+    def save_code_block(match):
+        code_blocks.append(match.group(0))
+        return f"%%DOCUS_CODE_BLOCK_{len(code_blocks)-1}%%"
 
-    # 修復空連結 []() -> [](#)
+    # 暫存多行代碼區塊
+    content = re.sub(r'```[\s\S]*?```', save_code_block, content)
+    # 暫存行內代碼
+    content = re.sub(r'`[^`\n]+`', save_code_block, content)
+
+    # --------------------------------------------------------------------------
+    # 1. 嚴格限縮 Frontmatter 範圍處理 (僅處理開頭的 --- 區塊)
+    # --------------------------------------------------------------------------
+    frontmatter_match = re.match(r'^---\r?\n([\s\S]*?)\r?\n---\r?\n', content)
+    if frontmatter_match:
+        fm_raw = frontmatter_match.group(1)
+        fm_clean = fm_raw
+        
+        # 清除 image: null
+        fm_clean = re.sub(r'^image:\s*null\s*$', '', fm_clean, flags=re.M)
+        # 僅在 Frontmatter 內清除自定義 id
+        fm_clean = re.sub(r'^id:\s+.*$', '', fm_clean, flags=re.M)
+        
+        if fm_clean != fm_raw:
+            content = f"---\n{fm_clean.strip()}\n---\n" + content[frontmatter_match.end():]
+            modified = True
+
+    # --------------------------------------------------------------------------
+    # 2. 常用打字筆誤修正
+    # --------------------------------------------------------------------------
+    # 空連結 []() -> [#](#)
     if '[]()' in content:
         content = content.replace('[]()', '[#](#)')
         modified = True
 
-    # --- 2. 修正 herf 拼錯 (大叔的手滑救星) ---
+    # 修正常見拼錯 herf= -> href=
     if 'herf=' in content:
         content = content.replace('herf=', 'href=')
         print(f"  [Fixed herf] -> {fname}")
         modified = True
 
-    # --- 3. 強力修復 Style (轉換為 JSX 格式) ---
-    # 支援標籤如 <rt style="color:orange"> 或 <span style="zoom:60%">
+    # --------------------------------------------------------------------------
+    # 3. HTML Style 屬性轉 JSX 格式
+    # --------------------------------------------------------------------------
     def universal_style_to_jsx(match):
         tag = match.group(1)
-        attr = match.group(2).lower() # color 或 zoom
+        attr = match.group(2).lower()
         val = match.group(3).strip()
         
-        # 轉換 zoom:60% 為 width: "60%"
         if attr == 'zoom':
             print(f"  [Fixed Zoom] -> {fname}: <{tag}> zoom to width")
             return f'<{tag} style={{{{width: "{val}"}}}}> '
         
-        # 轉換 color:orange 為 color: "orange"
         print(f"  [Fixed Style] -> {fname}: <{tag}> color to JSX")
         return f'<{tag} style={{{{color: "{val}"}}}}> '
 
-    # 改進正則：抓取 <tag style="color:xxx"> 或 <tag style="zoom:xxx">
-    style_pattern = r'<([a-z1-6]+)[\s\xa0]+style=["\'](color|zoom):[\s\xa0]*([^"\'\s>]+)\s*;?["\']\s*>'
+    style_pattern = r'<([a-zA-Z1-6]+)[\s\xa0]+style=["\'](color|zoom):[\s\xa0]*([^"\'\s>]+)\s*;?["\']\s*>'
     content = re.sub(style_pattern, universal_style_to_jsx, content, flags=re.I)
 
-    # --- 4. 處理 Obsidian 縮圖 (包含帶連結與不帶連結) ---
-    # 處理 [![]( )]( )
+    # --------------------------------------------------------------------------
+    # 4. Obsidian 縮圖語法轉換
+    # --------------------------------------------------------------------------
+    # 處理帶超連結的縮圖: [![alt|width](img_url)](target_link)
     def ob_link_img(m):
         alt, w, img, link = m.group(1), m.group(2), m.group(3), m.group(4)
         print(f"  [Fixed LinkedImg] -> {fname}")
-        return f'<a href="{link.replace("&", "&amp;")}"><img src="{img}" alt="{alt}" style={{{{ width: "{w}{"" if "%" in w else "px"}", height: "auto" }}}} /></a>'
+        width_val = f"{w}" if "%" in w else f"{w}px"
+        return f'<a href="{link.replace("&", "&amp;")}"><img src="{img}" alt="{alt}" style={{{{ width: "{width_val}", height: "auto" }}}} /></a>'
+    
     content = re.sub(r'\[!\[([^|\]]*)\|(\d+%?)\]\((.*?)\)\]\((.*?)\)', ob_link_img, content)
 
-    # 處理 ![]( )
+    # 處理純縮圖: ![alt|width](img_url)
     def ob_img(m):
         alt, w, img = m.group(1), m.group(2), m.group(3)
         print(f"  [Fixed Img] -> {fname}")
-        return f'<img src="{img}" alt="{alt}" style={{{{ width: "{w}{"" if "%" in w else "px"}", height: "auto" }}}} />'
+        width_val = f"{w}" if "%" in w else f"{w}px"
+        return f'<img src="{img}" alt="{alt}" style={{{{ width: "{width_val}", height: "auto" }}}} />'
+    
     content = re.sub(r'!\[([^|\]]*)\|(\d+%?)\]\((.*?)\)', ob_img, content)
 
-    # --- 5. 修正標籤順序、自閉合與孤兒標籤 ---
+    # 處理 Obsidian 內部雙向圖檔引用: ![[image.png|300]]
+    def ob_wiki_img(m):
+        img, w = m.group(1), m.group(2)
+        print(f"  [Fixed WikiImg] -> {fname}")
+        width_val = f"{w}" if "%" in w else f"{w}px"
+        return f'<img src="./{img}" alt="{img}" style={{{{ width: "{width_val}", height: "auto" }}}} />'
     
-    # 修復 </a> 孤兒 (原始檔常見錯誤)
-    def clean_orphan_a(text):
-        text = re.sub(r'<a\s+[^>]*>.*?</a>', lambda m: m.group(0).replace('</a>', '[[SAFE_A]]'), text, flags=re.DOTALL)
-        text = text.replace('</a>', '')
-        return text.replace('[[SAFE_A]]', '</a>')
-    
-    content = clean_orphan_a(content)
+    content = re.sub(r'!\[\[([^|\]]+)\|(\d+%?)\]\]', ob_wiki_img, content)
 
-    # 修正標籤嵌套順序
+    # --------------------------------------------------------------------------
+    # 5. HTML 標籤結構修復 (嵌套順序與自閉合)
+    # --------------------------------------------------------------------------
     content = content.replace('</ruby></del>', '</del></ruby>')
     content = content.replace('</span></del>', '</del></span>')
-    
-    # 確保 img 標籤自閉合
-    content = re.sub(r'(<img [^>]+)(?<!/)>', r'\1 />', content)
 
+    # 確保所有 <img> 標籤都是自閉合 (JSX 嚴格要求)
+    content = re.sub(r'(<img [^>]+?)(?<!/)>', r'\1 />', content)
+
+    # --------------------------------------------------------------------------
+    # 6. 還原 Code Blocks
+    # --------------------------------------------------------------------------
+    for idx, block in enumerate(code_blocks):
+        content = content.replace(f"%%DOCUS_CODE_BLOCK_{idx}%%", block)
+
+    # 寫入異動
     if content != original or modified:
         with open(filepath, 'w', encoding='utf-8') as f:
             f.write(content)
         return True
     return False
 
-# 執行
-print("🚀 Starting MDX Fixer (Integrated Version)...")
-count = 0
-# 掃描 blog 和 docs 資料夾
-for folder in ['blog', 'docs']:
-    if os.path.exists(folder):
-        for root, dirs, files in os.walk(folder):
-            for file in files:
-                if file.endswith(('.md', '.mdx')):
-                    if process_file(os.path.join(root, file)):
-                        count += 1
+# 執行批次修復
+if __name__ == "__main__":
+    print("🚀 Starting MDX Fixer (Robust Production Version)...")
+    count = 0
+    for folder in ['blog', 'docs']:
+        if os.path.exists(folder):
+            for root, dirs, files in os.walk(folder):
+                for file in files:
+                    if file.endswith(('.md', '.mdx')):
+                        if process_file(os.path.join(root, file)):
+                            count += 1
 
-print(f"✅ Finished! Total files processed and cleaned: {count}")
+    print(f"✅ Finished! Total files processed and cleaned: {count}")
