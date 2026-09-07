@@ -148,7 +148,6 @@ networks:
     
     - 前往 **Advanced** 分頁，在自訂 Nginx 配置區塊貼入：
         
-        
    ```nginx
         # 允許大容量 Git Push（預設僅 1MB，大專案或 binary 檔會被擋）
         client_max_body_size 512M;
@@ -179,12 +178,12 @@ ansible-pull -U http://ci-bot:<YOUR_TOKEN>@git.internal.local/infra/homelab-ansi
 
 ## 5. 常見踩坑排障與調優 (Troubleshooting)
 
-|**異常現象**|**根本原因**|**排除步驟**|
-|---|---|---|
-|**Git Push 報錯：`RPC failed; HTTP 413 curl 22 The requested URL returned error: 413`**|經過 NPM 時觸發 Nginx 預設的 `client_max_body_size` 限制|在 NPM 的進階設定中加入 `client_max_body_size 512M;`（或更高），並確認 Gitea 的 `app.ini` 中 `[repository.upload] FILE_MAX_SIZE = 512`。|
-|**Web 介面點選 Clone 複製出來的網址變成 `http://localhost:3000/...`**|`ROOT_URL` 未正確解析|檢查環境變數是否設置 `GITEA__server__ROOT_URL=[http://git.internal.local/](http://git.internal.local/)`（結尾務必帶斜線 `/`），並重啟容器。|
-|**透過 SSH Clone 失敗（Permission denied / Connection refused）**|外部埠口映射錯亂或混淆了 Host 與容器的 SSH|1. 確認連線時帶上 Port 2222：`git clone ssh://git@git.internal.local:2222/user/repo.git`。<br><br>  <br><br>2. 若要免打 2222，可於客戶端 `~/.ssh/config` 定義別名。|
-|**忘記管理員密碼**|Web UI 無法登入重設|直接使用容器內 CLI 一鍵重設管理員密碼：<br><br>  <br><br>`docker compose exec --user 1000 server gitea admin user change-password --username admin --password "New_Password"`|
+| **異常現象**                                                                             | **根本原因**                                       | **排除步驟**                                                                                                                                       |
+| ------------------------------------------------------------------------------------ | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Git Push 報錯：`RPC failed; HTTP 413 curl 22 The requested URL returned error: 413`** | 經過 NPM 時觸發 Nginx 預設的 `client_max_body_size` 限制 | 在 NPM 的進階設定中加入 `client_max_body_size 512M;`（或更高），並確認 Gitea 的 `app.ini` 中 `[repository.upload] FILE_MAX_SIZE = 512`。                            |
+| **Web 介面點選 Clone 複製出來的網址變成 `http://localhost:3000/...`**                             | `ROOT_URL` 未正確解析                               | 檢查環境變數是否設置 `GITEA__server__ROOT_URL=[http://git.internal.local/](http://git.internal.local/)`（結尾務必帶斜線 `/`），並重啟容器。                              |
+| **透過 SSH Clone 失敗（Permission denied / Connection refused）**                          | 外部埠口映射錯亂或混淆了 Host 與容器的 SSH                     | 1. 確認連線時帶上 Port 2222：`git clone ssh://git@git.internal.local:2222/user/repo.git`。<br />2. 若要免打 2222，可於客戶端 `~/.ssh/config` 定義別名。                  |
+| **忘記管理員密碼**                                                                          | Web UI 無法登入重設                                  | 直接使用容器內 CLI 一鍵重設管理員密碼：<br />`docker compose exec --user 1000 server gitea admin user change-password --username admin --password "New_Password"` |
 
 ## 6. 資料備份與災難復原
 
