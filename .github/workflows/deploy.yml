@@ -1,55 +1,76 @@
 name: Deploy-Wiki-Site
+
 on:
   push:
     branches: [main]
   workflow_dispatch:
 
+# 賦予 GITHUB_TOKEN 建立與推送分支的權限，防止 403 錯誤
+permissions:
+  contents: write
+
+# 避免多個 commit 同時推送時產生並發構建衝突
+concurrency:
+  group: 'pages-deploy'
+  cancel-in-progress: true
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      # 明確接受以 Node 24 執行 Runner Runtime，消除強制執行警告
+      ACTIONS_RUNNER_FORCE_ACTIONS_NODE_VERSION: "node24"
     steps:
       - name: Checkout Engine
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0 # 保留完整 Git 歷史紀錄，支援最後修改時間
 
       - name: 🔍 Debug Path
         run: |
-          echo "Current directory structure:"
+          echo "=== 原始目錄結構 ==="
           find . -maxdepth 3 -not -path '*/.*'
 
       - name: 📂 Prepare Folders (搬移 Wiki 和 Blog)
         run: |
           mkdir -p docs blog static/img
-          find . -type d -iname "Wiki" -not -path "./docs*" -exec cp -R {}/. ./docs/ \; 2>/dev/null || true
-          find . -type d -iname "Blog" -not -path "./blog*" -exec cp -R {}/. ./blog/ \; 2>/dev/null || true
+          
+          # 限定 maxdepth 避免深層遞迴拷貝，且排除自身目錄
+          find . -maxdepth 2 -type d -iname "wiki" ! -path "./docs*" ! -path "." -exec cp -r {}/. ./docs/ \; 2>/dev/null || true
+          find . -maxdepth 2 -type d -iname "blog" ! -path "./blog*" ! -path "." -exec cp -r {}/. ./blog/ \; 2>/dev/null || true
+          
+          echo "=== 搬移後 docs 目錄狀態 ==="
+          ls -la docs/
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
       - name: 🐍 MDX Syntax Fix
         run: |
-          # 確保專案根目錄有這個 fix-mdx.py
           if [ -f "fix-mdx.py" ]; then
+            echo "執行 MDX 語法清洗腳本..."
             python3 fix-mdx.py
+          else
+            echo "未偵測到 fix-mdx.py，略過此步驟。"
           fi
 
       - name: 🟢 Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          # ❌ 刪掉 cache: 'npm'，因為沒有 lock file 會報錯
-          
+          node-version: 22 # 升級至 Node 22 LTS 建置環境
+
       - name: 📦 Install & Build
         run: |
           npm install
-          npm run build -- --locale zh-Hant
-                                
+          # 注入記憶體上限設定，防止編譯大量文件時 OOM 中斷
+          NODE_OPTIONS="--max-old-space-size=4096" npm run build -- --locale zh-Hant
+
       - name: 🚀 Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
           publish_branch: gh-pages
+          keep_files: false
