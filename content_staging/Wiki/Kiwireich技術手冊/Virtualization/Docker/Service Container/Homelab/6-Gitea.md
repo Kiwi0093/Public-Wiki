@@ -30,7 +30,7 @@ date: 2026-09-04
 - **SSH 埠口衝突避免**：
     
     若想在容器內開放 Git 走 SSH 協定（`git@host:repo.git`），容器內的 Port 22 嚴禁直接映射到宿主機的 22（避免與宿主機本身的 SSH 管理埠口衝突），通常需映射為 `2222:22`，或透過宿主機 OpenSSH 的 `AuthorizedKeysCommand` 達成直通。
-    
+    或是採用macvlan的形式指定一個獨立ip, 並將ssh的domain指向該ip那麼就不用port mapping, 只是http與ssh就會走不同的domain連線
 
 ## 2. Docker Compose 完整部署範本
 
