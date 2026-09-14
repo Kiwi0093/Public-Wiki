@@ -23,9 +23,12 @@ description: "這是你的 Wiki 首頁。當你從 Obsidian 推送內容過來�
       <div className="card__body" style={{ fontSize: '0.9rem', paddingTop: '0.2rem' }}>
         <ul style={{ paddingLeft: '1.2rem', marginBottom: 0 }}>
           <li><a href="./homelab"><strong>Homelab架構</strong></a></li>
-          <li><strong>Network</strong> & <strong>FreeBSD</strong></li>
-          <li><strong>Virtualization</strong> & <strong>Linux</strong></li>
-          <li><strong>Automation&IaC</strong> & <strong>Environment&Tools</strong></li>
+          <li><strong>Network</strong></li>
+          <li><strong>FreeBSD</strong></li>
+          <li><strong>Virtualization</strong></li>
+          <li><strong>Linux</strong></li>
+          <li><strong>Automation&IaC</strong></li>
+          <li><strong>Environment&Tools</strong></li>
         </ul>
       </div>
       <div className="card__footer" style={{ borderTop: '1px solid var(--ifm-color-emphasis-100)', padding: '0.8rem 1rem' }}>
