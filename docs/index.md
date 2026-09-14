@@ -73,7 +73,7 @@ description: "個人微型私有雲架構、維運自動化與遊戲筆記存檔
           <li>
             <strong>PC 遊戲</strong>
             <div style={{ fontSize: '0.8rem', color: 'var(--ifm-color-emphasis-500)' }}>
-              Battletech 配置、修改筆記與指引
+              PC Game 配置、修改筆記與指引
             </div>
           </li>
           <li>
