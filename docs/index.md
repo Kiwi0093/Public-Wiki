@@ -6,7 +6,7 @@ description: "這是你的 Wiki 首頁。當你從 Obsidian 推送內容過來�
 
 # 歡迎來到 Kiwi Wiki
 
-> 這是你的 Wiki 首頁。當你從 Obsidian 推送內容過來時，這裡會被自動更新[cite: 6]。
+> 這個Wiki主要是我的個人筆記,因為年紀大了很多事情只用腦子記不住,放在本機又覺得危險,乾脆放上去,若有其他人覺得有用也可以參考。
 
 ---
 
@@ -22,13 +22,13 @@ description: "這是你的 Wiki 首頁。當你從 Obsidian 推送內容過來�
       </div>
       <div className="card__body" style={{ fontSize: '0.9rem', paddingTop: '0.2rem' }}>
         <ul style={{ paddingLeft: '1.2rem', marginBottom: 0 }}>
-          <li><a href="./homelab"><strong>Homelab架構</strong></a></li>
-          <li><strong>Network</strong></li>
-          <li><strong>FreeBSD</strong></li>
-          <li><strong>Virtualization</strong></li>
-          <li><strong>Linux</strong></li>
           <li><strong>Automation&IaC</strong></li>
           <li><strong>Environment&Tools</strong></li>
+          <li><strong>FreeBSD</strong></li>
+          <li><strong>Linux</strong></li>
+          <li><a href="./Network/"><strong>Network</strong></a></li>
+          <li><strong>Virtualization</strong></li>
+          <li><a href="./homelab"><strong>Homelab架構</strong></a></li>
         </ul>
       </div>
       <div className="card__footer" style={{ borderTop: '1px solid var(--ifm-color-emphasis-100)', padding: '0.8rem 1rem' }}>
@@ -42,6 +42,12 @@ description: "這是你的 Wiki 首頁。當你從 Obsidian 推送內容過來�
     <div className="card" style={{ height: '100%', border: '1px solid var(--ifm-color-emphasis-200)', borderRadius: '12px' }}>
       <div className="card__header" style={{ paddingBottom: '0.5rem' }}>
         <h3>🗃️ <a href="./Kiwireich遊戲筆記/">Kiwireich遊戲筆記</a></h3>
+        <div className="card__body" style={{ fontSize: '0.9rem', paddingTop: '0.2rem' }}>
+        <ul style={{ paddingLeft: '1.2rem', marginBottom: 0 }}>
+          <li><strong>PC</strong></li>
+          <li><strong>PS2</strong></li>
+        </ul>
+      </div>
       </div>
       <div className="card__footer" style={{ borderTop: '1px solid var(--ifm-color-emphasis-100)', padding: '0.8rem 1rem' }}>
         <small><a href="./Kiwireich遊戲筆記/PC/Battletech/Game/PC/Battletech/guide">進入遊戲筆記 →</a></small>
