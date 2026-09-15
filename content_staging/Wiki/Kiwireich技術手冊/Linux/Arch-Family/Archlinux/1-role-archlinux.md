@@ -21,9 +21,7 @@ tags:
 ## Main Role in Kiwireich
 
  * #### Desktop
- * #### Ansible Master
+ * #### ~~Ansible Master~~
 ## Major Service:
 
-* #### Docker engine service
-
-目前版本`Photon OS 5`
+* #### KDE Plasma 6

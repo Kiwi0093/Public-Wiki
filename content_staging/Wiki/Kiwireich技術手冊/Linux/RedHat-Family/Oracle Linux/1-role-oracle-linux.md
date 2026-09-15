@@ -20,10 +20,9 @@ tags:
 
  * #### Docker Host
  * #### Standard Linux for OCI
-
 ## Major Service:
 
 * #### Docker engine service
 * #### Wireguard
 
-目前版本`Oracle Linux Server 9.7`
+目前版本`Oracle Linux 10`

@@ -3,11 +3,6 @@ slug: /homelab
 title: "Homelab架構"
 description: "需求與成本平衡的微型私有雲現狀，老派網工的折騰存檔"
 ---
----
-slug: /homelab
-title: "Homelab架構"
-description: "需求與成本平衡的微型私有雲現狀，老派網工的折騰存檔"
----
 
 # Homelab架構
 
@@ -30,48 +25,64 @@ description: "需求與成本平衡的微型私有雲現狀，老派網工的折
 
 ## 2. 網路拓撲矩陣 (Topology Overview)
 
-<div style={{
-  overflowX: 'auto',
-  backgroundColor: 'var(--ifm-code-background, #1e1e1e)',
-  border: '1px solid var(--ifm-color-emphasis-200, #333)',
-  borderRadius: '8px',
-  padding: '1.2rem',
-  marginBottom: '1.5rem'
-}}>
-<pre style={{
-  margin: 0,
-  fontFamily: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
-  fontSize: '13px',
-  lineHeight: '1.45',
-  whiteSpace: 'pre',
-  color: 'inherit'
-}}>
-{` ┌───────────────────────────────┐           ┌───────────────────────────────┐
- │      OCI WireGuard Mesh       │           │     Client WireGuard VPN      │
- │  - 海外雲端運算實例 (大阪/東京) │           │  - 外出工作筆電 / 行動終端    │
- │  - 私有微服務 API 互聯        │           │  - 唯一合法之外部遠端管理入口 │
- │  - 下載流量出站中繼出口       │           └───────────────┬───────────────┘
- └───────────────┬───────────────┘                           │
+
+<div id="ascii-xb9wy7x-wrapper">
+  <!-- 💡 核心修正：直接線上載入 Google 官方最新的中英雙倍寬度等寬字型 -->
+  <style>
+    @import url('https://googleapis.com');
+    
+    #ascii-xb9wy7x-wrapper pre {
+      /* 優先順序：本地更紗黑體 -> 線上思源等寬 -> 系統預設 */
+      font-family: 'Sarasa Mono TC', 'Noto Sans Mono', monospace !important;
+      font-variant-ligatures: none !important;
+      white-space: pre !important;
+      overflow-x: auto !important;
+      padding: 16px;
+      border-radius: 8px;
+      line-height: 1.5;
+      text-align: left;
+      font-size: 14px;
+      
+      /* 淺色模式 */
+      background-color: #f6f8fa !important;
+      color: #24292e !important;
+      border: 1px solid #e1e4e8;
+    }
+
+    /* Docusaurus 深色模式自動切換 */
+    html[data-theme='dark'] #ascii-xb9wy7x-wrapper pre {
+      background-color: #1b1b1d !important;
+      color: #e3e3e3 !important;
+      border: 1px solid #2f2f31;
+    }
+  </style>
+
+  <pre>┌──────────────────────────────────────┐       ┌─────────────────────────────────────────┐
+ │        OCI WireGuard Mesh            │       │           Client WireGuard VPN          │
+ │    - 海外雲端運算實例 (大阪/東京)    │       │      - 外出工作筆電 / 行動終端          │
+ │    - 私有微服務 API 互聯             │       │      - 唯一合法之外部遠端管理入口       │
+ │    - 下載流量出站中繼出口            │       │                                         │
+ └──────────────────────────────────────┘       └─────────────────────────────────────────┘
                  │                                           │
                  │ (加密隧道穿透網際網路)                    │ (加密隧道穿透網際網路)
                  ▼                                           ▼
- ┌───────────────────────────────────────────────────────────────────────────┐
- │                 電信端多組 Public IP 專線群 (Internet Edge)               │
- └─────────────────────────────────────┬─────────────────────────────────────┘
+ ┌────────────────────────────────────────────────────────────────────────────────────────┐
+ │                 電信端多組 Public IP 專線群 (Internet Edge)                            │
+ └────────────────────────────────────────────────────────────────────────────────────────┘
                                        │ WAN 實體介面 (ext0)
                                        ▼
- ┌───────────────────────────────────────────────────────────────────────────┐
- │                   BSD-based Core Gateway (FreeBSD 14.x)                   │
- │  - 邊界過濾：Packet Filter (PF) 預設全阻斷 (Default Deny)                 │
- │  - 主動防禦：SSHGuard + CrowdSec 動態威脅情報黑名單                       │
- │  - 流量整形：Dummynet 7 級權重排程 (CoDel AQM 主動流控)                   │
- │      * Queue High : ACK 加速, DNS, 遠端管理 (SSH/RDP), VPN 隧道          │
- │      * Queue Mid  : 內部維運, DHCP/PXE, 跨雲內部 API 互聯                 │
- │      * Queue User : 家用上網, 影音串流, 跨網段 mDNS/SSDP 中繼             │
- │      * Queue Low  : 背景下載 (BT 流量壓制), 受限 IoT 設備                 │
- │  - 邊界收斂：公網僅開放必要反向代理與 VPN 端點，其餘遠端管理全面內網化 │
- │  - 出站分流：家庭、服務與隔離網段各自指派獨立 Public IP 實施 SNAT       │
- └───┬───────────────────────────────┬───────────────────────────────┬───────┘
+ ┌────────────────────────────────────────────────────────────────────────────────────────┐
+ │                       BSD-based Core Gateway (FreeBSD 14.x)                            │
+ │      - 邊界過濾：Packet Filter (PF) 預設全阻斷 (Default Deny)                          │
+ │      - 主動防禦：SSHGuard + CrowdSec 動態威脅情報黑名單                                │
+ │      - 流量整形：Dummynet 7 級權重排程 (CoDel AQM 主動流控)                            │
+ │          * Queue High : ACK 加速, DNS, 遠端管理 (SSH/RDP), VPN 隧道                    │
+ │          * Queue Mid  : 內部維運, DHCP/PXE, 跨雲內部 API 互聯                          │
+ │          * Queue User : 家用上網, 影音串流, 跨網段 mDNS/SSDP 中繼                      │
+ │          * Queue Low  : 背景下載 (BT 流量壓制), 受限 IoT 設備                          │
+ │      - 邊界收斂：公網僅開放必要反向代理與 VPN 端點，其餘遠端管理全面內網化             │
+ │      - 出站分流：家庭、服務與隔離網段各自指派獨立 Public IP 實施 SNAT                  │
+ └────────────────────────────────────────────────────────────────────────────────────────┘
      │ LAN_Family (int0)             │ LAN_Service (int1, 10GbE 骨幹)│ LAN_IoT (int2)
      │ 標準 MTU                      │ Jumbo Frame (MTU 9000)        │ 標準 MTU
      ▼                               ▼                               ▼
@@ -79,9 +90,9 @@ description: "需求與成本平衡的微型私有雲現狀，老派網工的折
 │       Family Zone       │     │    Core Service Zone    │     │   Isolated / IoT Zone   │
 ├─────────────────────────┤     ├─────────────────────────┤     ├─────────────────────────┤
 │ [家用娛樂與終端]        │ L3  │ [虛擬化運算宿主機]      │ L3  │ [受限隔離網段]          │
-│ - 客廳串流多媒體播放器  │單向 │ - Node_Base             │完全 │ - 訪客動態網段          │
-│ - 家人日常手機 / 平板   │放行 │   (基礎維運與日誌)      │隔離 │   (純粹外網上網需求)    │
-│ - 內網串流主機          ├───► │ - Node_Public           │◄─X─►│ - 智慧家電網段          │
+│ - 客廳串流多媒體播放器  │ 單向│ - Node_Base             │ 完全│ - 訪客動態網段          │
+│ - 家人日常手機 / 平板   │ 放行│   (基礎維運與日誌)      │ 隔離│   (純粹外網上網需求)    │
+│ - 內網串流主機          ├────►│ - Node_Public           │◄─X─►│ - 智慧家電網段          │
 │   (純 L2 極致超低延遲)  │     │   (Traefik/相簿/檔案庫) │     │   (掃地機、除濕機、家電)│
 │                         │     │ - Node_Private          │     │                         │
 │ [存取權限]              │     │   (影音串流/下載工具組) │     │ [存取規則]              │
@@ -93,6 +104,6 @@ description: "需求與成本平衡的微型私有雲現狀，老派網工的折
 │                         │     │ - Tier 2: 資料庫與備份池│     │                         │
 │                         │     │ - Tier 3: 下載快取中轉池│     │                         │
 │                         │     │   (輕量檔案系統防磨損)  │     │                         │
-└─────────────────────────┘     └─────────────────────────┘     └─────────────────────────┘`}
-</pre>
+└─────────────────────────┘     └─────────────────────────┘     └─────────────────────────┘</pre>
 </div>
+

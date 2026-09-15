@@ -22,8 +22,6 @@ tags:
 
  * #### Docker Host
 
-
-
 ## Major Service:
 
 * #### Docker engine service
