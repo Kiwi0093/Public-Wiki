@@ -4,8 +4,10 @@
 const config = {
   title: 'Kiwi Reich',
   tagline: '大叔的自言自語',
-  url: 'https://kiwi0093.github.io', 
-  baseUrl: '/Public-Wiki/',            
+//  url: 'https://kiwi0093.github.io', 
+//  baseUrl: '/Public-Wiki/',            
+  url: 'https://blog.kiwireich.com', 
+  baseUrl: '/',            
   onBrokenLinks: 'ignore', // 建議穩定後改為 'warn'
   
   // 注入 Favicon (奇威鳥)
