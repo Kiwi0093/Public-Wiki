@@ -28,7 +28,7 @@ description: "這是你的 Wiki 首頁。當你從 Obsidian 推送內容過來�
           <li><strong>Linux</strong></li>
           <li><a href="./Network/"><strong>Network</strong></a></li>
           <li><strong>Virtualization</strong></li>
-          <li><a href="./homelab"><strong>Homelab架構</strong></a></li>
+          <li><a href="[./homelab](https://blog.kiwireich.com/docs/homelab)"><strong>Homelab架構</strong></a></li>
         </ul>
       </div>
       <div className="card__footer" style={{ borderTop: '1px solid var(--ifm-color-emphasis-100)', padding: '0.8rem 1rem' }}>
