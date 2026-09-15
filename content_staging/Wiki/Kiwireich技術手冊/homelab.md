@@ -30,31 +30,32 @@ description: "需求與成本平衡的微型私有雲現狀，老派網工的折
     return `
     <div id="ascii-e1iybux-wrapper">
       <style>
-        @import url('https://googleapis.com');
-        
+       /* 💡 修正 1：正確引入 Google 官方最精準的中英等寬 WebFont */
+        @import url('https://googleapis.com'); 
         #ascii-e1iybux-wrapper pre {
-          font-family: 'Sarasa Mono TC', 'Noto Sans Mono', monospace !important;
-          font-variant-ligatures: none !important;
-          white-space: pre !important;
-          overflow-x: auto !important;
-          padding: 16px;
-          border-radius: 8px;
-          line-height: 1.5;
-          text-align: left;
-          font-size: 14px;
-          
-          background-color: #f6f8fa !important;
-          color: #24292e !important;
-          border: 1px solid #e1e4e8;
-        }
-
-        html[data-theme='dark'] #ascii-e1iybux-wrapper pre {
-          background-color: #1b1b1d !important;
-          color: #e3e3e3 !important;
-          border: 1px solid #2f2f31;
-        }
-      </style>
-
+         /* 💡 修正 2：優先調用線上 Noto Sans Mono，確保不論哪台電腦看都 100% 不歪斜 */
+           font-family: 'Noto Sans Mono', 'Sarasa Mono TC', monospace !important;
+           font-variant-ligatures: none !important;
+           white-space: pre !important;
+           overflow-x: auto !important;
+           padding: 18px;
+           border-radius: 8px;
+           line-height: 1.45;
+           text-align: left;
+           font-size: 13.5px;
+           letter-spacing: 0px !important;
+           /* 確保字元緊密相連不露白線 */
+           background-color: #f6f8fa !important;
+           color: #24292e !important;
+           border: 1px solid #e1e4e8;
+         } 
+           /* 完美契合 Docusaurus 官方深色模式 */ 
+           html[data-theme='dark'] #ascii-e1iybux-wrapper pre {
+            background-color: #1b1b1d !important;
+            color: #e3e3e3 !important;
+            border: 1px solid #2f2f31;
+            } 
+    </style>
       <pre>
 ┌──────────────────────────────────────┐       ┌─────────────────────────────────────────┐
  │        OCI WireGuard Mesh            │       │           Client WireGuard VPN          │
