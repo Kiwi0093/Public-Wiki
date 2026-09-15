@@ -26,13 +26,12 @@ description: "需求與成本平衡的微型私有雲現狀，老派網工的折
 ## 2. 網路拓撲矩陣 (Topology Overview)
 
 
-<div id="ascii-xb9wy7x-wrapper">
-  <!-- 💡 核心修正：直接線上載入 Google 官方最新的中英雙倍寬度等寬字型 -->
+export const ascii-a8jk60nRawHTML = `
+<div id="ascii-a8jk60n-wrapper">
   <style>
     @import url('https://googleapis.com');
     
-    #ascii-xb9wy7x-wrapper pre {
-      /* 優先順序：本地更紗黑體 -> 線上思源等寬 -> 系統預設 */
+    #ascii-a8jk60n-wrapper pre {
       font-family: 'Sarasa Mono TC', 'Noto Sans Mono', monospace !important;
       font-variant-ligatures: none !important;
       white-space: pre !important;
@@ -43,21 +42,20 @@ description: "需求與成本平衡的微型私有雲現狀，老派網工的折
       text-align: left;
       font-size: 14px;
       
-      /* 淺色模式 */
       background-color: #f6f8fa !important;
       color: #24292e !important;
       border: 1px solid #e1e4e8;
     }
 
-    /* Docusaurus 深色模式自動切換 */
-    html[data-theme='dark'] #ascii-xb9wy7x-wrapper pre {
+    html[data-theme='dark'] #ascii-a8jk60n-wrapper pre {
       background-color: #1b1b1d !important;
       color: #e3e3e3 !important;
       border: 1px solid #2f2f31;
     }
   </style>
 
-  <pre>┌──────────────────────────────────────┐       ┌─────────────────────────────────────────┐
+  <pre>
+ ┌──────────────────────────────────────┐       ┌─────────────────────────────────────────┐
  │        OCI WireGuard Mesh            │       │           Client WireGuard VPN          │
  │    - 海外雲端運算實例 (大阪/東京)    │       │      - 外出工作筆電 / 行動終端          │
  │    - 私有微服務 API 互聯             │       │      - 唯一合法之外部遠端管理入口       │
@@ -106,4 +104,10 @@ description: "需求與成本平衡的微型私有雲現狀，老派網工的折
 │                         │     │   (輕量檔案系統防磨損)  │     │                         │
 └─────────────────────────┘     └─────────────────────────┘     └─────────────────────────┘</pre>
 </div>
+`;
+
+<div dangerouslySetInnerHTML={{ __html: ascii-a8jk60nRawHTML }} />
+
+
+
 
