@@ -25,37 +25,38 @@ description: "需求與成本平衡的微型私有雲現狀，老派網工的折
 
 ## 2. 網路拓撲矩陣 (Topology Overview)
 
+<div dangerouslySetInnerHTML={{ 
+  __html: (() => { 
+    return `
+    <div id="ascii-e1iybux-wrapper">
+      <style>
+        @import url('https://googleapis.com');
+        
+        #ascii-e1iybux-wrapper pre {
+          font-family: 'Sarasa Mono TC', 'Noto Sans Mono', monospace !important;
+          font-variant-ligatures: none !important;
+          white-space: pre !important;
+          overflow-x: auto !important;
+          padding: 16px;
+          border-radius: 8px;
+          line-height: 1.5;
+          text-align: left;
+          font-size: 14px;
+          
+          background-color: #f6f8fa !important;
+          color: #24292e !important;
+          border: 1px solid #e1e4e8;
+        }
 
-export const ascii-a8jk60nRawHTML = `
-<div id="ascii-a8jk60n-wrapper">
-  <style>
-    @import url('https://googleapis.com');
-    
-    #ascii-a8jk60n-wrapper pre {
-      font-family: 'Sarasa Mono TC', 'Noto Sans Mono', monospace !important;
-      font-variant-ligatures: none !important;
-      white-space: pre !important;
-      overflow-x: auto !important;
-      padding: 16px;
-      border-radius: 8px;
-      line-height: 1.5;
-      text-align: left;
-      font-size: 14px;
-      
-      background-color: #f6f8fa !important;
-      color: #24292e !important;
-      border: 1px solid #e1e4e8;
-    }
+        html[data-theme='dark'] #ascii-e1iybux-wrapper pre {
+          background-color: #1b1b1d !important;
+          color: #e3e3e3 !important;
+          border: 1px solid #2f2f31;
+        }
+      </style>
 
-    html[data-theme='dark'] #ascii-a8jk60n-wrapper pre {
-      background-color: #1b1b1d !important;
-      color: #e3e3e3 !important;
-      border: 1px solid #2f2f31;
-    }
-  </style>
-
-  <pre>
- ┌──────────────────────────────────────┐       ┌─────────────────────────────────────────┐
+      <pre>
+┌──────────────────────────────────────┐       ┌─────────────────────────────────────────┐
  │        OCI WireGuard Mesh            │       │           Client WireGuard VPN          │
  │    - 海外雲端運算實例 (大阪/東京)    │       │      - 外出工作筆電 / 行動終端          │
  │    - 私有微服務 API 互聯             │       │      - 唯一合法之外部遠端管理入口       │
@@ -102,12 +103,12 @@ export const ascii-a8jk60nRawHTML = `
 │                         │     │ - Tier 2: 資料庫與備份池│     │                         │
 │                         │     │ - Tier 3: 下載快取中轉池│     │                         │
 │                         │     │   (輕量檔案系統防磨損)  │     │                         │
-└─────────────────────────┘     └─────────────────────────┘     └─────────────────────────┘</pre>
-</div>
-`;
-
-<div dangerouslySetInnerHTML={{ __html: ascii-a8jk60nRawHTML }} />
-
+└─────────────────────────┘     └─────────────────────────┘     └─────────────────────────┘
+</pre>
+    </div>
+    `;
+  })() 
+}} />
 
 
 
