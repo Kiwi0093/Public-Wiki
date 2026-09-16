@@ -1,3 +1,18 @@
+/* 1. 從 Google 官方伺服器引入精準的中英等寬 Noto Sans Mono */
+@import url('https://googleapis.com');
+
+/* 2. 複寫 Docusaurus (Infima) 全域的字型變數，將基礎與代碼字型全部鎖死 */
+:root {
+  /* 全站的一般基礎文字、標題、側邊欄（原本是 Sans-serif） */
+  --ifm-font-family-base: 'Noto Sans Mono', 'Sarasa Mono TC', monospace !important;
+  
+  /* 行內代碼 `code` 或是 ``` 區塊（原本是 Monospace） */
+  --ifm-font-family-monospace: 'Noto Sans Mono', 'Sarasa Mono TC', monospace !important;
+  
+  /* 停用特定等寬字型自作聰明的「連字（Ligatures）」功能，防止 -> 變成單箭頭而讓 ASCII 欄位歪掉 */
+  font-variant-ligatures: none !important;
+}
+
 /**
  * 🛠️ Kiwi Wiki 奪回琥珀金 - 物理鎖定終極版
  * 針對 Docusaurus 3 Build 環境進行權重鎮壓
