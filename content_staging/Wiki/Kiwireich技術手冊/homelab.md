@@ -25,7 +25,7 @@ description: "需求與成本平衡的微型私有雲現狀，老派網工的折
 
 ## 2. 網路拓撲矩陣 (Topology Overview)
 
-```mono
+```text
  ┌───────────────────┐                                        ┌───────────────────┐
  │          OCI WireGuard Mesh          │                                        │         Client WireGuard VPN         │
  │     - 海外雲端運算實例 (大阪/東京)   │                                        │    - 外出工作筆電 / 行動終端         │
