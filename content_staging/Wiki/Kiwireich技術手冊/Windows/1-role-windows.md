@@ -22,4 +22,4 @@ tags:
 ## Main Role in Kiwireich
 * ### Gaming Server
 * ### Console for Family Members
-* ### ~~P2P client
+* ### ~~P2P client~~
