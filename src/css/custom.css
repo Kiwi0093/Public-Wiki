@@ -252,29 +252,23 @@ a[href*="#more"]:hover {
   color: #666;
 }
 /* ============================================================
-   SECTION 5: 降維打擊 - 穿透 Docusaurus CSS Module 的終極鎖定
+   SECTION 5: 針對 Prism.js 核心類別的終極文字鎖定 (絕不被劃掉)
    ============================================================ */
 
-/* 1. 針對所有在 <pre> 和 <code> 容器內部的「任何字元與標籤」（包含 Prism 的高亮 span） */
-pre *, 
-code *,
-.markdown pre *,
-.markdown code * {
-  font-family: 'Noto Sans Mono', 'Sarasa Mono TC', monospace !important;
-  font-variant-ligatures: none !important;
-}
-
-/* 2. 針對 <pre> 和 <code> 本體標籤本身 */
-pre, 
-code {
+/* 1. 精準狙擊 Prism 注入給所有代碼區塊的官方核心類別 */
+code[class*="language-"],
+pre[class*="language-"],
+pre[class*="language-"] span,
+code[class*="language-"] span,
+.token {
   font-family: 'Noto Sans Mono', 'Sarasa Mono TC', monospace !important;
   font-variant-ligatures: none !important;
   white-space: pre !important;
 }
 
-/* 3. 物理消除 Docusaurus 的行高與間距拉伸（防止 ASCII 在垂直和水平方向鬆散） */
-.markdown pre code,
-.markdown pre code span {
+/* 2. 移除 Prism 內建可能會偷偷拉開字元間距的屬性 */
+code[class*="language-"], 
+pre[class*="language-"] {
   letter-spacing: 0px !important;
   word-spacing: 0px !important;
 }
