@@ -251,21 +251,4 @@ a[href*="#more"]:hover {
   font-size: 0.8rem;
   color: #666;
 }
-/* ============================================================
-   終極防歪：當語法為 ```text 時，強制網頁恢復跟 Obsidian 一模一樣的渲染邏輯
-   ============================================================ */
-.markdown pre[class*="language-text"] code,
-.markdown pre[class*="language-text"] span,
-.theme-doc-markdown pre[class*="language-text"] code {
-  /* 1. 呼叫 Google 官方標準等寬字型，確保與 Obsidian 本地環境完全一致 */
-  font-family: 'Noto Sans Mono', 'Sarasa Mono TC', monospace !important;
-  
-  /* 2. 強制關閉任何可能拉開中英文字元間距的網頁屬性（防線條斷裂的核心） */
-  letter-spacing: 0px !important;
-  word-spacing: 0px !important;
-  
-  /* 3. 停用連字功能，防止系統自作聰明合併箭頭 */
-  font-variant-ligatures: none !important;
-}
-
 
