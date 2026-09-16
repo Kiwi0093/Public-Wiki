@@ -11,13 +11,37 @@ const config = {
   onBrokenLinks: 'ignore', // 建議穩定後改為 'warn'
   
   // 注入 Favicon (奇威鳥)
-  favicon: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMjUxLjYxNSA3NC4yM2MtNzcuMDU4LjA2LTE1Mi40NTcgNTEuNzc0LTE4MS43IDg5LjAyMkMxLjQ3MyAyNTAuNDMtMzYuOTY0IDQyNy4xOTIgMjQ0LjIwOCAzODEuMjA5YzgyLjk4Ny0xMy41NzEgMTM1LjQ4MS05Mi45MzIgMTQ2LjU2LTE2My40M2MzOS4zNzYgMTMuODEyIDk5LjIyNS0yLjQxNiAxMDAuNTAzLTM4LjIzNmMxLjcxMy00OC4wMjgtODIuNjMtOTkuMzk1LTEzMC43NTYtNjAuNzRjLTMzLjIzOS0zMi4zMTEtNzEuMjY4LTQ0LjYwMi0xMDguOS00NC41NzNtMTg5LjM4NCAxMDEuNTRhOSA5IDAgMCAxIDkgOWE5IDkgMCAwIDEtOSA5YTkgOSAwIDAgMS05LTlhOSA5IDAgMCAxIDktOW0yNy4yNzggNTYuMTU0Yy04LjkwOCA0LjU0NS0xOC43MzYgNy42OTItMjkuMDU5IDkuMjQyYzIxLjk2IDQ0LjA1NCAyOS40MjcgOTIuNTkgNDUuNjEgMTM4LjQzMmMyLjc2MS0zMi40OTkgMi41ODgtOTQuOTctMTYuNTUxLTE0Ny42NzRNMjM4LjQ5NCA0MDEuNDI2YTIzOSAyMzkgMCAwIDEtMTguMTQxIDMuNzhsMjEuODg3IDQ1Ljc5OGExMTI1IDExMjUgMCAwIDAtNTguOTQ2IDEuMzg3bC0xMS44NDItNDQuMjE1Yy02LjQ1LS4zMS0xMi44MjYtLjktMTkuMTA1LTEuNzY0bDEyLjU5OCA0Ny4wNDFjLTcuMTAzLjQ2LTE0LjI5Ni45NjktMjEuNjY0IDEuNTc4bDEuNDg0IDE3LjkzOGM3Ni4yNy02LjMxIDEzNy45Ni00LjIyIDE4My40MDQtLjAwOGwxLjY2LTE3LjkyMmMtMTkuNjEzLTEuODE4LTQyLjE4OC0zLjIzNi02Ny41MjUtMy43OTN6Ii8+PC9zdmc+',
+  favicon: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMjUxLjYxNSA3NC4yM2MtNzcuMDU4LjA2LTE1Mi40NTcgNTEuNzc0LTE4MS43IDg5LjAyMkMxLjQ3MyAyNTAuNDMtMzYuOTY0IDQyNy4xOTIgMjQ0LjIwOCAzODEuMjA5YzgyLjk4Ny0xMy41NzEgMTM1LjQ4MS05Mi45MzIgMTQ2LjU2LTE2My40M2MzOS4zNzYgMTMuODEyIDk5LjIyNS0yLjQxNiAxMDAuNTAzLTM4LjIzNmMxLjcxMy00OC4wMjgtODIuNjMtOTkuMzk1LTEzMC43NTYtNjAuNzRjLTMzLjIzOS0zMi4zMTEtNzEuMjY4LTQ0LjYwMi0xMDguOS00NC41NzNtMTg5LjM4NCAxMDEuNTRhOSA5IDAgMCAxIDkgOWE5IDkgMCAwIDEtOSA5YTkgOW Fallback 0IDAgMS05LTlhOSA5IDAgMCAxIDktOW0yNy4yNzggNTYuMTU0Yy04LjkwOCA0LjU0NS0xOC43MzYgNy42OTItMjkuMDU5IDkuMjQyYzIxLjk2IDQ0LjA1NCAyOS40Mj件 9Mi41OSA0NS42MSAxMzguNDMMmMyLjc2MS0zMi40OTkgMi41ODgtOTQuOTctMTYuNTUxLTE0Ny42NzRNMjM4LjQ5NCA0MDEuNDI2YTIzOSAyMzkgMCAwIDEtMTguMTQxIDMuNzhsMjEuODg3IDQ1L9ZmVybD0iY3VycmVudENvbG9yIiBkPSJNMjUxLjYxNSA3NC4yM2MtNzcuMDU4LjA2LTE1Mi40NT...zIi8+PC9zdmc+',
   
+  // 💡 終極解法：透過 GitHub Actions 靜態編譯時，直接把這段 JS 注入到最終的 index.html 裡面
+  scripts: [
+    {
+      content: `
+        (function() {
+          const style = document.createElement('style');
+          style.type = 'text/css';
+          style.innerHTML = \`
+            /* 1. 強制線上載入 Google 官方最精準的中英雙倍寬度等寬字型 */
+            @import url('https://googleapis.com');
+            
+            /* 2. 徹底劫持全站所有代碼塊、Prism 高亮產生的標籤與 span */
+            pre, code, span, .token, [class*="codeBlock"] {
+              font-family: 'Noto Sans Mono', 'Sarasa Mono TC', monospace !important;
+              font-variant-ligatures: none !important;
+              white-space: pre !important;
+              letter-spacing: 0px !important;
+              word-spacing: 0px !important;
+            }
+          \`;
+          document.head.appendChild(style);
+        })();
+      \`,
+    },
+  ],
+
   markdown: {
     format: 'mdx',
     mermaid: true,
-    // 提醒：onBrokenMarkdownLinks 已經在較新版本搬移，這裡保留你的結構
-    // 但通常 Docusaurus 核心配置也有這個選項
   },
 
   i18n: {
@@ -37,7 +61,6 @@ const config = {
           routeBasePath: 'docs', 
         },
         blog: {
-          // 這裡有個潛在衝突：如果 blog 設為 '/' 且沒有首頁，它會佔據根目錄
           routeBasePath: '/', 
           path: 'blog',
           showReadingTime: true,
@@ -45,7 +68,7 @@ const config = {
           blogDescription: 'Kiwi 自言自語，一個中年男性宣洩自己壓力的地方',
           postsPerPage: 5,
           blogSidebarTitle: '近期文章',
-          blogSidebarCount: 'ALL', // 建議設為 'ALL' 或數字，0 會隱藏側邊欄
+          blogSidebarCount: 'ALL',
           admonitions: {
             keywords: ['note', 'tip', 'info', 'warning', 'danger'],
           },
@@ -58,18 +81,14 @@ const config = {
   ],
 
   themeConfig: {
-    // 這裡可以加入 Metadata 確保分享時有圖
     image: 'https://api.iconify.design/fluent-emoji-flat:kiwi-bird.svg?color=%234EAA25',
     navbar: {
       title: 'Kiwi Blog',
-      // 加入 Navbar Logo (奇威鳥)
       items: [
         { to: '/tags', label: 'Tags', position: 'left' },
         { to: '/archive', label: 'Archives', position: 'left' },
         {
-          //type: 'docSidebar',
-          //sidebarId: 'tutorialSidebar',
-          to: '/docs', // 這會直接對應到你 docs 目錄下的 index.md (slug: /)
+          to: '/docs', 
           position: 'left',
           label: 'Wiki 知識庫',
         },
@@ -83,10 +102,8 @@ const config = {
       theme: {light: 'neutral', dark: 'forest'},
     },
     prism: {
-      // 加入 Obsidian 常用語言
       additionalLanguages: [
         'bash',
-        //'sh',
         'yaml',
         'python',
         'cue',
@@ -94,12 +111,9 @@ const config = {
         'powershell',
         'ini',
       ],
-      // 這裡改用字串定義主題，Docusaurus 3.x 會自動從內建預設中尋找
-      // 這樣就不會因為 require 找不到路徑或變數未定義而崩潰
-      //theme: { plain: {}, styles: [] }, // 先預設空，或保持預設
-      //darkTheme: { plain: {}, styles: [] },
     },
   },
 };
 
 module.exports = config;
+
