@@ -9,7 +9,6 @@ const config = {
   onBrokenLinks: 'ignore',
   favicon: 'img/favicon.ico',
   
-  // 💡 終極安全注入：放棄 JS 邏輯，改用 Docusaurus 原生 headTags 注入純 CSS，100% 避免語法解析衝突
   headTags: [
     {
       tagName: 'link',
@@ -20,9 +19,7 @@ const config = {
     },
     {
       tagName: 'style',
-      attributes: {
-        type: 'text/css',
-      },
+      attributes: { type: 'text/css' },
       content: `
         pre, code, span, .token, [class*="codeBlock"] {
           font-family: 'Noto Sans Mono', 'Sarasa Mono TC', monospace !important;
@@ -31,6 +28,24 @@ const config = {
           letter-spacing: 0px !important;
           word-spacing: 0px !important;
         }
+      `,
+    },
+    // 💡 終極 JavaScript 攔截器：在頁面載入與動態渲染時直接強制修改元素行內屬性
+    {
+      tagName: 'script',
+      attributes: { type: 'text/javascript' },
+      content: `
+        document.addEventListener("DOMContentLoaded", function() {
+          const applyFont = () => {
+            document.querySelectorAll('pre, code, [class*="codeBlock"] span, .token').forEach(el => {
+              el.style.setProperty('font-family', "'Noto Sans Mono', 'Sarasa Mono TC', monospace", 'important');
+              el.style.setProperty('font-variant-ligatures', 'none', 'important');
+            });
+          };
+          applyFont();
+          setTimeout(applyFont, 500);
+          setTimeout(applyFont, 1500);
+        });
       `,
     },
   ],
