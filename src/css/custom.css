@@ -252,25 +252,29 @@ a[href*="#more"]:hover {
   color: #666;
 }
 /* ============================================================
-   SECTION 5: 核心權重鎮壓 - 物理鎖死 Docusaurus 程式碼區塊字型
+   SECTION 5: 降維打擊 - 穿透 Docusaurus CSS Module 的終極鎖定
    ============================================================ */
 
-/* 1. 精準鎖定 Markdown 內所有的行內代碼、代碼塊與 pre 標籤 */
-.markdown pre,
-.markdown code,
-.markdown pre code,
-.theme-doc-markdown pre,
-.theme-doc-markdown code,
-div[class*="codeBlock"] pre,
-div[class*="codeBlock"] code,
-div[class*="codeBlock"] span {
+/* 1. 針對所有在 <pre> 和 <code> 容器內部的「任何字元與標籤」（包含 Prism 的高亮 span） */
+pre *, 
+code *,
+.markdown pre *,
+.markdown code * {
+  font-family: 'Noto Sans Mono', 'Sarasa Mono TC', monospace !important;
+  font-variant-ligatures: none !important;
+}
+
+/* 2. 針對 <pre> 和 <code> 本體標籤本身 */
+pre, 
+code {
   font-family: 'Noto Sans Mono', 'Sarasa Mono TC', monospace !important;
   font-variant-ligatures: none !important;
   white-space: pre !important;
 }
 
-/* 2. 額外修復：防止 Docusaurus 3 內建的字元間距（Letter Spacing）打亂 ASCII 寬度 */
-.markdown pre code {
+/* 3. 物理消除 Docusaurus 的行高與間距拉伸（防止 ASCII 在垂直和水平方向鬆散） */
+.markdown pre code,
+.markdown pre code span {
   letter-spacing: 0px !important;
   word-spacing: 0px !important;
 }
