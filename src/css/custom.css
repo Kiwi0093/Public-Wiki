@@ -251,3 +251,26 @@ a[href*="#more"]:hover {
   font-size: 0.8rem;
   color: #666;
 }
+/* ============================================================
+   SECTION 5: 核心權重鎮壓 - 物理鎖死 Docusaurus 程式碼區塊字型
+   ============================================================ */
+
+/* 1. 精準鎖定 Markdown 內所有的行內代碼、代碼塊與 pre 標籤 */
+.markdown pre,
+.markdown code,
+.markdown pre code,
+.theme-doc-markdown pre,
+.theme-doc-markdown code,
+div[class*="codeBlock"] pre,
+div[class*="codeBlock"] code,
+div[class*="codeBlock"] span {
+  font-family: 'Noto Sans Mono', 'Sarasa Mono TC', monospace !important;
+  font-variant-ligatures: none !important;
+  white-space: pre !important;
+}
+
+/* 2. 額外修復：防止 Docusaurus 3 內建的字元間距（Letter Spacing）打亂 ASCII 寬度 */
+.markdown pre code {
+  letter-spacing: 0px !important;
+  word-spacing: 0px !important;
+}
