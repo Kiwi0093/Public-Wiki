@@ -4,38 +4,34 @@
 const config = {
   title: 'Kiwi Reich',
   tagline: '大叔的自言自語',
-//  url: 'https://github.io', 
-//  baseUrl: '/Public-Wiki/',            
   url: 'https://kiwireich.com', 
   baseUrl: '/',            
-  onBrokenLinks: 'ignore', // 建議穩定後改為 'warn'
-  
-  // 💡 安全修正：改為讀取您專案靜態資料夾中的標準 SVG，徹底拔除破損的 Base64 程式碼
+  onBrokenLinks: 'ignore',
   favicon: 'img/favicon.ico',
   
-  // 💡 核心注入：利用 JavaScript 動態為所有 CodeBlock 穿透載入 Noto Sans Mono 等寬字型
-  scripts: [
+  // 💡 終極安全注入：放棄 JS 邏輯，改用 Docusaurus 原生 headTags 注入純 CSS，100% 避免語法解析衝突
+  headTags: [
     {
+      tagName: 'link',
+      attributes: {
+        rel: 'stylesheet',
+        href: 'https://googleapis.com',
+      },
+    },
+    {
+      tagName: 'style',
+      attributes: {
+        type: 'text/css',
+      },
       content: `
-        (function() {
-          const style = document.createElement('style');
-          style.type = 'text/css';
-          style.innerHTML = \`
-            /* 1. 線上強制載入 Google 官方最精準的中英雙倍寬度等寬字型 */
-            @import url('https://googleapis.com');
-            
-            /* 2. 直接從最底層 DOM 洗牌，蓋過 Prism 主題的雜湊類別 */
-            pre, code, span, .token, [class*="codeBlock"] {
-              font-family: 'Noto Sans Mono', 'Sarasa Mono TC', monospace !important;
-              font-variant-ligatures: none !important;
-              white-space: pre !important;
-              letter-spacing: 0px !important;
-              word-spacing: 0px !important;
-            }
-          \`;
-          document.head.appendChild(style);
-        })();
-      \`,
+        pre, code, span, .token, [class*="codeBlock"] {
+          font-family: 'Noto Sans Mono', 'Sarasa Mono TC', monospace !important;
+          font-variant-ligatures: none !important;
+          white-space: pre !important;
+          letter-spacing: 0px !important;
+          word-spacing: 0px !important;
+        }
+      `,
     },
   ],
 
@@ -116,5 +112,3 @@ const config = {
 };
 
 module.exports = config;
-
-
