@@ -1,23 +1,39 @@
-/* 1. 從 Google 官方伺服器引入精準的中英等寬 Noto Sans Mono */
+/* ============================================================
+   CORE FONT: 修正 Google 官方 Noto Sans Mono 字型引入 (防歪核心)
+   ============================================================ */
 @import url('https://googleapis.com');
 
-/* 2. 複寫 Docusaurus (Infima) 全域的字型變數，將基礎與代碼字型全部鎖死 */
+/* 複寫 Docusaurus (Infima) 全域的字型變數，將基礎與代碼字型全部鎖死 */
 :root {
-  /* 全站的一般基礎文字、標題、側邊欄（原本是 Sans-serif） */
+  /* 全站的一般基礎文字、標題、側邊欄 */
   --ifm-font-family-base: 'Noto Sans Mono', 'Sarasa Mono TC', monospace !important;
   
-  /* 行內代碼 `code` 或是 ``` 區塊（原本是 Monospace） */
+  /* 行內代碼 `code` 或是 ``` 區塊 */
   --ifm-font-family-monospace: 'Noto Sans Mono', 'Sarasa Mono TC', monospace !important;
   
   /* 停用特定等寬字型自作聰明的「連字（Ligatures）」功能，防止 -> 變成單箭頭而讓 ASCII 欄位歪掉 */
   font-variant-ligatures: none !important;
 }
 
+/* 鎮壓機制：直接對全站所有內文、Markdown 元素與程式碼塊進行最高權重字型綁定（徹底解決被劃掉的問題） */
+body, 
+input, 
+button, 
+select, 
+textarea,
+[class*="markdown"] p,
+[class*="markdown"] li,
+[class*="markdown"] span,
+[class*="markdown"] pre,
+[class*="markdown"] code,
+div[class*="codeBlock"] {
+  font-family: 'Noto Sans Mono', 'Sarasa Mono TC', monospace !important;
+}
+
 /**
  * 🛠️ Kiwi Wiki 奪回琥珀金 - 物理鎖定終極版
  * 針對 Docusaurus 3 Build 環境進行權重鎮壓
  */
-
 :root {
   /* 全域鎖定琥珀金 (#e3b341) */
   --kiwi-primary: #e3b341 !important; 
@@ -212,7 +228,7 @@ a[href*="#more"]:hover {
   border: 1px solid #333 !important;
   border-radius: 12px;
   padding: 1.5rem;
-  text-decoration: none !important; /* 移除 text-decoration: none 這裡可能報錯，補上 !important */
+  text-decoration: none !important; 
   transition: 0.3s ease;
   display: block;
 }
