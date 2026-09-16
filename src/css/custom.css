@@ -272,3 +272,26 @@ pre[class*="language-"] {
   letter-spacing: 0px !important;
   word-spacing: 0px !important;
 }
+/* ============================================================
+   SECTION 6: 完美劫持 ```mono ``` 特殊代碼塊 (ASCII 終極特調)
+   ============================================================ */
+
+/* 精準鎖定 ```mono 產生的網頁容器（Prism 將其歸類為 language-mono） */
+pre[class*="language-mono"],
+code[class*="language-mono"],
+pre[class*="language-mono"] *,
+code[class*="language-mono"] * {
+  /* 1. 暴力覆蓋英文字型，強制套用 Noto Sans Mono，防中英文重疊 */
+  font-family: 'Noto Sans Mono', 'Sarasa Mono TC', monospace !important;
+  
+  /* 2. 關閉字型連字，防止 -> 變成單箭頭導致欄位大位移 */
+  font-variant-ligatures: none !important;
+  
+  /* 3. 保留所有的原始空格與換行 */
+  white-space: pre !important;
+  
+  /* 4. 強制消除任何高亮插件加進來的字元、單字間距拉伸 */
+  letter-spacing: 0px !important;
+  word-spacing: 0px !important;
+}
+
