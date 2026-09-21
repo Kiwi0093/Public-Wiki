@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://googleapis.com">
 <style></style>
 <script></script><link rel="stylesheet" href="/assets/css/styles.2cc59c01.css">
-<script src="/assets/js/runtime~main.8d84638c.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.02d737e8.js" defer="defer"></script>
 <script src="/assets/js/main.57d19400.js" defer="defer"></script>
 </head>
 <body>
@@ -25,7 +25,7 @@
 </blockquote>
 <p><img decoding="async" loading="lazy" src="https://img.shields.io/badge/Docker-Supported-green?style=plastic&amp;logo=docker" alt="Docker" class="img_ev3q"></p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-架構全景與現代化演進">1. 架構全景與現代化演進<a href="#1-架構全景與現代化演進" class="hash-link" aria-label="1. 架構全景與現代化演進的直接連結" title="1. 架構全景與現代化演進的直接連結" translate="no">​</a></h2>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">[使用者客戶端 (Web / Android / iOS / 電子書)]</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">       │</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">       ▼ (預設 Port 4567 / HTTPS 反向代理)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">┌────────────────────────────────────────────────────────────┐</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">│ Suwayomi-Server (中央漫畫伺服器)                           │</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">│ - 書架狀態、閱讀進度、歷史紀錄                             │</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">│ - 依排程自動檢查新章節並下載至本地儲存 (/data)             │</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">│ - 內建 Tachiyomi 擴充插件執行環境 (Extensions)             │</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">└──────────────┬─────────────────────────────┬───────────────┘</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">               │ (繞過 Cloudflare 驗證)      │ (抓取漫畫圖片)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">               ▼                             ▼</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">       ┌───────────────┐             [各線上漫畫來源網站]</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">       │ FlareSolverr  │             - 拷貝漫畫 (CopyManga)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">       │ (Port 8191)   │             - 漫畫櫃 (Manhuagui)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">       └── ─────────────┘             - 外部擴充庫 (Keiyoushi 等)</span><br></div></code></pre></div></div>
+<p><img decoding="async" loading="lazy" src="https://raw.githubusercontent.com/kiwi0093/graph/master/img/pasted-1789707582359-rxf342.png" alt="" class="img_ev3q"></p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="關鍵更新與選型重點-breaking-changes--best-practices">關鍵更新與選型重點 (Breaking Changes &amp; Best Practices)<a href="#關鍵更新與選型重點-breaking-changes--best-practices" class="hash-link" aria-label="關鍵更新與選型重點 (Breaking Changes &amp; Best Practices)的直接連結" title="關鍵更新與選型重點 (Breaking Changes &amp; Best Practices)的直接連結" translate="no">​</a></h3>
 <ol>
 <li class="">
@@ -140,7 +140,7 @@
 </ol>
 </li>
 </ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="62-宿主機磁碟空間被吃光">6.2 宿主機磁碟空間被吃光<a href="#62-宿主機磁碟空間被吃光" class="hash-link" aria-label="6.2 宿主機磁碟空間被吃光的直接連結" title="6.2 宿主機磁碟空間被吃光的直接連結" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="62-宿主機  磁碟空間被吃光">6.2 宿主機磁碟空間被吃光<a href="#62-宿主機磁碟空間被吃光" class="hash-link" aria-label="6.2 宿主機磁碟空間被吃光的直接連結" title="6.2 宿主機磁碟空間被吃光的直接連結" translate="no">​</a></h3>
 <ul>
 <li class="">
 <p><strong>原因</strong>：追蹤多本連載漫畫且開啟了自動下載，每話幾十張高畫質圖快速累積數十 GB。</p>
