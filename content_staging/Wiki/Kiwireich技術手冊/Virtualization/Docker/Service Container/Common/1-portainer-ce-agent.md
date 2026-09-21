@@ -15,23 +15,7 @@ date: 2026-09-04
 
 Portainer 採典型的 Server-Agent 架構：
 
-```
-[管理者瀏覽器]
-       │ (存取 Port 9443 - HTTPS Web UI)
-       ▼
-┌──────────────────────────────────────┐
-│  Portainer Server (中央管理節點)     │
-│  - 儲存帳號、端點清單、組態於 /data  │
-└──────┬───────────────────────┬───────┘
-       │ (TCP 9001 TLS 探針)   │ (TCP 8000 反向隧道)
-       ▼                       ▼
-┌─────────────────────┐  ┌──────────────────────────────────┐
-│ VPS-A (直連模式)    │  │ VPS-B (邊緣運算 / NAT 內網節點)  │
-│ Portainer Agent     │  │ Portainer Edge Agent             │
-│ (監聽 TCP 9001)     │  │ (主動向 Server 建立連線)         │
-└─────────────────────┘  └──────────────────────────────────┘
-```
-
+![](https://raw.githubusercontent.com/kiwi0093/graph/master/img/pasted-1789707250888-yk6cd8.png)
 ### 通訊埠 (Ports) 定位速查
 
 - **9443 (TCP)**：現代 Portainer-CE 預設的 **HTTPS 管理介面**（舊版 9000 為未加密 HTTP，現代版本強烈建議全面轉向 9443）。

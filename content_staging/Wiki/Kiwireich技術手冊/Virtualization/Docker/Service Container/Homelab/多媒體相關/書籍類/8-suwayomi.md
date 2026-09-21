@@ -14,24 +14,7 @@ date: 2026-09-07
 
 ## 1. 架構全景與現代化演進
 
-```
-[使用者客戶端 (Web / Android / iOS / 電子書)]
-       │
-       ▼ (預設 Port 4567 / HTTPS 反向代理)
-┌────────────────────────────────────────────────────────────┐
-│ Suwayomi-Server (中央漫畫伺服器)                           │
-│ - 書架狀態、閱讀進度、歷史紀錄                             │
-│ - 依排程自動檢查新章節並下載至本地儲存 (/data)             │
-│ - 內建 Tachiyomi 擴充插件執行環境 (Extensions)             │
-└──────────────┬─────────────────────────────┬───────────────┘
-               │ (繞過 Cloudflare 驗證)      │ (抓取漫畫圖片)
-               ▼                             ▼
-       ┌───────────────┐             [各線上漫畫來源網站]
-       │ FlareSolverr  │             - 拷貝漫畫 (CopyManga)
-       │ (Port 8191)   │             - 漫畫櫃 (Manhuagui)
-       └───────────────┘             - 外部擴充庫 (Keiyoushi 等)
-```
-
+![](https://raw.githubusercontent.com/kiwi0093/graph/master/img/pasted-1789707582359-rxf342.png)
 ### 關鍵更新與選型重點 (Breaking Changes & Best Practices)
 
 1. **映像檔名稱更新**：

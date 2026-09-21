@@ -17,34 +17,8 @@ date: 2026-09-04
 
 自動化追劇系統本質上是資料流水線（Pipeline），各層元件職責如下：
 
-```
-       [ 使用者需求 (Requests) ]
-         │ (搜尋劇集 / 動畫 / 音樂)
-         ▼
- ┌───────────────────────────────────────────────────────────┐
- │ *arr 管理層 (Sonarr / Radarr / Lidarr)                     │
- └───────┬───────────────────────────────────────────▲───────┘
-         │ 1. 查詢種子               4. 抓取完成通知  │ (Hardlink 匯入媒體庫)
-         ▼                                           │
- ┌───────────────┐                           ┌───────┴──────────┐
- │ Prowlarr      │                           │ qBittorrent      │
- │ (聚合索引器)   │                           │ (下載客戶端)     │
- └───────┬───────┘                           └───────▲──────────┘
-         │ 2. 送出搜尋                               │ 3. 指派下載 (走 VPN)
-         ▼                                           │
- ┌───────────────┐                           ┌───────┴──────────┐
- │ FlareSolverr  │                           │ Gluetun (VPN)    │
- │ (解 Cloudflare)│                          │ [Kill-Switch]    │
- └───────────────┘                           └──────────────────┘
-                                                       │
-                                                       ▼
- ┌──────────────────────────────────────────────────────────────┐
- │ 字幕與媒體展現層 (Bazarr / Emby / Navidrome)                  │
- │ - Bazarr: 監控 Sonarr/Radarr 自動匹配中文字幕                │
- │ - Emby: 電影/影集刮削展示、GPU 轉碼播放                      │
- │ - Navidrome: 輕量音樂串流 (適配 Lidarr 音樂庫)               │
- └──────────────────────────────────────────────────────────────┘
-```
+![](https://raw.githubusercontent.com/kiwi0093/graph/master/img/pasted-1789706089517-f2k286.png)
+
 
 ### 1.2 社群最新演進與選型修正 (Change Log: Rev 2.0+)
 
@@ -276,6 +250,106 @@ networks:
     name: media_net
     driver: bridge
 ```
+#### Update 2026/9/18
+
+我把`Recyclarr`加上,並且把原版的`Bazzarr`換成 `Bazzarr+`
+```yaml
+ bazarr:  
+   image: ghcr.io/lavx/bazarr:latest  
+   container_name: bazarr  
+   environment:  
+     - PUID=1000  
+     - PGID=0  
+     - TZ=Asia/Taipei  
+   volumes:  
+     - /opt/appdata/bazarr:/config
+     - /mnt/storage/data:/data 
+   restart: unless-stopped  
+   healthcheck:  
+     test: ["CMD-SHELL", "curl -sf http://localhost:6767/_supervisor/status | grep -q '\"running\"'"]  
+     interval: 30s  
+     timeout: 10s  
+     retries: 3  
+     start_period: 30s  
+   networks:
+     - media_net
+
+ recyclarr:  
+   image: ghcr.io/recyclarr/recyclarr:edge  
+   container_name: recyclarr  
+   user: "1000:1000"  
+   volumes:  
+     - /opt/appdata/recyclarr-config:/config  
+   environment:  
+     TZ: Asia/Taipei  
+     CRON_SCHEDULE: "0 4 * * *" # 每天凌晨 4 點自動同步（或改成你想要的 cron/manual）  
+   networks:
+     - media_net
+
+networks:
+ media_net:
+   name: media_net
+   driver: bridge
+
+```
+
+##### /opt/appdata/recyclarr-config/recyclarr.yml
+```yaml
+針對 Private 節點的 sonarr-tv 與 radarr 內部通訊  
+sonarr:  
+ tv:  
+   base_url: http://sonarr:8989  
+   api_key: YOUR_SONARR_API_KEY  
+   custom_formats:  
+     - trash_ids:  
+#          - 15a05bc7c1a36e2b57fd628f8977e2fc #AV1  
+         - 85c61753df5da1fb2aab6f2a47426b09 #BR-DISK  
+         - 6f808933a71bd9666531610cb8c059cc #BR-DISK(BTN)    
+         - 21d9d08e39b05523ec36811ab06b8308 #BW    
+         - 32b367365729d530ca1c124a0b180c64 #Bad Dual Groups    
+         - fbcb31d8dabd2a319072b84fc0b7249c #Extras    
+         - 9c11cd3f07101cdba90a2d81cf0e56b4 #LQ    
+         - e2315f990da2e2cbfc9fa5b7a6fcfe48 #LQ(Release Title)    
+         - 82d40da2bc6923f41e14394075dd4b03 #No-RlsGroup  
+         - e1a997ddb54e3ecbfe06341ad323c458 #Obfuscated  
+         - 06d66ab109d4d2eddb2794d21526d140 #Retag    
+         - 1b3994c551cbb92a2c781af061f4ab44 #Scene    
+         - 23297a736ca77c0fc8e70f8edd7ee56c #Upscaled  
+       assign_scores_to:  
+         - name: Any # 或填寫你在 Sonarr WebUI 裡實際使用的 Profile 名稱，例如 "HD-1080p"  
+  
+radarr:  
+ movies:  
+   base_url: http://radarr:7878  
+   api_key: YOUR_RADARR_API_KEY 
+   custom_formats:  
+     - trash_ids:  
+         - b8cd450cbfa689c0259a01d9e29ba3d6 #3D  
+#          - cae4ca30163749b891686f95532519bd #AV1  
+         - ed38b889b31be83fda192888e2286d83 #BR-DISK  
+         - b6832f586342ef70d9c128d40c07b872 #Bad Daul Group  
+         - cc444569854e9de0b084ab2b8b1532b2 #Black and White Editions  
+         - 0a3f082873eb454bde444150b70253cc #Extra    
+         - e6886871085226c3da1830830146846c #Generated Dynamic HDR    
+         - 90a6f9a284dff5103f6346090e6280c8 #LQ    
+         - e204b80c87be9497a8a6eaff48f72905 #LQ(Release Title)    
+         - c465ccc73923871b3eb1802042331306 #Line/Mic Dubbed    
+         - ae9b7c9ebde1f3bd336a8cbd1ec4c5e5 #No-RlsGroup    
+         - 7357cf5161efbf8c4d5d0c30b4815ee2 #Obfuscated    
+         - 5c44f52a8714fdd79bb4d98e2673be1f #Retags    
+         - f537cf427b64c38c8e36298f657e4828 #Scene    
+         - 712d74cd88bceb883ee32f773656b1f5 #Sing-Along Versions    
+         - bfd8eb01832d646a0a89c4deb46f8564 #Upscaled    
+       assign_scores_to:  
+         - name: Any # 或填寫你在 Radarr WebUI 裡實際使用的 Profile 名稱
+```
+
+這兩個更新的Service說明如下
+- Bazzarr+
+	更換的最主要原因是因為這個版本有marketplace可以把一些社群的provider直接加進去例如SubHD,所以廣度會比原版的好,打算先是用一陣子看看字幕是否有改善
+
+- Recyclarr
+	這個是等於前端攔截下品質有問題的影片檔案
 
 ## 4. 前端展示層配置 (Emby & Navidrome)
 

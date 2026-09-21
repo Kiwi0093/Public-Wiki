@@ -19,32 +19,7 @@ tags:
     
 2. **傳統分支覆寫發布 (`gh-pages` 分支)**： 由 Action 自動建立 `gh-pages` 分支，並將靜態產物 commit 至該分支。
     
-
-```
-[本地終端 / Obsidian / VSCode]
-             │
-             │ 1. Git Push Markdown 文件與程式碼變更
-             ▼
-      [GitHub 遠端儲存庫: main 分支]
-             │
-             │ 2. Webhook 觸發 GitHub Actions (.github/workflows/deploy.yml)
-             ▼
-┌───────────────────────────────────────────────────────────┐
-│ GitHub Actions Runner (ubuntu-latest)                     │
-│ ├─ Actions Checkout: 完整拉取歷史 (包含文檔 Git 時間戳)   │
-│ ├─ Setup Node.js: 載入 Node.js 20 環境並自動命中 NPM 快取 │
-│ ├─ npm ci: 依據 package-lock.json 嚴格安裝依賴            │
-│ └─ npm run build: 編譯靜態 HTML / CSS / JS 產物至 build/   │
-└────────────────────────────┬──────────────────────────────┘
-                             │
-                             │ 3. 封裝 build/ 並安全簽發部署憑證
-                             ▼
-                [GitHub Pages 託管 CDN 伺服]
-                             │
-                             ▼
-               線上正式站點: https://<User>.github.io/<Repo>/
-```
-
+![](https://raw.githubusercontent.com/kiwi0093/graph/master/img/pasted-1789706737415-oqw9ax.png)
 ## 2. 前置準備：倉庫與 `docusaurus.config.js` 網址對齊
 
 Docusaurus 在編譯時會嚴格依據 `url` 與 `baseUrl` 計算所有資源（CSS、JS、圖片）的絕對路徑。路徑設定錯誤是造成 GitHub Pages 上線後樣式遺失（破版）、404 的最主要原因。
