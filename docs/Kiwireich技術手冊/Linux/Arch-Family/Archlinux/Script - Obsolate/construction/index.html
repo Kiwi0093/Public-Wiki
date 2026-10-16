@@ -12,8 +12,8 @@
 <link rel="stylesheet" href="https://googleapis.com">
 <style></style>
 <script></script><link rel="stylesheet" href="/assets/css/styles.2cc59c01.css">
-<script src="/assets/js/runtime~main.45e0f180.js" defer="defer"></script>
-<script src="/assets/js/main.d12b44d4.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.7b1187b7.js" defer="defer"></script>
+<script src="/assets/js/main.d682bd0e.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -27,9 +27,9 @@
 <h1>前言</h1>
 <p>其實不用搞成這麼複雜的,但是寫的時候想說寫的細一點,順便拿來練習寫shell script</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="架構說明">架構說明<a href="#架構說明" class="hash-link" aria-label="架構說明的直接連結" title="架構說明的直接連結" translate="no">​</a></h2>
-<p>因為<strong><em>Arch Linux</em></strong>的安裝邏輯如下</p>
+<p>因為**<em>Arch Linux</em>**的安裝邏輯如下</p>
 <blockquote>
-<p>先在Live CD的OS內對HDD進行處理,然後把透過網路把新的archlinux的系統裝進HDD內,然後chroot到新的系統內,利用新的系統的東西,進行初步的設定與啟動設定等動作,最後再完全退出重開改  以HDD進行開機這樣算是完成了一個新的系統的安裝</p>
+<p>先在Live CD的OS內對HDD進行處理,然後把透過網路把新的archlinux的系統裝進HDD內,然後chroot到新的系統內,利用新的系統的東西,進行初步的設定與啟動設定等動作,最後再完全退出重開改以HDD進行開機這樣算是完成了一個新的系統的安裝</p>
 </blockquote>
 <p>所以在Script的使用上是把所有的選項在<code>arch-chroot</code>後都做成獨立的script進行如同下面的圖</p>
 <p><img decoding="async" loading="lazy" src="https://raw.githubusercontent.com/Kiwi0093/graph/master/img/arch_install_construction.png" alt="[Arch_Install_construction]" class="img_ev3q"></p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class="col"><b>標籤：</b><ul class="tags_jXut padding--none margin-left--sm"><li class="tag_QGVx"><a rel="tag" class="tag_zVej tagRegular_sFm0" href="/docs/tags/linux">Linux</a></li><li class="tag_QGVx"><a rel="tag" class="tag_zVej tagRegular_sFm0" href="/docs/tags/archlinux">Archlinux</a></li></ul></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件選項卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/Kiwireich技術手冊/Linux/Arch-Family/Archlinux/Script - Obsolate/intro"><div class="pagination-nav__sublabel">上一頁</div><div class="pagination-nav__label">整合型Archlinux安裝Script - 1.Before Start</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/Kiwireich技術手冊/Linux/Arch-Family/Archlinux/Script - Obsolate/arch_sh"><div class="pagination-nav__sublabel">下一頁</div><div class="pagination-nav__label">整合型Archlinux安裝Script - 3.arch.sh說明</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#這整個系列都因為archinstall這個工具的出現而整個廢掉留這些主要還是一個紀念" class="table-of-contents__link toc-highlight">這整個系列,都因為<code>archinstall</code>這個工具的出現而整個廢掉,留這些主要還是一個紀念</a></li><li><a href="#架構說明" class="table-of-contents__link toc-highlight">架構說明</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Kiwireich. Built with Docusaurus.</div></div></div></footer></div>
