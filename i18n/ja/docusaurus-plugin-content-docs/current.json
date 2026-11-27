@@ -462,5 +462,25 @@
   "sidebar.tutorialSidebar.category.HomeLab/Docker/Media/Navidrome": {
     "message": "Navidrome",
     "description": "The label for category HomeLab/Docker/Media/Navidrome in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Network/Archive/Hexo": {
+    "message": "Hexo",
+    "description": "The label for category HomeLab/Network/Archive/Hexo in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Network/Docusaurus": {
+    "message": "Docusaurus",
+    "description": "The label for category HomeLab/Network/Docusaurus in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Tools/Editor/Markdown": {
+    "message": "Markdown",
+    "description": "The label for category HomeLab/Tools/Editor/Markdown in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Tools/Editor/Vi": {
+    "message": "Vi / Neovim",
+    "description": "The label for category HomeLab/Tools/Editor/Vi in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Tools/Misc": {
+    "message": "その他・パッケージ管理",
+    "description": "The label for category HomeLab/Tools/Misc in sidebar tutorialSidebar"
   }
 }
