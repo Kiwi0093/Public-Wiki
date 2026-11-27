@@ -594,18 +594,47 @@ div[class*="codeBlockTitle"] {
 }
 
 /* ============================================================
-   SECTION 1: Hexo NexT Mist 單欄置中閱讀佈局 (僅限 Blog 頁面)
+   SECTION 1: Blog 寬版閱讀佈局 (列表 78% 頁寬 / 內文左齊減留白)
    ============================================================ */
 .blog-wrapper aside.col--3 {
   display: none !important;
 }
 
-.blog-wrapper main.col--7,
+.blog-wrapper .container {
+  max-width: min(78vw, 1480px) !important;
+  width: 100% !important;
+}
+
+/* Blog 列表頁：方格卡片佔滿 78% 容器寬度 */
 .blog-wrapper main.col--9 {
-  flex: 0 0 100% !important;
-  max-width: 1020px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
+  flex: 1 1 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Blog 內文頁：主文貼齊左側容器邊緣，右側保留 220px TOC */
+.blog-wrapper main.col--7 {
+  flex: 1 1 0 !important;
+  max-width: calc(100% - 240px) !important;
+  min-width: 0;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.blog-wrapper .col--2 {
+  flex: 0 0 220px !important;
+  max-width: 220px !important;
+  margin-left: auto;
+}
+
+@media (max-width: 996px) {
+  .blog-wrapper .container,
+  .blog-wrapper main.col--7,
+  .blog-wrapper main.col--9 {
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+  }
 }
 
 .blog-wrapper article header h1,
