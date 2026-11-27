@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkkiwi_wiki=self.webpackChunkkiwi_wiki||[]).push([["93220"],{1912(i){i.exports=JSON.parse('{"blogBasePath":"/en/","blogTitle":"Kiwi\'s Ramblings","authorsListPath":"/en/authors"}')}}]);

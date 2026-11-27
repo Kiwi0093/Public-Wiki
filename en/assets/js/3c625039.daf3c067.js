@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkkiwi_wiki=self.webpackChunkkiwi_wiki||[]).push([["9511"],{48444(e){e.exports=JSON.parse('{"metadata":{"permalink":"/en/","page":1,"postsPerPage":5,"totalPages":17,"totalCount":83,"nextPage":"/en/page/2","blogDescription":"Kiwi\'s personal notes on Homelab, Linux, FreeBSD, and daily thoughts.","blogTitle":"Kiwi\'s Ramblings"}}')}}]);
