@@ -442,5 +442,25 @@
   "sidebar.tutorialSidebar.category.Games/PS2/BerwickSaga": {
     "message": "ベルウィックサーガ",
     "description": "The label for category Games/PS2/BerwickSaga in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Linux/Archive/ArchInstallScript": {
+    "message": "Arch インストールスクリプト",
+    "description": "The label for category HomeLab/Linux/Archive/ArchInstallScript in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Linux/Archive/Manjaro": {
+    "message": "Manjaro",
+    "description": "The label for category HomeLab/Linux/Archive/Manjaro in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Linux/Archive/WSL": {
+    "message": "WSL",
+    "description": "The label for category HomeLab/Linux/Archive/WSL in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Docker/Media/ArrStack": {
+    "message": "*arr 自動メディアスタック",
+    "description": "The label for category HomeLab/Docker/Media/ArrStack in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Docker/Media/Navidrome": {
+    "message": "Navidrome",
+    "description": "The label for category HomeLab/Docker/Media/Navidrome in sidebar tutorialSidebar"
   }
 }
