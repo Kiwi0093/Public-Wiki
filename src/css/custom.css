@@ -372,6 +372,71 @@ body {
   color: var(--kiwi-text);
 }
 
+/* ============================================================
+   DOCS / WIKI SIDEBAR & READING TYPOGRAPHY
+   ============================================================ */
+:root {
+  --doc-sidebar-width: 335px !important;
+}
+
+.theme-doc-sidebar-container {
+  border-right: 1px solid var(--kiwi-border) !important;
+}
+
+.theme-doc-sidebar-menu {
+  padding: 0.5rem 0.6rem !important;
+  font-size: 0.875rem;
+}
+
+.theme-doc-sidebar-menu .menu__list {
+  padding-left: 0.65rem;
+  margin-top: 0.15rem;
+}
+
+.theme-doc-sidebar-menu .menu__link {
+  font-size: 0.86rem;
+  line-height: 1.4;
+  padding: 0.36rem 0.6rem;
+  border-radius: 6px;
+}
+
+.theme-doc-sidebar-menu .menu__link--sublist {
+  font-weight: 600;
+  color: var(--kiwi-text);
+}
+
+.theme-doc-markdown {
+  max-width: 860px;
+  line-height: 1.75;
+}
+
+.theme-doc-markdown > header h1,
+.markdown h1:first-child,
+article header h1 {
+  font-size: 1.85rem !important;
+  line-height: 1.32 !important;
+  margin-bottom: 1rem !important;
+  letter-spacing: -0.01em;
+}
+
+.theme-doc-markdown > header + h1 {
+  display: none;
+}
+
+.theme-doc-markdown h2 {
+  font-size: 1.42rem;
+  margin-top: 2rem;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--kiwi-border);
+}
+
+.theme-doc-markdown h3 {
+  font-size: 1.16rem;
+  margin-top: 1.45rem;
+  margin-bottom: 0.6rem;
+}
+
 .navbar {
   border-bottom: 1px solid var(--kiwi-border);
   box-shadow: none;
