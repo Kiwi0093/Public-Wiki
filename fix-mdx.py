@@ -388,7 +388,14 @@ def prepare_from_staging(base_dir):
 
 
 def fix_unquoted_html_attributes(content):
-    """Merge check-mdx.py rule: quote bare HTML attributes safely without touching query URLs."""
+    """Merge check-mdx.py rule: quote bare HTML attributes safely and sanitize inner apostrophes in single-quoted URLs."""
+
+    # Fix single-quoted src='https://...' or href='https://...' containing unescaped apostrophes (e.g. version's, haven't)
+    content = re.sub(
+        r"""(\b(?:src|href)\s*=\s*)'(https?://[^>\n]*?)'(?=\s+[a-zA-Z_:-]+\s*=|\s*/?>)""",
+        lambda m: f'{m.group(1)}"{m.group(2).replace(chr(39), "%27")}"',
+        content,
+    )
 
     def attr_replacer(m):
         full_match = m.group(0)
