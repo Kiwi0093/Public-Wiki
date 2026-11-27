@@ -603,23 +603,24 @@ div[class*="codeBlockTitle"] {
 .blog-wrapper .container {
   max-width: min(78vw, 1480px) !important;
   width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
-/* Blog 列表頁：方格卡片佔滿 78% 容器寬度 */
+/* Blog 列表頁（無右側 TOC）：方格卡片佔滿 78% 容器寬度並左右等寬置中 */
+.blog-wrapper main.col--7,
 .blog-wrapper main.col--9 {
-  flex: 1 1 100% !important;
+  flex: 0 0 100% !important;
   max-width: 100% !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
 
-/* Blog 內文頁：主文貼齊左側容器邊緣，右側保留 220px TOC */
-.blog-wrapper main.col--7 {
+/* Blog 內文頁（有右側 .col--2 TOC）：主文與 TOC 共同填滿 78% 容器，左右外距等寬 */
+.blog-wrapper .row:has(> .col--2) > main.col--7 {
   flex: 1 1 0 !important;
   max-width: calc(100% - 240px) !important;
   min-width: 0;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
 }
 
 .blog-wrapper .col--2 {
@@ -631,7 +632,8 @@ div[class*="codeBlockTitle"] {
 @media (max-width: 996px) {
   .blog-wrapper .container,
   .blog-wrapper main.col--7,
-  .blog-wrapper main.col--9 {
+  .blog-wrapper main.col--9,
+  .blog-wrapper .row:has(> .col--2) > main.col--7 {
     max-width: 100% !important;
     flex: 0 0 100% !important;
   }
