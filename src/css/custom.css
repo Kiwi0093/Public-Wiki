@@ -1,220 +1,747 @@
 /* ============================================================
-   CORE FONT: 修正 Google 官方 Noto Sans Mono 字型引入 (防歪核心)
+   CORE FONT: Noto Sans Mono & 程式碼區塊防歪設定
    ============================================================ */
-@import url('https://googleapis.com');
-
-/* 複寫 Docusaurus (Infima) 全域的字型變數，將基礎與代碼字型全部鎖死 */
 :root {
-  /* 全站的一般基礎文字、標題、側邊欄 */
-  --ifm-font-family-base: 'Noto Sans Mono', 'Sarasa Mono TC', monospace !important;
-  
-  /* 行內代碼 `code` 或是 ``` 區塊 */
-  --ifm-font-family-monospace: 'Noto Sans Mono', 'Sarasa Mono TC', monospace !important;
-  
-  /* 停用特定等寬字型自作聰明的「連字（Ligatures）」功能，防止 -> 變成單箭頭而讓 ASCII 欄位歪掉 */
-  font-variant-ligatures: none !important;
+  --ifm-font-family-base: 'Noto Sans Mono', 'Sarasa Mono TC', monospace;
+  --ifm-font-family-monospace: 'Noto Sans Mono', 'Sarasa Mono TC', monospace;
 }
 
-/* 鎮壓機制：直接對全站所有內文、Markdown 元素與程式碼塊進行最高權重字型綁定（徹底解決被劃掉的問題） */
-body, 
-input, 
-button, 
-select, 
-textarea,
-[class*="markdown"] p,
-[class*="markdown"] li,
-[class*="markdown"] span,
-[class*="markdown"] pre,
-[class*="markdown"] code,
-div[class*="codeBlock"] {
-  font-family: 'Noto Sans Mono', 'Sarasa Mono TC', monospace !important;
+pre,
+pre code,
+div[class*="codeBlock"] code,
+div[class*="codeBlock"] .token {
+  font-family: 'Noto Sans Mono', 'Sarasa Mono TC', monospace;
+  font-variant-ligatures: none;
+  letter-spacing: 0px;
+  word-spacing: 0px;
 }
 
-/**
- * 🛠️ Kiwi Wiki 奪回琥珀金 - 物理鎖定終極版
- * 針對 Docusaurus 3 Build 環境進行權重鎮壓
- */
-:root {
-  /* 全域鎖定琥珀金 (#e3b341) */
-  --kiwi-primary: #e3b341 !important; 
-  --ifm-color-primary: var(--kiwi-primary) !important;
-  --ifm-link-color: var(--kiwi-primary) !important; /* 修復藍色連結 */
-  --kiwi-bg: #1b1b1d;
-  --kiwi-card-bg: rgba(255, 255, 255, 0.03);
+pre,
+pre code {
+  white-space: pre;
 }
 
 /* ============================================================
-   SECTION 1: 全域佈局鎖定 (強迫全寬)
+   PALETTES: 6 套可自選配色 (含 Neovim 標準語法高亮同步)
+   0. amber (暗黑琥珀 — 深沉中性灰黑底 + 琥珀金強調)
+   1. minimal (極簡黑白 — 貼近原版 NexT Mist 素雅純淨)
+   2. nord (nord.nvim)
+   3. tokyo (tokyonight.nvim)
+   4. catppuccin (catppuccin/nvim)
+   5. rosepine (rose-pine/neovim)
    ============================================================ */
-/* 移除 Blog 左側側邊欄的佔位空間 */
-.container .row aside.col--3 {
+
+/* 0. Amber (Dark Default — One Dark syntax) */
+:root,
+[data-theme='dark'][data-palette='amber'],
+[data-theme='dark']:not([data-palette]) {
+  --kiwi-bg: #121214;
+  --kiwi-surface: #19191d;
+  --kiwi-border: #2a2a30;
+  --kiwi-primary: #e3b341;
+  --kiwi-primary-hover: #f0c969;
+  --kiwi-secondary: #c99d34;
+  --kiwi-text: #e2e2e6;
+  --kiwi-muted: #8b8b94;
+  --kiwi-button-text: #121214;
+  --kiwi-card-hover-bg: rgba(227, 179, 65, 0.08);
+  --kiwi-code-bg: rgba(255, 255, 255, 0.06);
+
+  --prism-bg: #181a1f;
+  --prism-fg: #abb2bf;
+  --prism-comment: #5c6370;
+  --prism-keyword: #c678dd;
+  --prism-string: #98c379;
+  --prism-function: #61afef;
+  --prism-number: #d19a66;
+  --prism-operator: #56b6c2;
+  --prism-class: #e5c07b;
+  --prism-variable: #e06c75;
+}
+
+[data-theme='light'][data-palette='amber'],
+[data-theme='light']:not([data-palette]) {
+  --kiwi-bg: #ffffff;
+  --kiwi-surface: #f7f7f8;
+  --kiwi-border: #e2e2e6;
+  --kiwi-primary: #b5800e;
+  --kiwi-primary-hover: #996b08;
+  --kiwi-secondary: #8f6308;
+  --kiwi-text: #1c1e21;
+  --kiwi-muted: #606770;
+  --kiwi-button-text: #ffffff;
+  --kiwi-card-hover-bg: rgba(181, 128, 14, 0.07);
+  --kiwi-code-bg: rgba(0, 0, 0, 0.05);
+
+  --prism-bg: #f6f6f7;
+  --prism-fg: #383a42;
+  --prism-comment: #a0a1a7;
+  --prism-keyword: #a626a4;
+  --prism-string: #50a14f;
+  --prism-function: #4078f2;
+  --prism-number: #986801;
+  --prism-operator: #0184bc;
+  --prism-class: #c18401;
+  --prism-variable: #e45649;
+}
+
+/* 1. Minimal Monochrome (Quiet Hexo NexT Mist style) */
+[data-theme='dark'][data-palette='minimal'] {
+  --kiwi-bg: #111113;
+  --kiwi-surface: #18181b;
+  --kiwi-border: #27272a;
+  --kiwi-primary: #e4e4e7;
+  --kiwi-primary-hover: #ffffff;
+  --kiwi-secondary: #a1a1aa;
+  --kiwi-text: #d4d4d8;
+  --kiwi-muted: #8e8e98;
+  --kiwi-button-text: #111113;
+  --kiwi-card-hover-bg: rgba(255, 255, 255, 0.05);
+  --kiwi-code-bg: rgba(255, 255, 255, 0.06);
+
+  --prism-bg: #161619;
+  --prism-fg: #d4d4d8;
+  --prism-comment: #71717a;
+  --prism-keyword: #f4f4f5;
+  --prism-string: #a1a1aa;
+  --prism-function: #e4e4e7;
+  --prism-number: #a1a1aa;
+  --prism-operator: #a1a1aa;
+  --prism-class: #f4f4f5;
+  --prism-variable: #d4d4d8;
+}
+
+[data-theme='light'][data-palette='minimal'] {
+  --kiwi-bg: #ffffff;
+  --kiwi-surface: #fafafa;
+  --kiwi-border: #e4e4e7;
+  --kiwi-primary: #222222;
+  --kiwi-primary-hover: #000000;
+  --kiwi-secondary: #52525b;
+  --kiwi-text: #27272a;
+  --kiwi-muted: #71717a;
+  --kiwi-button-text: #ffffff;
+  --kiwi-card-hover-bg: rgba(0, 0, 0, 0.04);
+  --kiwi-code-bg: rgba(0, 0, 0, 0.04);
+
+  --prism-bg: #f5f5f5;
+  --prism-fg: #27272a;
+  --prism-comment: #8a8a93;
+  --prism-keyword: #18181b;
+  --prism-string: #52525b;
+  --prism-function: #27272a;
+  --prism-number: #52525b;
+  --prism-operator: #52525b;
+  --prism-class: #18181b;
+  --prism-variable: #3f3f46;
+}
+
+/* 2. Nord (nord.nvim) */
+[data-theme='dark'][data-palette='nord'] {
+  --kiwi-bg: #2e3440;
+  --kiwi-surface: #3b4252;
+  --kiwi-border: #4c566a;
+  --kiwi-primary: #88c0d0;
+  --kiwi-primary-hover: #8fbcbb;
+  --kiwi-secondary: #81a1c1;
+  --kiwi-text: #eceff4;
+  --kiwi-muted: #9aa5b8;
+  --kiwi-button-text: #2e3440;
+  --kiwi-card-hover-bg: rgba(136, 192, 208, 0.09);
+  --kiwi-code-bg: rgba(236, 239, 244, 0.07);
+
+  --prism-bg: #292e39;
+  --prism-fg: #d8dee9;
+  --prism-comment: #616e88;
+  --prism-keyword: #81a1c1;
+  --prism-string: #a3be8c;
+  --prism-function: #88c0d0;
+  --prism-number: #b48ead;
+  --prism-operator: #81a1c1;
+  --prism-class: #8fbcbb;
+  --prism-variable: #d8dee9;
+}
+
+[data-theme='light'][data-palette='nord'] {
+  --kiwi-bg: #eceff4;
+  --kiwi-surface: #e5e9f0;
+  --kiwi-border: #d8dee9;
+  --kiwi-primary: #5e81ac;
+  --kiwi-primary-hover: #4c6f9c;
+  --kiwi-secondary: #4c566a;
+  --kiwi-text: #2e3440;
+  --kiwi-muted: #677285;
+  --kiwi-button-text: #eceff4;
+  --kiwi-card-hover-bg: rgba(94, 129, 172, 0.08);
+  --kiwi-code-bg: rgba(46, 52, 64, 0.06);
+
+  --prism-bg: #e5e9f0;
+  --prism-fg: #2e3440;
+  --prism-comment: #7b88a1;
+  --prism-keyword: #5e81ac;
+  --prism-string: #4f7738;
+  --prism-function: #3b6ea5;
+  --prism-number: #8d5b86;
+  --prism-operator: #5e81ac;
+  --prism-class: #3f7673;
+  --prism-variable: #2e3440;
+}
+
+/* 3. Tokyo Night (tokyonight.nvim) */
+[data-theme='dark'][data-palette='tokyo'] {
+  --kiwi-bg: #1a1b26;
+  --kiwi-surface: #24283b;
+  --kiwi-border: #3b4261;
+  --kiwi-primary: #7aa2f7;
+  --kiwi-primary-hover: #9ab8fa;
+  --kiwi-secondary: #bb9af7;
+  --kiwi-text: #c0caf5;
+  --kiwi-muted: #787c99;
+  --kiwi-button-text: #1a1b26;
+  --kiwi-card-hover-bg: rgba(122, 162, 247, 0.09);
+  --kiwi-code-bg: rgba(192, 202, 245, 0.08);
+
+  --prism-bg: #16161e;
+  --prism-fg: #a9b1d6;
+  --prism-comment: #565f89;
+  --prism-keyword: #bb9af7;
+  --prism-string: #9ece6a;
+  --prism-function: #7aa2f7;
+  --prism-number: #ff9e64;
+  --prism-operator: #89ddff;
+  --prism-class: #2ac3de;
+  --prism-variable: #f7768e;
+}
+
+[data-theme='light'][data-palette='tokyo'] {
+  --kiwi-bg: #e6e7ed;
+  --kiwi-surface: #f2f3f7;
+  --kiwi-border: #c4c8da;
+  --kiwi-primary: #34548a;
+  --kiwi-primary-hover: #28426f;
+  --kiwi-secondary: #5a4a78;
+  --kiwi-text: #343b58;
+  --kiwi-muted: #6c7086;
+  --kiwi-button-text: #ffffff;
+  --kiwi-card-hover-bg: rgba(52, 84, 138, 0.08);
+  --kiwi-code-bg: rgba(52, 59, 88, 0.07);
+
+  --prism-bg: #edeff5;
+  --prism-fg: #343b58;
+  --prism-comment: #8990b3;
+  --prism-keyword: #5a4a78;
+  --prism-string: #485e30;
+  --prism-function: #34548a;
+  --prism-number: #965027;
+  --prism-operator: #0f4b6e;
+  --prism-class: #166775;
+  --prism-variable: #8c4351;
+}
+
+/* 4. Catppuccin Mocha / Latte (catppuccin/nvim) */
+[data-theme='dark'][data-palette='catppuccin'] {
+  --kiwi-bg: #1e1e2e;
+  --kiwi-surface: #181825;
+  --kiwi-border: #313244;
+  --kiwi-primary: #89b4fa;
+  --kiwi-primary-hover: #b4befe;
+  --kiwi-secondary: #fab387;
+  --kiwi-text: #cdd6f4;
+  --kiwi-muted: #a6adc8;
+  --kiwi-button-text: #1e1e2e;
+  --kiwi-card-hover-bg: rgba(137, 180, 250, 0.09);
+  --kiwi-code-bg: rgba(205, 214, 244, 0.08);
+
+  --prism-bg: #181825;
+  --prism-fg: #cdd6f4;
+  --prism-comment: #6c7086;
+  --prism-keyword: #cba6f7;
+  --prism-string: #a6e3a1;
+  --prism-function: #89b4fa;
+  --prism-number: #fab387;
+  --prism-operator: #94e2d5;
+  --prism-class: #f9e2af;
+  --prism-variable: #f38ba8;
+}
+
+[data-theme='light'][data-palette='catppuccin'] {
+  --kiwi-bg: #eff1f5;
+  --kiwi-surface: #e6e9ef;
+  --kiwi-border: #ccd0da;
+  --kiwi-primary: #1e66f5;
+  --kiwi-primary-hover: #1753cc;
+  --kiwi-secondary: #fe640b;
+  --kiwi-text: #4c4f69;
+  --kiwi-muted: #6c6f85;
+  --kiwi-button-text: #ffffff;
+  --kiwi-card-hover-bg: rgba(30, 102, 245, 0.08);
+  --kiwi-code-bg: rgba(76, 79, 105, 0.07);
+
+  --prism-bg: #e6e9ef;
+  --prism-fg: #4c4f69;
+  --prism-comment: #8c8fa1;
+  --prism-keyword: #8839ef;
+  --prism-string: #40a02b;
+  --prism-function: #1e66f5;
+  --prism-number: #fe640b;
+  --prism-operator: #179299;
+  --prism-class: #df8e1d;
+  --prism-variable: #d20f39;
+}
+
+/* 5. Rosé Pine / Dawn (rose-pine/neovim) */
+[data-theme='dark'][data-palette='rosepine'] {
+  --kiwi-bg: #191724;
+  --kiwi-surface: #1f1d2e;
+  --kiwi-border: #403d52;
+  --kiwi-primary: #f6c177;
+  --kiwi-primary-hover: #f9d198;
+  --kiwi-secondary: #9ccfd8;
+  --kiwi-text: #e0def4;
+  --kiwi-muted: #908caa;
+  --kiwi-button-text: #191724;
+  --kiwi-card-hover-bg: rgba(246, 193, 119, 0.09);
+  --kiwi-code-bg: rgba(224, 222, 244, 0.08);
+
+  --prism-bg: #1f1d2e;
+  --prism-fg: #e0def4;
+  --prism-comment: #6e6a86;
+  --prism-keyword: #31748f;
+  --prism-string: #f6c177;
+  --prism-function: #ebbcba;
+  --prism-number: #c4a7e7;
+  --prism-operator: #9ccfd8;
+  --prism-class: #9ccfd8;
+  --prism-variable: #eb6f92;
+}
+
+[data-theme='light'][data-palette='rosepine'] {
+  --kiwi-bg: #ebe4dc;
+  --kiwi-surface: #e3dad0;
+  --kiwi-border: #cfc4b8;
+  --kiwi-primary: #c47d1c;
+  --kiwi-primary-hover: #a66510;
+  --kiwi-secondary: #427d87;
+  --kiwi-text: #474263;
+  --kiwi-muted: #6e6985;
+  --kiwi-button-text: #faf4ed;
+  --kiwi-card-hover-bg: rgba(196, 125, 28, 0.1);
+  --kiwi-code-bg: rgba(71, 66, 99, 0.08);
+
+  --prism-bg: #e0d6cb;
+  --prism-fg: #474263;
+  --prism-comment: #857e96;
+  --prism-keyword: #286983;
+  --prism-string: #b36b12;
+  --prism-function: #b85c57;
+  --prism-number: #7c6396;
+  --prism-operator: #427d87;
+  --prism-class: #427d87;
+  --prism-variable: #a34d66;
+}
+
+/* Bind palette tokens into Docusaurus Infima tokens */
+:root,
+[data-theme='dark'],
+[data-theme='light'] {
+  --ifm-background-color: var(--kiwi-bg);
+  --ifm-background-surface-color: var(--kiwi-surface);
+  --ifm-navbar-background-color: var(--kiwi-surface);
+  --ifm-footer-background-color: var(--kiwi-surface);
+  --ifm-card-background-color: var(--kiwi-surface);
+  --ifm-color-primary: var(--kiwi-primary);
+  --ifm-color-primary-dark: var(--kiwi-primary);
+  --ifm-color-primary-darker: var(--kiwi-secondary);
+  --ifm-color-primary-darkest: var(--kiwi-secondary);
+  --ifm-color-primary-light: var(--kiwi-primary-hover);
+  --ifm-color-primary-lighter: var(--kiwi-primary-hover);
+  --ifm-color-primary-lightest: var(--kiwi-primary-hover);
+  --ifm-link-color: var(--kiwi-primary);
+  --ifm-font-color-base: var(--kiwi-text);
+  --ifm-heading-color: var(--kiwi-text);
+  --ifm-hr-border-color: var(--kiwi-border);
+  --ifm-toc-border-color: var(--kiwi-border);
+  --ifm-menu-color-active: var(--kiwi-primary);
+  --ifm-navbar-link-hover-color: var(--kiwi-primary);
+  --ifm-code-background: var(--kiwi-code-bg);
+}
+
+html,
+body {
+  background-color: var(--kiwi-bg);
+  color: var(--kiwi-text);
+}
+
+.navbar {
+  border-bottom: 1px solid var(--kiwi-border);
+  box-shadow: none;
+}
+
+.footer--dark {
+  --ifm-footer-background-color: var(--kiwi-surface);
+  --ifm-footer-color: var(--kiwi-muted);
+  border-top: 1px solid var(--kiwi-border);
+}
+
+/* ============================================================
+   NEOVIM-STANDARD PRISM SYNTAX HIGHLIGHTING
+   ============================================================ */
+.prism-code {
+  background-color: var(--prism-bg) !important;
+  color: var(--prism-fg) !important;
+  border: 1px solid var(--kiwi-border);
+}
+
+div[class*="codeBlockTitle"] {
+  background-color: var(--kiwi-surface) !important;
+  border-bottom: 1px solid var(--kiwi-border) !important;
+  color: var(--kiwi-muted) !important;
+}
+
+.prism-code .token.comment,
+.prism-code .token.prolog,
+.prism-code .token.doctype,
+.prism-code .token.cdata {
+  color: var(--prism-comment) !important;
+  font-style: italic;
+}
+
+.prism-code .token.keyword,
+.prism-code .token.atrule,
+.prism-code .token.selector,
+.prism-code .token.important {
+  color: var(--prism-keyword) !important;
+}
+
+.prism-code .token.string,
+.prism-code .token.char,
+.prism-code .token.attr-value,
+.prism-code .token.inserted {
+  color: var(--prism-string) !important;
+}
+
+.prism-code .token.function,
+.prism-code .token.function-name {
+  color: var(--prism-function) !important;
+}
+
+.prism-code .token.number,
+.prism-code .token.boolean,
+.prism-code .token.constant,
+.prism-code .token.symbol {
+  color: var(--prism-number) !important;
+}
+
+.prism-code .token.operator,
+.prism-code .token.punctuation,
+.prism-code .token.url {
+  color: var(--prism-operator) !important;
+}
+
+.prism-code .token.class-name,
+.prism-code .token.builtin,
+.prism-code .token.attr-name {
+  color: var(--prism-class) !important;
+}
+
+.prism-code .token.variable,
+.prism-code .token.property,
+.prism-code .token.tag,
+.prism-code .token.deleted {
+  color: var(--prism-variable) !important;
+}
+
+/* ============================================================
+   NAVBAR PALETTE SWITCHER (Contrast Color Blocks)
+   ============================================================ */
+.kiwi-palette-trigger {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.5rem;
+}
+
+.kiwi-palette-pill {
+  display: inline-flex;
+  width: 24px;
+  height: 16px;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid var(--kiwi-border);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.kiwi-palette-pill-half {
+  width: 50%;
+  height: 100%;
+  display: block;
+}
+
+.kiwi-palette-dropdown {
+  min-width: auto !important;
+  padding: 10px !important;
+  background-color: var(--kiwi-surface) !important;
+  border: 1px solid var(--kiwi-border) !important;
+}
+
+.kiwi-palette-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 38px);
+  gap: 8px;
+}
+
+.kiwi-palette-grid--mobile {
+  padding: 6px 12px;
+}
+
+.kiwi-palette-tile {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  width: 38px;
+  height: 26px;
+  padding: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(128, 128, 128, 0.4);
+  cursor: pointer;
+  transition: transform 0.15s ease, outline-color 0.15s ease;
+}
+
+.kiwi-palette-tile:hover {
+  transform: scale(1.06);
+}
+
+.kiwi-palette-tile--active {
+  outline: 2px solid var(--kiwi-primary);
+  outline-offset: 2px;
+}
+
+.kiwi-palette-tile-surface {
+  width: 45%;
+  height: 100%;
+  display: block;
+}
+
+.kiwi-palette-tile-accent {
+  width: 55%;
+  height: 100%;
+  display: block;
+}
+
+/* ============================================================
+   SECTION 1: Hexo NexT Mist 單欄置中閱讀佈局 (僅限 Blog 頁面)
+   ============================================================ */
+.blog-wrapper aside.col--3 {
   display: none !important;
 }
 
-/* 讓主內容區域物理擴張到 100% */
-.container .row main.col--7, 
-.container .row main.col--9 {
+.blog-wrapper main.col--7,
+.blog-wrapper main.col--9 {
   flex: 0 0 100% !important;
-  max-width: 100% !important;
+  max-width: 820px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 /* ============================================================
-   SECTION 2: Blog 列表 - 琥珀金方框卡片化
+   SECTION 2: Blog Home / 列表 - Hexo NexT Mist 極簡卡片
    ============================================================ */
-/* 鎖定 Blog 列表的文章容器 */
 article.margin-bottom--xl {
-  background: var(--kiwi-card-bg) !important;
-  border: 1px solid #333 !important;
-  border-radius: 12px !important;
-  padding: 2.5rem !important;
-  margin-bottom: 3rem !important;
-  transition: all 0.3s ease !important;
-  position: relative !important;
+  background: var(--kiwi-surface);
+  border: 1px solid var(--kiwi-border);
+  border-radius: 10px;
+  padding: 2.25rem 2.5rem;
+  margin-bottom: 2.5rem;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
 }
 
 article.margin-bottom--xl:hover {
-  border-color: var(--kiwi-primary) !important;
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  border-color: var(--kiwi-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.24);
 }
 
-/* 修正標題顏色，不要讓它變藍色 */
-article h2 a {
-  color: var(--kiwi-primary) !important;
-  text-decoration: none !important;
+article header h1,
+article header h2,
+article header h2 a {
+  color: var(--kiwi-primary);
+  text-decoration: none;
+  letter-spacing: -0.01em;
 }
 
-/* 琥珀金 Tags 方框 */
-.margin-vert--md a[className*='tag'] {
-  border: 1px solid var(--kiwi-primary) !important;
-  background: rgba(227, 179, 65, 0.1) !important;
-  color: var(--kiwi-primary) !important;
-  border-radius: 6px !important;
-  padding: 3px 10px !important;
-  margin: 0 5px 5px 0 !important;
-  text-decoration: none !important;
+article header h2 a:hover {
+  color: var(--kiwi-primary-hover);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
-/* 琥珀金「閱讀更多」按鈕 */
+article header time,
+article header [class*='blogPostData'] {
+  color: var(--kiwi-muted);
+}
+
+/* 標籤 Pills */
+.margin-vert--md a[class*='tag'],
+article footer a[class*='tag'] {
+  border: 1px solid var(--kiwi-border);
+  background: var(--kiwi-card-hover-bg);
+  color: var(--kiwi-primary);
+  border-radius: 6px;
+  padding: 3px 10px;
+  margin: 0 6px 6px 0;
+  text-decoration: none;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.margin-vert--md a[class*='tag']:hover,
+article footer a[class*='tag']:hover {
+  border-color: var(--kiwi-primary);
+  background: var(--kiwi-primary);
+  color: var(--kiwi-button-text);
+}
+
+/* NexT Mist 邊框閱讀更多按鈕 */
+a[href*="#more"],
+article footer .col--3 a,
+article footer a[aria-label] {
+  background: transparent;
+  color: var(--kiwi-primary);
+  border: 1px solid var(--kiwi-primary);
+  padding: 6px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  display: inline-block;
+}
+
+a[href*="#more"]:hover,
+article footer .col--3 a:hover,
+article footer a[aria-label]:hover {
+  background: var(--kiwi-primary);
+  color: var(--kiwi-button-text);
+}
+
 a[href*="#more"] {
-  background: transparent !important;
-  color: var(--kiwi-primary) !important;
-  border: 1px solid var(--kiwi-primary) !important;
-  padding: 8px 20px !important;
-  border-radius: 8px !important;
-  text-decoration: none !important;
-  font-weight: bold !important;
-  float: right; /* 靠右 */
-  transition: 0.2s !important;
+  float: right;
 }
 
-a[href*="#more"]:hover {
-  background: var(--kiwi-primary) !important;
-  color: #000 !important;
+@media (max-width: 768px) {
+  article.margin-bottom--xl {
+    padding: 1.5rem 1.25rem;
+  }
 }
 
 /* ============================================================
-   SECTION 3: Archive 歸檔頁面 - 物理座標鎖定
+   SECTION 3: Archive 歸檔頁面 - Hexo NexT 垂直時間軸
    ============================================================ */
-.archive-timeline {
-  position: relative;
-  margin-left: 50px !important; /* 給年份大圈預留空間 */
-  border-left: 2px solid #333 !important; /* 琥珀金垂直軸 */
-  padding: 20px 0 !important;
+.archive-container {
+  max-width: 820px;
+  margin: 0 auto;
 }
 
-/* 經典年份大圈圈 - 物理鎖定中心 */
+.archive-summary {
+  color: var(--kiwi-muted);
+  margin-bottom: 1.5rem;
+}
+
+.archive-timeline {
+  position: relative;
+  margin-left: 24px;
+  border-left: 3px solid var(--kiwi-border);
+  padding: 8px 0 16px;
+}
+
 .archive-year-group {
   position: relative;
-  margin-bottom: 50px;
+  margin-bottom: 2.5rem;
 }
 
 .archive-year-node {
   position: absolute;
-  /* 鎖定在垂直軸中心線 (left: -1px for 2px border) */
-  left: -1px !important; 
-  top: 1.6rem;
+  left: -1.5px;
+  top: 1.35rem;
   transform: translate(-50%, -50%);
-  width: 24px;
-  height: 24px;
-  background: var(--kiwi-bg); /* 背景色蓋掉線條 */
-  border: 4px solid var(--kiwi-primary) !important;
+  width: 18px;
+  height: 18px;
+  background: var(--kiwi-bg);
+  border: 4px solid var(--kiwi-primary);
   border-radius: 50%;
   z-index: 10;
-  display: block !important;
 }
 
 .archive-year-header {
-  padding-left: 40px !important;
-  color: var(--kiwi-primary) !important;
-  font-size: 2.2rem;
+  padding-left: 32px;
+  color: var(--kiwi-primary);
+  font-size: 1.9rem;
   font-weight: 800;
-  margin: 0 !important;
+  margin: 0 0 0.75rem 0;
 }
 
-/* 文章刻度線 */
+.archive-list {
+  margin: 0;
+  padding: 0;
+}
+
 .archive-item {
   position: relative;
-  padding: 1.2rem 0 1.2rem 0 !important;
-  list-style: none !important;
+  padding: 0.85rem 0 0.85rem 32px;
+  list-style: none;
+  border-bottom: 1px dashed var(--kiwi-border);
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  transition: border-color 0.2s ease;
 }
 
-/* 琥珀金裝飾橫線：跨過垂直軸 */
 .archive-item::before {
   content: "";
   position: absolute;
-  /* 鎖定在垂直軸中心線，突出來 */
-  left: -20px !important; 
+  left: -1.5px;
   top: 50%;
-  width: 40px !important;  /* 線的長度 */
-  height: 1px !important;
-  background: #444; /* 預設灰色 */
-  z-index: 1;
-  transition: 0.2s;
-}
-
-/* 琥珀金實心點：鎖定在橫線末端 */
-.archive-item::after {
-  content: "";
-  position: absolute;
-  left: 30px !important; /* 這裡製造出點跟垂直軸之間的空格 */
-  top: 50%;
-  transform: translateY(-50%);
-  width: 10px; /* 大點 */
-  height: 10px;
-  background: #555;
+  transform: translate(-50%, -50%);
+  width: 9px;
+  height: 9px;
+  background: var(--kiwi-muted);
+  border: 2px solid var(--kiwi-bg);
   border-radius: 50%;
   z-index: 2;
-  transition: 0.2s;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Hover 琥珀金連動 */
-.archive-item:hover::before { background: var(--kiwi-primary) !important; }
-.archive-item:hover::after { 
-  background: var(--kiwi-primary) !important; 
-  box-shadow: 0 0 10px var(--kiwi-primary);
+.archive-item:hover {
+  border-bottom-color: var(--kiwi-primary);
+}
+
+.archive-item:hover::before {
+  background: var(--kiwi-primary);
+  transform: translate(-50%, -50%) scale(1.2);
+  box-shadow: 0 0 8px var(--kiwi-primary);
 }
 
 .archive-date {
-  color: #888;
-  font-family: monospace;
-  margin-left: 60px !important; /* 推開文字防止撞點 */
+  color: var(--kiwi-muted);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.9rem;
+  flex-shrink: 0;
 }
 
 .archive-link {
-  color: #ddd !important;
-  text-decoration: none !important;
-  margin-left: 15px;
+  color: var(--kiwi-text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
 }
 
 .archive-link:hover {
-  color: var(--kiwi-primary) !important;
+  color: var(--kiwi-primary);
 }
 
 /* ============================================================
-   SECTION 4: Tags 頁面 - 全頁面方框
+   SECTION 4: Tags 頁面 - 標籤卡片網格
    ============================================================ */
-/* 針對 JS 代碼中生成的 tag-card-grid */
 .tag-card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -222,25 +749,24 @@ a[href*="#more"]:hover {
   padding: 2rem 0;
 }
 
-/* 鎖定標籤卡片樣式 */
 .tag-card-item {
-  background: var(--kiwi-card-bg) !important;
-  border: 1px solid #333 !important;
+  background: var(--kiwi-surface);
+  border: 1px solid var(--kiwi-border);
   border-radius: 12px;
   padding: 1.5rem;
-  text-decoration: none !important; 
-  transition: 0.3s ease;
+  text-decoration: none !important;
+  transition: border-color 0.25s ease, transform 0.25s ease, background-color 0.25s ease;
   display: block;
 }
 
 .tag-card-item:hover {
-  border-color: var(--kiwi-primary) !important;
-  transform: translateY(-5px);
-  background: rgba(227, 179, 65, 0.05) !important;
+  border-color: var(--kiwi-primary);
+  transform: translateY(-4px);
+  background: var(--kiwi-card-hover-bg);
 }
 
 .tag-card-name {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: bold;
   color: var(--kiwi-primary);
   display: block;
@@ -248,7 +774,73 @@ a[href*="#more"]:hover {
 }
 
 .tag-card-count {
-  font-size: 0.8rem;
-  color: #666;
+  font-size: 0.85rem;
+  color: var(--kiwi-muted);
 }
 
+/* ============================================================
+   SECTION 5: Wiki Feedback (Docs 專屬結構化回饋條)
+   ============================================================ */
+.kiwi-wiki-feedback {
+  margin-top: 2rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--kiwi-border);
+  border-radius: 10px;
+  background: var(--kiwi-surface);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+}
+
+.kiwi-wiki-feedback-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.88rem;
+}
+
+.kiwi-wiki-feedback-text strong {
+  color: var(--kiwi-text);
+}
+
+.kiwi-wiki-feedback-text span {
+  color: var(--kiwi-muted);
+  font-size: 0.82rem;
+}
+
+.kiwi-wiki-feedback-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.kiwi-wiki-feedback-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  border: 1px solid var(--kiwi-primary);
+  color: var(--kiwi-primary) !important;
+  font-size: 0.84rem;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.kiwi-wiki-feedback-btn:hover {
+  background: var(--kiwi-primary);
+  color: var(--kiwi-button-text) !important;
+}
+
+.kiwi-wiki-feedback-btn--secondary {
+  border-color: var(--kiwi-border);
+  color: var(--kiwi-text) !important;
+}
+
+.kiwi-wiki-feedback-btn--secondary:hover {
+  border-color: var(--kiwi-primary);
+  background: var(--kiwi-card-hover-bg);
+  color: var(--kiwi-primary) !important;
+}

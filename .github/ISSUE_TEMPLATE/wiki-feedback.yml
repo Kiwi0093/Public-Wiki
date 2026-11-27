@@ -1,0 +1,47 @@
+name: "Wiki 內容回饋 / 過時回報"
+description: "回報 Wiki 文件過時、步驟錯誤或建議補充內容（供 AI / 作者定期整理更新）"
+title: "[Wiki Feedback] "
+labels:
+  - wiki-feedback
+body:
+  - type: dropdown
+    id: feedback_type
+    attributes:
+      label: 回報類型
+      options:
+        - 內容已過時（版本更新／指令失效）
+        - 步驟錯誤／缺漏
+        - 建議補充範例或章節
+        - 多語系翻譯修正
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: 頁面網址路徑
+      placeholder: /docs/...
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: 對應原始碼路徑
+      placeholder: Wiki/...
+  - type: input
+    id: locale
+    attributes:
+      label: 語系 (Locale)
+      placeholder: zh-Hant / en / ja
+  - type: input
+    id: last_updated
+    attributes:
+      label: 頁面上顯示的最後更新時間
+      placeholder: YYYY-MM-DD
+  - type: textarea
+    id: detail
+    attributes:
+      label: 具體問題或建議內容
+      description: 請說明哪個指令／設定已經改變，或希望補充哪部分說明。
+      placeholder: 例如：在 Ubuntu 24.04 上套件名稱已改為 ...
+    validations:
+      required: true

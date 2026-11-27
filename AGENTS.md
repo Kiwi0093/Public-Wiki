@@ -53,6 +53,7 @@
   - `en` 與 `ja` 均為由 `zh-Hant` 衍生的翻譯版本，不單獨維護脫離原稿的內容分支。
 - **翻譯檔對齊規則**：
   - `en` 與 `ja` 的文章譯本必須維持與 `zh-Hant` 原稿**完全相同的相對路徑、檔名、`date` 與 `slug`**，以確保 Docusaurus 語言切換器（`localeDropdown`）正確對應，並讓尚未翻譯的文章能自動 fallback 顯示 `zh-Hant` 內容。
+  - 所有 AI 自動翻譯之 `en` / `ja` 文章譯本開頭（Frontmatter 之後）須包含對應目標語言的 `> :::info` 宣告，標明由 Google `"<LLM Model>"` 自動翻譯且作者不保證精確性與用字。
 - **語系檔案分責**：
   - **文章 `.md` / `.mdx` 譯本**：隨原稿集中由 `Private-Vault` 管理並同步至 `Public-Wiki`。
   - **網站 UI 字串（導覽列、頁尾、Theme 標籤等 JSON）**：放置於 `Public-Wiki/i18n/{en,ja}/` 管理。

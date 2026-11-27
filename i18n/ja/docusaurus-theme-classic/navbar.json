@@ -1,0 +1,18 @@
+{
+  "title": {
+    "message": "Kiwi Blog",
+    "description": "The title in the navbar"
+  },
+  "item.label.Tags": {
+    "message": "タグ",
+    "description": "Navbar item with label Tags"
+  },
+  "item.label.Archives": {
+    "message": "アーカイブ",
+    "description": "Navbar item with label Archives"
+  },
+  "item.label.Wiki 知識庫": {
+    "message": "Wiki ナレッジ",
+    "description": "Navbar item with label Wiki 知識庫"
+  }
+}

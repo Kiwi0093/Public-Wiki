@@ -1,0 +1,446 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊": {
+    "message": "Kiwireich技術手冊",
+    "description": "The label for category 'Kiwireich技術手冊' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Automation&IaC": {
+    "message": "Automation&IaC",
+    "description": "The label for category 'Automation&IaC' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Automation&IaC/Shell Script": {
+    "message": "Shell Script",
+    "description": "The label for category 'Shell Script' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Environment&Tools": {
+    "message": "Environment&Tools",
+    "description": "The label for category 'Environment&Tools' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Environment&Tools/Environment": {
+    "message": "Environment",
+    "description": "The label for category 'Environment' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Environment&Tools/Environment/Editor": {
+    "message": "Editor",
+    "description": "The label for category 'Editor' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Environment&Tools/Environment/Editor/Markdown": {
+    "message": "Markdown",
+    "description": "The label for category 'Markdown' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Environment&Tools/Environment/Editor/VI-Family": {
+    "message": "VI-Family",
+    "description": "The label for category 'VI-Family' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Environment&Tools/Environment/Input Method": {
+    "message": "Input Method",
+    "description": "The label for category 'Input Method' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Environment&Tools/Environment/SSH": {
+    "message": "SSH",
+    "description": "The label for category 'SSH' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Environment&Tools/Environment/Shell": {
+    "message": "Shell",
+    "description": "The label for category 'Shell' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Environment&Tools/Environment/Terminal Multiplexers": {
+    "message": "Terminal Multiplexers",
+    "description": "The label for category 'Terminal Multiplexers' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Environment&Tools/Tools": {
+    "message": "Tools",
+    "description": "The label for category 'Tools' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Environment&Tools/Tools/Package Manager": {
+    "message": "Package Manager",
+    "description": "The label for category 'Package Manager' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/FreeBSD": {
+    "message": "FreeBSD",
+    "description": "The label for category 'FreeBSD' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/FreeBSD/Firewall": {
+    "message": "Firewall",
+    "description": "The label for category 'Firewall' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/FreeBSD/Misc": {
+    "message": "Misc",
+    "description": "The label for category 'Misc' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/FreeBSD/System": {
+    "message": "System",
+    "description": "The label for category 'System' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/FreeBSD/Xigmanas": {
+    "message": "Xigmanas",
+    "description": "The label for category 'Xigmanas' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Linux": {
+    "message": "Linux",
+    "description": "The label for category 'Linux' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Linux/Arch-Family": {
+    "message": "Arch-Family",
+    "description": "The label for category 'Arch-Family' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Linux/Arch-Family/Archlinux": {
+    "message": "Archlinux",
+    "description": "The label for category 'Archlinux' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Linux/Arch-Family/Archlinux/Script - Obsolate": {
+    "message": "Script - Obsolate",
+    "description": "The label for category 'Script - Obsolate' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Linux/Arch-Family/Archlinux/System": {
+    "message": "System",
+    "description": "The label for category 'System' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Linux/Arch-Family/Manjaro": {
+    "message": "Manjaro",
+    "description": "The label for category 'Manjaro' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Linux/Arch-Family/Manjaro/Obsolate": {
+    "message": "Obsolate",
+    "description": "The label for category 'Obsolate' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Linux/Arch-Family/Manjaro/Obsolate/Script": {
+    "message": "Script",
+    "description": "The label for category 'Script' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Linux/Debian-Family": {
+    "message": "Debian-Family",
+    "description": "The label for category 'Debian-Family' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Linux/Independent": {
+    "message": "Independent",
+    "description": "The label for category 'Independent' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Linux/Independent/Alpine": {
+    "message": "Alpine",
+    "description": "The label for category 'Alpine' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Linux/Independent/Gentoo": {
+    "message": "Gentoo",
+    "description": "The label for category 'Gentoo' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Linux/Independent/NixOS": {
+    "message": "NixOS",
+    "description": "The label for category 'NixOS' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Linux/RedHat-Family": {
+    "message": "RedHat-Family",
+    "description": "The label for category 'RedHat-Family' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Linux/RedHat-Family/Oracle Linux": {
+    "message": "Oracle Linux",
+    "description": "The label for category 'Oracle Linux' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Linux/RedHat-Family/Oracle Linux/Obsolete": {
+    "message": "Obsolete",
+    "description": "The label for category 'Obsolete' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Linux/RedHat-Family/Photon OS": {
+    "message": "Photon OS",
+    "description": "The label for category 'Photon OS' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Linux/SUSE-Family": {
+    "message": "SUSE-Family",
+    "description": "The label for category 'SUSE-Family' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Linux/Tips": {
+    "message": "Tips",
+    "description": "The label for category 'Tips' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Linux/WSL": {
+    "message": "WSL",
+    "description": "The label for category 'WSL' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Linux/WSL/Obsolate": {
+    "message": "Obsolate",
+    "description": "The label for category 'Obsolate' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Linux/WSL/Obsolate/ManjaroWSL": {
+    "message": "ManjaroWSL",
+    "description": "The label for category 'ManjaroWSL' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Network": {
+    "message": "Network",
+    "description": "The label for category 'Network' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Network/Blog&Wiki": {
+    "message": "Blog&Wiki",
+    "description": "The label for category 'Blog&Wiki' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Network/Blog&Wiki/Docusaurus": {
+    "message": "Docusaurus",
+    "description": "The label for category 'Docusaurus' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Network/Blog&Wiki/Obsolate": {
+    "message": "Obsolate",
+    "description": "The label for category 'Obsolate' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Network/Blog&Wiki/Obsolate/Hexo": {
+    "message": "Hexo",
+    "description": "The label for category 'Hexo' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Network/科學上網": {
+    "message": "科學上網",
+    "description": "The label for category '科學上網' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Virtualization": {
+    "message": "Virtualization",
+    "description": "The label for category 'Virtualization' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Virtualization/Docker": {
+    "message": "Docker",
+    "description": "The label for category 'Docker' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Virtualization/Docker/Service Container": {
+    "message": "Service Container",
+    "description": "The label for category 'Service Container' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Virtualization/Docker/Service Container/Common": {
+    "message": "Common",
+    "description": "The label for category 'Common' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Virtualization/Docker/Service Container/Common/Reserve Proxy": {
+    "message": "Reserve Proxy",
+    "description": "The label for category 'Reserve Proxy' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Virtualization/Docker/Service Container/Homelab": {
+    "message": "Homelab",
+    "description": "The label for category 'Homelab' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Virtualization/Docker/Service Container/Homelab/多媒體相關": {
+    "message": "多媒體相關",
+    "description": "The label for category '多媒體相關' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Virtualization/Docker/Service Container/Homelab/多媒體相關/影音類": {
+    "message": "影音類",
+    "description": "The label for category '影音類' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Virtualization/Docker/Service Container/Homelab/多媒體相關/書籍類": {
+    "message": "書籍類",
+    "description": "The label for category '書籍類' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Virtualization/Docker/Service Container/Not Use Anymore": {
+    "message": "Not Use Anymore",
+    "description": "The label for category 'Not Use Anymore' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Virtualization/Docker/Service Container/Other": {
+    "message": "Other",
+    "description": "The label for category 'Other' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Virtualization/Docker/Tips": {
+    "message": "Tips",
+    "description": "The label for category 'Tips' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich技術手冊/Windows": {
+    "message": "Windows",
+    "description": "The label for category 'Windows' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich遊戲筆記": {
+    "message": "Kiwireich遊戲筆記",
+    "description": "The label for category 'Kiwireich遊戲筆記' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich遊戲筆記/Emudeck": {
+    "message": "Emudeck",
+    "description": "The label for category 'Emudeck' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich遊戲筆記/PC": {
+    "message": "PC",
+    "description": "The label for category 'PC' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich遊戲筆記/PC/Battletech": {
+    "message": "Battletech",
+    "description": "The label for category 'Battletech' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich遊戲筆記/PC/Pathfinder Kingmaker": {
+    "message": "Pathfinder Kingmaker",
+    "description": "The label for category 'Pathfinder Kingmaker' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich遊戲筆記/PC/Pathfinder WoTR": {
+    "message": "Pathfinder WoTR",
+    "description": "The label for category 'Pathfinder WoTR' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich遊戲筆記/PS2": {
+    "message": "PS2",
+    "description": "The label for category 'PS2' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kiwireich遊戲筆記/PS2/ティアリングサーガシリーズ ベルウィックサーガ": {
+    "message": "ティアリングサーガシリーズ ベルウィックサーガ",
+    "description": "The label for category 'ティアリングサーガシリーズ ベルウィックサーガ' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab": {
+    "message": "HomeLab",
+    "description": "The label for category HomeLab in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Architecture": {
+    "message": "Architecture",
+    "description": "The label for category HomeLab/Architecture in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Automation": {
+    "message": "Automation",
+    "description": "The label for category HomeLab/Automation in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Automation/ShellScript": {
+    "message": "Shell Script",
+    "description": "The label for category HomeLab/Automation/ShellScript in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Docker": {
+    "message": "Docker",
+    "description": "The label for category HomeLab/Docker in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Docker/Archive": {
+    "message": "Archive",
+    "description": "The label for category HomeLab/Docker/Archive in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Docker/Core": {
+    "message": "Core",
+    "description": "The label for category HomeLab/Docker/Core in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Docker/Media": {
+    "message": "Media",
+    "description": "The label for category HomeLab/Docker/Media in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Docker/ReverseProxy": {
+    "message": "Reverse Proxy",
+    "description": "The label for category HomeLab/Docker/ReverseProxy in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Docker/Services": {
+    "message": "Services",
+    "description": "The label for category HomeLab/Docker/Services in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/FreeBSD": {
+    "message": "FreeBSD",
+    "description": "The label for category HomeLab/FreeBSD in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/FreeBSD/Firewall": {
+    "message": "Firewall",
+    "description": "The label for category HomeLab/FreeBSD/Firewall in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/FreeBSD/System": {
+    "message": "System",
+    "description": "The label for category HomeLab/FreeBSD/System in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/FreeBSD/XigmaNAS": {
+    "message": "XigmaNAS",
+    "description": "The label for category HomeLab/FreeBSD/XigmaNAS in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Linux": {
+    "message": "Linux",
+    "description": "The label for category HomeLab/Linux in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Linux/Archive": {
+    "message": "Archive",
+    "description": "The label for category HomeLab/Linux/Archive in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Linux/ArchLinux": {
+    "message": "Arch Linux",
+    "description": "The label for category HomeLab/Linux/ArchLinux in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Linux/Debian": {
+    "message": "Debian",
+    "description": "The label for category HomeLab/Linux/Debian in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Linux/Independent": {
+    "message": "Independent",
+    "description": "The label for category HomeLab/Linux/Independent in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Linux/RedHat": {
+    "message": "RedHat",
+    "description": "The label for category HomeLab/Linux/RedHat in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Linux/SUSE": {
+    "message": "SUSE",
+    "description": "The label for category HomeLab/Linux/SUSE in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Linux/Tips": {
+    "message": "Tips",
+    "description": "The label for category HomeLab/Linux/Tips in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Linux/WSL": {
+    "message": "WSL",
+    "description": "The label for category HomeLab/Linux/WSL in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Network": {
+    "message": "Network",
+    "description": "The label for category HomeLab/Network in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Network/Archive": {
+    "message": "Archive",
+    "description": "The label for category HomeLab/Network/Archive in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Network/BlogWiki": {
+    "message": "Blog & Wiki",
+    "description": "The label for category HomeLab/Network/BlogWiki in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Network/Proxy": {
+    "message": "Proxy & Tunnel",
+    "description": "The label for category HomeLab/Network/Proxy in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Tools": {
+    "message": "Tools",
+    "description": "The label for category HomeLab/Tools in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Tools/Editor": {
+    "message": "Editor",
+    "description": "The label for category HomeLab/Tools/Editor in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Tools/PackageManager": {
+    "message": "Package Manager",
+    "description": "The label for category HomeLab/Tools/PackageManager in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Tools/Shell": {
+    "message": "Shell",
+    "description": "The label for category HomeLab/Tools/Shell in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Tools/SSH": {
+    "message": "SSH",
+    "description": "The label for category HomeLab/Tools/SSH in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HomeLab/Windows": {
+    "message": "Windows",
+    "description": "The label for category HomeLab/Windows in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Dev": {
+    "message": "Dev",
+    "description": "The label for category Dev in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Games": {
+    "message": "Games",
+    "description": "The label for category Games in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Games/EmuDeck": {
+    "message": "EmuDeck",
+    "description": "The label for category Games/EmuDeck in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Games/PC": {
+    "message": "PC",
+    "description": "The label for category Games/PC in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Games/PC/Battletech": {
+    "message": "Battletech",
+    "description": "The label for category Games/PC/Battletech in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Games/PC/PathfinderKingmaker": {
+    "message": "Pathfinder: Kingmaker",
+    "description": "The label for category Games/PC/PathfinderKingmaker in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Games/PC/PathfinderWoTR": {
+    "message": "Pathfinder: WotR",
+    "description": "The label for category Games/PC/PathfinderWoTR in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Games/PS2": {
+    "message": "PS2",
+    "description": "The label for category Games/PS2 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Games/PS2/BerwickSaga": {
+    "message": "Berwick Saga",
+    "description": "The label for category Games/PS2/BerwickSaga in sidebar tutorialSidebar"
+  }
+}

@@ -3,15 +3,17 @@ name: Deploy-Wiki-Site
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 # 賦予 GITHUB_TOKEN 建立與推送分支的權限，防止 403 錯誤
 permissions:
   contents: write
 
-# 避免多個 commit 同時推送時產生並發構建衝突
+# 避免多個 commit 同時推送時產生並發構建衝突（PR 不取消 main 部署）
 concurrency:
-  group: 'pages-deploy'
+  group: ${{ github.event_name == 'pull_request' && format('pr-build-{0}', github.event.pull_request.number) || 'pages-deploy' }}
   cancel-in-progress: true
 
 jobs:
@@ -26,48 +28,41 @@ jobs:
         with:
           fetch-depth: 0 # 保留完整 Git 歷史紀錄，支援最後修改時間
 
-      - name: 🔍 Debug Path
-        run: |
-          echo "=== 原始目錄結構 ==="
-          find . -maxdepth 3 -not -path '*/.*'
-
-      - name: 📂 Prepare Folders (搬移 Wiki 和 Blog)
-        run: |
-          mkdir -p docs blog static/img
-          
-          # 限定 maxdepth 避免深層遞迴拷貝，且排除自身目錄
-          find . -maxdepth 2 -type d -iname "wiki" ! -path "./docs*" ! -path "." -exec cp -r {}/. ./docs/ \; 2>/dev/null || true
-          find . -maxdepth 2 -type d -iname "blog" ! -path "./blog*" ! -path "." -exec cp -r {}/. ./blog/ \; 2>/dev/null || true
-          
-          echo "=== 搬移後 docs 目錄狀態 ==="
-          ls -la docs/
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
-      - name: 🐍 MDX Syntax Fix
+      - name: 📂 Prepare Content & MDX Syntax Fix
         run: |
-          if [ -f "fix-mdx.py" ]; then
-            echo "執行 MDX 語法清洗腳本..."
-            python3 fix-mdx.py
-          else
-            echo "未偵測到 fix-mdx.py，略過此步驟。"
-          fi
+          python3 fix-mdx.py --prepare
+          echo "=== 搬移後 docs 目錄狀態 ==="
+          ls -la docs/
 
       - name: 🟢 Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 22 # 升級至 Node 22 LTS 建置環境
+          cache: 'npm'
 
-      - name: 📦 Install & Build
+      - name: 📦 Install Dependencies
+        run: npm ci
+
+      - name: ⚡ Cache Rspack Persistent Cache
+        uses: actions/cache@v4
+        with:
+          path: node_modules/.cache/rspack
+          key: rspack-${{ runner.os }}-${{ hashFiles('package-lock.json', 'docusaurus.config.js') }}-${{ github.sha }}
+          restore-keys: |
+            rspack-${{ runner.os }}-${{ hashFiles('package-lock.json', 'docusaurus.config.js') }}-
+
+      - name: 🏗️ Build Site
         run: |
-          npm install
-          # 注入記憶體上限設定，防止編譯大量文件時 OOM 中斷
-          NODE_OPTIONS="--max-old-space-size=4096" npm run build -- --locale zh-Hant
+          # 注入記憶體上限設定，防止編譯大量文件與多語系時 OOM 中斷
+          NODE_OPTIONS="--max-old-space-size=4096" npm run build
 
       - name: 🚀 Deploy to GitHub Pages
+        if: github.event_name != 'pull_request'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

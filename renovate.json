@@ -9,11 +9,10 @@
     {
       "matchPackagePatterns": ["@docusaurus/*"],
       "groupName": "docusaurus packages",
-      "automerge": true,
-      "automergeType": "branch"
+      "automerge": false
     },
     {
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchUpdateTypes": ["patch"],
       "matchCurrentVersion": "!/^0/",
       "automerge": true
     }

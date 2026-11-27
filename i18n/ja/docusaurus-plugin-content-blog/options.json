@@ -1,0 +1,14 @@
+{
+  "title": {
+    "message": "Kiwi のひとりごと",
+    "description": "The title for the blog used in SEO"
+  },
+  "description": {
+    "message": "Homelab・Linux・FreeBSD や日々の雑記をまとめた技術ブログ",
+    "description": "The description for the blog used in SEO"
+  },
+  "sidebar.title": {
+    "message": "最近の記事",
+    "description": "The label for the left sidebar"
+  }
+}

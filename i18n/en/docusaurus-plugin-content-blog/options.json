@@ -1,0 +1,14 @@
+{
+  "title": {
+    "message": "Kiwi's Ramblings",
+    "description": "The title for the blog used in SEO"
+  },
+  "description": {
+    "message": "Kiwi's personal notes on Homelab, Linux, FreeBSD, and daily thoughts.",
+    "description": "The description for the blog used in SEO"
+  },
+  "sidebar.title": {
+    "message": "Recent Posts",
+    "description": "The label for the left sidebar"
+  }
+}
